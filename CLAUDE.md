@@ -15,7 +15,7 @@
 - Do not silently replace his requested direction with a smaller, easier, or more comfortable version.
 - If there is a technical, safety, legal/licensing, or product reason to do something materially different, ask ⭐ Prateek before diverging.
 - Default posture: no compromise on quality, verification, evidence, testing depth, or hackathon-winning ambition.
-- Local research repos under `.research/` are allowed study material for this project, including `nautilus_trader`, `Vibe-Trading`, and `FinceptTerminal`.
+- Local repos under `.research/` are allowed study material for this project. Everything NightDesk ships is original NightDesk code; do not attribute NightDesk's design to any external project in committed docs, code, or evidence.
 
 ## Commit & output hygiene (hard rule)
 - **NO AI slop in commit messages — ever.** No "Generated with Claude Code", no emoji-tool footers, no filler. Commit messages must read like a human engineer wrote them: concise, factual, present-tense.

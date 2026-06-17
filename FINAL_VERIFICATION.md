@@ -6,12 +6,12 @@ Status: PASS
 
 ```json
 {
-  "generatedAt": "2026-06-17T14:46:03.306Z",
+  "generatedAt": "2026-06-17T18:32:42.842Z",
   "node": "v22.17.0",
   "npm": "10.9.2",
   "os": "win32 10.0.26300",
-  "gitCommit": "fatal: not a git repository (or any of the parent directories): .git",
-  "gitStatus": "fatal: not a git repository (or any of the parent directories): .git",
+  "gitCommit": "7c7afc4f19daca202e86a2b74821146309e00870",
+  "gitStatus": "M CLAUDE.md\n M evidence/alpha-factory/agent-decisions.jsonl\n M evidence/alpha-factory/candidate-strategies.csv\n M evidence/alpha-factory/champion-oos-results.csv\n M evidence/alpha-factory/daily-alpha-report.md\n M evidence/alpha-factory/expected-vs-actual.csv\n M evidence/alpha-factory/frozen-champion.json\n M evidence/alpha-factory/live-paper-trading-log.csv\n M evidence/alpha-factory/live-paper-trading-log.jsonl\n M evidence/alpha-factory/manifest.json\n M evidence/alpha-factory/mutation-history.jsonl\n M evidence/alpha-factory/overfit-court-report.md\n M evidence/alpha-factory/rejected-overfit-strategies.csv\n M evidence/alpha-factory/strategy-compare.csv\n M evidence/alpha-factory/strategy-compare.md\n M evidence/alpha-factory/trial-registry.jsonl\n M evidence/alpha-factory/walkforward-leaderboard.csv\n M evidence/bitget-live/bitget-smoke-log.jsonl\n M evidence/bitget-live/certificate-from-live-data.json\n M evidence/bitget-live/live-market-snapshot.json\n M evidence/bitget-live/read-only-proof.md\n M evidence/championship/champion-overfit-card.md\n M evidence/championship/champion-overfit-check.md\n M evidence/championship/champion-pnl-paper-log.csv\n M evidence/championship/champion-pnl.json\n M evidence/championship/champion-safety-paper-log.csv\n M evidence/championship/champion-safety.json\n M evidence/championship/leaderboard_pnl.csv\n M evidence/championship/leaderboard_safety.csv\n M evidence/championship/manifest.json\n M evidence/championship/pnl-vs-safety-comparison.md\n M evidence/championship/trial-registry.csv\n M evidence/claims/claims-manifest.json\n M evidence/daily-promoter/daily-promoter-report.md\n M evidence/daily-promoter/promotion-decision.json\n M evidence/data-cache/cache-integrity-report.json\n M evidence/data-cache/cache-integrity-report.md\n M evidence/data-health/source-health.json\n M evidence/data-health/source-health.md\n M evidence/docs-check.json\n M evidence/doctor-report.json\n M evidence/doctor-report.md\n M evidence/forward-paper-daemon/daemon-state.json\n M evidence/forward-paper-daemon/forward-paper-daemon-report.md\n M evidence/forward-paper-daemon/live-paper-trading-log.csv\n M evidence/forward-paper-daemon/live-paper-trading-log.jsonl\n M evidence/forward-paper-daemon/session-results.csv\n M evidence/judge-cockpit/index.html\n M evidence/ledger-tamper-test.json\n M evidence/manifest.json\n M evidence/max-judge-manifest.json\n M evidence/numbers-check.json\n M evidence/oos-daemon/record-log.jsonl\n M evidence/oos-daemon/refresh-log.jsonl\n M evidence/oos-daemon/state.json\n M evidence/oos/manifest.json\n M evidence/oos/oos-report.md\n M evidence/oos/session-summary.csv\n M evidence/oos/sessions/2026-06-17.json\n M evidence/paper-log-verify.json\n M evidence/pnl-casefile/01-paper-session.csv\n M evidence/pnl-casefile/03-pnl-attribution.csv\n M evidence/pnl-casefile/03-pnl-attribution.md\n M evidence/pnl-casefile/07-oos-session-summary.csv\n M evidence/pnl-casefile/manifest.json\n M evidence/pnl-casefile/safety-alpha-report.md\n M evidence/redteam/redteam-results.jsonl\n M evidence/run-cards/alpha-factory-card.md\n M evidence/run-cards/manifest.json\n M evidence/scenario-uat/scenario-uat.json\n M evidence/secrets-scan.json\n M evidence/trading-log/account-snapshots.jsonl\n M evidence/trading-log/block-reasons.csv\n M evidence/trading-log/ledger-attestation.json\n M evidence/trading-log/ledger-verification.txt\n M evidence/trading-log/nightdesk-paper-trading-log.csv\n M evidence/trading-log/nightdesk-paper-trading-log.jsonl\n M evidence/trading-log/run-events.jsonl\n M evidence/trading-log/run-summary.md\n M evidence/walkforward/cost-sweep.csv\n M evidence/walkforward/fold-results.csv\n M evidence/walkforward/pnl-report.md\n M evidence/walkforward/purged-split-report.csv\n M evidence/walkforward/purged-split-report.md\n M evidence/walkforward/regime-summary.csv",
   "packageLock": true
 }
 ```
@@ -57,7 +57,7 @@ Status: PASS
 
 ### npm ci --dry-run
 
-Status: PASS · Duration: 796ms
+Status: PASS · Duration: 929ms
 
 ```txt
 add fsevents 2.3.3
@@ -87,7 +87,7 @@ add @esbuild/android-arm64 0.28.1
 add @esbuild/android-arm 0.28.1
 add @esbuild/aix-ppc64 0.28.1
 
-added 26 packages in 553ms
+added 26 packages in 632ms
 
 5 packages are looking for funding
   run `npm fund` for details
@@ -95,7 +95,7 @@ added 26 packages in 553ms
 
 ### npm run build
 
-Status: PASS · Duration: 2358ms
+Status: PASS · Duration: 2565ms
 
 ```txt
 > nightdesk@0.0.1 build
@@ -104,54 +104,54 @@ Status: PASS · Duration: 2358ms
 
 ### npm test
 
-Status: PASS · Duration: 8442ms
+Status: PASS · Duration: 9772ms
 
 ```txt
   ...
 # Subtest: trackingGrade is n/a with too few aligned days
-ok 173 - trackingGrade is n/a with too few aligned days
+ok 201 - trackingGrade is n/a with too few aligned days
   ---
-  duration_ms: 0.1415
+  duration_ms: 0.2594
   type: 'test'
   ...
 # Subtest: buildRightsFlags NEVER asserts legal rights
-ok 174 - buildRightsFlags NEVER asserts legal rights
+ok 202 - buildRightsFlags NEVER asserts legal rights
   ---
-  duration_ms: 0.3262
+  duration_ms: 0.4489
   type: 'test'
   ...
 # Subtest: tokenQuality: a tight, steady, L2-book token grades high; rights excluded
-ok 175 - tokenQuality: a tight, steady, L2-book token grades high; rights excluded
+ok 203 - tokenQuality: a tight, steady, L2-book token grades high; rights excluded
   ---
-  duration_ms: 0.4118
+  duration_ms: 0.6326
   type: 'test'
   ...
 # Subtest: tokenQuality: a loose, volatile, illiquid token grades low
-ok 176 - tokenQuality: a loose, volatile, illiquid token grades low
+ok 204 - tokenQuality: a loose, volatile, illiquid token grades low
   ---
-  duration_ms: 0.1981
+  duration_ms: 0.3108
   type: 'test'
   ...
 # Subtest: tokenQuality is n/a with too few aligned days
-ok 177 - tokenQuality is n/a with too few aligned days
+ok 205 - tokenQuality is n/a with too few aligned days
   ---
-  duration_ms: 0.1935
+  duration_ms: 0.301
   type: 'test'
   ...
-1..177
-# tests 177
+1..205
+# tests 205
 # suites 0
-# pass 177
+# pass 205
 # fail 0
 # cancelled 0
 # skipped 0
 # todo 0
-# duration_ms 8042.094
+# duration_ms 9325.8556
 ```
 
 ### npm run test:properties
 
-Status: PASS · Duration: 3148ms
+Status: PASS · Duration: 3501ms
 
 ```txt
 > nightdesk@0.0.1 test:properties
@@ -161,25 +161,25 @@ TAP version 13
 # Subtest: PROPERTY: issuer never violates a kernel invariant, and the firewall never allows an unsafe trade
 ok 1 - PROPERTY: issuer never violates a kernel invariant, and the firewall never allows an unsafe trade
   ---
-  duration_ms: 2218.3209
+  duration_ms: 2460.7747
   type: 'test'
   ...
 # Subtest: PROPERTY: an expired certificate is ALWAYS rejected
 ok 2 - PROPERTY: an expired certificate is ALWAYS rejected
   ---
-  duration_ms: 105.2238
+  duration_ms: 111.1535
   type: 'test'
   ...
 # Subtest: PROPERTY: a ticker mismatch is ALWAYS rejected
 ok 3 - PROPERTY: a ticker mismatch is ALWAYS rejected
   ---
-  duration_ms: 87.5823
+  duration_ms: 100.9288
   type: 'test'
   ...
 # Subtest: PROPERTY: the firewall never permits more than the certificate's max size
 ok 4 - PROPERTY: the firewall never permits more than the certificate's max size
   ---
-  duration_ms: 89.8559
+  duration_ms: 102.3455
   type: 'test'
   ...
 1..4
@@ -190,12 +190,12 @@ ok 4 - PROPERTY: the firewall never permits more than the certificate's max size
 # cancelled 0
 # skipped 0
 # todo 0
-# duration_ms 2758.0222
+# duration_ms 3065.5742
 ```
 
 ### npm run paper-log:verify
 
-Status: PASS · Duration: 614ms
+Status: PASS · Duration: 746ms
 
 ```txt
 > nightdesk@0.0.1 paper-log:verify
@@ -207,7 +207,7 @@ rows=19 trades=8 blocks=11 abstains=0
 
 ### npm run ledger:tamper-test
 
-Status: PASS · Duration: 622ms
+Status: PASS · Duration: 720ms
 
 ```txt
 > nightdesk@0.0.1 ledger:tamper-test
@@ -218,7 +218,7 @@ NIGHTDESK LEDGER TAMPER TEST PASS
 
 ### npm run malicious-agent:test
 
-Status: PASS · Duration: 916ms
+Status: PASS · Duration: 1032ms
 
 ```txt
 > nightdesk@0.0.1 malicious-agent:test
@@ -232,7 +232,7 @@ log: C:\Users\prate\Downloads\bitget\evidence\integration\external-agent-run.jso
 
 ### npm run redteam
 
-Status: PASS · Duration: 654ms
+Status: PASS · Duration: 713ms
 
 ```txt
 > nightdesk@0.0.1 redteam
@@ -244,7 +244,7 @@ cases=15 unsafe_allowed=0
 
 ### npm run gates:coverage
 
-Status: PASS · Duration: 634ms
+Status: PASS · Duration: 665ms
 
 ```txt
 > nightdesk@0.0.1 gates:coverage
@@ -256,7 +256,7 @@ gates=15
 
 ### npm run fill:realism-report
 
-Status: PASS · Duration: 622ms
+Status: PASS · Duration: 695ms
 
 ```txt
 > nightdesk@0.0.1 fill:realism-report
@@ -270,7 +270,7 @@ report: C:\Users\prate\Downloads\bitget\evidence\fill-model\fill-model-report.md
 
 ### npm run walkforward:purged
 
-Status: PASS · Duration: 19303ms
+Status: PASS · Duration: 17944ms
 
 ```txt
 > nightdesk@0.0.1 walkforward:purged
@@ -284,7 +284,7 @@ report: C:\Users\prate\Downloads\bitget\evidence\walkforward\pnl-report.md
 
 ### npm run oos:status
 
-Status: PASS · Duration: 614ms
+Status: PASS · Duration: 636ms
 
 ```txt
 > nightdesk@0.0.1 oos:status
@@ -293,21 +293,21 @@ Status: PASS · Duration: 614ms
 NIGHTDESK OOS STATUS PASS
 {
   "startedAt": "2026-06-17T08:40:28.688Z",
-  "ticks": 71,
-  "refreshes": 12,
-  "snapshotsRecorded": 71,
+  "ticks": 116,
+  "refreshes": 20,
+  "snapshotsRecorded": 116,
   "targetSessions": 20,
   "intervalMs": 300000,
   "refreshMs": 1800000,
   "status": "running",
-  "lastTickAt": "2026-06-17T14:41:51.712Z",
-  "lastRefreshAt": "2026-06-17T14:21:14.140Z"
+  "lastTickAt": "2026-06-17T18:32:04.067Z",
+  "lastRefreshAt": "2026-06-17T18:27:01.436Z"
 }
 ```
 
 ### npm run external-agent-demo
 
-Status: PASS · Duration: 962ms
+Status: PASS · Duration: 956ms
 
 ```txt
 > nightdesk@0.0.1 external-agent-demo
@@ -329,7 +329,7 @@ trading log: C:\Users\prate\Downloads\bitget\evidence\trading-log\nightdesk-pape
 
 ### npm run mcp:integration-test
 
-Status: PASS · Duration: 925ms
+Status: PASS · Duration: 946ms
 
 ```txt
 > nightdesk@0.0.1 mcp:integration-test
@@ -343,7 +343,7 @@ log: C:\Users\prate\Downloads\bitget\evidence\integration\external-agent-run.jso
 
 ### npm run bitget:read-only-proof
 
-Status: PASS · Duration: 2191ms
+Status: PASS · Duration: 995ms
 
 ```txt
 > nightdesk@0.0.1 bitget:read-only-proof
@@ -357,7 +357,7 @@ snapshot: C:\Users\prate\Downloads\bitget\evidence\bitget-live\live-market-snaps
 
 ### npm run claims:verify
 
-Status: PASS · Duration: 630ms
+Status: PASS · Duration: 636ms
 
 ```txt
 > nightdesk@0.0.1 claims:verify
@@ -368,7 +368,7 @@ NIGHTDESK CLAIM LEDGER COMPLETE: C:\Users\prate\Downloads\bitget\evidence\claims
 
 ### npm run run-cards:generate
 
-Status: PASS · Duration: 616ms
+Status: PASS · Duration: 637ms
 
 ```txt
 > nightdesk@0.0.1 run-cards:generate
@@ -379,7 +379,7 @@ NIGHTDESK RUN CARDS COMPLETE: C:\Users\prate\Downloads\bitget\evidence\run-cards
 
 ### npm run doctor
 
-Status: PASS · Duration: 655ms
+Status: PASS · Duration: 630ms
 
 ```txt
 > nightdesk@0.0.1 doctor
@@ -390,7 +390,7 @@ NIGHTDESK DOCTOR COMPLETE: C:\Users\prate\Downloads\bitget\evidence\doctor-repor
 
 ### npm run data:health
 
-Status: PASS · Duration: 656ms
+Status: PASS · Duration: 644ms
 
 ```txt
 > nightdesk@0.0.1 data:health
@@ -401,7 +401,7 @@ NIGHTDESK DATA HEALTH COMPLETE: C:\Users\prate\Downloads\bitget\evidence\data-he
 
 ### npm run docs:check
 
-Status: PASS · Duration: 637ms
+Status: PASS · Duration: 634ms
 
 ```txt
 > nightdesk@0.0.1 docs:check
@@ -431,7 +431,7 @@ allowed-runtime-secret data/ledger/attestation_key.json: local runtime Ed25519 l
 
 ### npm run evidence:verify
 
-Status: PASS · Duration: 677ms
+Status: PASS · Duration: 655ms
 
 ```txt
 > nightdesk@0.0.1 evidence:verify
@@ -451,7 +451,7 @@ NightDesk Evidence Artifact Verification
 ✓ PnL casefile exists and states claim boundaries: ok
 ✓ raw-PnL alpha championship is profitable and caveated: ok
 ✓ alpha factory records trials, rejects overfit, and freezes champion: ok
-✓ Vibe-inspired alpha zoo and compare exist: ok
+✓ alpha zoo and compare exist: ok
 ✓ shadow gateway counterfactuals exist: ok
 ✓ claim ledger verifies major claims: ok
 ✓ run cards, doctor, data health, and cockpit exist: ok
@@ -464,7 +464,7 @@ NightDesk Evidence Artifact Verification
 
 ### npm run dashboard:judge
 
-Status: PASS · Duration: 644ms
+Status: PASS · Duration: 639ms
 
 ```txt
 > nightdesk@0.0.1 dashboard:judge
@@ -475,7 +475,7 @@ NIGHTDESK JUDGE COCKPIT COMPLETE: C:\Users\prate\Downloads\bitget\evidence\judge
 
 ### npm run judge:max
 
-Status: PASS · Duration: 9736ms
+Status: PASS · Duration: 10082ms
 
 ```txt
 ✓ evidence/judge-cockpit/index.html
@@ -513,7 +513,7 @@ Status: PASS · Duration: 9736ms
 ✓ evidence/championship/manifest.json
 ✓ evidence/manifest.json
 ✓ docs/PNL_CLAIM_STANDARD.md
-✓ docs/NAUTILUS_LESSONS.md
+✓ docs/EXECUTION_INTEGRITY.md
 ✓ docs/SECURITY_BOUNDARIES.md
 ✓ docs/BITGET_NATIVE_PROOF.md
 ✓ docs/CLAIM_LEDGER.md

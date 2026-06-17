@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-17T14:44:58.369Z",
+  "generatedAt": "2026-06-17T18:31:43.813Z",
   "ok": true,
   "results": [
     {
@@ -39,31 +39,31 @@
         "Manifest missing"
       ],
       "status": "PASS",
-      "durationMs": 23536,
+      "durationMs": 21589,
       "commandResults": [
         {
           "command": "npm ci --dry-run",
           "status": "PASS",
-          "durationMs": 1249,
-          "tail": "add @esbuild/linux-riscv64 0.28.1\nadd @esbuild/linux-ppc64 0.28.1\nadd @esbuild/linux-mips64el 0.28.1\nadd @esbuild/linux-loong64 0.28.1\nadd @esbuild/linux-ia32 0.28.1\nadd @esbuild/linux-arm64 0.28.1\nadd @esbuild/linux-arm 0.28.1\nadd @esbuild/freebsd-x64 0.28.1\nadd @esbuild/freebsd-arm64 0.28.1\nadd @esbuild/darwin-x64 0.28.1\nadd @esbuild/darwin-arm64 0.28.1\nadd @esbuild/android-x64 0.28.1\nadd @esbuild/android-arm64 0.28.1\nadd @esbuild/android-arm 0.28.1\nadd @esbuild/aix-ppc64 0.28.1\n\nadded 26 packages in 964ms\n\n5 packages are looking for funding\n  run `npm fund` for details"
+          "durationMs": 795,
+          "tail": "add @esbuild/linux-riscv64 0.28.1\nadd @esbuild/linux-ppc64 0.28.1\nadd @esbuild/linux-mips64el 0.28.1\nadd @esbuild/linux-loong64 0.28.1\nadd @esbuild/linux-ia32 0.28.1\nadd @esbuild/linux-arm64 0.28.1\nadd @esbuild/linux-arm 0.28.1\nadd @esbuild/freebsd-x64 0.28.1\nadd @esbuild/freebsd-arm64 0.28.1\nadd @esbuild/darwin-x64 0.28.1\nadd @esbuild/darwin-arm64 0.28.1\nadd @esbuild/android-x64 0.28.1\nadd @esbuild/android-arm64 0.28.1\nadd @esbuild/android-arm 0.28.1\nadd @esbuild/aix-ppc64 0.28.1\n\nadded 26 packages in 537ms\n\n5 packages are looking for funding\n  run `npm fund` for details"
         },
         {
           "command": "npm run build",
           "status": "PASS",
-          "durationMs": 2611,
+          "durationMs": 2424,
           "tail": "> nightdesk@0.0.1 build\n> tsc --noEmit"
         },
         {
           "command": "npm test",
           "status": "PASS",
-          "durationMs": 9183,
-          "tail": "ok 176 - tokenQuality: a loose, volatile, illiquid token grades low\n  ---\n  duration_ms: 0.2046\n  type: 'test'\n  ...\n# Subtest: tokenQuality is n/a with too few aligned days\nok 177 - tokenQuality is n/a with too few aligned days\n  ---\n  duration_ms: 0.2616\n  type: 'test'\n  ...\n1..177\n# tests 177\n# suites 0\n# pass 177\n# fail 0\n# cancelled 0\n# skipped 0\n# todo 0\n# duration_ms 8725.2949"
+          "durationMs": 8155,
+          "tail": "ok 204 - tokenQuality: a loose, volatile, illiquid token grades low\n  ---\n  duration_ms: 0.1992\n  type: 'test'\n  ...\n# Subtest: tokenQuality is n/a with too few aligned days\nok 205 - tokenQuality is n/a with too few aligned days\n  ---\n  duration_ms: 0.2155\n  type: 'test'\n  ...\n1..205\n# tests 205\n# suites 0\n# pass 205\n# fail 0\n# cancelled 0\n# skipped 0\n# todo 0\n# duration_ms 7727.9636"
         },
         {
           "command": "npm run judge:max",
           "status": "PASS",
-          "durationMs": 10493,
-          "tail": "✓ evidence/live-receipt/live-receipt-report.md\n✓ evidence/championship/leaderboard_pnl.csv\n✓ evidence/championship/leaderboard_safety.csv\n✓ evidence/championship/champion-pnl.json\n✓ evidence/championship/champion-safety.json\n✓ evidence/championship/champion-pnl-paper-log.csv\n✓ evidence/championship/champion-safety-paper-log.csv\n✓ evidence/championship/championship-report.md\n✓ evidence/championship/pnl-vs-safety-comparison.md\n✓ evidence/championship/champion-overfit-check.md\n✓ evidence/championship/champion-overfit-card.md\n✓ evidence/championship/trial-registry.csv\n✓ evidence/championship/manifest.json\n✓ evidence/manifest.json\n✓ docs/PNL_CLAIM_STANDARD.md\n✓ docs/NAUTILUS_LESSONS.md\n✓ docs/SECURITY_BOUNDARIES.md\n✓ docs/BITGET_NATIVE_PROOF.md\n✓ docs/CLAIM_LEDGER.md\nNIGHTDESK MAX JUDGE PACK VERIFIED"
+          "durationMs": 10215,
+          "tail": "✓ evidence/live-receipt/live-receipt-report.md\n✓ evidence/championship/leaderboard_pnl.csv\n✓ evidence/championship/leaderboard_safety.csv\n✓ evidence/championship/champion-pnl.json\n✓ evidence/championship/champion-safety.json\n✓ evidence/championship/champion-pnl-paper-log.csv\n✓ evidence/championship/champion-safety-paper-log.csv\n✓ evidence/championship/championship-report.md\n✓ evidence/championship/pnl-vs-safety-comparison.md\n✓ evidence/championship/champion-overfit-check.md\n✓ evidence/championship/champion-overfit-card.md\n✓ evidence/championship/trial-registry.csv\n✓ evidence/championship/manifest.json\n✓ evidence/manifest.json\n✓ docs/PNL_CLAIM_STANDARD.md\n✓ docs/EXECUTION_INTEGRITY.md\n✓ docs/SECURITY_BOUNDARIES.md\n✓ docs/BITGET_NATIVE_PROOF.md\n✓ docs/CLAIM_LEDGER.md\nNIGHTDESK MAX JUDGE PACK VERIFIED"
         }
       ],
       "artifactResults": [
@@ -122,18 +122,18 @@
         "Balance mismatch"
       ],
       "status": "PASS",
-      "durationMs": 1576,
+      "durationMs": 1627,
       "commandResults": [
         {
           "command": "npm run paper-session",
           "status": "PASS",
-          "durationMs": 943,
+          "durationMs": 971,
           "tail": "> nightdesk@0.0.1 paper-session\n> tsx src/execution/paper-session.ts\n\n\nNIGHTDESK PAPER SESSION COMPLETE\ntokens: 19\nintents: 19\nallowed: 3\ncapped: 5\nrejected: 11\nsimulated fills: 8\nstarting balance: 1000.00\nending balance: 999.67\nledger: verified\ntrading log: C:\\Users\\prate\\Downloads\\bitget\\evidence\\trading-log\\nightdesk-paper-trading-log.csv"
         },
         {
           "command": "npm run paper-log:verify",
           "status": "PASS",
-          "durationMs": 633,
+          "durationMs": 656,
           "tail": "> nightdesk@0.0.1 paper-log:verify\n> tsx src/evidence/paper-log-verify.ts\n\nNIGHTDESK PAPER LOG VERIFY PASS\nrows=19 trades=8 blocks=11 abstains=0"
         }
       ],
@@ -195,24 +195,24 @@
         "SDK requires undocumented config"
       ],
       "status": "PASS",
-      "durationMs": 3028,
+      "durationMs": 2855,
       "commandResults": [
         {
           "command": "npm run sdk:example",
           "status": "PASS",
-          "durationMs": 928,
+          "durationMs": 952,
           "tail": "> nightdesk@0.0.1 sdk:example\n> tsx src/execution/integration-proof.ts\n\n\nNIGHTDESK INTEGRATION PROOF COMPLETE\ncalls: 5\nlog: C:\\Users\\prate\\Downloads\\bitget\\evidence\\integration\\external-agent-run.jsonl"
         },
         {
           "command": "npm run external-agent-demo",
           "status": "PASS",
-          "durationMs": 1084,
+          "durationMs": 960,
           "tail": "> nightdesk@0.0.1 external-agent-demo\n> tsx src/execution/paper-session.ts --external-agent-demo\n\n\nNIGHTDESK PAPER SESSION COMPLETE\ntokens: 19\nintents: 19\nallowed: 3\ncapped: 5\nrejected: 11\nsimulated fills: 8\nstarting balance: 1000.00\nending balance: 999.67\nledger: verified\ntrading log: C:\\Users\\prate\\Downloads\\bitget\\evidence\\trading-log\\nightdesk-paper-trading-log.csv"
         },
         {
           "command": "npm run mcp:integration-test",
           "status": "PASS",
-          "durationMs": 1016,
+          "durationMs": 943,
           "tail": "> nightdesk@0.0.1 mcp:integration-test\n> tsx src/execution/integration-proof.ts\n\n\nNIGHTDESK INTEGRATION PROOF COMPLETE\ncalls: 5\nlog: C:\\Users\\prate\\Downloads\\bitget\\evidence\\integration\\external-agent-run.jsonl"
         }
       ],
@@ -268,25 +268,25 @@
         "Rejection lacks reason"
       ],
       "status": "PASS",
-      "durationMs": 5104,
+      "durationMs": 4956,
       "commandResults": [
         {
           "command": "npm run malicious-agent:test",
           "status": "PASS",
-          "durationMs": 1054,
+          "durationMs": 928,
           "tail": "> nightdesk@0.0.1 malicious-agent:test\n> tsx src/execution/integration-proof.ts\n\n\nNIGHTDESK INTEGRATION PROOF COMPLETE\ncalls: 5\nlog: C:\\Users\\prate\\Downloads\\bitget\\evidence\\integration\\external-agent-run.jsonl"
         },
         {
           "command": "npm run redteam",
           "status": "PASS",
-          "durationMs": 741,
+          "durationMs": 667,
           "tail": "> nightdesk@0.0.1 redteam\n> tsx src/security/redteam.ts\n\nNIGHTDESK REDTEAM PASS\ncases=15 unsafe_allowed=0"
         },
         {
           "command": "npm run test:properties",
           "status": "PASS",
-          "durationMs": 3309,
-          "tail": "ok 3 - PROPERTY: a ticker mismatch is ALWAYS rejected\n  ---\n  duration_ms: 96.1256\n  type: 'test'\n  ...\n# Subtest: PROPERTY: the firewall never permits more than the certificate's max size\nok 4 - PROPERTY: the firewall never permits more than the certificate's max size\n  ---\n  duration_ms: 92.5662\n  type: 'test'\n  ...\n1..4\n# tests 4\n# suites 0\n# pass 4\n# fail 0\n# cancelled 0\n# skipped 0\n# todo 0\n# duration_ms 2903.8593"
+          "durationMs": 3361,
+          "tail": "ok 3 - PROPERTY: a ticker mismatch is ALWAYS rejected\n  ---\n  duration_ms: 91.7242\n  type: 'test'\n  ...\n# Subtest: PROPERTY: the firewall never permits more than the certificate's max size\nok 4 - PROPERTY: the firewall never permits more than the certificate's max size\n  ---\n  duration_ms: 93.134\n  type: 'test'\n  ...\n1..4\n# tests 4\n# suites 0\n# pass 4\n# fail 0\n# cancelled 0\n# skipped 0\n# todo 0\n# duration_ms 2951.8682"
         }
       ],
       "artifactResults": [
@@ -343,30 +343,30 @@
         "Rejected configs lack reasons"
       ],
       "status": "PASS",
-      "durationMs": 184874,
+      "durationMs": 181308,
       "commandResults": [
         {
           "command": "npm run championship:report",
           "status": "PASS",
-          "durationMs": 63647,
-          "tail": "> nightdesk@0.0.1 championship:report\n> tsx src/research/championship/championship-mode.ts\n\n\nNIGHTDESK CHAMPIONSHIP MODE COMPLETE\nsessions: 4\ncandidates: 10515\npnl champion: GapFade_perp_gap_entry0_35_exit0_tp2_sl0_75_h9999_n0_65_m2 pnl=60.079614\nsafety champion: GapFade_perp_gap_entry0_35_exit0_tp2_sl0_75_h9999_n0_65_m2 score=47.722623"
+          "durationMs": 61834,
+          "tail": "> nightdesk@0.0.1 championship:report\n> tsx src/research/championship/championship-mode.ts\n\n\nNIGHTDESK CHAMPIONSHIP MODE COMPLETE\nsessions: 4\ncandidates: 10515\npnl champion: GapFade_perp_gap_entry0_35_exit0_tp2_sl0_75_h9999_n0_65_m2 pnl=71.574132\nsafety champion: GapFade_perp_gap_entry0_35_exit0_tp2_sl0_75_h9999_n0_65_m2 score=58.506569"
         },
         {
           "command": "npm run championship:overfit-check",
           "status": "PASS",
-          "durationMs": 60116,
-          "tail": "> nightdesk@0.0.1 championship:overfit-check\n> tsx src/research/championship/championship-mode.ts\n\n\nNIGHTDESK CHAMPIONSHIP MODE COMPLETE\nsessions: 4\ncandidates: 10515\npnl champion: GapFade_perp_gap_entry0_35_exit0_tp2_sl0_75_h9999_n0_65_m2 pnl=60.079614\nsafety champion: GapFade_perp_gap_entry0_35_exit0_tp2_sl0_75_h9999_n0_65_m2 score=47.722623"
+          "durationMs": 61122,
+          "tail": "> nightdesk@0.0.1 championship:overfit-check\n> tsx src/research/championship/championship-mode.ts\n\n\nNIGHTDESK CHAMPIONSHIP MODE COMPLETE\nsessions: 4\ncandidates: 10515\npnl champion: GapFade_perp_gap_entry0_35_exit0_tp2_sl0_75_h9999_n0_65_m2 pnl=70.253999\nsafety champion: GapFade_perp_gap_entry0_35_exit0_tp2_sl0_75_h9999_n0_65_m2 score=57.187098"
         },
         {
           "command": "npm run alpha:factory",
           "status": "PASS",
-          "durationMs": 60434,
-          "tail": "> nightdesk@0.0.1 alpha:factory\n> tsx src/research/alpha-factory.ts\n\n\nNIGHTDESK ALPHA FACTORY COMPLETE\nmode: fast\nrecordings: 4\ncandidates: 9720\ntrials: 38880\nrejected: 8286\npassed: 1434\nfrozen champion: perp_gap_fade_e0p35_x0_tp2_sl1p25_h9999_n0p35_m5\nreport: C:\\Users\\prate\\Downloads\\bitget\\evidence\\alpha-factory\\daily-alpha-report.md"
+          "durationMs": 57672,
+          "tail": "> nightdesk@0.0.1 alpha:factory\n> tsx src/research/alpha-factory.ts\n\n\nNIGHTDESK ALPHA FACTORY COMPLETE\nmode: fast\nrecordings: 4\ncandidates: 9720\ntrials: 38880\nrejected: 8327\npassed: 1393\nfrozen champion: perp_gap_fade_e0p35_x0_tp2_sl0p75_h9999_n0p5_m2\nreport: C:\\Users\\prate\\Downloads\\bitget\\evidence\\alpha-factory\\daily-alpha-report.md"
         },
         {
           "command": "npm run alpha:compare",
           "status": "PASS",
-          "durationMs": 677,
+          "durationMs": 680,
           "tail": "> nightdesk@0.0.1 alpha:compare\n> tsx src/research/alpha-zoo.ts\n\nNIGHTDESK ALPHA ZOO COMPLETE: C:\\Users\\prate\\Downloads\\bitget\\evidence\\alpha-factory\\alpha-zoo-catalog.csv\nNIGHTDESK ALPHA COMPARE COMPLETE: C:\\Users\\prate\\Downloads\\bitget\\evidence\\alpha-factory\\strategy-compare.csv"
         }
       ],
@@ -431,18 +431,18 @@
         "PnL champion bypasses hard gates"
       ],
       "status": "PASS",
-      "durationMs": 62988,
+      "durationMs": 61368,
       "commandResults": [
         {
           "command": "npm run championship:replay",
           "status": "PASS",
-          "durationMs": 62152,
-          "tail": "> nightdesk@0.0.1 championship:replay\n> tsx src/research/championship/championship-mode.ts\n\n\nNIGHTDESK CHAMPIONSHIP MODE COMPLETE\nsessions: 4\ncandidates: 10515\npnl champion: GapFade_perp_gap_entry0_35_exit0_tp2_sl0_75_h9999_n0_65_m2 pnl=59.980417\nsafety champion: GapFade_perp_gap_entry0_35_exit0_tp2_sl0_75_h9999_n0_65_m2 score=47.623477"
+          "durationMs": 60555,
+          "tail": "> nightdesk@0.0.1 championship:replay\n> tsx src/research/championship/championship-mode.ts\n\n\nNIGHTDESK CHAMPIONSHIP MODE COMPLETE\nsessions: 4\ncandidates: 10515\npnl champion: GapFade_perp_gap_entry0_35_exit0_tp2_sl0_75_h9999_n0_65_m2 pnl=70.253999\nsafety champion: GapFade_perp_gap_entry0_35_exit0_tp2_sl0_75_h9999_n0_65_m2 score=57.187098"
         },
         {
           "command": "npm run pnl:casefile",
           "status": "PASS",
-          "durationMs": 836,
+          "durationMs": 813,
           "tail": "> nightdesk@0.0.1 pnl:casefile\n> tsx src/research/pnl-casefile.ts\n\n\nNIGHTDESK PNL CASEFILE COMPLETE\npaper net: -0.3345 USDT\nguarded replay net: 4.3440 USDT\nguarded deltas: 5\nreport: C:\\Users\\prate\\Downloads\\bitget\\evidence\\pnl-casefile\\00-executive-summary.md"
         }
       ],
@@ -507,30 +507,30 @@
         "Wrong ticker cert works"
       ],
       "status": "PASS",
-      "durationMs": 28880,
+      "durationMs": 9806,
       "commandResults": [
         {
           "command": "npm run certify",
           "status": "PASS",
-          "durationMs": 14066,
-          "tail": "SPY     +0.01% FAIR                81   B   NORMAL\nQQQ     -0.15% FAIR                81   B   NORMAL\nNFLX    +0.03% FAIR                76   C   NORMAL\nGME     +0.02% FAIR                76   C   NORMAL\nAAPL    -0.00% FAIR                74   B   NORMAL\nGOOGL   +0.05% FAIR                74   B   NORMAL\nAMZN    +0.01% FAIR                74   B   NORMAL\nSQQQ    +0.01% FAIR                70   D   NORMAL\nTQQQ    -0.03% FAIR                70   D   NORMAL\nCRCL    +0.03% FAIR                70   D   NORMAL\nMSTR    -0.07% FAIR                70   D   NORMAL\nORCL    +0.01% FAIR                70   D   NORMAL\nBABA    -0.01% FAIR                70   D   NORMAL\nTSLA    +0.01% FAIR                69   C   NORMAL\nPLTR    +0.04% FAIR                55   D   NORMAL\nHOOD    -0.01% FAIR                55   D   NORMAL\n\nsummary: FAIR=19\n\nsigned (Ed25519 pubkey#a7145920020b748d) → data/research/certification-2026-06-17.json · verify by re-hashing the tokens + checking the signature against the embedded public key"
+          "durationMs": 4672,
+          "tail": "NVDA    -0.03% FAIR                84   C   NORMAL\nSPY     +0.00% FAIR                81   B   NORMAL\nQQQ     +0.01% FAIR                81   B   NORMAL\nNFLX    +0.00% FAIR                76   C   NORMAL\nGME     -0.02% FAIR                76   C   NORMAL\nAAPL    -0.00% FAIR                74   B   NORMAL\nSQQQ    -0.01% FAIR                70   D   NORMAL\nTQQQ    -0.09% FAIR                70   D   NORMAL\nPLTR    +0.04% FAIR                70   D   NORMAL\nCRCL    -0.02% FAIR                70   D   NORMAL\nMSTR    -0.01% FAIR                70   D   NORMAL\nORCL    -0.05% FAIR                70   D   NORMAL\nBABA    -0.04% FAIR                70   D   NORMAL\nTSLA    +0.02% FAIR                69   C   NORMAL\nMETA    -0.01% FAIR                69   C   NORMAL\nHOOD    +0.00% FAIR                55   D   NORMAL\n\nsummary: FAIR=19\n\nsigned (Ed25519 pubkey#a7145920020b748d) → data/research/certification-2026-06-17.json · verify by re-hashing the tokens + checking the signature against the embedded public key"
         },
         {
           "command": "npm run firewall",
           "status": "PASS",
-          "durationMs": 13497,
-          "tail": "NVDA   sell FAIR            NORMAL          ALLOW        ok\nMSFT   buy  FAIR            NORMAL          ALLOW        ok\nGOOGL  buy  FAIR            NORMAL          ALLOW_CAPPED size capped to certificate max $18\nAMZN   buy  FAIR            NORMAL          ALLOW_CAPPED size capped to certificate max $18\nMETA   sell FAIR            NORMAL          ALLOW        ok\nSPY    buy  FAIR            NORMAL          ALLOW_CAPPED size capped to certificate max $35\nQQQ    buy  FAIR            NORMAL          ALLOW_CAPPED size capped to certificate max $35\nSQQQ   sell FAIR            NORMAL          ALLOW_CAPPED size capped to certificate max $35\nTQQQ   sell FAIR            NORMAL          ALLOW_CAPPED size capped to certificate max $35\nPLTR   buy  FAIR            NORMAL          REJECT       certificate max size is 0\nCRCL   sell FAIR            NORMAL          ALLOW_CAPPED size capped to certificate max $35\nHOOD   buy  FAIR            NORMAL          REJECT       certificate max size is 0\nMSTR   buy  FAIR            NORMAL          ALLOW_CAPPED size capped to certificate max $35\nORCL   sell FAIR            NORMAL          ALLOW_CAPPED size capped to certificate max $35\nNFLX   buy  FAIR            NORMAL          ALLOW_CAPPED size capped to certificate max $35\nBABA   buy  FAIR            NORMAL          ALLOW_CAPPED size capped to certificate max $35\nGME    buy  FAIR            NORMAL          ALLOW_CAPPED size capped to certificate max $35\n\nintent with NO certificate → REJECT (no certificate — proof-carrying intent required)\n17/19 tokens currently permit a (capped) trade. No agent touches a tokenized stock without a valid, unexpired, matching certificate."
+          "durationMs": 3835,
+          "tail": "NVDA   buy  FAIR            NORMAL          ALLOW        ok\nMSFT   sell FAIR            NORMAL          ALLOW        ok\nGOOGL  buy  FAIR            NORMAL          ALLOW        ok\nAMZN   buy  FAIR            NORMAL          ALLOW        ok\nMETA   buy  FAIR            NORMAL          ALLOW_CAPPED size capped to certificate max $18\nSPY    sell FAIR            NORMAL          ALLOW_CAPPED size capped to certificate max $35\nQQQ    buy  FAIR            NORMAL          ALLOW_CAPPED size capped to certificate max $35\nSQQQ   sell FAIR            NORMAL          ALLOW_CAPPED size capped to certificate max $35\nTQQQ   buy  FAIR            NORMAL          ALLOW_CAPPED size capped to certificate max $35\nPLTR   buy  FAIR            NORMAL          ALLOW_CAPPED size capped to certificate max $35\nCRCL   buy  FAIR            NORMAL          ALLOW_CAPPED size capped to certificate max $35\nHOOD   buy  FAIR            NORMAL          REJECT       certificate max size is 0\nMSTR   sell FAIR            NORMAL          ALLOW_CAPPED size capped to certificate max $35\nORCL   buy  FAIR            NORMAL          ALLOW_CAPPED size capped to certificate max $35\nNFLX   buy  FAIR            NORMAL          ALLOW_CAPPED size capped to certificate max $35\nBABA   buy  FAIR            NORMAL          ALLOW_CAPPED size capped to certificate max $35\nGME    buy  FAIR            NORMAL          ALLOW_CAPPED size capped to certificate max $35\n\nintent with NO certificate → REJECT (no certificate — proof-carrying intent required)\n18/19 tokens currently permit a (capped) trade. No agent touches a tokenized stock without a valid, unexpired, matching certificate."
         },
         {
           "command": "npm run verify",
           "status": "PASS",
-          "durationMs": 657,
-          "tail": "> nightdesk@0.0.1 verify\n> tsx src/index.ts verify\n\n\nNightDesk — ledger verification (Ed25519 · Compliance Gatekeeper audit trail)\n\n✓ VALID   C:\\Users\\prate\\Downloads\\bitget\\data\\ledger\\2026-06-14.jsonl\n    records=1  signature=valid  hashMatch=true  tamper-evident=true\n    signedAt=2026-06-17T02:17:29.545Z  pubkey#a7145920020b748d\n✓ VALID   C:\\Users\\prate\\Downloads\\bitget\\data\\ledger\\2026-06-15.jsonl\n    records=1  signature=valid  hashMatch=true  tamper-evident=true\n    signedAt=2026-06-15T12:54:53.085Z  pubkey#a7145920020b748d\n✓ VALID   C:\\Users\\prate\\Downloads\\bitget\\data\\ledger\\2026-06-16.jsonl\n    records=1  signature=valid  hashMatch=true  tamper-evident=true\n    signedAt=2026-06-16T17:53:04.452Z  pubkey#a7145920020b748d\n✓ VALID   C:\\Users\\prate\\Downloads\\bitget\\data\\ledger\\2026-06-17.jsonl\n    records=1  signature=valid  hashMatch=true  tamper-evident=true\n    signedAt=2026-06-17T07:32:44.575Z  pubkey#a7145920020b748d\n\n4 signed & verified, 0 invalid, 0 unsigned (legacy). Reproduce independently: re-hash the JSONL records, verify the Ed25519 signature against the embedded public key. Altering any record invalidates the signature."
+          "durationMs": 661,
+          "tail": "> nightdesk@0.0.1 verify\n> tsx src/index.ts verify\n\n\nNightDesk — ledger verification (Ed25519 · Compliance Gatekeeper audit trail)\n\n✓ VALID   C:\\Users\\prate\\Downloads\\bitget\\data\\ledger\\2026-06-14.jsonl\n    records=1  signature=valid  hashMatch=true  tamper-evident=true\n    signedAt=2026-06-17T02:17:29.545Z  pubkey#a7145920020b748d\n✓ VALID   C:\\Users\\prate\\Downloads\\bitget\\data\\ledger\\2026-06-15.jsonl\n    records=1  signature=valid  hashMatch=true  tamper-evident=true\n    signedAt=2026-06-15T12:54:53.085Z  pubkey#a7145920020b748d\n✓ VALID   C:\\Users\\prate\\Downloads\\bitget\\data\\ledger\\2026-06-16.jsonl\n    records=1  signature=valid  hashMatch=true  tamper-evident=true\n    signedAt=2026-06-16T17:53:04.452Z  pubkey#a7145920020b748d\n✓ VALID   C:\\Users\\prate\\Downloads\\bitget\\data\\ledger\\2026-06-17.jsonl\n    records=1  signature=valid  hashMatch=true  tamper-evident=true\n    signedAt=2026-06-17T15:59:46.251Z  pubkey#a7145920020b748d\n\n4 signed & verified, 0 invalid, 0 unsigned (legacy). Reproduce independently: re-hash the JSONL records, verify the Ed25519 signature against the embedded public key. Altering any record invalidates the signature."
         },
         {
           "command": "npm run ledger:tamper-test",
           "status": "PASS",
-          "durationMs": 660,
+          "durationMs": 638,
           "tail": "> nightdesk@0.0.1 ledger:tamper-test\n> tsx src/ledger/tamper-test.ts\n\nNIGHTDESK LEDGER TAMPER TEST PASS"
         }
       ],
@@ -582,24 +582,24 @@
         "Bad book fills"
       ],
       "status": "PASS",
-      "durationMs": 2081,
+      "durationMs": 1917,
       "commandResults": [
         {
           "command": "npm run fill:realism-report",
           "status": "PASS",
-          "durationMs": 698,
+          "durationMs": 641,
           "tail": "> nightdesk@0.0.1 fill:realism-report\n> tsx src/research/fill-realism.ts\n\n\nNIGHTDESK FILL REALISM COMPLETE\npassed: 7/7\nreport: C:\\Users\\prate\\Downloads\\bitget\\evidence\\fill-model\\fill-model-report.md"
         },
         {
           "command": "npm run fill:stress",
           "status": "PASS",
-          "durationMs": 683,
+          "durationMs": 635,
           "tail": "> nightdesk@0.0.1 fill:stress\n> tsx src/research/fill-realism.ts\n\n\nNIGHTDESK FILL REALISM COMPLETE\npassed: 7/7\nreport: C:\\Users\\prate\\Downloads\\bitget\\evidence\\fill-model\\fill-model-report.md"
         },
         {
           "command": "npm run fill:slippage-sweep",
           "status": "PASS",
-          "durationMs": 700,
+          "durationMs": 641,
           "tail": "> nightdesk@0.0.1 fill:slippage-sweep\n> tsx src/research/fill-realism.ts\n\n\nNIGHTDESK FILL REALISM COMPLETE\npassed: 7/7\nreport: C:\\Users\\prate\\Downloads\\bitget\\evidence\\fill-model\\fill-model-report.md"
         }
       ],
@@ -662,24 +662,24 @@
         "Certificate lacks source timestamp"
       ],
       "status": "PASS",
-      "durationMs": 6085,
+      "durationMs": 2977,
       "commandResults": [
         {
           "command": "npm run bitget:read-only-proof",
           "status": "PASS",
-          "durationMs": 2071,
+          "durationMs": 986,
           "tail": "> nightdesk@0.0.1 bitget:read-only-proof\n> tsx src/integrations/bitget-agent-hub/readOnlyProof.ts\n\n\nNIGHTDESK BITGET READ-ONLY PROOF COMPLETE\nstatus: live public fetch ok\nsnapshot: C:\\Users\\prate\\Downloads\\bitget\\evidence\\bitget-live\\live-market-snapshot.json"
         },
         {
           "command": "npm run bitget:smoke",
           "status": "PASS",
-          "durationMs": 1996,
+          "durationMs": 983,
           "tail": "> nightdesk@0.0.1 bitget:smoke\n> tsx src/integrations/bitget-agent-hub/readOnlyProof.ts\n\n\nNIGHTDESK BITGET READ-ONLY PROOF COMPLETE\nstatus: live public fetch ok\nsnapshot: C:\\Users\\prate\\Downloads\\bitget\\evidence\\bitget-live\\live-market-snapshot.json"
         },
         {
           "command": "npm run bitget:agent-hub-demo",
           "status": "PASS",
-          "durationMs": 2018,
+          "durationMs": 1008,
           "tail": "> nightdesk@0.0.1 bitget:agent-hub-demo\n> tsx src/integrations/bitget-agent-hub/readOnlyProof.ts\n\n\nNIGHTDESK BITGET READ-ONLY PROOF COMPLETE\nstatus: live public fetch ok\nsnapshot: C:\\Users\\prate\\Downloads\\bitget\\evidence\\bitget-live\\live-market-snapshot.json"
         }
       ],
@@ -740,24 +740,24 @@
         "Doctor prints secrets"
       ],
       "status": "PASS",
-      "durationMs": 4588,
+      "durationMs": 1982,
       "commandResults": [
         {
           "command": "npm run doctor",
           "status": "PASS",
-          "durationMs": 685,
+          "durationMs": 656,
           "tail": "> nightdesk@0.0.1 doctor\n> tsx src/ops/doctor.ts\n\nNIGHTDESK DOCTOR COMPLETE: C:\\Users\\prate\\Downloads\\bitget\\evidence\\doctor-report.md"
         },
         {
           "command": "npm run data:health",
           "status": "PASS",
-          "durationMs": 683,
+          "durationMs": 668,
           "tail": "> nightdesk@0.0.1 data:health\n> tsx src/ops/data-health.ts\n\nNIGHTDESK DATA HEALTH COMPLETE: C:\\Users\\prate\\Downloads\\bitget\\evidence\\data-health\\source-health.json"
         },
         {
           "command": "npm run cache:verify",
           "status": "PASS",
-          "durationMs": 3220,
+          "durationMs": 658,
           "tail": "> nightdesk@0.0.1 cache:verify\n> tsx src/data/cache-integrity.ts\n\nNIGHTDESK CACHE INTEGRITY COMPLETE: C:\\Users\\prate\\Downloads\\bitget\\evidence\\data-cache\\cache-integrity-report.md"
         }
       ],
@@ -810,19 +810,19 @@
         "Private key printed in logs"
       ],
       "status": "PASS",
-      "durationMs": 2912,
+      "durationMs": 1438,
       "commandResults": [
         {
           "command": "npm run secrets:scan",
           "status": "PASS",
-          "durationMs": 2227,
+          "durationMs": 746,
           "tail": "> nightdesk@0.0.1 secrets:scan\n> tsx src/ops/secrets-scan.ts\n\nNIGHTDESK SECRETS SCAN PASS\nallowed-runtime-secret data/ledger/attestation_key.json: local runtime Ed25519 ledger signing key; not a Bitget/API credential"
         },
         {
           "command": "npm run security:test",
           "status": "PASS",
-          "durationMs": 685,
-          "tail": "ok 2 - security boundary: live path only allows dust-sized limit orders without leverage\n  ---\n  duration_ms: 0.182\n  type: 'test'\n  ...\n# Subtest: security boundary: remote clients need auth for live/shell capability\nok 3 - security boundary: remote clients need auth for live/shell capability\n  ---\n  duration_ms: 0.1753\n  type: 'test'\n  ...\n1..3\n# tests 3\n# suites 0\n# pass 3\n# fail 0\n# cancelled 0\n# skipped 0\n# todo 0\n# duration_ms 231.0994"
+          "durationMs": 692,
+          "tail": "ok 2 - security boundary: live path only allows dust-sized limit orders without leverage\n  ---\n  duration_ms: 0.1756\n  type: 'test'\n  ...\n# Subtest: security boundary: remote clients need auth for live/shell capability\nok 3 - security boundary: remote clients need auth for live/shell capability\n  ---\n  duration_ms: 0.1758\n  type: 'test'\n  ...\n1..3\n# tests 3\n# suites 0\n# pass 3\n# fail 0\n# cancelled 0\n# skipped 0\n# todo 0\n# duration_ms 232.2241"
         }
       ],
       "artifactResults": [
@@ -865,12 +865,12 @@
         "Live fill claimed for dry-run"
       ],
       "status": "PASS",
-      "durationMs": 692,
+      "durationMs": 644,
       "commandResults": [
         {
           "command": "npm run docs:check",
           "status": "PASS",
-          "durationMs": 692,
+          "durationMs": 644,
           "tail": "> nightdesk@0.0.1 docs:check\n> tsx src/ops/docs-check.ts\n\nNIGHTDESK DOCS CHECK PASS\n✓ README.md\n✓ SUBMISSION.md\n✓ docs/BITGET_NATIVE_PROOF.md\n✓ docs/PNL_CLAIM_STANDARD.md\n✓ docs/CLAIM_LEDGER.md\n✓ docs/SECURITY_BOUNDARIES.md\n✓ EVALUATION_STANDARD.md"
         }
       ],
@@ -907,12 +907,12 @@
         "No paper/PnL/Bitget proof"
       ],
       "status": "PASS",
-      "durationMs": 645,
+      "durationMs": 642,
       "commandResults": [
         {
           "command": "npm run dashboard:judge",
           "status": "PASS",
-          "durationMs": 645,
+          "durationMs": 642,
           "tail": "> nightdesk@0.0.1 dashboard:judge\n> tsx src/face/judge-cockpit.ts\n\nNIGHTDESK JUDGE COCKPIT COMPLETE: C:\\Users\\prate\\Downloads\\bitget\\evidence\\judge-cockpit\\index.html"
         }
       ],
@@ -965,25 +965,25 @@
         "Missing anchor becomes tradeable"
       ],
       "status": "PASS",
-      "durationMs": 31440,
+      "durationMs": 30385,
       "commandResults": [
         {
           "command": "npm run judge:max",
           "status": "PASS",
-          "durationMs": 10329,
-          "tail": "✓ evidence/live-receipt/live-receipt-report.md\n✓ evidence/championship/leaderboard_pnl.csv\n✓ evidence/championship/leaderboard_safety.csv\n✓ evidence/championship/champion-pnl.json\n✓ evidence/championship/champion-safety.json\n✓ evidence/championship/champion-pnl-paper-log.csv\n✓ evidence/championship/champion-safety-paper-log.csv\n✓ evidence/championship/championship-report.md\n✓ evidence/championship/pnl-vs-safety-comparison.md\n✓ evidence/championship/champion-overfit-check.md\n✓ evidence/championship/champion-overfit-card.md\n✓ evidence/championship/trial-registry.csv\n✓ evidence/championship/manifest.json\n✓ evidence/manifest.json\n✓ docs/PNL_CLAIM_STANDARD.md\n✓ docs/NAUTILUS_LESSONS.md\n✓ docs/SECURITY_BOUNDARIES.md\n✓ docs/BITGET_NATIVE_PROOF.md\n✓ docs/CLAIM_LEDGER.md\nNIGHTDESK MAX JUDGE PACK VERIFIED"
+          "durationMs": 10298,
+          "tail": "✓ evidence/live-receipt/live-receipt-report.md\n✓ evidence/championship/leaderboard_pnl.csv\n✓ evidence/championship/leaderboard_safety.csv\n✓ evidence/championship/champion-pnl.json\n✓ evidence/championship/champion-safety.json\n✓ evidence/championship/champion-pnl-paper-log.csv\n✓ evidence/championship/champion-safety-paper-log.csv\n✓ evidence/championship/championship-report.md\n✓ evidence/championship/pnl-vs-safety-comparison.md\n✓ evidence/championship/champion-overfit-check.md\n✓ evidence/championship/champion-overfit-card.md\n✓ evidence/championship/trial-registry.csv\n✓ evidence/championship/manifest.json\n✓ evidence/manifest.json\n✓ docs/PNL_CLAIM_STANDARD.md\n✓ docs/EXECUTION_INTEGRITY.md\n✓ docs/SECURITY_BOUNDARIES.md\n✓ docs/BITGET_NATIVE_PROOF.md\n✓ docs/CLAIM_LEDGER.md\nNIGHTDESK MAX JUDGE PACK VERIFIED"
         },
         {
           "command": "npm run judge:max",
           "status": "PASS",
-          "durationMs": 10318,
-          "tail": "✓ evidence/live-receipt/live-receipt-report.md\n✓ evidence/championship/leaderboard_pnl.csv\n✓ evidence/championship/leaderboard_safety.csv\n✓ evidence/championship/champion-pnl.json\n✓ evidence/championship/champion-safety.json\n✓ evidence/championship/champion-pnl-paper-log.csv\n✓ evidence/championship/champion-safety-paper-log.csv\n✓ evidence/championship/championship-report.md\n✓ evidence/championship/pnl-vs-safety-comparison.md\n✓ evidence/championship/champion-overfit-check.md\n✓ evidence/championship/champion-overfit-card.md\n✓ evidence/championship/trial-registry.csv\n✓ evidence/championship/manifest.json\n✓ evidence/manifest.json\n✓ docs/PNL_CLAIM_STANDARD.md\n✓ docs/NAUTILUS_LESSONS.md\n✓ docs/SECURITY_BOUNDARIES.md\n✓ docs/BITGET_NATIVE_PROOF.md\n✓ docs/CLAIM_LEDGER.md\nNIGHTDESK MAX JUDGE PACK VERIFIED"
+          "durationMs": 9968,
+          "tail": "✓ evidence/live-receipt/live-receipt-report.md\n✓ evidence/championship/leaderboard_pnl.csv\n✓ evidence/championship/leaderboard_safety.csv\n✓ evidence/championship/champion-pnl.json\n✓ evidence/championship/champion-safety.json\n✓ evidence/championship/champion-pnl-paper-log.csv\n✓ evidence/championship/champion-safety-paper-log.csv\n✓ evidence/championship/championship-report.md\n✓ evidence/championship/pnl-vs-safety-comparison.md\n✓ evidence/championship/champion-overfit-check.md\n✓ evidence/championship/champion-overfit-card.md\n✓ evidence/championship/trial-registry.csv\n✓ evidence/championship/manifest.json\n✓ evidence/manifest.json\n✓ docs/PNL_CLAIM_STANDARD.md\n✓ docs/EXECUTION_INTEGRITY.md\n✓ docs/SECURITY_BOUNDARIES.md\n✓ docs/BITGET_NATIVE_PROOF.md\n✓ docs/CLAIM_LEDGER.md\nNIGHTDESK MAX JUDGE PACK VERIFIED"
         },
         {
           "command": "npm run judge:max",
           "status": "PASS",
-          "durationMs": 10793,
-          "tail": "✓ evidence/live-receipt/live-receipt-report.md\n✓ evidence/championship/leaderboard_pnl.csv\n✓ evidence/championship/leaderboard_safety.csv\n✓ evidence/championship/champion-pnl.json\n✓ evidence/championship/champion-safety.json\n✓ evidence/championship/champion-pnl-paper-log.csv\n✓ evidence/championship/champion-safety-paper-log.csv\n✓ evidence/championship/championship-report.md\n✓ evidence/championship/pnl-vs-safety-comparison.md\n✓ evidence/championship/champion-overfit-check.md\n✓ evidence/championship/champion-overfit-card.md\n✓ evidence/championship/trial-registry.csv\n✓ evidence/championship/manifest.json\n✓ evidence/manifest.json\n✓ docs/PNL_CLAIM_STANDARD.md\n✓ docs/NAUTILUS_LESSONS.md\n✓ docs/SECURITY_BOUNDARIES.md\n✓ docs/BITGET_NATIVE_PROOF.md\n✓ docs/CLAIM_LEDGER.md\nNIGHTDESK MAX JUDGE PACK VERIFIED"
+          "durationMs": 10119,
+          "tail": "✓ evidence/live-receipt/live-receipt-report.md\n✓ evidence/championship/leaderboard_pnl.csv\n✓ evidence/championship/leaderboard_safety.csv\n✓ evidence/championship/champion-pnl.json\n✓ evidence/championship/champion-safety.json\n✓ evidence/championship/champion-pnl-paper-log.csv\n✓ evidence/championship/champion-safety-paper-log.csv\n✓ evidence/championship/championship-report.md\n✓ evidence/championship/pnl-vs-safety-comparison.md\n✓ evidence/championship/champion-overfit-check.md\n✓ evidence/championship/champion-overfit-card.md\n✓ evidence/championship/trial-registry.csv\n✓ evidence/championship/manifest.json\n✓ evidence/manifest.json\n✓ docs/PNL_CLAIM_STANDARD.md\n✓ docs/EXECUTION_INTEGRITY.md\n✓ docs/SECURITY_BOUNDARIES.md\n✓ docs/BITGET_NATIVE_PROOF.md\n✓ docs/CLAIM_LEDGER.md\nNIGHTDESK MAX JUDGE PACK VERIFIED"
         }
       ],
       "artifactResults": [
@@ -1030,18 +1030,18 @@
         "OOS report counts empty sessions as success"
       ],
       "status": "PASS",
-      "durationMs": 19775,
+      "durationMs": 19644,
       "commandResults": [
         {
           "command": "npm run oos:status",
           "status": "PASS",
-          "durationMs": 687,
-          "tail": "> nightdesk@0.0.1 oos:status\n> tsx src/ops/oos-status.ts\n\nNIGHTDESK OOS STATUS PASS\n{\n  \"startedAt\": \"2026-06-17T08:40:28.688Z\",\n  \"ticks\": 71,\n  \"refreshes\": 12,\n  \"snapshotsRecorded\": 71,\n  \"targetSessions\": 20,\n  \"intervalMs\": 300000,\n  \"refreshMs\": 1800000,\n  \"status\": \"running\",\n  \"lastTickAt\": \"2026-06-17T14:41:51.712Z\",\n  \"lastRefreshAt\": \"2026-06-17T14:21:14.140Z\"\n}"
+          "durationMs": 632,
+          "tail": "> nightdesk@0.0.1 oos:status\n> tsx src/ops/oos-status.ts\n\nNIGHTDESK OOS STATUS PASS\n{\n  \"startedAt\": \"2026-06-17T08:40:28.688Z\",\n  \"ticks\": 115,\n  \"refreshes\": 20,\n  \"snapshotsRecorded\": 115,\n  \"targetSessions\": 20,\n  \"intervalMs\": 300000,\n  \"refreshMs\": 1800000,\n  \"status\": \"running\",\n  \"lastTickAt\": \"2026-06-17T18:26:45.377Z\",\n  \"lastRefreshAt\": \"2026-06-17T18:27:01.436Z\"\n}"
         },
         {
           "command": "npm run oos:report",
           "status": "PASS",
-          "durationMs": 19088,
+          "durationMs": 19012,
           "tail": "> nightdesk@0.0.1 oos:report\n> tsx src/research/session-study.ts\n\n\nNIGHTDESK OOS REPORT COMPLETE\nsessions: 4\nreport: C:\\Users\\prate\\Downloads\\bitget\\evidence\\oos\\oos-report.md"
         }
       ],

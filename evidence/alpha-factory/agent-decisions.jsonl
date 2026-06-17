@@ -1,4 +1,4 @@
-{"ts":"2026-06-17T16:08:20.135Z","agent":"AlphaResearchAgent","decision":"GENERATE_GRID","detail":"9720 candidates generated","evidence":"candidate-strategies.csv"}
-{"ts":"2026-06-17T16:08:20.135Z","agent":"OverfitCourt","decision":"REJECT_FRAGILE","detail":"8289 configs rejected","evidence":"rejected-overfit-strategies.csv"}
-{"ts":"2026-06-17T16:08:20.135Z","agent":"ChampionFreezer","decision":"FREEZE_CHAMPION","detail":"perp_gap_fade_e0p35_x0_tp2_sl0p75_h9999_n0p5_m2","evidence":"frozen-champion.json"}
-{"ts":"2026-06-17T16:08:20.135Z","agent":"StrategyMutator","decision":"PROPOSE_MUTATIONS","detail":"27 local variants proposed","evidence":"mutation-history.jsonl"}
+{"ts":"2026-06-17T18:29:32.048Z","agent":"AlphaResearchAgent","decision":"GENERATE_GRID","detail":"9720 candidates generated","evidence":"candidate-strategies.csv"}
+{"ts":"2026-06-17T18:29:32.048Z","agent":"OverfitCourt","decision":"REJECT_FRAGILE","detail":"8327 configs rejected","evidence":"rejected-overfit-strategies.csv"}
+{"ts":"2026-06-17T18:29:32.048Z","agent":"ChampionFreezer","decision":"FREEZE_CHAMPION","detail":"perp_gap_fade_e0p35_x0_tp2_sl0p75_h9999_n0p5_m2","evidence":"frozen-champion.json"}
+{"ts":"2026-06-17T18:29:32.048Z","agent":"StrategyMutator","decision":"PROPOSE_MUTATIONS","detail":"27 local variants proposed","evidence":"mutation-history.jsonl"}

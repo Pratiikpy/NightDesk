@@ -5,15 +5,15 @@ Session trials: 42060
 
 ## PnL Champion
 
-Same-sample PnL: 70.660661
-Cost +20% PnL: 69.192039
+Same-sample PnL: 70.253999
+Cost +20% PnL: 68.513531
 Leave-one-session minimum PnL: 25.831133
 Status: pass
 
 ## Safety Champion
 
-Same-sample PnL: 70.660661
-Cost +20% PnL: 69.192039
+Same-sample PnL: 70.253999
+Cost +20% PnL: 68.513531
 Leave-one-session minimum PnL: 25.831133
 Status: pass
 

@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-17T16:38:13.440Z",
+  "generatedAt": "2026-06-17T18:32:42.368Z",
   "ok": true,
   "hard": [
     {
@@ -44,20 +44,20 @@
     {
       "label": "factory champion total_pnl",
       "forms": [
-        "47.86",
-        "+47.86"
+        "47.55",
+        "+47.55"
       ],
       "docs": [
         {
           "file": "README.md",
-          "matched": "47.86"
+          "matched": null
         },
         {
           "file": "SUBMISSION.md",
-          "matched": "47.86"
+          "matched": null
         }
       ],
-      "inSync": true
+      "inSync": false
     },
     {
       "label": "factory champion max_drawdown",
@@ -80,20 +80,20 @@
     {
       "label": "factory rejected",
       "forms": [
-        "8289",
-        "8,289"
+        "8327",
+        "8,327"
       ],
       "docs": [
         {
           "file": "README.md",
-          "matched": "8,289"
+          "matched": null
         },
         {
           "file": "SUBMISSION.md",
-          "matched": "8,289"
+          "matched": null
         }
       ],
-      "inSync": true
+      "inSync": false
     },
     {
       "label": "championship global PnL",

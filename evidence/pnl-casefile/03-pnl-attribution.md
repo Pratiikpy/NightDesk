@@ -5,4 +5,4 @@ This decomposes current evidence into gross edge estimate, cost drag, blocked-lo
 | Run |Gross Edge Est. |Costs Est. |Blocked Loss Est. |Net PnL |Claim |
 | --- |--- |--- |--- |--- |--- |
 | paper_session |0.000001 |-0.334502 |0 |-0.334501 |execution_record_not_alpha |
-| guarded_replay |5.907859 |-1.563906 |-15118.901344 |4.343953 |same_sample_execution_evidence |
+| guarded_replay |5.907859 |-1.563906 |-15093.216645 |4.343953 |same_sample_execution_evidence |

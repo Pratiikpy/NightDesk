@@ -1,12 +1,12 @@
 {
   "ok": true,
   "env": {
-    "generatedAt": "2026-06-17T14:46:03.306Z",
+    "generatedAt": "2026-06-17T18:32:42.842Z",
     "node": "v22.17.0",
     "npm": "10.9.2",
     "os": "win32 10.0.26300",
-    "gitCommit": "fatal: not a git repository (or any of the parent directories): .git",
-    "gitStatus": "fatal: not a git repository (or any of the parent directories): .git",
+    "gitCommit": "7c7afc4f19daca202e86a2b74821146309e00870",
+    "gitStatus": "M CLAUDE.md\n M evidence/alpha-factory/agent-decisions.jsonl\n M evidence/alpha-factory/candidate-strategies.csv\n M evidence/alpha-factory/champion-oos-results.csv\n M evidence/alpha-factory/daily-alpha-report.md\n M evidence/alpha-factory/expected-vs-actual.csv\n M evidence/alpha-factory/frozen-champion.json\n M evidence/alpha-factory/live-paper-trading-log.csv\n M evidence/alpha-factory/live-paper-trading-log.jsonl\n M evidence/alpha-factory/manifest.json\n M evidence/alpha-factory/mutation-history.jsonl\n M evidence/alpha-factory/overfit-court-report.md\n M evidence/alpha-factory/rejected-overfit-strategies.csv\n M evidence/alpha-factory/strategy-compare.csv\n M evidence/alpha-factory/strategy-compare.md\n M evidence/alpha-factory/trial-registry.jsonl\n M evidence/alpha-factory/walkforward-leaderboard.csv\n M evidence/bitget-live/bitget-smoke-log.jsonl\n M evidence/bitget-live/certificate-from-live-data.json\n M evidence/bitget-live/live-market-snapshot.json\n M evidence/bitget-live/read-only-proof.md\n M evidence/championship/champion-overfit-card.md\n M evidence/championship/champion-overfit-check.md\n M evidence/championship/champion-pnl-paper-log.csv\n M evidence/championship/champion-pnl.json\n M evidence/championship/champion-safety-paper-log.csv\n M evidence/championship/champion-safety.json\n M evidence/championship/leaderboard_pnl.csv\n M evidence/championship/leaderboard_safety.csv\n M evidence/championship/manifest.json\n M evidence/championship/pnl-vs-safety-comparison.md\n M evidence/championship/trial-registry.csv\n M evidence/claims/claims-manifest.json\n M evidence/daily-promoter/daily-promoter-report.md\n M evidence/daily-promoter/promotion-decision.json\n M evidence/data-cache/cache-integrity-report.json\n M evidence/data-cache/cache-integrity-report.md\n M evidence/data-health/source-health.json\n M evidence/data-health/source-health.md\n M evidence/docs-check.json\n M evidence/doctor-report.json\n M evidence/doctor-report.md\n M evidence/forward-paper-daemon/daemon-state.json\n M evidence/forward-paper-daemon/forward-paper-daemon-report.md\n M evidence/forward-paper-daemon/live-paper-trading-log.csv\n M evidence/forward-paper-daemon/live-paper-trading-log.jsonl\n M evidence/forward-paper-daemon/session-results.csv\n M evidence/judge-cockpit/index.html\n M evidence/ledger-tamper-test.json\n M evidence/manifest.json\n M evidence/max-judge-manifest.json\n M evidence/numbers-check.json\n M evidence/oos-daemon/record-log.jsonl\n M evidence/oos-daemon/refresh-log.jsonl\n M evidence/oos-daemon/state.json\n M evidence/oos/manifest.json\n M evidence/oos/oos-report.md\n M evidence/oos/session-summary.csv\n M evidence/oos/sessions/2026-06-17.json\n M evidence/paper-log-verify.json\n M evidence/pnl-casefile/01-paper-session.csv\n M evidence/pnl-casefile/03-pnl-attribution.csv\n M evidence/pnl-casefile/03-pnl-attribution.md\n M evidence/pnl-casefile/07-oos-session-summary.csv\n M evidence/pnl-casefile/manifest.json\n M evidence/pnl-casefile/safety-alpha-report.md\n M evidence/redteam/redteam-results.jsonl\n M evidence/run-cards/alpha-factory-card.md\n M evidence/run-cards/manifest.json\n M evidence/scenario-uat/scenario-uat.json\n M evidence/secrets-scan.json\n M evidence/trading-log/account-snapshots.jsonl\n M evidence/trading-log/block-reasons.csv\n M evidence/trading-log/ledger-attestation.json\n M evidence/trading-log/ledger-verification.txt\n M evidence/trading-log/nightdesk-paper-trading-log.csv\n M evidence/trading-log/nightdesk-paper-trading-log.jsonl\n M evidence/trading-log/run-events.jsonl\n M evidence/trading-log/run-summary.md\n M evidence/walkforward/cost-sweep.csv\n M evidence/walkforward/fold-results.csv\n M evidence/walkforward/pnl-report.md\n M evidence/walkforward/purged-split-report.csv\n M evidence/walkforward/purged-split-report.md\n M evidence/walkforward/regime-summary.csv",
     "packageLock": true
   },
   "rows": [
@@ -25,7 +25,7 @@
       "passCriteria": "lockfile dry-run installs cleanly; run full npm ci on clean clone",
       "actualResult": "PASS",
       "notes": "command exited 0",
-      "durationMs": 796
+      "durationMs": 929
     },
     {
       "area": "Build",
@@ -34,7 +34,7 @@
       "passCriteria": "typecheck exits 0",
       "actualResult": "PASS",
       "notes": "command exited 0",
-      "durationMs": 2358
+      "durationMs": 2565
     },
     {
       "area": "Unit tests",
@@ -43,7 +43,7 @@
       "passCriteria": "all tests pass",
       "actualResult": "PASS",
       "notes": "command exited 0",
-      "durationMs": 8442
+      "durationMs": 9772
     },
     {
       "area": "Property tests",
@@ -52,7 +52,7 @@
       "passCriteria": "property tests pass",
       "actualResult": "PASS",
       "notes": "command exited 0",
-      "durationMs": 3148
+      "durationMs": 3501
     },
     {
       "area": "Paper log",
@@ -61,7 +61,7 @@
       "passCriteria": "Bitget paper log schema valid",
       "actualResult": "PASS",
       "notes": "command exited 0",
-      "durationMs": 614
+      "durationMs": 746
     },
     {
       "area": "Ledger tamper",
@@ -70,7 +70,7 @@
       "passCriteria": "mutations fail verification",
       "actualResult": "PASS",
       "notes": "command exited 0",
-      "durationMs": 622
+      "durationMs": 720
     },
     {
       "area": "Firewall abuse",
@@ -79,7 +79,7 @@
       "passCriteria": "unsafe intents rejected; oversized valid intent capped",
       "actualResult": "PASS",
       "notes": "command exited 0",
-      "durationMs": 916
+      "durationMs": 1032
     },
     {
       "area": "Redteam",
@@ -88,7 +88,7 @@
       "passCriteria": "hostile inputs do not execute unsafely",
       "actualResult": "PASS",
       "notes": "command exited 0",
-      "durationMs": 654
+      "durationMs": 713
     },
     {
       "area": "Gate coverage",
@@ -97,7 +97,7 @@
       "passCriteria": "15 gates have pass/fail coverage",
       "actualResult": "PASS",
       "notes": "command exited 0",
-      "durationMs": 634
+      "durationMs": 665
     },
     {
       "area": "Fill realism",
@@ -106,7 +106,7 @@
       "passCriteria": "fill torture cases pass",
       "actualResult": "PASS",
       "notes": "command exited 0",
-      "durationMs": 622
+      "durationMs": 695
     },
     {
       "area": "Purged walk-forward",
@@ -115,7 +115,7 @@
       "passCriteria": "no test-fold threshold selection",
       "actualResult": "PASS",
       "notes": "command exited 0",
-      "durationMs": 19303
+      "durationMs": 17944
     },
     {
       "area": "OOS daemon",
@@ -124,7 +124,7 @@
       "passCriteria": "daemon state readable with snapshots",
       "actualResult": "PASS",
       "notes": "command exited 0",
-      "durationMs": 614
+      "durationMs": 636
     },
     {
       "area": "External SDK/MCP",
@@ -133,7 +133,7 @@
       "passCriteria": "external-agent flow produces paper evidence",
       "actualResult": "PASS",
       "notes": "command exited 0",
-      "durationMs": 962
+      "durationMs": 956
     },
     {
       "area": "MCP integration",
@@ -142,7 +142,7 @@
       "passCriteria": "MCP-shaped calls logged",
       "actualResult": "PASS",
       "notes": "command exited 0",
-      "durationMs": 925
+      "durationMs": 946
     },
     {
       "area": "Bitget read-only",
@@ -151,7 +151,7 @@
       "passCriteria": "read-only proof works without trade credentials",
       "actualResult": "PASS",
       "notes": "command exited 0",
-      "durationMs": 2191
+      "durationMs": 995
     },
     {
       "area": "Claims",
@@ -160,7 +160,7 @@
       "passCriteria": "major claims map to evidence",
       "actualResult": "PASS",
       "notes": "command exited 0",
-      "durationMs": 630
+      "durationMs": 636
     },
     {
       "area": "Run cards",
@@ -169,7 +169,7 @@
       "passCriteria": "judge run cards generated",
       "actualResult": "PASS",
       "notes": "command exited 0",
-      "durationMs": 616
+      "durationMs": 637
     },
     {
       "area": "Doctor",
@@ -178,7 +178,7 @@
       "passCriteria": "no failing doctor rows",
       "actualResult": "PASS",
       "notes": "command exited 0",
-      "durationMs": 655
+      "durationMs": 630
     },
     {
       "area": "Data health",
@@ -187,7 +187,7 @@
       "passCriteria": "source health generated",
       "actualResult": "PASS",
       "notes": "command exited 0",
-      "durationMs": 656
+      "durationMs": 644
     },
     {
       "area": "Docs",
@@ -196,7 +196,7 @@
       "passCriteria": "docs exist and no stale overclaims",
       "actualResult": "PASS",
       "notes": "command exited 0",
-      "durationMs": 637
+      "durationMs": 634
     },
     {
       "area": "Secrets",
@@ -214,7 +214,7 @@
       "passCriteria": "artifact verifier passes",
       "actualResult": "PASS",
       "notes": "command exited 0",
-      "durationMs": 677
+      "durationMs": 655
     },
     {
       "area": "Judge cockpit",
@@ -223,7 +223,7 @@
       "passCriteria": "static cockpit generated",
       "actualResult": "PASS",
       "notes": "command exited 0",
-      "durationMs": 644
+      "durationMs": 639
     },
     {
       "area": "Judge max",
@@ -232,7 +232,7 @@
       "passCriteria": "tests + evidence + manifest pass",
       "actualResult": "PASS",
       "notes": "command exited 0",
-      "durationMs": 9736
+      "durationMs": 10082
     }
   ]
 }

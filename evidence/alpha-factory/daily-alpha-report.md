@@ -4,7 +4,7 @@ Mode: fast
 Recordings: 4
 Trial count: 38880
 Frozen champion: perp_gap_fade_e0p35_x0_tp2_sl0p75_h9999_n0p5_m2
-Champion total PnL: 47.86 USDT
+Champion total PnL: 47.55 USDT
 Champion active sessions: 2/4
 Champion positive sessions: 2/4
 Champion max drawdown: 4.00 USDT

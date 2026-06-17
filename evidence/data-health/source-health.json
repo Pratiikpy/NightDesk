@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-17T16:08:20.408Z",
+  "generatedAt": "2026-06-17T18:32:30.068Z",
   "rows": [
     {
       "source": "Bitget rToken quote",
@@ -45,7 +45,7 @@
     },
     {
       "source": "Qwen council",
-      "status": "ok",
+      "status": "warn",
       "evidence": "env presence only; key not printed",
       "role": "optional live council path"
     },

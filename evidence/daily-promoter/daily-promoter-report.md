@@ -5,10 +5,10 @@ Decision: KEEP
 Reason: forward performance inside tolerance
 Sessions: 4
 Expected total PnL: 47.8575 USDT
-Actual total PnL: 47.8575 USDT
-Error: 0.0000 USDT
-Total trades: 5
+Actual total PnL: 47.5497 USDT
+Error: -0.3078 USDT
+Total trades: 6
 Max observed drawdown: 3.9983 USDT
-Ledger hash: b92eb40b4f55d89c546165108fcf3831adb28beee7cf0afcfc590e2911e175b6
+Ledger hash: 606ed187e6a11471d98b7228fe4d1197f1c2a9fbc0ca706fd5e948840e9f93b4
 
 Policy: KEEP means the frozen champion remains active; WATCH means collect more sessions; RETIRE means rerun Alpha Factory and freeze a new champion.

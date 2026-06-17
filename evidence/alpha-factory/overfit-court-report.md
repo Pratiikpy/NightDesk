@@ -2,8 +2,8 @@
 
 Candidates tested: 9720
 Trials recorded: 38880
-Rejected configs: 8289
-Passed configs: 1431
+Rejected configs: 8327
+Passed configs: 1393
 
 Rejection rules: no trades, non-positive total PnL, worst session loss greater than 5 USDT, drawdown too large relative to PnL, or low active-session hit rate.
 
