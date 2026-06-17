@@ -1,0 +1,12 @@
+{
+  "startedAt": "2026-06-17T08:40:28.688Z",
+  "ticks": 89,
+  "refreshes": 15,
+  "snapshotsRecorded": 89,
+  "targetSessions": 20,
+  "intervalMs": 300000,
+  "refreshMs": 1800000,
+  "status": "running",
+  "lastTickAt": "2026-06-17T16:14:35.908Z",
+  "lastRefreshAt": "2026-06-17T15:54:25.148Z"
+}

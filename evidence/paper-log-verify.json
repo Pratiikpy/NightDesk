@@ -1,0 +1,10 @@
+{
+  "generatedAt": "2026-06-17T14:45:20.853Z",
+  "ok": true,
+  "file": "evidence/trading-log/nightdesk-paper-trading-log.csv",
+  "rows": 19,
+  "tradeRows": 8,
+  "blockRows": 11,
+  "abstainRows": 0,
+  "failures": []
+}

@@ -1,0 +1,59 @@
+{
+  "generatedAt": "2026-06-17T16:08:20.408Z",
+  "rows": [
+    {
+      "source": "Bitget rToken quote",
+      "status": "ok",
+      "evidence": "symbol=RAAPLUSDT",
+      "role": "live/public market proof"
+    },
+    {
+      "source": "Bitget smoke log",
+      "status": "ok",
+      "evidence": "evidence/bitget-live/bitget-smoke-log.jsonl",
+      "role": "read-only adapter proof"
+    },
+    {
+      "source": "NYSE/Yahoo anchor",
+      "status": "ok",
+      "evidence": "evidence/oos/session-summary.csv",
+      "role": "fair-value anchor study"
+    },
+    {
+      "source": "Recorded snapshots",
+      "status": "ok",
+      "evidence": "data/snapshots/*.jsonl",
+      "role": "replay/OOS/alpha factory base"
+    },
+    {
+      "source": "Alpha Factory",
+      "status": "ok",
+      "evidence": "evidence/alpha-factory/manifest.json",
+      "role": "strategy research data"
+    },
+    {
+      "source": "Paper execution",
+      "status": "ok",
+      "evidence": "evidence/trading-log/nightdesk-paper-trading-log.csv",
+      "role": "Bitget-required trading record"
+    },
+    {
+      "source": "Ledger",
+      "status": "ok",
+      "evidence": "evidence/trading-log/ledger-verification.txt",
+      "role": "tamper-evident audit"
+    },
+    {
+      "source": "Qwen council",
+      "status": "ok",
+      "evidence": "env presence only; key not printed",
+      "role": "optional live council path"
+    },
+    {
+      "source": "MCP/SDK integration",
+      "status": "ok",
+      "evidence": "evidence/integration/mcp-tool-call-log.jsonl",
+      "role": "external-agent proof"
+    }
+  ]
+}

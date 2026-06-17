@@ -1,0 +1,13 @@
+{
+  "id": "perp_gap_fade_e0p1_x0_tp0p75_sl0p75_h9999_n0p5_m5",
+  "source": "perp_gap",
+  "direction": "fade",
+  "entryPct": 0.1,
+  "exitPct": 0,
+  "takeProfitPct": 0.75,
+  "stopLossPct": 0.75,
+  "maxHoldSnapshots": 9999,
+  "notionalPct": 0.5,
+  "maxConcurrent": 5,
+  "feePct": 0.1
+}

@@ -1,0 +1,88 @@
+name: btc-convergence
+display_name: "BTC Mean-Reversion Convergence"
+version: "0.1.0"
+description: "Mean-reversion on BTC perpetual — buys sharp stretches below the recent price path and exits on reversion."
+long_description: |
+  This Playbook captures short-horizon mean reversion on Bitcoin perpetual
+  futures. The thesis is that after price stretches unusually far away from the
+  path it has been travelling, it tends to snap back toward that path before
+  continuing, and a patient mechanical strategy can harvest that snap-back
+  rather than trying to predict the larger trend. It is built for subscribers
+  who want a transparent, rules-based reversion signal instead of a black-box
+  model, and it deliberately sits out of normal conditions where price is not
+  stretched.
+
+  It enters a long position only when price has stretched sharply below its
+  recent path — an outsized washout that the strategy treats as a temporary
+  dislocation rather than the start of a lasting decline. It does not try to
+  anticipate the washout or guess direction from news; it waits for the stretch
+  to actually appear and then opens into it, expecting reversion toward the path.
+
+  It exits and closes the position once price has reverted back toward that
+  path, locking in the snap-back rather than holding for a trend. The reversion
+  itself is both the profit objective and the discipline that returns the
+  strategy to flat, ready for the next dislocation. Positions are not held
+  indefinitely against a gap that keeps widening.
+
+  Subscribers can tune how far price must stretch before a washout is worth
+  taking, how close to the path it waits before exiting, how much history
+  defines the path, the leverage applied, and the margin budget the platform
+  sizes orders against and uses as the return denominator. Raising the entry
+  stretch makes the strategy more selective and trades less; higher leverage
+  amplifies both upside and drawdown equally without making it more selective.
+
+  The strategy underperforms in strong trending markets where a stretch is not
+  a temporary dislocation but the start of a real directional move, so reversion
+  never arrives and the position sits at a drawdown. Sharp news gaps, thin
+  liquidity, fees, and slippage also erode edge, and strong historical results
+  do not guarantee future profit; only subscribe if you accept this risk.
+
+market_type: contract
+trading_symbols: ["BTCUSDT"]
+tags: ["mean-reversion", "convergence", "btc", "contract"]
+
+decision_mode: deterministic
+backtest_support: full
+runtime_profile: deterministic
+execution_mode: signal_only
+follow_trade_supported: false
+
+strategy_config:
+  trading_symbols: ["BTCUSDT"]
+  lookback_period: 48
+  entry_z: 1.5
+  exit_z: 0.3
+  trade_size: "0.01"
+  leverage: 3
+  margin_budget: "100"
+
+user_config_schema:
+  lookback_period:
+    type: integer
+    default: 48
+    min: 12
+    max: 240
+    label: "Path lookback (bars)"
+  entry_z:
+    type: number
+    default: 1.5
+    min: 0.5
+    max: 4.0
+    label: "Entry stretch (std-devs below path)"
+  exit_z:
+    type: number
+    default: 0.3
+    min: 0.0
+    max: 2.0
+    label: "Exit proximity to path (std-devs)"
+  leverage:
+    type: integer
+    default: 3
+    min: 1
+    max: 10
+    label: "Leverage"
+  margin_budget:
+    type: string
+    default: "100"
+    pattern: "^[0-9]+(\\.[0-9]+)?$"
+    label: "Margin budget USDT"

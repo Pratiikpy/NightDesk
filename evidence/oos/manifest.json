@@ -1,0 +1,71 @@
+{
+  "generatedAt": "2026-06-17T16:08:42.100Z",
+  "sessions": [
+    "C:\\Users\\prate\\Downloads\\bitget\\data\\snapshots\\2026-06-14.jsonl",
+    "C:\\Users\\prate\\Downloads\\bitget\\data\\snapshots\\2026-06-15.jsonl",
+    "C:\\Users\\prate\\Downloads\\bitget\\data\\snapshots\\2026-06-16.jsonl",
+    "C:\\Users\\prate\\Downloads\\bitget\\data\\snapshots\\2026-06-17.jsonl"
+  ],
+  "rows": [
+    {
+      "session_id": "2026-06-14",
+      "date": "2026-06-14",
+      "start_time": "",
+      "end_time": "",
+      "tokens": 0,
+      "intents": 0,
+      "trades": 0,
+      "blocks": 0,
+      "abstains": 0,
+      "guarded_pnl": 0,
+      "unguarded_pnl": 0,
+      "blocked_loss": 0,
+      "ledger_hash": "e36b69db552ad16ac7920f1d3f7be11f39b892fdaf9337cd6558e2c7e6d14e9f"
+    },
+    {
+      "session_id": "2026-06-15",
+      "date": "2026-06-15",
+      "start_time": "2026-06-15T04:55:05.402Z",
+      "end_time": "2026-06-15T17:00:48.134Z",
+      "tokens": 19,
+      "intents": 16578,
+      "trades": 17,
+      "blocks": 16561,
+      "abstains": 0,
+      "guarded_pnl": 3.510092,
+      "unguarded_pnl": 3.510092,
+      "blocked_loss": -15028.644669,
+      "ledger_hash": "b97b319bdfd9913bf9a68f72bfbf9d13258f4b47c60eb820f89dac3fca5ee2c7"
+    },
+    {
+      "session_id": "2026-06-16",
+      "date": "2026-06-16",
+      "start_time": "2026-06-16T03:53:08.291Z",
+      "end_time": "2026-06-16T08:48:59.482Z",
+      "tokens": 19,
+      "intents": 50,
+      "trades": 10,
+      "blocks": 40,
+      "abstains": 0,
+      "guarded_pnl": 1.255184,
+      "unguarded_pnl": 1.255184,
+      "blocked_loss": -5.964973,
+      "ledger_hash": "354e988cfee76223e3fd5a8d182d3fb9d3b6c49d49cb58800472654476c29ace"
+    },
+    {
+      "session_id": "2026-06-17",
+      "date": "2026-06-17",
+      "start_time": "2026-06-17T08:38:49.731Z",
+      "end_time": "2026-06-17T16:08:20.989Z",
+      "tokens": 19,
+      "intents": 251,
+      "trades": 15,
+      "blocks": 236,
+      "abstains": 0,
+      "guarded_pnl": 3.299419,
+      "unguarded_pnl": 3.299419,
+      "blocked_loss": -75.246186,
+      "ledger_hash": "ba3f00b957b74623431e1fb27ce8fb7b6dfe400270de35f8df23375921d6df28"
+    }
+  ]
+}

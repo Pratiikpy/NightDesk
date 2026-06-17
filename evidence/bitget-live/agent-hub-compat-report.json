@@ -1,0 +1,40 @@
+{
+  "generatedAt": "2026-06-17T16:08:20.986Z",
+  "rows": [
+    {
+      "capability": "public_market_data",
+      "status": "verified",
+      "evidence": "live-market-snapshot.json"
+    },
+    {
+      "capability": "read_only_default",
+      "status": "verified",
+      "evidence": "read-only-proof.md"
+    },
+    {
+      "capability": "env_only_private_credentials",
+      "status": "documented",
+      "evidence": "README.md / SECURITY_BOUNDARIES.md"
+    },
+    {
+      "capability": "mcp_evaluate_intent",
+      "status": "verified",
+      "evidence": "evidence/integration/mcp-tool-call-log.jsonl"
+    },
+    {
+      "capability": "sdk_external_agent",
+      "status": "verified",
+      "evidence": "sdk/examples/external-agent.ts"
+    },
+    {
+      "capability": "certificate_from_live_data",
+      "status": "verified",
+      "evidence": "certificate-from-live-data.json"
+    },
+    {
+      "capability": "write_gated_live_path",
+      "status": "documented",
+      "evidence": "evidence/security/security-boundaries.md"
+    }
+  ]
+}

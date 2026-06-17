@@ -1,0 +1,5 @@
+{
+  "strategy": "certificate_gated_long_only_fade",
+  "selectedThresholdPct": 0.05,
+  "selectionMetric": "train/test signal stability"
+}

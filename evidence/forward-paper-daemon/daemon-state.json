@@ -1,0 +1,11 @@
+{
+  "generatedAt": "2026-06-17T16:08:23.754Z",
+  "runId": "forward_2026-06-17T16-08-23-260Z",
+  "championId": "perp_gap_fade_e0p35_x0_tp2_sl0p75_h9999_n0p5_m2",
+  "frozenAt": "2026-06-17T16:08:20.334Z",
+  "sessions": 4,
+  "totalPnl": 47.8575,
+  "totalTrades": 5,
+  "ledgerHash": "68ece2b76cb2fe73e642a23bd9a1f791c0c49dbeda82964e965bf450e5e2892d",
+  "note": "This daemon replays the frozen champion over available recordings today and appends future OOS evidence as new recordings are added."
+}

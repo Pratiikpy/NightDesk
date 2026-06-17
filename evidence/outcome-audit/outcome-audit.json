@@ -1,0 +1,68 @@
+{
+  "generatedAt": "2026-06-17T16:06:44.287Z",
+  "pass": 8,
+  "warn": 4,
+  "fail": 0,
+  "checks": [
+    {
+      "name": "required outcome files",
+      "severity": "pass",
+      "detail": "8 outcome files present"
+    },
+    {
+      "name": "Bitget-required paper log fields and actions",
+      "severity": "pass",
+      "detail": "19 rows, 8 fills, 11 blocks, 19 assets"
+    },
+    {
+      "name": "single-session paper economics",
+      "severity": "warn",
+      "detail": "paper-session net -0.3345 USDT; this proves execution/logging but not standalone profit"
+    },
+    {
+      "name": "guarded replay economics",
+      "severity": "pass",
+      "detail": "guarded replay net +4.3440 USDT across 38 fills and 16883 blocks"
+    },
+    {
+      "name": "arena outcome honesty",
+      "severity": "warn",
+      "detail": "NightDesk ranks #11/12 by arena PnL (0.9963 USDT); best is momentum_agent at 9.9747 USDT. Pitch as safety gateway, not max-PnL bot."
+    },
+    {
+      "name": "same-agent guarded delta is present",
+      "severity": "pass",
+      "detail": "5 same-agent pairs; pnl improved in 0, drawdown reduced in 2"
+    },
+    {
+      "name": "arena downside behavior",
+      "severity": "pass",
+      "detail": "NightDesk max DD 0.8058 USDT is at/below arena median 1.6593"
+    },
+    {
+      "name": "walk-forward differential",
+      "severity": "warn",
+      "detail": "no demonstrated walk-forward PnL uplift yet: positive=0, negative=0, total_delta=0.0000 USDT"
+    },
+    {
+      "name": "OOS session depth",
+      "severity": "warn",
+      "detail": "4 sessions, 3 active. This is enough for a hackathon evidence pack, not enough for a production alpha claim."
+    },
+    {
+      "name": "fill realism outcome cases",
+      "severity": "pass",
+      "detail": "7/7 fill realism cases pass"
+    },
+    {
+      "name": "external integration proof",
+      "severity": "pass",
+      "detail": "5 external agent calls, verdicts: ALLOW"
+    },
+    {
+      "name": "live/read-only Bitget proof",
+      "severity": "pass",
+      "detail": "read-only live/public snapshot present for RAAPLUSDT"
+    }
+  ]
+}

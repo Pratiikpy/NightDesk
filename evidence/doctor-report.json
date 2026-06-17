@@ -1,0 +1,50 @@
+{
+  "generatedAt": "2026-06-17T16:08:20.406Z",
+  "rows": [
+    {
+      "check": "node_version",
+      "status": "pass",
+      "detail": "22.17.0"
+    },
+    {
+      "check": "package_scripts",
+      "status": "pass",
+      "detail": "judge:max and judge:max:full expected"
+    },
+    {
+      "check": "snapshots",
+      "status": "pass",
+      "detail": "data/snapshots directory"
+    },
+    {
+      "check": "bitget_readonly_evidence",
+      "status": "pass",
+      "detail": "live-market-snapshot.json"
+    },
+    {
+      "check": "qwen_key",
+      "status": "pass",
+      "detail": "Qwen key optional for deterministic/offline judge path"
+    },
+    {
+      "check": "live_trade_default",
+      "status": "pass",
+      "detail": "live trading should be disabled unless explicitly enabled"
+    },
+    {
+      "check": "shell_tools_default",
+      "status": "pass",
+      "detail": "shell-capable tools should be opt-in"
+    },
+    {
+      "check": "evidence_manifest",
+      "status": "pass",
+      "detail": "max judge manifest"
+    },
+    {
+      "check": "ledger_verification",
+      "status": "pass",
+      "detail": "ledger verification evidence"
+    }
+  ]
+}

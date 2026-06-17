@@ -1,0 +1,6 @@
+agent,actual_pnl,guarded_pnl,always_block_pnl,reckless_pnl,pnl_delta_guarded_minus_actual,drawdown_delta_guarded_minus_actual,blocks_added_by_gateway,missed_profit,blocked_loss,verdict
+naive_gap_agent,3.504882,2.860297,0,3.504882,-0.644585,-0.916814,0,0.644585,0,gateway_helped_or_reduced_risk
+perp_trust_agent,7.791439,2.231036,0,7.791439,-5.560403,2.284473,1995,5.560403,0,gateway_reduced_profit_on_this_sample
+momentum_agent,9.974693,2.353547,0,9.974693,-7.621146,0.748171,14579,7.621146,0,gateway_reduced_profit_on_this_sample
+news_blind_agent,3.504882,2.860297,0,3.504882,-0.644585,-0.916814,0,0.644585,0,gateway_helped_or_reduced_risk
+random_agent,9.768537,2.697026,0,9.768537,-7.071511,0.221664,1328,7.071511,0,gateway_reduced_profit_on_this_sample

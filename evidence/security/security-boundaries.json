@@ -1,0 +1,25 @@
+{
+  "generatedAt": "2026-06-17T16:08:20.984Z",
+  "rows": [
+    {
+      "boundary": "live_default",
+      "allowed": false,
+      "reason": "LIVE_TRADE_DISABLED"
+    },
+    {
+      "boundary": "live_dust_limit",
+      "allowed": true,
+      "reason": "LIVE_DUST_LIMIT_ORDER_ALLOWED"
+    },
+    {
+      "boundary": "live_market_order",
+      "allowed": false,
+      "reason": "LIVE_REQUIRES_LIMIT_ORDER"
+    },
+    {
+      "boundary": "shell_default",
+      "allowed": false,
+      "reason": "SHELL_TOOLS_DISABLED"
+    }
+  ]
+}

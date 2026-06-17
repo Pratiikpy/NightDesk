@@ -1,0 +1,15 @@
+{
+  "id": "bitget_native",
+  "claim": "NightDesk can generate certificates from live public Bitget market data without credentials.",
+  "acceptance_criteria": [
+    "read-only proof exists",
+    "live snapshot exists",
+    "no secrets in logs"
+  ],
+  "evidence": [
+    "evidence/bitget-live/read-only-proof.md",
+    "evidence/bitget-live/live-market-snapshot.json"
+  ],
+  "status": "verified",
+  "caveat": "Private trading endpoints are not required for judge reproduction."
+}

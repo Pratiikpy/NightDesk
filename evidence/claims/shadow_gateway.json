@@ -1,0 +1,16 @@
+{
+  "id": "shadow_gateway",
+  "claim": "NightDesk measures whether guarding helps by comparing actual, guarded, reckless, and always-block counterfactuals.",
+  "acceptance_criteria": [
+    "actual-vs-guarded exists",
+    "missed-profit exists",
+    "blocked-loss exists"
+  ],
+  "evidence": [
+    "evidence/shadow-gateway/actual-vs-guarded.csv",
+    "evidence/shadow-gateway/missed-profit.csv",
+    "evidence/shadow-gateway/blocked-loss.csv"
+  ],
+  "status": "verified",
+  "caveat": "This report is honest when guarding reduces raw PnL on a sample."
+}

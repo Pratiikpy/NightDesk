@@ -1,0 +1,7 @@
+{
+  "receiptId": "receipt_2026-06-17T16-08-42-102Z",
+  "submitted": false,
+  "reason": "Dry-run receipt only. No live order was submitted.",
+  "boundaryReason": "LIVE_TRADE_DISABLED",
+  "ledgerHash": "aaf50888e09c45702e99c5ec55b791452fc794f6894a4ad69904ef70b58e3593"
+}

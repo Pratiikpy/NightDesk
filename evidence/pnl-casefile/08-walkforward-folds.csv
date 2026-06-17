@@ -1,0 +1,5 @@
+fold,train_sessions,test_session,train_guarded_pnl,train_unguarded_pnl,test_guarded_pnl,test_unguarded_pnl,guarded_delta,test_blocks,test_trades
+leave_2026-06-14_out,3,2026-06-14,8.777917,8.777917,0,0,0,0,0
+leave_2026-06-15_out,3,2026-06-15,5.267825,5.267825,3.510092,3.510092,0,16561,17
+leave_2026-06-16_out,3,2026-06-16,7.522733,7.522733,1.255184,1.255184,0,40,10
+leave_2026-06-17_out,3,2026-06-17,4.765276,4.765276,4.012641,4.012641,0,236,15

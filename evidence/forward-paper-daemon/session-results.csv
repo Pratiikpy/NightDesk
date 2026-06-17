@@ -1,0 +1,5 @@
+run_id,champion_id,frozen_at,recording,snapshots,trades,wins,losses,net_pnl,max_drawdown,fees,session_hash,mode
+forward_2026-06-17T16-08-23-260Z,perp_gap_fade_e0p35_x0_tp2_sl0p75_h9999_n0p5_m2,2026-06-17T16:08:20.334Z,2026-06-14,0,0,0,0,0,0,0,2c3b272ac3f6aa11f5048f7dfc890d8a8865707af05199230e2ea522221f4aeb,frozen_config_forward_paper
+forward_2026-06-17T16-08-23-260Z,perp_gap_fade_e0p35_x0_tp2_sl0p75_h9999_n0p5_m2,2026-06-17T16:08:20.334Z,2026-06-15,1452,2,2,0,19.847635,3.998328,2.036551,708606ce609605d3b7894a66d159e00f7ba8bf0e99619d301fbee598028be7fa,frozen_config_forward_paper
+forward_2026-06-17T16-08-23-260Z,perp_gap_fade_e0p35_x0_tp2_sl0p75_h9999_n0p5_m2,2026-06-17T16:08:20.334Z,2026-06-16,12,0,0,0,0,0,0,b49662adb0315ad9341031cbf6fb9ff4e013ba84f54b27b17ba0835944c1d2f8,frozen_config_forward_paper
+forward_2026-06-17T16-08-23-260Z,perp_gap_fade_e0p35_x0_tp2_sl0p75_h9999_n0p5_m2,2026-06-17T16:08:20.334Z,2026-06-17,89,3,3,0,28.009865,0.962462,3.048521,43823bf7f96d0d445856073869a7411dbc1aaa7e5ec35272f6ab9b8a440dd2b4,frozen_config_forward_paper

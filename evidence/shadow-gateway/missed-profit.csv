@@ -1,0 +1,6 @@
+agent,missed_profit,note
+naive_gap_agent,0.644585,positive means the unrestricted path made more on this sample
+perp_trust_agent,5.560403,positive means the unrestricted path made more on this sample
+momentum_agent,7.621146,positive means the unrestricted path made more on this sample
+news_blind_agent,0.644585,positive means the unrestricted path made more on this sample
+random_agent,7.071511,positive means the unrestricted path made more on this sample

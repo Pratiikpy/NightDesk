@@ -1,0 +1,17 @@
+{
+  "id": "alpha_factory",
+  "claim": "NightDesk autonomously searches strategy candidates, rejects fragile configs, freezes a champion, and exports expected-vs-actual evidence.",
+  "acceptance_criteria": [
+    "trial registry exists",
+    "rejected strategies exist",
+    "frozen champion exists",
+    "paper log exists"
+  ],
+  "evidence": [
+    "evidence/alpha-factory/manifest.json",
+    "evidence/alpha-factory/trial-registry.jsonl",
+    "evidence/alpha-factory/frozen-champion.json"
+  ],
+  "status": "verified",
+  "caveat": "Current dataset has 3 recordings; future OOS sessions remain the next proof layer."
+}

@@ -1,0 +1,238 @@
+{
+  "ok": true,
+  "env": {
+    "generatedAt": "2026-06-17T14:46:03.306Z",
+    "node": "v22.17.0",
+    "npm": "10.9.2",
+    "os": "win32 10.0.26300",
+    "gitCommit": "fatal: not a git repository (or any of the parent directories): .git",
+    "gitStatus": "fatal: not a git repository (or any of the parent directories): .git",
+    "packageLock": true
+  },
+  "rows": [
+    {
+      "area": "Fresh clone",
+      "command": "NIGHTDESK_REPO_URL",
+      "expectedArtifact": "fresh clone log",
+      "passCriteria": "public repo clone/install path tested",
+      "actualResult": "KNOWN-LIMITATION",
+      "notes": "NIGHTDESK_REPO_URL not set; local repo verification used"
+    },
+    {
+      "area": "Clean install",
+      "command": "npm ci --dry-run",
+      "expectedArtifact": "package-lock.json",
+      "passCriteria": "lockfile dry-run installs cleanly; run full npm ci on clean clone",
+      "actualResult": "PASS",
+      "notes": "command exited 0",
+      "durationMs": 796
+    },
+    {
+      "area": "Build",
+      "command": "npm run build",
+      "expectedArtifact": "TypeScript noEmit",
+      "passCriteria": "typecheck exits 0",
+      "actualResult": "PASS",
+      "notes": "command exited 0",
+      "durationMs": 2358
+    },
+    {
+      "area": "Unit tests",
+      "command": "npm test",
+      "expectedArtifact": "TAP output",
+      "passCriteria": "all tests pass",
+      "actualResult": "PASS",
+      "notes": "command exited 0",
+      "durationMs": 8442
+    },
+    {
+      "area": "Property tests",
+      "command": "npm run test:properties",
+      "expectedArtifact": "property-test output",
+      "passCriteria": "property tests pass",
+      "actualResult": "PASS",
+      "notes": "command exited 0",
+      "durationMs": 3148
+    },
+    {
+      "area": "Paper log",
+      "command": "npm run paper-log:verify",
+      "expectedArtifact": "evidence/paper-log-verify.json",
+      "passCriteria": "Bitget paper log schema valid",
+      "actualResult": "PASS",
+      "notes": "command exited 0",
+      "durationMs": 614
+    },
+    {
+      "area": "Ledger tamper",
+      "command": "npm run ledger:tamper-test",
+      "expectedArtifact": "evidence/ledger-tamper-test.json",
+      "passCriteria": "mutations fail verification",
+      "actualResult": "PASS",
+      "notes": "command exited 0",
+      "durationMs": 622
+    },
+    {
+      "area": "Firewall abuse",
+      "command": "npm run malicious-agent:test",
+      "expectedArtifact": "evidence/integration/malicious-agent-rejections.jsonl",
+      "passCriteria": "unsafe intents rejected; oversized valid intent capped",
+      "actualResult": "PASS",
+      "notes": "command exited 0",
+      "durationMs": 916
+    },
+    {
+      "area": "Redteam",
+      "command": "npm run redteam",
+      "expectedArtifact": "evidence/redteam/redteam-report.md",
+      "passCriteria": "hostile inputs do not execute unsafely",
+      "actualResult": "PASS",
+      "notes": "command exited 0",
+      "durationMs": 654
+    },
+    {
+      "area": "Gate coverage",
+      "command": "npm run gates:coverage",
+      "expectedArtifact": "evidence/gates/gate-coverage.md",
+      "passCriteria": "15 gates have pass/fail coverage",
+      "actualResult": "PASS",
+      "notes": "command exited 0",
+      "durationMs": 634
+    },
+    {
+      "area": "Fill realism",
+      "command": "npm run fill:realism-report",
+      "expectedArtifact": "evidence/fill-model/fill-model-report.md",
+      "passCriteria": "fill torture cases pass",
+      "actualResult": "PASS",
+      "notes": "command exited 0",
+      "durationMs": 622
+    },
+    {
+      "area": "Purged walk-forward",
+      "command": "npm run walkforward:purged",
+      "expectedArtifact": "evidence/walkforward/purged-split-report.md",
+      "passCriteria": "no test-fold threshold selection",
+      "actualResult": "PASS",
+      "notes": "command exited 0",
+      "durationMs": 19303
+    },
+    {
+      "area": "OOS daemon",
+      "command": "npm run oos:status",
+      "expectedArtifact": "evidence/oos-daemon/state.json",
+      "passCriteria": "daemon state readable with snapshots",
+      "actualResult": "PASS",
+      "notes": "command exited 0",
+      "durationMs": 614
+    },
+    {
+      "area": "External SDK/MCP",
+      "command": "npm run external-agent-demo",
+      "expectedArtifact": "evidence/trading-log/nightdesk-paper-trading-log.csv",
+      "passCriteria": "external-agent flow produces paper evidence",
+      "actualResult": "PASS",
+      "notes": "command exited 0",
+      "durationMs": 962
+    },
+    {
+      "area": "MCP integration",
+      "command": "npm run mcp:integration-test",
+      "expectedArtifact": "evidence/integration/mcp-tool-call-log.jsonl",
+      "passCriteria": "MCP-shaped calls logged",
+      "actualResult": "PASS",
+      "notes": "command exited 0",
+      "durationMs": 925
+    },
+    {
+      "area": "Bitget read-only",
+      "command": "npm run bitget:read-only-proof",
+      "expectedArtifact": "evidence/bitget-live/read-only-proof.md",
+      "passCriteria": "read-only proof works without trade credentials",
+      "actualResult": "PASS",
+      "notes": "command exited 0",
+      "durationMs": 2191
+    },
+    {
+      "area": "Claims",
+      "command": "npm run claims:verify",
+      "expectedArtifact": "evidence/claims/claims-manifest.json",
+      "passCriteria": "major claims map to evidence",
+      "actualResult": "PASS",
+      "notes": "command exited 0",
+      "durationMs": 630
+    },
+    {
+      "area": "Run cards",
+      "command": "npm run run-cards:generate",
+      "expectedArtifact": "evidence/run-cards/manifest.json",
+      "passCriteria": "judge run cards generated",
+      "actualResult": "PASS",
+      "notes": "command exited 0",
+      "durationMs": 616
+    },
+    {
+      "area": "Doctor",
+      "command": "npm run doctor",
+      "expectedArtifact": "evidence/doctor-report.json",
+      "passCriteria": "no failing doctor rows",
+      "actualResult": "PASS",
+      "notes": "command exited 0",
+      "durationMs": 655
+    },
+    {
+      "area": "Data health",
+      "command": "npm run data:health",
+      "expectedArtifact": "evidence/data-health/source-health.json",
+      "passCriteria": "source health generated",
+      "actualResult": "PASS",
+      "notes": "command exited 0",
+      "durationMs": 656
+    },
+    {
+      "area": "Docs",
+      "command": "npm run docs:check",
+      "expectedArtifact": "evidence/docs-check.json",
+      "passCriteria": "docs exist and no stale overclaims",
+      "actualResult": "PASS",
+      "notes": "command exited 0",
+      "durationMs": 637
+    },
+    {
+      "area": "Secrets",
+      "command": "npm run secrets:scan",
+      "expectedArtifact": "evidence/secrets-scan.json",
+      "passCriteria": "no real credential findings",
+      "actualResult": "PASS",
+      "notes": "command exited 0",
+      "durationMs": 728
+    },
+    {
+      "area": "Evidence",
+      "command": "npm run evidence:verify",
+      "expectedArtifact": "evidence/manifest.json",
+      "passCriteria": "artifact verifier passes",
+      "actualResult": "PASS",
+      "notes": "command exited 0",
+      "durationMs": 677
+    },
+    {
+      "area": "Judge cockpit",
+      "command": "npm run dashboard:judge",
+      "expectedArtifact": "evidence/judge-cockpit/index.html",
+      "passCriteria": "static cockpit generated",
+      "actualResult": "PASS",
+      "notes": "command exited 0",
+      "durationMs": 644
+    },
+    {
+      "area": "Judge max",
+      "command": "npm run judge:max",
+      "expectedArtifact": "evidence/max-judge-manifest.json",
+      "passCriteria": "tests + evidence + manifest pass",
+      "actualResult": "PASS",
+      "notes": "command exited 0",
+      "durationMs": 9736
+    }
+  ]
+}

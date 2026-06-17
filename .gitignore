@@ -1,0 +1,26 @@
+# Secrets — never commit
+.env
+.env.*
+!.env.example
+
+# Dependencies / build
+node_modules/
+dist/
+__pycache__/
+*.pyc
+*.tar.gz
+
+# Data recordings (large; published separately, not via git)
+data/
+recordings/
+
+# Logs
+*.log
+logs/
+
+# Local research clones / reference repos
+.research/
+
+# Internal strategy / self-assessment docs — keep local, never ship to the judge-facing tree
+win-strategy.md
+judge-eval.md

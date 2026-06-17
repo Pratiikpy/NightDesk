@@ -1,0 +1,5 @@
+{"jsonrpc":"2.0","id":1,"method":"tools/call","params":{"name":"evaluate_intent","arguments":{"ticker":"AAPL","side":"buy","sizeUsd":50}},"result":{"verdict":"ALLOW","reason":"ok"}}
+{"jsonrpc":"2.0","id":2,"method":"tools/call","params":{"name":"evaluate_intent","arguments":{"ticker":"TSLA","side":"sell","sizeUsd":50}},"result":{"verdict":"ALLOW","reason":"ok"}}
+{"jsonrpc":"2.0","id":3,"method":"tools/call","params":{"name":"evaluate_intent","arguments":{"ticker":"NVDA","side":"buy","sizeUsd":50}},"result":{"verdict":"ALLOW","reason":"ok"}}
+{"jsonrpc":"2.0","id":4,"method":"tools/call","params":{"name":"evaluate_intent","arguments":{"ticker":"MSFT","side":"sell","sizeUsd":50}},"result":{"verdict":"ALLOW","reason":"ok"}}
+{"jsonrpc":"2.0","id":5,"method":"tools/call","params":{"name":"evaluate_intent","arguments":{"ticker":"GOOGL","side":"buy","sizeUsd":50}},"result":{"verdict":"ALLOW","reason":"ok"}}

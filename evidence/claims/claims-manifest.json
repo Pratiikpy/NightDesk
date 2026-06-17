@@ -1,0 +1,101 @@
+{
+  "generatedAt": "2026-06-17T16:08:20.399Z",
+  "claims": [
+    {
+      "id": "paper_trading_record",
+      "claim": "NightDesk produces Bitget-style paper trading records with timestamp, asset, direction, price, quantity, and balance change.",
+      "acceptance_criteria": [
+        "CSV exists",
+        "schema contains required Bitget fields",
+        "executed fills and blocked intents are both present"
+      ],
+      "evidence": [
+        "evidence/trading-log/nightdesk-paper-trading-log.csv",
+        "evidence/trading-log/run-summary.md",
+        "evidence:verify"
+      ],
+      "status": "verified",
+      "caveat": "Paper record is execution evidence, not a live capital claim."
+    },
+    {
+      "id": "alpha_factory",
+      "claim": "NightDesk autonomously searches strategy candidates, rejects fragile configs, freezes a champion, and exports expected-vs-actual evidence.",
+      "acceptance_criteria": [
+        "trial registry exists",
+        "rejected strategies exist",
+        "frozen champion exists",
+        "paper log exists"
+      ],
+      "evidence": [
+        "evidence/alpha-factory/manifest.json",
+        "evidence/alpha-factory/trial-registry.jsonl",
+        "evidence/alpha-factory/frozen-champion.json"
+      ],
+      "status": "verified",
+      "caveat": "Current dataset has 3 recordings; future OOS sessions remain the next proof layer."
+    },
+    {
+      "id": "raw_pnl_championship",
+      "claim": "NightDesk can compete on raw PnL over current recordings through a reproducible Alpha Championship.",
+      "acceptance_criteria": [
+        "champion positive",
+        "global same-config replay positive",
+        "paper log exported"
+      ],
+      "evidence": [
+        "evidence/alpha-championship/manifest.json",
+        "evidence/alpha-championship/champion-paper-trading-log.csv"
+      ],
+      "status": "verified",
+      "caveat": "In-sample/current-recording championship, not guaranteed future alpha."
+    },
+    {
+      "id": "safety_gateway",
+      "claim": "Unsafe external-agent intents are rejected or capped before execution.",
+      "acceptance_criteria": [
+        "firewall tests pass",
+        "property tests pass",
+        "sample unsafe verdict exists",
+        "external integration proof exists"
+      ],
+      "evidence": [
+        "evidence/sample-outputs/unsafe-sell-verdict.json",
+        "evidence/integration/external-agent-run.jsonl",
+        "test/kernel.property.test.ts"
+      ],
+      "status": "verified",
+      "caveat": "Live trading remains explicitly gated and disabled by default."
+    },
+    {
+      "id": "bitget_native",
+      "claim": "NightDesk can generate certificates from live public Bitget market data without credentials.",
+      "acceptance_criteria": [
+        "read-only proof exists",
+        "live snapshot exists",
+        "no secrets in logs"
+      ],
+      "evidence": [
+        "evidence/bitget-live/read-only-proof.md",
+        "evidence/bitget-live/live-market-snapshot.json"
+      ],
+      "status": "verified",
+      "caveat": "Private trading endpoints are not required for judge reproduction."
+    },
+    {
+      "id": "shadow_gateway",
+      "claim": "NightDesk measures whether guarding helps by comparing actual, guarded, reckless, and always-block counterfactuals.",
+      "acceptance_criteria": [
+        "actual-vs-guarded exists",
+        "missed-profit exists",
+        "blocked-loss exists"
+      ],
+      "evidence": [
+        "evidence/shadow-gateway/actual-vs-guarded.csv",
+        "evidence/shadow-gateway/missed-profit.csv",
+        "evidence/shadow-gateway/blocked-loss.csv"
+      ],
+      "status": "verified",
+      "caveat": "This report is honest when guarding reduces raw PnL on a sample."
+    }
+  ]
+}

@@ -1,0 +1,9 @@
+{
+  "verdict": "ALLOW",
+  "reason": "ok",
+  "allowedPolicy": "LONG-ONLY FADE",
+  "classification": "MISPRICED",
+  "safetyScore": 90,
+  "maxSizeUsd": 75,
+  "certificateExpiresAt": "2026-06-16T13:00:00.000Z"
+}

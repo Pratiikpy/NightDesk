@@ -1,0 +1,57 @@
+{
+  "generatedAt": "2026-06-17T16:07:31.348Z",
+  "mode": "fast",
+  "files": [
+    "C:\\Users\\prate\\Downloads\\bitget\\data\\snapshots\\2026-06-14.jsonl",
+    "C:\\Users\\prate\\Downloads\\bitget\\data\\snapshots\\2026-06-15.jsonl",
+    "C:\\Users\\prate\\Downloads\\bitget\\data\\snapshots\\2026-06-16.jsonl",
+    "C:\\Users\\prate\\Downloads\\bitget\\data\\snapshots\\2026-06-17.jsonl"
+  ],
+  "configsScannedPerRecording": 9720,
+  "totalRuns": 38880,
+  "globalChampion": {
+    "config": {
+      "id": "perp_gap_fade_e0p35_x0_tp2_sl1p25_h9999_n0p35_m5",
+      "source": "perp_gap",
+      "direction": "fade",
+      "entryPct": 0.35,
+      "exitPct": 0,
+      "takeProfitPct": 2,
+      "stopLossPct": 1.25,
+      "maxHoldSnapshots": 9999,
+      "notionalPct": 0.35,
+      "maxConcurrent": 5,
+      "feePct": 0.1
+    },
+    "totalPnl": 49.585494,
+    "avgPnl": 12.396373,
+    "positiveSessions": 2,
+    "sessions": 4,
+    "totalTrades": 13,
+    "totalWins": 11,
+    "totalLosses": 2,
+    "maxDrawdown": 5.365394
+  },
+  "champion": {
+    "recording": "2026-06-15",
+    "config": {
+      "id": "perp_gap_fade_e0p1_x0_tp0p75_sl0p75_h9999_n0p5_m5",
+      "source": "perp_gap",
+      "direction": "fade",
+      "entryPct": 0.1,
+      "exitPct": 0,
+      "takeProfitPct": 0.75,
+      "stopLossPct": 0.75,
+      "maxHoldSnapshots": 9999,
+      "notionalPct": 0.5,
+      "maxConcurrent": 5,
+      "feePct": 0.1
+    },
+    "endingBalance": 1030.588985,
+    "netPnl": 30.588985,
+    "maxDrawdown": 8.810422,
+    "trades": 18,
+    "wins": 15,
+    "losses": 3
+  }
+}

@@ -1,0 +1,1070 @@
+{
+  "generatedAt": "2026-06-17T14:44:58.369Z",
+  "ok": true,
+  "results": [
+    {
+      "id": "fresh-repo",
+      "name": "Judge opens repo fresh",
+      "persona": "Hackathon judge",
+      "goal": "Prove install, build, tests, and judge pack run without manual help.",
+      "commands": [
+        {
+          "command": "npm ci --dry-run"
+        },
+        {
+          "command": "npm run build"
+        },
+        {
+          "command": "npm test"
+        },
+        {
+          "command": "npm run judge:max"
+        }
+      ],
+      "artifacts": [
+        "evidence/manifest.json",
+        "evidence/judge-run.json",
+        "evidence/run-cards/judge-max-card.md",
+        "evidence/judge-cockpit/index.html"
+      ],
+      "passCriteria": [
+        "Lockfile install dry-run passes",
+        "Typecheck passes",
+        "177 tests pass",
+        "judge:max passes"
+      ],
+      "failIf": [
+        "Needs hidden local files",
+        "Needs API keys for core demo",
+        "Manifest missing"
+      ],
+      "status": "PASS",
+      "durationMs": 23536,
+      "commandResults": [
+        {
+          "command": "npm ci --dry-run",
+          "status": "PASS",
+          "durationMs": 1249,
+          "tail": "add @esbuild/linux-riscv64 0.28.1\nadd @esbuild/linux-ppc64 0.28.1\nadd @esbuild/linux-mips64el 0.28.1\nadd @esbuild/linux-loong64 0.28.1\nadd @esbuild/linux-ia32 0.28.1\nadd @esbuild/linux-arm64 0.28.1\nadd @esbuild/linux-arm 0.28.1\nadd @esbuild/freebsd-x64 0.28.1\nadd @esbuild/freebsd-arm64 0.28.1\nadd @esbuild/darwin-x64 0.28.1\nadd @esbuild/darwin-arm64 0.28.1\nadd @esbuild/android-x64 0.28.1\nadd @esbuild/android-arm64 0.28.1\nadd @esbuild/android-arm 0.28.1\nadd @esbuild/aix-ppc64 0.28.1\n\nadded 26 packages in 964ms\n\n5 packages are looking for funding\n  run `npm fund` for details"
+        },
+        {
+          "command": "npm run build",
+          "status": "PASS",
+          "durationMs": 2611,
+          "tail": "> nightdesk@0.0.1 build\n> tsc --noEmit"
+        },
+        {
+          "command": "npm test",
+          "status": "PASS",
+          "durationMs": 9183,
+          "tail": "ok 176 - tokenQuality: a loose, volatile, illiquid token grades low\n  ---\n  duration_ms: 0.2046\n  type: 'test'\n  ...\n# Subtest: tokenQuality is n/a with too few aligned days\nok 177 - tokenQuality is n/a with too few aligned days\n  ---\n  duration_ms: 0.2616\n  type: 'test'\n  ...\n1..177\n# tests 177\n# suites 0\n# pass 177\n# fail 0\n# cancelled 0\n# skipped 0\n# todo 0\n# duration_ms 8725.2949"
+        },
+        {
+          "command": "npm run judge:max",
+          "status": "PASS",
+          "durationMs": 10493,
+          "tail": "✓ evidence/live-receipt/live-receipt-report.md\n✓ evidence/championship/leaderboard_pnl.csv\n✓ evidence/championship/leaderboard_safety.csv\n✓ evidence/championship/champion-pnl.json\n✓ evidence/championship/champion-safety.json\n✓ evidence/championship/champion-pnl-paper-log.csv\n✓ evidence/championship/champion-safety-paper-log.csv\n✓ evidence/championship/championship-report.md\n✓ evidence/championship/pnl-vs-safety-comparison.md\n✓ evidence/championship/champion-overfit-check.md\n✓ evidence/championship/champion-overfit-card.md\n✓ evidence/championship/trial-registry.csv\n✓ evidence/championship/manifest.json\n✓ evidence/manifest.json\n✓ docs/PNL_CLAIM_STANDARD.md\n✓ docs/NAUTILUS_LESSONS.md\n✓ docs/SECURITY_BOUNDARIES.md\n✓ docs/BITGET_NATIVE_PROOF.md\n✓ docs/CLAIM_LEDGER.md\nNIGHTDESK MAX JUDGE PACK VERIFIED"
+        }
+      ],
+      "artifactResults": [
+        {
+          "file": "evidence/manifest.json",
+          "exists": true,
+          "nonEmpty": true
+        },
+        {
+          "file": "evidence/judge-run.json",
+          "exists": true,
+          "nonEmpty": true
+        },
+        {
+          "file": "evidence/run-cards/judge-max-card.md",
+          "exists": true,
+          "nonEmpty": true
+        },
+        {
+          "file": "evidence/judge-cockpit/index.html",
+          "exists": true,
+          "nonEmpty": true
+        }
+      ],
+      "notes": [
+        "scenario passed"
+      ]
+    },
+    {
+      "id": "paper-record",
+      "name": "Judge wants paper trading record",
+      "persona": "Trading-track judge",
+      "goal": "Prove NightDesk produces Bitget-style paper trading logs.",
+      "commands": [
+        {
+          "command": "npm run paper-session"
+        },
+        {
+          "command": "npm run paper-log:verify"
+        }
+      ],
+      "artifacts": [
+        "evidence/trading-log/nightdesk-paper-trading-log.csv",
+        "evidence/trading-log/run-summary.md",
+        "evidence/trading-log/account-snapshots.jsonl",
+        "evidence/paper-log-verify.json"
+      ],
+      "passCriteria": [
+        "Timestamp/asset/direction/price/quantity/balance fields present",
+        "Trade and block rows validated",
+        "Balance math verified"
+      ],
+      "failIf": [
+        "ALLOW without certificate",
+        "REJECT without reason",
+        "Balance mismatch"
+      ],
+      "status": "PASS",
+      "durationMs": 1576,
+      "commandResults": [
+        {
+          "command": "npm run paper-session",
+          "status": "PASS",
+          "durationMs": 943,
+          "tail": "> nightdesk@0.0.1 paper-session\n> tsx src/execution/paper-session.ts\n\n\nNIGHTDESK PAPER SESSION COMPLETE\ntokens: 19\nintents: 19\nallowed: 3\ncapped: 5\nrejected: 11\nsimulated fills: 8\nstarting balance: 1000.00\nending balance: 999.67\nledger: verified\ntrading log: C:\\Users\\prate\\Downloads\\bitget\\evidence\\trading-log\\nightdesk-paper-trading-log.csv"
+        },
+        {
+          "command": "npm run paper-log:verify",
+          "status": "PASS",
+          "durationMs": 633,
+          "tail": "> nightdesk@0.0.1 paper-log:verify\n> tsx src/evidence/paper-log-verify.ts\n\nNIGHTDESK PAPER LOG VERIFY PASS\nrows=19 trades=8 blocks=11 abstains=0"
+        }
+      ],
+      "artifactResults": [
+        {
+          "file": "evidence/trading-log/nightdesk-paper-trading-log.csv",
+          "exists": true,
+          "nonEmpty": true
+        },
+        {
+          "file": "evidence/trading-log/run-summary.md",
+          "exists": true,
+          "nonEmpty": true
+        },
+        {
+          "file": "evidence/trading-log/account-snapshots.jsonl",
+          "exists": true,
+          "nonEmpty": true
+        },
+        {
+          "file": "evidence/paper-log-verify.json",
+          "exists": true,
+          "nonEmpty": true
+        }
+      ],
+      "notes": [
+        "scenario passed"
+      ]
+    },
+    {
+      "id": "external-agent",
+      "name": "External agent uses NightDesk",
+      "persona": "Infra judge / third-party developer",
+      "goal": "Prove SDK/MCP integration path is runnable.",
+      "commands": [
+        {
+          "command": "npm run sdk:example"
+        },
+        {
+          "command": "npm run external-agent-demo"
+        },
+        {
+          "command": "npm run mcp:integration-test"
+        }
+      ],
+      "artifacts": [
+        "evidence/integration/external-agent-run.jsonl",
+        "evidence/integration/sdk-example-output.json",
+        "evidence/integration/mcp-tool-call-log.jsonl"
+      ],
+      "passCriteria": [
+        "External intent evaluated",
+        "MCP-shaped calls logged",
+        "Paper execution happens only after approval"
+      ],
+      "failIf": [
+        "External agent bypasses firewall",
+        "MCP emits invalid JSON",
+        "SDK requires undocumented config"
+      ],
+      "status": "PASS",
+      "durationMs": 3028,
+      "commandResults": [
+        {
+          "command": "npm run sdk:example",
+          "status": "PASS",
+          "durationMs": 928,
+          "tail": "> nightdesk@0.0.1 sdk:example\n> tsx src/execution/integration-proof.ts\n\n\nNIGHTDESK INTEGRATION PROOF COMPLETE\ncalls: 5\nlog: C:\\Users\\prate\\Downloads\\bitget\\evidence\\integration\\external-agent-run.jsonl"
+        },
+        {
+          "command": "npm run external-agent-demo",
+          "status": "PASS",
+          "durationMs": 1084,
+          "tail": "> nightdesk@0.0.1 external-agent-demo\n> tsx src/execution/paper-session.ts --external-agent-demo\n\n\nNIGHTDESK PAPER SESSION COMPLETE\ntokens: 19\nintents: 19\nallowed: 3\ncapped: 5\nrejected: 11\nsimulated fills: 8\nstarting balance: 1000.00\nending balance: 999.67\nledger: verified\ntrading log: C:\\Users\\prate\\Downloads\\bitget\\evidence\\trading-log\\nightdesk-paper-trading-log.csv"
+        },
+        {
+          "command": "npm run mcp:integration-test",
+          "status": "PASS",
+          "durationMs": 1016,
+          "tail": "> nightdesk@0.0.1 mcp:integration-test\n> tsx src/execution/integration-proof.ts\n\n\nNIGHTDESK INTEGRATION PROOF COMPLETE\ncalls: 5\nlog: C:\\Users\\prate\\Downloads\\bitget\\evidence\\integration\\external-agent-run.jsonl"
+        }
+      ],
+      "artifactResults": [
+        {
+          "file": "evidence/integration/external-agent-run.jsonl",
+          "exists": true,
+          "nonEmpty": true
+        },
+        {
+          "file": "evidence/integration/sdk-example-output.json",
+          "exists": true,
+          "nonEmpty": true
+        },
+        {
+          "file": "evidence/integration/mcp-tool-call-log.jsonl",
+          "exists": true,
+          "nonEmpty": true
+        }
+      ],
+      "notes": [
+        "scenario passed"
+      ]
+    },
+    {
+      "id": "malicious-agent",
+      "name": "Malicious agent attacks gateway",
+      "persona": "Adversarial agent",
+      "goal": "Prove unsafe intents reject and valid oversized intents cap.",
+      "commands": [
+        {
+          "command": "npm run malicious-agent:test"
+        },
+        {
+          "command": "npm run redteam"
+        },
+        {
+          "command": "npm run test:properties"
+        }
+      ],
+      "artifacts": [
+        "evidence/integration/malicious-agent-rejections.jsonl",
+        "evidence/redteam/redteam-report.md"
+      ],
+      "passCriteria": [
+        "unsafe_intents_allowed = 0",
+        "Tampered/expired/stale certs rejected",
+        "Malformed intents rejected"
+      ],
+      "failIf": [
+        "Unsafe ALLOW",
+        "Crash instead of rejection",
+        "Rejection lacks reason"
+      ],
+      "status": "PASS",
+      "durationMs": 5104,
+      "commandResults": [
+        {
+          "command": "npm run malicious-agent:test",
+          "status": "PASS",
+          "durationMs": 1054,
+          "tail": "> nightdesk@0.0.1 malicious-agent:test\n> tsx src/execution/integration-proof.ts\n\n\nNIGHTDESK INTEGRATION PROOF COMPLETE\ncalls: 5\nlog: C:\\Users\\prate\\Downloads\\bitget\\evidence\\integration\\external-agent-run.jsonl"
+        },
+        {
+          "command": "npm run redteam",
+          "status": "PASS",
+          "durationMs": 741,
+          "tail": "> nightdesk@0.0.1 redteam\n> tsx src/security/redteam.ts\n\nNIGHTDESK REDTEAM PASS\ncases=15 unsafe_allowed=0"
+        },
+        {
+          "command": "npm run test:properties",
+          "status": "PASS",
+          "durationMs": 3309,
+          "tail": "ok 3 - PROPERTY: a ticker mismatch is ALWAYS rejected\n  ---\n  duration_ms: 96.1256\n  type: 'test'\n  ...\n# Subtest: PROPERTY: the firewall never permits more than the certificate's max size\nok 4 - PROPERTY: the firewall never permits more than the certificate's max size\n  ---\n  duration_ms: 92.5662\n  type: 'test'\n  ...\n1..4\n# tests 4\n# suites 0\n# pass 4\n# fail 0\n# cancelled 0\n# skipped 0\n# todo 0\n# duration_ms 2903.8593"
+        }
+      ],
+      "artifactResults": [
+        {
+          "file": "evidence/integration/malicious-agent-rejections.jsonl",
+          "exists": true,
+          "nonEmpty": true
+        },
+        {
+          "file": "evidence/redteam/redteam-report.md",
+          "exists": true,
+          "nonEmpty": true
+        }
+      ],
+      "notes": [
+        "scenario passed"
+      ]
+    },
+    {
+      "id": "quant-overfit",
+      "name": "Quant judge checks overfitting",
+      "persona": "Skeptical quant judge",
+      "goal": "Prove green PnL is accompanied by trial registry and overfit controls.",
+      "commands": [
+        {
+          "command": "npm run championship:report"
+        },
+        {
+          "command": "npm run championship:overfit-check"
+        },
+        {
+          "command": "npm run alpha:factory"
+        },
+        {
+          "command": "npm run alpha:compare"
+        }
+      ],
+      "artifacts": [
+        "evidence/championship/leaderboard_pnl.csv",
+        "evidence/championship/leaderboard_safety.csv",
+        "evidence/championship/champion-overfit-card.md",
+        "evidence/alpha-factory/trial-registry.jsonl",
+        "evidence/alpha-factory/rejected-overfit-strategies.csv"
+      ],
+      "passCriteria": [
+        "Trial registry present",
+        "Rejected configs present",
+        "PnL and Safety champions separate",
+        "Fragility label present"
+      ],
+      "failIf": [
+        "Same-sample PnL claimed as guaranteed future alpha",
+        "Winner lacks cutoff",
+        "Rejected configs lack reasons"
+      ],
+      "status": "PASS",
+      "durationMs": 184874,
+      "commandResults": [
+        {
+          "command": "npm run championship:report",
+          "status": "PASS",
+          "durationMs": 63647,
+          "tail": "> nightdesk@0.0.1 championship:report\n> tsx src/research/championship/championship-mode.ts\n\n\nNIGHTDESK CHAMPIONSHIP MODE COMPLETE\nsessions: 4\ncandidates: 10515\npnl champion: GapFade_perp_gap_entry0_35_exit0_tp2_sl0_75_h9999_n0_65_m2 pnl=60.079614\nsafety champion: GapFade_perp_gap_entry0_35_exit0_tp2_sl0_75_h9999_n0_65_m2 score=47.722623"
+        },
+        {
+          "command": "npm run championship:overfit-check",
+          "status": "PASS",
+          "durationMs": 60116,
+          "tail": "> nightdesk@0.0.1 championship:overfit-check\n> tsx src/research/championship/championship-mode.ts\n\n\nNIGHTDESK CHAMPIONSHIP MODE COMPLETE\nsessions: 4\ncandidates: 10515\npnl champion: GapFade_perp_gap_entry0_35_exit0_tp2_sl0_75_h9999_n0_65_m2 pnl=60.079614\nsafety champion: GapFade_perp_gap_entry0_35_exit0_tp2_sl0_75_h9999_n0_65_m2 score=47.722623"
+        },
+        {
+          "command": "npm run alpha:factory",
+          "status": "PASS",
+          "durationMs": 60434,
+          "tail": "> nightdesk@0.0.1 alpha:factory\n> tsx src/research/alpha-factory.ts\n\n\nNIGHTDESK ALPHA FACTORY COMPLETE\nmode: fast\nrecordings: 4\ncandidates: 9720\ntrials: 38880\nrejected: 8286\npassed: 1434\nfrozen champion: perp_gap_fade_e0p35_x0_tp2_sl1p25_h9999_n0p35_m5\nreport: C:\\Users\\prate\\Downloads\\bitget\\evidence\\alpha-factory\\daily-alpha-report.md"
+        },
+        {
+          "command": "npm run alpha:compare",
+          "status": "PASS",
+          "durationMs": 677,
+          "tail": "> nightdesk@0.0.1 alpha:compare\n> tsx src/research/alpha-zoo.ts\n\nNIGHTDESK ALPHA ZOO COMPLETE: C:\\Users\\prate\\Downloads\\bitget\\evidence\\alpha-factory\\alpha-zoo-catalog.csv\nNIGHTDESK ALPHA COMPARE COMPLETE: C:\\Users\\prate\\Downloads\\bitget\\evidence\\alpha-factory\\strategy-compare.csv"
+        }
+      ],
+      "artifactResults": [
+        {
+          "file": "evidence/championship/leaderboard_pnl.csv",
+          "exists": true,
+          "nonEmpty": true
+        },
+        {
+          "file": "evidence/championship/leaderboard_safety.csv",
+          "exists": true,
+          "nonEmpty": true
+        },
+        {
+          "file": "evidence/championship/champion-overfit-card.md",
+          "exists": true,
+          "nonEmpty": true
+        },
+        {
+          "file": "evidence/alpha-factory/trial-registry.jsonl",
+          "exists": true,
+          "nonEmpty": true
+        },
+        {
+          "file": "evidence/alpha-factory/rejected-overfit-strategies.csv",
+          "exists": true,
+          "nonEmpty": true
+        }
+      ],
+      "notes": [
+        "scenario passed"
+      ]
+    },
+    {
+      "id": "pnl-only",
+      "name": "Judge cares only about PnL",
+      "persona": "PnL-first judge",
+      "goal": "Show PnL Champion and Safety Champion with claim boundaries.",
+      "commands": [
+        {
+          "command": "npm run championship:replay"
+        },
+        {
+          "command": "npm run pnl:casefile"
+        }
+      ],
+      "artifacts": [
+        "evidence/pnl-casefile/00-executive-summary.md",
+        "evidence/pnl-casefile/03-pnl-attribution.csv",
+        "evidence/championship/champion-pnl-paper-log.csv",
+        "evidence/championship/champion-safety-paper-log.csv"
+      ],
+      "passCriteria": [
+        "PnL Champion replay exists",
+        "Safety Champion replay exists",
+        "Claim boundary visible"
+      ],
+      "failIf": [
+        "No drawdown/baseline",
+        "Paper log lacks balance changes",
+        "PnL champion bypasses hard gates"
+      ],
+      "status": "PASS",
+      "durationMs": 62988,
+      "commandResults": [
+        {
+          "command": "npm run championship:replay",
+          "status": "PASS",
+          "durationMs": 62152,
+          "tail": "> nightdesk@0.0.1 championship:replay\n> tsx src/research/championship/championship-mode.ts\n\n\nNIGHTDESK CHAMPIONSHIP MODE COMPLETE\nsessions: 4\ncandidates: 10515\npnl champion: GapFade_perp_gap_entry0_35_exit0_tp2_sl0_75_h9999_n0_65_m2 pnl=59.980417\nsafety champion: GapFade_perp_gap_entry0_35_exit0_tp2_sl0_75_h9999_n0_65_m2 score=47.623477"
+        },
+        {
+          "command": "npm run pnl:casefile",
+          "status": "PASS",
+          "durationMs": 836,
+          "tail": "> nightdesk@0.0.1 pnl:casefile\n> tsx src/research/pnl-casefile.ts\n\n\nNIGHTDESK PNL CASEFILE COMPLETE\npaper net: -0.3345 USDT\nguarded replay net: 4.3440 USDT\nguarded deltas: 5\nreport: C:\\Users\\prate\\Downloads\\bitget\\evidence\\pnl-casefile\\00-executive-summary.md"
+        }
+      ],
+      "artifactResults": [
+        {
+          "file": "evidence/pnl-casefile/00-executive-summary.md",
+          "exists": true,
+          "nonEmpty": true
+        },
+        {
+          "file": "evidence/pnl-casefile/03-pnl-attribution.csv",
+          "exists": true,
+          "nonEmpty": true
+        },
+        {
+          "file": "evidence/championship/champion-pnl-paper-log.csv",
+          "exists": true,
+          "nonEmpty": true
+        },
+        {
+          "file": "evidence/championship/champion-safety-paper-log.csv",
+          "exists": true,
+          "nonEmpty": true
+        }
+      ],
+      "notes": [
+        "scenario passed"
+      ]
+    },
+    {
+      "id": "safety-ledger",
+      "name": "Safety judge checks certificates and ledger",
+      "persona": "Safety-focused judge",
+      "goal": "Prove certificates/firewall/ledger/tamper evidence work.",
+      "commands": [
+        {
+          "command": "npm run certify"
+        },
+        {
+          "command": "npm run firewall"
+        },
+        {
+          "command": "npm run verify"
+        },
+        {
+          "command": "npm run ledger:tamper-test"
+        }
+      ],
+      "artifacts": [
+        "evidence/trading-log/ledger-verification.txt",
+        "evidence/ledger-tamper-test.json"
+      ],
+      "passCriteria": [
+        "Certificate path runs",
+        "Firewall path runs",
+        "Ledger verifies",
+        "Tamper test fails mutated records"
+      ],
+      "failIf": [
+        "Tampered ledger passes",
+        "Certificate has no expiry",
+        "Wrong ticker cert works"
+      ],
+      "status": "PASS",
+      "durationMs": 28880,
+      "commandResults": [
+        {
+          "command": "npm run certify",
+          "status": "PASS",
+          "durationMs": 14066,
+          "tail": "SPY     +0.01% FAIR                81   B   NORMAL\nQQQ     -0.15% FAIR                81   B   NORMAL\nNFLX    +0.03% FAIR                76   C   NORMAL\nGME     +0.02% FAIR                76   C   NORMAL\nAAPL    -0.00% FAIR                74   B   NORMAL\nGOOGL   +0.05% FAIR                74   B   NORMAL\nAMZN    +0.01% FAIR                74   B   NORMAL\nSQQQ    +0.01% FAIR                70   D   NORMAL\nTQQQ    -0.03% FAIR                70   D   NORMAL\nCRCL    +0.03% FAIR                70   D   NORMAL\nMSTR    -0.07% FAIR                70   D   NORMAL\nORCL    +0.01% FAIR                70   D   NORMAL\nBABA    -0.01% FAIR                70   D   NORMAL\nTSLA    +0.01% FAIR                69   C   NORMAL\nPLTR    +0.04% FAIR                55   D   NORMAL\nHOOD    -0.01% FAIR                55   D   NORMAL\n\nsummary: FAIR=19\n\nsigned (Ed25519 pubkey#a7145920020b748d) → data/research/certification-2026-06-17.json · verify by re-hashing the tokens + checking the signature against the embedded public key"
+        },
+        {
+          "command": "npm run firewall",
+          "status": "PASS",
+          "durationMs": 13497,
+          "tail": "NVDA   sell FAIR            NORMAL          ALLOW        ok\nMSFT   buy  FAIR            NORMAL          ALLOW        ok\nGOOGL  buy  FAIR            NORMAL          ALLOW_CAPPED size capped to certificate max $18\nAMZN   buy  FAIR            NORMAL          ALLOW_CAPPED size capped to certificate max $18\nMETA   sell FAIR            NORMAL          ALLOW        ok\nSPY    buy  FAIR            NORMAL          ALLOW_CAPPED size capped to certificate max $35\nQQQ    buy  FAIR            NORMAL          ALLOW_CAPPED size capped to certificate max $35\nSQQQ   sell FAIR            NORMAL          ALLOW_CAPPED size capped to certificate max $35\nTQQQ   sell FAIR            NORMAL          ALLOW_CAPPED size capped to certificate max $35\nPLTR   buy  FAIR            NORMAL          REJECT       certificate max size is 0\nCRCL   sell FAIR            NORMAL          ALLOW_CAPPED size capped to certificate max $35\nHOOD   buy  FAIR            NORMAL          REJECT       certificate max size is 0\nMSTR   buy  FAIR            NORMAL          ALLOW_CAPPED size capped to certificate max $35\nORCL   sell FAIR            NORMAL          ALLOW_CAPPED size capped to certificate max $35\nNFLX   buy  FAIR            NORMAL          ALLOW_CAPPED size capped to certificate max $35\nBABA   buy  FAIR            NORMAL          ALLOW_CAPPED size capped to certificate max $35\nGME    buy  FAIR            NORMAL          ALLOW_CAPPED size capped to certificate max $35\n\nintent with NO certificate → REJECT (no certificate — proof-carrying intent required)\n17/19 tokens currently permit a (capped) trade. No agent touches a tokenized stock without a valid, unexpired, matching certificate."
+        },
+        {
+          "command": "npm run verify",
+          "status": "PASS",
+          "durationMs": 657,
+          "tail": "> nightdesk@0.0.1 verify\n> tsx src/index.ts verify\n\n\nNightDesk — ledger verification (Ed25519 · Compliance Gatekeeper audit trail)\n\n✓ VALID   C:\\Users\\prate\\Downloads\\bitget\\data\\ledger\\2026-06-14.jsonl\n    records=1  signature=valid  hashMatch=true  tamper-evident=true\n    signedAt=2026-06-17T02:17:29.545Z  pubkey#a7145920020b748d\n✓ VALID   C:\\Users\\prate\\Downloads\\bitget\\data\\ledger\\2026-06-15.jsonl\n    records=1  signature=valid  hashMatch=true  tamper-evident=true\n    signedAt=2026-06-15T12:54:53.085Z  pubkey#a7145920020b748d\n✓ VALID   C:\\Users\\prate\\Downloads\\bitget\\data\\ledger\\2026-06-16.jsonl\n    records=1  signature=valid  hashMatch=true  tamper-evident=true\n    signedAt=2026-06-16T17:53:04.452Z  pubkey#a7145920020b748d\n✓ VALID   C:\\Users\\prate\\Downloads\\bitget\\data\\ledger\\2026-06-17.jsonl\n    records=1  signature=valid  hashMatch=true  tamper-evident=true\n    signedAt=2026-06-17T07:32:44.575Z  pubkey#a7145920020b748d\n\n4 signed & verified, 0 invalid, 0 unsigned (legacy). Reproduce independently: re-hash the JSONL records, verify the Ed25519 signature against the embedded public key. Altering any record invalidates the signature."
+        },
+        {
+          "command": "npm run ledger:tamper-test",
+          "status": "PASS",
+          "durationMs": 660,
+          "tail": "> nightdesk@0.0.1 ledger:tamper-test\n> tsx src/ledger/tamper-test.ts\n\nNIGHTDESK LEDGER TAMPER TEST PASS"
+        }
+      ],
+      "artifactResults": [
+        {
+          "file": "evidence/trading-log/ledger-verification.txt",
+          "exists": true,
+          "nonEmpty": true
+        },
+        {
+          "file": "evidence/ledger-tamper-test.json",
+          "exists": true,
+          "nonEmpty": true
+        }
+      ],
+      "notes": [
+        "scenario passed"
+      ]
+    },
+    {
+      "id": "fill-realism",
+      "name": "Execution realism judge checks fills",
+      "persona": "Execution realism judge",
+      "goal": "Prove paper PnL is not fantasy mid-price fills.",
+      "commands": [
+        {
+          "command": "npm run fill:realism-report"
+        },
+        {
+          "command": "npm run fill:stress"
+        },
+        {
+          "command": "npm run fill:slippage-sweep"
+        }
+      ],
+      "artifacts": [
+        "evidence/fill-model/fill-model-report.md",
+        "evidence/fill-model/adverse-selection-cases.csv",
+        "evidence/fill-model/slippage-sweep.csv",
+        "evidence/fill-model/partial-fill-cases.csv"
+      ],
+      "passCriteria": [
+        "Partial/stale/adverse/bad-book cases pass",
+        "Fees/slippage included"
+      ],
+      "failIf": [
+        "Mid fills without depth",
+        "Fees ignored",
+        "Bad book fills"
+      ],
+      "status": "PASS",
+      "durationMs": 2081,
+      "commandResults": [
+        {
+          "command": "npm run fill:realism-report",
+          "status": "PASS",
+          "durationMs": 698,
+          "tail": "> nightdesk@0.0.1 fill:realism-report\n> tsx src/research/fill-realism.ts\n\n\nNIGHTDESK FILL REALISM COMPLETE\npassed: 7/7\nreport: C:\\Users\\prate\\Downloads\\bitget\\evidence\\fill-model\\fill-model-report.md"
+        },
+        {
+          "command": "npm run fill:stress",
+          "status": "PASS",
+          "durationMs": 683,
+          "tail": "> nightdesk@0.0.1 fill:stress\n> tsx src/research/fill-realism.ts\n\n\nNIGHTDESK FILL REALISM COMPLETE\npassed: 7/7\nreport: C:\\Users\\prate\\Downloads\\bitget\\evidence\\fill-model\\fill-model-report.md"
+        },
+        {
+          "command": "npm run fill:slippage-sweep",
+          "status": "PASS",
+          "durationMs": 700,
+          "tail": "> nightdesk@0.0.1 fill:slippage-sweep\n> tsx src/research/fill-realism.ts\n\n\nNIGHTDESK FILL REALISM COMPLETE\npassed: 7/7\nreport: C:\\Users\\prate\\Downloads\\bitget\\evidence\\fill-model\\fill-model-report.md"
+        }
+      ],
+      "artifactResults": [
+        {
+          "file": "evidence/fill-model/fill-model-report.md",
+          "exists": true,
+          "nonEmpty": true
+        },
+        {
+          "file": "evidence/fill-model/adverse-selection-cases.csv",
+          "exists": true,
+          "nonEmpty": true
+        },
+        {
+          "file": "evidence/fill-model/slippage-sweep.csv",
+          "exists": true,
+          "nonEmpty": true
+        },
+        {
+          "file": "evidence/fill-model/partial-fill-cases.csv",
+          "exists": true,
+          "nonEmpty": true
+        }
+      ],
+      "notes": [
+        "scenario passed"
+      ]
+    },
+    {
+      "id": "bitget-native",
+      "name": "Bitget-native proof",
+      "persona": "Bitget ecosystem judge",
+      "goal": "Prove public Bitget read-only data and Agent Hub-compatible posture.",
+      "commands": [
+        {
+          "command": "npm run bitget:read-only-proof"
+        },
+        {
+          "command": "npm run bitget:smoke"
+        },
+        {
+          "command": "npm run bitget:agent-hub-demo"
+        }
+      ],
+      "artifacts": [
+        "evidence/bitget-live/read-only-proof.md",
+        "evidence/bitget-live/live-market-snapshot.json",
+        "evidence/bitget-live/certificate-from-live-data.json",
+        "evidence/bitget-live/agent-hub-compat-report.md"
+      ],
+      "passCriteria": [
+        "Read-only proof generated",
+        "No trade credentials required",
+        "Agent Hub compatibility report exists"
+      ],
+      "failIf": [
+        "Secrets logged",
+        "Write action possible in read-only mode",
+        "Certificate lacks source timestamp"
+      ],
+      "status": "PASS",
+      "durationMs": 6085,
+      "commandResults": [
+        {
+          "command": "npm run bitget:read-only-proof",
+          "status": "PASS",
+          "durationMs": 2071,
+          "tail": "> nightdesk@0.0.1 bitget:read-only-proof\n> tsx src/integrations/bitget-agent-hub/readOnlyProof.ts\n\n\nNIGHTDESK BITGET READ-ONLY PROOF COMPLETE\nstatus: live public fetch ok\nsnapshot: C:\\Users\\prate\\Downloads\\bitget\\evidence\\bitget-live\\live-market-snapshot.json"
+        },
+        {
+          "command": "npm run bitget:smoke",
+          "status": "PASS",
+          "durationMs": 1996,
+          "tail": "> nightdesk@0.0.1 bitget:smoke\n> tsx src/integrations/bitget-agent-hub/readOnlyProof.ts\n\n\nNIGHTDESK BITGET READ-ONLY PROOF COMPLETE\nstatus: live public fetch ok\nsnapshot: C:\\Users\\prate\\Downloads\\bitget\\evidence\\bitget-live\\live-market-snapshot.json"
+        },
+        {
+          "command": "npm run bitget:agent-hub-demo",
+          "status": "PASS",
+          "durationMs": 2018,
+          "tail": "> nightdesk@0.0.1 bitget:agent-hub-demo\n> tsx src/integrations/bitget-agent-hub/readOnlyProof.ts\n\n\nNIGHTDESK BITGET READ-ONLY PROOF COMPLETE\nstatus: live public fetch ok\nsnapshot: C:\\Users\\prate\\Downloads\\bitget\\evidence\\bitget-live\\live-market-snapshot.json"
+        }
+      ],
+      "artifactResults": [
+        {
+          "file": "evidence/bitget-live/read-only-proof.md",
+          "exists": true,
+          "nonEmpty": true
+        },
+        {
+          "file": "evidence/bitget-live/live-market-snapshot.json",
+          "exists": true,
+          "nonEmpty": true
+        },
+        {
+          "file": "evidence/bitget-live/certificate-from-live-data.json",
+          "exists": true,
+          "nonEmpty": true
+        },
+        {
+          "file": "evidence/bitget-live/agent-hub-compat-report.md",
+          "exists": true,
+          "nonEmpty": true
+        }
+      ],
+      "notes": [
+        "scenario passed"
+      ]
+    },
+    {
+      "id": "ops-reliability",
+      "name": "Ops judge checks reliability",
+      "persona": "Ops/reliability judge",
+      "goal": "Prove the repo diagnoses itself.",
+      "commands": [
+        {
+          "command": "npm run doctor"
+        },
+        {
+          "command": "npm run data:health"
+        },
+        {
+          "command": "npm run cache:verify"
+        }
+      ],
+      "artifacts": [
+        "evidence/doctor-report.md",
+        "evidence/data-health/source-health.json",
+        "evidence/data-cache/cache-integrity-report.md"
+      ],
+      "passCriteria": [
+        "Doctor report generated",
+        "Data health matrix generated",
+        "Cache/staleness report generated"
+      ],
+      "failIf": [
+        "Provider outage crashes core judge run",
+        "Doctor prints secrets"
+      ],
+      "status": "PASS",
+      "durationMs": 4588,
+      "commandResults": [
+        {
+          "command": "npm run doctor",
+          "status": "PASS",
+          "durationMs": 685,
+          "tail": "> nightdesk@0.0.1 doctor\n> tsx src/ops/doctor.ts\n\nNIGHTDESK DOCTOR COMPLETE: C:\\Users\\prate\\Downloads\\bitget\\evidence\\doctor-report.md"
+        },
+        {
+          "command": "npm run data:health",
+          "status": "PASS",
+          "durationMs": 683,
+          "tail": "> nightdesk@0.0.1 data:health\n> tsx src/ops/data-health.ts\n\nNIGHTDESK DATA HEALTH COMPLETE: C:\\Users\\prate\\Downloads\\bitget\\evidence\\data-health\\source-health.json"
+        },
+        {
+          "command": "npm run cache:verify",
+          "status": "PASS",
+          "durationMs": 3220,
+          "tail": "> nightdesk@0.0.1 cache:verify\n> tsx src/data/cache-integrity.ts\n\nNIGHTDESK CACHE INTEGRITY COMPLETE: C:\\Users\\prate\\Downloads\\bitget\\evidence\\data-cache\\cache-integrity-report.md"
+        }
+      ],
+      "artifactResults": [
+        {
+          "file": "evidence/doctor-report.md",
+          "exists": true,
+          "nonEmpty": true
+        },
+        {
+          "file": "evidence/data-health/source-health.json",
+          "exists": true,
+          "nonEmpty": true
+        },
+        {
+          "file": "evidence/data-cache/cache-integrity-report.md",
+          "exists": true,
+          "nonEmpty": true
+        }
+      ],
+      "notes": [
+        "scenario passed"
+      ]
+    },
+    {
+      "id": "security",
+      "name": "Secrets and security review",
+      "persona": "Security judge",
+      "goal": "Prove no real credentials are leaked and live paths fail closed.",
+      "commands": [
+        {
+          "command": "npm run secrets:scan"
+        },
+        {
+          "command": "npm run security:test"
+        }
+      ],
+      "artifacts": [
+        "evidence/secrets-scan.json",
+        "evidence/security/security-boundaries.md"
+      ],
+      "passCriteria": [
+        "No real credential findings",
+        "Runtime ledger key explicitly labeled",
+        "Live defaults fail closed"
+      ],
+      "failIf": [
+        "BITGET/QWEN key found",
+        ".env committed",
+        "Private key printed in logs"
+      ],
+      "status": "PASS",
+      "durationMs": 2912,
+      "commandResults": [
+        {
+          "command": "npm run secrets:scan",
+          "status": "PASS",
+          "durationMs": 2227,
+          "tail": "> nightdesk@0.0.1 secrets:scan\n> tsx src/ops/secrets-scan.ts\n\nNIGHTDESK SECRETS SCAN PASS\nallowed-runtime-secret data/ledger/attestation_key.json: local runtime Ed25519 ledger signing key; not a Bitget/API credential"
+        },
+        {
+          "command": "npm run security:test",
+          "status": "PASS",
+          "durationMs": 685,
+          "tail": "ok 2 - security boundary: live path only allows dust-sized limit orders without leverage\n  ---\n  duration_ms: 0.182\n  type: 'test'\n  ...\n# Subtest: security boundary: remote clients need auth for live/shell capability\nok 3 - security boundary: remote clients need auth for live/shell capability\n  ---\n  duration_ms: 0.1753\n  type: 'test'\n  ...\n1..3\n# tests 3\n# suites 0\n# pass 3\n# fail 0\n# cancelled 0\n# skipped 0\n# todo 0\n# duration_ms 231.0994"
+        }
+      ],
+      "artifactResults": [
+        {
+          "file": "evidence/secrets-scan.json",
+          "exists": true,
+          "nonEmpty": true
+        },
+        {
+          "file": "evidence/security/security-boundaries.md",
+          "exists": true,
+          "nonEmpty": true
+        }
+      ],
+      "notes": [
+        "scenario passed"
+      ]
+    },
+    {
+      "id": "docs",
+      "name": "Documentation consistency",
+      "persona": "Confused human / judge",
+      "goal": "Prove docs do not contradict code.",
+      "commands": [
+        {
+          "command": "npm run docs:check"
+        }
+      ],
+      "artifacts": [
+        "evidence/docs-check.json"
+      ],
+      "passCriteria": [
+        "Docs exist",
+        "No stale test/gate counts",
+        "No alpha/live overclaims"
+      ],
+      "failIf": [
+        "Old test counts",
+        "Guaranteed alpha",
+        "Live fill claimed for dry-run"
+      ],
+      "status": "PASS",
+      "durationMs": 692,
+      "commandResults": [
+        {
+          "command": "npm run docs:check",
+          "status": "PASS",
+          "durationMs": 692,
+          "tail": "> nightdesk@0.0.1 docs:check\n> tsx src/ops/docs-check.ts\n\nNIGHTDESK DOCS CHECK PASS\n✓ README.md\n✓ SUBMISSION.md\n✓ docs/BITGET_NATIVE_PROOF.md\n✓ docs/PNL_CLAIM_STANDARD.md\n✓ docs/CLAIM_LEDGER.md\n✓ docs/SECURITY_BOUNDARIES.md\n✓ EVALUATION_STANDARD.md"
+        }
+      ],
+      "artifactResults": [
+        {
+          "file": "evidence/docs-check.json",
+          "exists": true,
+          "nonEmpty": true
+        }
+      ],
+      "notes": [
+        "scenario passed"
+      ]
+    },
+    {
+      "id": "cockpit",
+      "name": "Judge opens cockpit",
+      "persona": "Demo judge",
+      "goal": "Prove the project is understandable in 30 seconds.",
+      "commands": [
+        {
+          "command": "npm run dashboard:judge"
+        }
+      ],
+      "artifacts": [
+        "evidence/judge-cockpit/index.html"
+      ],
+      "passCriteria": [
+        "Static cockpit generated",
+        "Contains thesis/evidence/reproduction surface"
+      ],
+      "failIf": [
+        "Starts with repo tree",
+        "No paper/PnL/Bitget proof"
+      ],
+      "status": "PASS",
+      "durationMs": 645,
+      "commandResults": [
+        {
+          "command": "npm run dashboard:judge",
+          "status": "PASS",
+          "durationMs": 645,
+          "tail": "> nightdesk@0.0.1 dashboard:judge\n> tsx src/face/judge-cockpit.ts\n\nNIGHTDESK JUDGE COCKPIT COMPLETE: C:\\Users\\prate\\Downloads\\bitget\\evidence\\judge-cockpit\\index.html"
+        }
+      ],
+      "artifactResults": [
+        {
+          "file": "evidence/judge-cockpit/index.html",
+          "exists": true,
+          "nonEmpty": true
+        }
+      ],
+      "notes": [
+        "scenario passed"
+      ]
+    },
+    {
+      "id": "offline",
+      "name": "Offline/degraded mode",
+      "persona": "Judge running during provider trouble",
+      "goal": "Prove core judge path does not require live providers.",
+      "commands": [
+        {
+          "command": "npm run judge:max",
+          "env": {
+            "BITGET_OFFLINE": "1"
+          }
+        },
+        {
+          "command": "npm run judge:max",
+          "env": {
+            "QWEN_OFFLINE": "1"
+          }
+        },
+        {
+          "command": "npm run judge:max",
+          "env": {
+            "YAHOO_OFFLINE": "1"
+          }
+        }
+      ],
+      "artifacts": [
+        "evidence/max-judge-manifest.json",
+        "evidence/manifest.json"
+      ],
+      "passCriteria": [
+        "Core evidence verifies with offline env toggles",
+        "No unsafe trade allowed"
+      ],
+      "failIf": [
+        "Provider outage crashes core path",
+        "Missing anchor becomes tradeable"
+      ],
+      "status": "PASS",
+      "durationMs": 31440,
+      "commandResults": [
+        {
+          "command": "npm run judge:max",
+          "status": "PASS",
+          "durationMs": 10329,
+          "tail": "✓ evidence/live-receipt/live-receipt-report.md\n✓ evidence/championship/leaderboard_pnl.csv\n✓ evidence/championship/leaderboard_safety.csv\n✓ evidence/championship/champion-pnl.json\n✓ evidence/championship/champion-safety.json\n✓ evidence/championship/champion-pnl-paper-log.csv\n✓ evidence/championship/champion-safety-paper-log.csv\n✓ evidence/championship/championship-report.md\n✓ evidence/championship/pnl-vs-safety-comparison.md\n✓ evidence/championship/champion-overfit-check.md\n✓ evidence/championship/champion-overfit-card.md\n✓ evidence/championship/trial-registry.csv\n✓ evidence/championship/manifest.json\n✓ evidence/manifest.json\n✓ docs/PNL_CLAIM_STANDARD.md\n✓ docs/NAUTILUS_LESSONS.md\n✓ docs/SECURITY_BOUNDARIES.md\n✓ docs/BITGET_NATIVE_PROOF.md\n✓ docs/CLAIM_LEDGER.md\nNIGHTDESK MAX JUDGE PACK VERIFIED"
+        },
+        {
+          "command": "npm run judge:max",
+          "status": "PASS",
+          "durationMs": 10318,
+          "tail": "✓ evidence/live-receipt/live-receipt-report.md\n✓ evidence/championship/leaderboard_pnl.csv\n✓ evidence/championship/leaderboard_safety.csv\n✓ evidence/championship/champion-pnl.json\n✓ evidence/championship/champion-safety.json\n✓ evidence/championship/champion-pnl-paper-log.csv\n✓ evidence/championship/champion-safety-paper-log.csv\n✓ evidence/championship/championship-report.md\n✓ evidence/championship/pnl-vs-safety-comparison.md\n✓ evidence/championship/champion-overfit-check.md\n✓ evidence/championship/champion-overfit-card.md\n✓ evidence/championship/trial-registry.csv\n✓ evidence/championship/manifest.json\n✓ evidence/manifest.json\n✓ docs/PNL_CLAIM_STANDARD.md\n✓ docs/NAUTILUS_LESSONS.md\n✓ docs/SECURITY_BOUNDARIES.md\n✓ docs/BITGET_NATIVE_PROOF.md\n✓ docs/CLAIM_LEDGER.md\nNIGHTDESK MAX JUDGE PACK VERIFIED"
+        },
+        {
+          "command": "npm run judge:max",
+          "status": "PASS",
+          "durationMs": 10793,
+          "tail": "✓ evidence/live-receipt/live-receipt-report.md\n✓ evidence/championship/leaderboard_pnl.csv\n✓ evidence/championship/leaderboard_safety.csv\n✓ evidence/championship/champion-pnl.json\n✓ evidence/championship/champion-safety.json\n✓ evidence/championship/champion-pnl-paper-log.csv\n✓ evidence/championship/champion-safety-paper-log.csv\n✓ evidence/championship/championship-report.md\n✓ evidence/championship/pnl-vs-safety-comparison.md\n✓ evidence/championship/champion-overfit-check.md\n✓ evidence/championship/champion-overfit-card.md\n✓ evidence/championship/trial-registry.csv\n✓ evidence/championship/manifest.json\n✓ evidence/manifest.json\n✓ docs/PNL_CLAIM_STANDARD.md\n✓ docs/NAUTILUS_LESSONS.md\n✓ docs/SECURITY_BOUNDARIES.md\n✓ docs/BITGET_NATIVE_PROOF.md\n✓ docs/CLAIM_LEDGER.md\nNIGHTDESK MAX JUDGE PACK VERIFIED"
+        }
+      ],
+      "artifactResults": [
+        {
+          "file": "evidence/max-judge-manifest.json",
+          "exists": true,
+          "nonEmpty": true
+        },
+        {
+          "file": "evidence/manifest.json",
+          "exists": true,
+          "nonEmpty": true
+        }
+      ],
+      "notes": [
+        "scenario passed"
+      ]
+    },
+    {
+      "id": "oos-daemon",
+      "name": "OOS daemon is running and useful",
+      "persona": "Forward-evidence judge",
+      "goal": "Prove future evidence is accumulating or last state is visible.",
+      "commands": [
+        {
+          "command": "npm run oos:status"
+        },
+        {
+          "command": "npm run oos:report"
+        }
+      ],
+      "artifacts": [
+        "evidence/oos/session-summary.csv",
+        "evidence/oos/oos-report.md",
+        "evidence/oos/session-bank/session-quality-report.md"
+      ],
+      "passCriteria": [
+        "Daemon state visible",
+        "OOS report generated",
+        "Session bank has ledger hashes"
+      ],
+      "failIf": [
+        "Daemon status stale with no snapshots",
+        "OOS report counts empty sessions as success"
+      ],
+      "status": "PASS",
+      "durationMs": 19775,
+      "commandResults": [
+        {
+          "command": "npm run oos:status",
+          "status": "PASS",
+          "durationMs": 687,
+          "tail": "> nightdesk@0.0.1 oos:status\n> tsx src/ops/oos-status.ts\n\nNIGHTDESK OOS STATUS PASS\n{\n  \"startedAt\": \"2026-06-17T08:40:28.688Z\",\n  \"ticks\": 71,\n  \"refreshes\": 12,\n  \"snapshotsRecorded\": 71,\n  \"targetSessions\": 20,\n  \"intervalMs\": 300000,\n  \"refreshMs\": 1800000,\n  \"status\": \"running\",\n  \"lastTickAt\": \"2026-06-17T14:41:51.712Z\",\n  \"lastRefreshAt\": \"2026-06-17T14:21:14.140Z\"\n}"
+        },
+        {
+          "command": "npm run oos:report",
+          "status": "PASS",
+          "durationMs": 19088,
+          "tail": "> nightdesk@0.0.1 oos:report\n> tsx src/research/session-study.ts\n\n\nNIGHTDESK OOS REPORT COMPLETE\nsessions: 4\nreport: C:\\Users\\prate\\Downloads\\bitget\\evidence\\oos\\oos-report.md"
+        }
+      ],
+      "artifactResults": [
+        {
+          "file": "evidence/oos/session-summary.csv",
+          "exists": true,
+          "nonEmpty": true
+        },
+        {
+          "file": "evidence/oos/oos-report.md",
+          "exists": true,
+          "nonEmpty": true
+        },
+        {
+          "file": "evidence/oos/session-bank/session-quality-report.md",
+          "exists": true,
+          "nonEmpty": true
+        }
+      ],
+      "notes": [
+        "scenario passed"
+      ]
+    }
+  ]
+}

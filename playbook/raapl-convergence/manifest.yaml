@@ -1,0 +1,83 @@
+name: raapl-convergence
+display_name: "rAAPL Off-Hours Convergence"
+version: "0.1.0"
+description: "Off-hours mean-reversion on tokenized Apple (rAAPL) spot — buys temporary discounts to fair value and exits on convergence."
+long_description: |
+  This Playbook captures a specific inefficiency in tokenized United States
+  equities on Bitget: when the regular American trading session is closed, the
+  tokenized share of a large technology company often drifts to a discount or
+  premium against its fair value because off-hours liquidity is thin and the
+  participants who could arbitrage the gap are largely shut out. The thesis is
+  that these dislocations are temporary and tend to converge back toward fair
+  value once liquidity returns, so a patient, mechanical strategy can harvest
+  the reversion rather than bet on market direction.
+
+  It enters a long position only when the tokenized share is trading at a
+  meaningful discount to its own recent fair-value path — in other words, when
+  price has stretched unusually far below where it has been sitting. The
+  strategy does not try to predict news or guess direction; it treats an
+  outsized downward stretch as a temporary discount and opens into it,
+  expecting the gap to close.
+
+  It exits and closes the position once price has reverted back toward its
+  fair-value path, locking in the convergence rather than holding for more.
+  There is no separate directional target; the reversion itself is both the
+  profit objective and the discipline that returns the strategy to flat, ready
+  for the next dislocation. Positions are not held indefinitely against a
+  widening gap.
+
+  Subscribers can tune how far price must stretch before a discount is worth
+  taking, how close to fair value it waits before exiting, how much history
+  defines the fair-value path, and the margin budget the platform sizes orders
+  against and uses as the return denominator. Raising the entry stretch makes
+  the strategy more selective and trades less; loosening it trades more often
+  with weaker edge.
+
+  The strategy underperforms when a discount is not temporary — when a token
+  keeps sliding on real, lasting news — because reversion never arrives and the
+  position sits at a drawdown. Thin weekend liquidity, fees, and slippage also
+  erode edge, and strong historical results do not guarantee future profit;
+  only subscribe if you accept this risk.
+
+market_type: spot
+trading_symbols: ["RAAPLUSDT"]
+tags: ["mean-reversion", "convergence", "tokenized-stock", "spot", "off-hours"]
+
+decision_mode: deterministic
+backtest_support: full
+runtime_profile: deterministic
+execution_mode: signal_only
+follow_trade_supported: false
+
+strategy_config:
+  trading_symbols: ["RAAPLUSDT"]
+  lookback_period: 48
+  entry_z: 1.5
+  exit_z: 0.3
+  trade_size: "1"
+  margin_budget: "1000"
+
+user_config_schema:
+  lookback_period:
+    type: integer
+    default: 48
+    min: 12
+    max: 240
+    label: "Fair-value lookback (bars)"
+  entry_z:
+    type: number
+    default: 1.5
+    min: 0.5
+    max: 4.0
+    label: "Entry stretch (std-devs below mean)"
+  exit_z:
+    type: number
+    default: 0.3
+    min: 0.0
+    max: 2.0
+    label: "Exit proximity to fair value (std-devs)"
+  margin_budget:
+    type: string
+    default: "1000"
+    pattern: "^[0-9]+(\\.[0-9]+)?$"
+    label: "Margin budget USDT"

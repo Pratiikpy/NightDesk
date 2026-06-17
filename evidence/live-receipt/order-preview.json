@@ -1,0 +1,17 @@
+{
+  "receiptId": "receipt_2026-06-17T16-08-42-102Z",
+  "generatedAt": "2026-06-17T16:08:42.102Z",
+  "mode": "dry_run",
+  "symbol": "RAAPLUSDT",
+  "side": "BUY",
+  "orderType": "limit",
+  "notionalUsd": 10,
+  "leverage": 1,
+  "boundary": {
+    "allowed": false,
+    "reason": "LIVE_TRADE_DISABLED",
+    "mode": "paper"
+  },
+  "willSubmitOrder": false,
+  "note": "Dry-run receipt only. No live order was submitted."
+}

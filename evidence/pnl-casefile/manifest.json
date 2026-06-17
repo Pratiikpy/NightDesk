@@ -1,0 +1,90 @@
+{
+  "generatedAt": "2026-06-17T16:06:44.489Z",
+  "claimLevel": "Level 2 with early Level 3/4 evidence",
+  "paper": {
+    "rows": 19,
+    "fills": 8,
+    "blocks": 11,
+    "start": 1000,
+    "end": 999.665499,
+    "net": -0.3345010000000457,
+    "feesApprox": 0.3345020000000001,
+    "assets": 19
+  },
+  "guardedReplay": {
+    "rows": 16921,
+    "fills": 38,
+    "blocks": 16883,
+    "start": 1000,
+    "end": 1004.343953,
+    "net": 4.343953000000056,
+    "feesApprox": 1.5639060000000007,
+    "assets": 19
+  },
+  "manifest": [
+    {
+      "file": "evidence/pnl-casefile/00-executive-summary.md",
+      "exists": true
+    },
+    {
+      "file": "evidence/pnl-casefile/01-paper-session.csv",
+      "exists": true
+    },
+    {
+      "file": "evidence/pnl-casefile/02-guarded-vs-unguarded.csv",
+      "exists": true
+    },
+    {
+      "file": "evidence/pnl-casefile/02-guarded-vs-unguarded.md",
+      "exists": true
+    },
+    {
+      "file": "evidence/pnl-casefile/03-pnl-attribution.csv",
+      "exists": true
+    },
+    {
+      "file": "evidence/pnl-casefile/03-pnl-attribution.md",
+      "exists": true
+    },
+    {
+      "file": "evidence/pnl-casefile/04-cost-sweep.csv",
+      "exists": true
+    },
+    {
+      "file": "evidence/pnl-casefile/05-liquidity-sweep.csv",
+      "exists": true
+    },
+    {
+      "file": "evidence/pnl-casefile/06-fill-realism-report.md",
+      "exists": true
+    },
+    {
+      "file": "evidence/pnl-casefile/07-oos-session-summary.csv",
+      "exists": true
+    },
+    {
+      "file": "evidence/pnl-casefile/08-walkforward-folds.csv",
+      "exists": true
+    },
+    {
+      "file": "evidence/pnl-casefile/09-backtest-overfit-report.md",
+      "exists": true
+    },
+    {
+      "file": "evidence/pnl-casefile/10-failure-taxonomy.md",
+      "exists": true
+    },
+    {
+      "file": "evidence/pnl-casefile/perp-leg-autopsy.md",
+      "exists": true
+    },
+    {
+      "file": "evidence/pnl-casefile/safety-alpha-report.md",
+      "exists": true
+    },
+    {
+      "file": "evidence/pnl-casefile/tradeability-bridge.md",
+      "exists": true
+    }
+  ]
+}

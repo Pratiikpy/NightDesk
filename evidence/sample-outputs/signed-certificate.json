@@ -1,0 +1,27 @@
+{
+  "payload": {
+    "version": "1.0",
+    "ticker": "NVDA",
+    "issuedAt": "2026-06-16T12:00:00.000Z",
+    "expiresAt": "2026-06-16T13:00:00.000Z",
+    "anchorSource": "LAST_CLOSE",
+    "anchorStale": false,
+    "classification": "MISPRICED",
+    "safetyScore": 90,
+    "allowedPolicy": "LONG-ONLY FADE",
+    "maxSizeUsd": 75,
+    "evidence": [
+      "true gap vs real-stock anchor is actionable",
+      "perp gap is near flat, so the perp hides the rToken dislocation",
+      "no fresh news/macro catalyst in this deterministic fixture"
+    ]
+  },
+  "attestation": {
+    "algo": "ed25519",
+    "recordCount": 1,
+    "recordsSha256": "4a3f6129f2b9b4bab30a4e000a4fb035b0d4b2ea6b05de21554ff91e50961ccc",
+    "signatureHex": "a83fade4b0f71cfd7b8a198bc0c90d1c87913cf8500d2d575b06d34fec20b2c16a6eee870a403c83d9eb3bd3279b334de3bfbc0fcab7fe109c501d283fa4a406",
+    "publicKeyPem": "-----BEGIN PUBLIC KEY-----\nMCowBQYDK2VwAyEA9l3qyeEpQZNDdh2cpTZnr6NJAKPycCAmt0tiGCSl1Ws=\n-----END PUBLIC KEY-----\n",
+    "signedAt": "2026-06-16T15:37:50.763Z"
+  }
+}

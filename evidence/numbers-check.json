@@ -1,0 +1,117 @@
+{
+  "generatedAt": "2026-06-17T16:13:52.823Z",
+  "ok": true,
+  "hard": [
+    {
+      "label": "factory candidates",
+      "forms": [
+        "9720",
+        "9,720"
+      ],
+      "docs": [
+        {
+          "file": "README.md",
+          "matched": "9,720"
+        },
+        {
+          "file": "SUBMISSION.md",
+          "matched": "9,720"
+        }
+      ],
+      "ok": true
+    },
+    {
+      "label": "factory trials",
+      "forms": [
+        "38880",
+        "38,880"
+      ],
+      "docs": [
+        {
+          "file": "README.md",
+          "matched": "38,880"
+        },
+        {
+          "file": "SUBMISSION.md",
+          "matched": "38,880"
+        }
+      ],
+      "ok": true
+    }
+  ],
+  "forbiddenHits": [],
+  "soft": [
+    {
+      "label": "factory champion total_pnl",
+      "forms": [
+        "47.86",
+        "+47.86"
+      ],
+      "docs": [
+        {
+          "file": "README.md",
+          "matched": "47.86"
+        },
+        {
+          "file": "SUBMISSION.md",
+          "matched": "47.86"
+        }
+      ],
+      "inSync": true
+    },
+    {
+      "label": "factory champion max_drawdown",
+      "forms": [
+        "4.00",
+        "+4.00"
+      ],
+      "docs": [
+        {
+          "file": "README.md",
+          "matched": "4.00"
+        },
+        {
+          "file": "SUBMISSION.md",
+          "matched": "4.00"
+        }
+      ],
+      "inSync": true
+    },
+    {
+      "label": "factory rejected",
+      "forms": [
+        "8289",
+        "8,289"
+      ],
+      "docs": [
+        {
+          "file": "README.md",
+          "matched": "8,289"
+        },
+        {
+          "file": "SUBMISSION.md",
+          "matched": "8,289"
+        }
+      ],
+      "inSync": true
+    },
+    {
+      "label": "championship global PnL",
+      "forms": [
+        "49.59",
+        "+49.59"
+      ],
+      "docs": [
+        {
+          "file": "README.md",
+          "matched": "49.59"
+        },
+        {
+          "file": "SUBMISSION.md",
+          "matched": "49.59"
+        }
+      ],
+      "inSync": true
+    }
+  ]
+}

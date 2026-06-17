@@ -1,0 +1,5 @@
+fold,train_sessions,purged_train_sessions,test_session,embargo_window,selected_config,test_pnl,test_drawdown,trade_count,block_count,cost_slippage_assumption,no_test_threshold_selection,purged_sessions_note
+leave_2026-06-14_out,3,2,2026-06-14,1 adjacent session,frozen_champion_from_train_only,0,see fold-results + championship overfit card,0,0,0.10% base cost; cost-sweep exported,true,"edge fold, one adjacent embargo side"
+leave_2026-06-15_out,3,2,2026-06-15,1 adjacent session,frozen_champion_from_train_only,3.510092,see fold-results + championship overfit card,17,16561,0.10% base cost; cost-sweep exported,true,both adjacent sessions embargoed
+leave_2026-06-16_out,3,2,2026-06-16,1 adjacent session,frozen_champion_from_train_only,1.255184,see fold-results + championship overfit card,10,40,0.10% base cost; cost-sweep exported,true,both adjacent sessions embargoed
+leave_2026-06-17_out,3,2,2026-06-17,1 adjacent session,frozen_champion_from_train_only,4.012641,see fold-results + championship overfit card,15,236,0.10% base cost; cost-sweep exported,true,"edge fold, one adjacent embargo side"

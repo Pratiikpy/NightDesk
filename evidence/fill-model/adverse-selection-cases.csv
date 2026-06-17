@@ -1,0 +1,3 @@
+case_id,expected,requested_qty,filled_qty,cancelled_qty,conservative_price,status,reason
+liquidity_vanishes_mid_fill,partial_or_cancel,5,1,4,101,pass,book depth disappears after first level; remainder cancelled
+price_shock_during_fill,conservative_fill,2,2,0,103,pass,shock-adjusted price worsens execution instead of granting fantasy mid fill

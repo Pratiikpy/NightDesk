@@ -1,0 +1,118 @@
+{
+  "generatedAt": "2026-06-16T15:38:26.975Z",
+  "project": "NightDesk Agent Safety Gateway",
+  "thesis": "Certify Bitget tokenized-stock markets, reject unsafe agent trade intents, stress-test reckless policies, and sign every action/non-action.",
+  "reproducibleCommands": [
+    "npm install",
+    "npm run build",
+    "npm test",
+    "npm run evidence",
+    "npm run paper-session",
+    "npm run judge",
+    "npm run dashboard",
+    "npm run mcp"
+  ],
+  "checks": [
+    {
+      "name": "certificate verifies",
+      "ok": true,
+      "detail": "ok"
+    },
+    {
+      "name": "firewall rejects no-certificate intent",
+      "ok": true,
+      "detail": "no certificate — proof-carrying intent required"
+    },
+    {
+      "name": "firewall rejects unsafe sell under LONG-ONLY FADE",
+      "ok": true,
+      "detail": "policy LONG-ONLY FADE: only buys permitted (rToken not cleanly shortable)"
+    },
+    {
+      "name": "firewall allows/caps safe buy",
+      "ok": true,
+      "detail": "ok"
+    },
+    {
+      "name": "fixture simulation creates signed ledger",
+      "ok": true,
+      "detail": "cycles=1, signature=true, tamperEvident=true"
+    }
+  ],
+  "simulation": {
+    "fixture": "data/fixtures/live-demo.jsonl",
+    "scorecard": {
+      "cycles": 1,
+      "trades": 1,
+      "noTrades": 0,
+      "gated": 0,
+      "abstained": 0,
+      "graded": 1,
+      "wins": 1,
+      "losses": 0,
+      "flats": 0,
+      "hitRatePct": 100,
+      "convergenceCaptured": 1,
+      "convergenceRatePct": 100,
+      "totalSimPnl": 23.75,
+      "gateBlockCounts": {},
+      "llmPromptTokens": 70,
+      "llmCompletionTokens": 140,
+      "calibration": {
+        "n": 1,
+        "brier": 0.1681
+      }
+    },
+    "judgment": {
+      "tradedConvergedPct": 100,
+      "abstained": {
+        "n": 0,
+        "wouldHaveConvergedPct": 0,
+        "avgWouldBePnlPct": 0
+      },
+      "gated": {
+        "n": 0,
+        "wouldHaveConvergedPct": 0,
+        "avgWouldBePnlPct": 0
+      }
+    },
+    "ledgerFile": "C:\\Users\\prate\\Downloads\\bitget\\data\\ledger\\2026-06-16.jsonl",
+    "ledgerVerification": {
+      "file": "C:\\Users\\prate\\Downloads\\bitget\\data\\ledger\\2026-06-16.jsonl",
+      "recordCount": 1,
+      "signaturePresent": true,
+      "hashMatch": true,
+      "signatureValid": true,
+      "tamperEvident": true,
+      "signedAt": "2026-06-16T15:37:51.120Z",
+      "publicKeyFingerprint": "a7145920020b748d"
+    }
+  },
+  "gauntlet": {
+    "present": true,
+    "naiveGap": {
+      "unguardedNetPnlPct": -20.88,
+      "guardedNetPnlPct": 0.34,
+      "blocked": 9,
+      "unguardedLosers": 15,
+      "guardedBeatsOrTies": true
+    }
+  },
+  "sampleArtifacts": {
+    "apiCallLog": "evidence/api-call-log.jsonl",
+    "paperTradingLog": "evidence/trading-log/nightdesk-paper-trading-log.csv",
+    "paperRunSummary": "evidence/trading-log/run-summary.md",
+    "paperLedgerVerification": "evidence/trading-log/ledger-verification.txt",
+    "inputs": [
+      "evidence/sample-inputs/safe-buy-intent.json",
+      "evidence/sample-inputs/unsafe-sell-intent.json",
+      "evidence/sample-inputs/mcp-evaluate-intent.json"
+    ],
+    "outputs": [
+      "evidence/sample-outputs/safe-buy-verdict.json",
+      "evidence/sample-outputs/unsafe-sell-verdict.json",
+      "evidence/sample-outputs/blocked-buy-verdict.json",
+      "evidence/sample-outputs/signed-certificate.json"
+    ]
+  }
+}

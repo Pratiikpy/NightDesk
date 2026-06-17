@@ -1,0 +1,61 @@
+{
+  "recording": "data/snapshots/2026-06-15.jsonl",
+  "snapshots": 1452,
+  "split": 871,
+  "leaderboard": [
+    {
+      "threshold": 0.05,
+      "trainSignals": 16545,
+      "testSignals": 5203,
+      "stability": 0.3145
+    },
+    {
+      "threshold": 0.1,
+      "trainSignals": 16522,
+      "testSignals": 4105,
+      "stability": 0.2485
+    },
+    {
+      "threshold": 0.2,
+      "trainSignals": 16296,
+      "testSignals": 3277,
+      "stability": 0.2011
+    },
+    {
+      "threshold": 0.3,
+      "trainSignals": 15579,
+      "testSignals": 2819,
+      "stability": 0.1809
+    },
+    {
+      "threshold": 1,
+      "trainSignals": 13337,
+      "testSignals": 2402,
+      "stability": 0.1801
+    },
+    {
+      "threshold": 0.75,
+      "trainSignals": 14031,
+      "testSignals": 2430,
+      "stability": 0.1732
+    },
+    {
+      "threshold": 0.5,
+      "trainSignals": 14929,
+      "testSignals": 2573,
+      "stability": 0.1723
+    },
+    {
+      "threshold": 1.5,
+      "trainSignals": 10686,
+      "testSignals": 1792,
+      "stability": 0.1677
+    },
+    {
+      "threshold": 2,
+      "trainSignals": 7906,
+      "testSignals": 1277,
+      "stability": 0.1615
+    }
+  ]
+}

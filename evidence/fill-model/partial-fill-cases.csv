@@ -1,0 +1,8 @@
+case_id,expected,status,side,requested_qty,filled_qty,avg_price,slippage_bps,reason
+empty_book,no_fill,pass,buy,1,0,,0,no executable book side
+one_sided_book,no_fill,pass,sell,1,0,,0,no executable book side
+crossed_book,reject_bad_data,pass,buy,1,0,,0,crossed book rejected as bad data
+wide_spread,block_wide_spread,pass,buy,1,0,,0,spread exceeds edge budget
+partial_depth,partial_fill,pass,buy,3,1.5,100.33333333,33.3333,partial_fill
+stale_quote,reject_stale_quote,pass,buy,1,0,,0,quote older than TTL
+normal_quote,filled,pass,buy,1,1,100.101002,0.1001,filled

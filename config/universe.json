@@ -1,0 +1,44 @@
+{
+  "generated": "2026-06-10",
+  "source": "Verified live against Bitget public API (974 spot symbols, 622 USDT-FUTURES contracts) + authenticated read-only key test (code 00000)",
+  "notes": [
+    "Two tokenized-stock families exist on Bitget spot: rTokens (rXXX) and Ondo tokens (XXXON) — cross-family premium comparison is possible on the same exchange",
+    "Micron has NO rMU spot token — only the MUUSDT perp (50x). PRD Jun 24 earnings showcase must run on the perp, not an rToken",
+    "COIN (Coinbase) also exists as perp only",
+    "Filtered out memecoin false positives: JELLYJELLY, HMSTR, FARTCOIN, MUBARAK, M"
+  ],
+  "pairs": [
+    { "ticker": "AAPL",  "rtoken_spot": "RAAPLUSDT",  "perp": "AAPLUSDT",  "perp_max_lever": 100, "ondo_spot": "AAPLONUSDT" },
+    { "ticker": "TSLA",  "rtoken_spot": "RTSLAUSDT",  "perp": "TSLAUSDT",  "perp_max_lever": 100, "ondo_spot": "TSLAONUSDT" },
+    { "ticker": "NVDA",  "rtoken_spot": "RNVDAUSDT",  "perp": "NVDAUSDT",  "perp_max_lever": 100, "ondo_spot": "NVDAONUSDT" },
+    { "ticker": "MSFT",  "rtoken_spot": "RMSFTUSDT",  "perp": "MSFTUSDT",  "perp_max_lever": 100, "ondo_spot": "MSFTONUSDT" },
+    { "ticker": "GOOGL", "rtoken_spot": "RGOOGLUSDT", "perp": "GOOGLUSDT", "perp_max_lever": 100, "ondo_spot": "GOOGLONUSDT" },
+    { "ticker": "AMZN",  "rtoken_spot": "RAMZNUSDT",  "perp": "AMZNUSDT",  "perp_max_lever": 100, "ondo_spot": "AMZNONUSDT" },
+    { "ticker": "META",  "rtoken_spot": "RMETAUSDT",  "perp": "METAUSDT",  "perp_max_lever": 100, "ondo_spot": "METAONUSDT" },
+    { "ticker": "SPY",   "rtoken_spot": "RSPYUSDT",   "perp": "SPYUSDT",   "perp_max_lever": 50,  "ondo_spot": "SPYONUSDT" },
+    { "ticker": "QQQ",   "rtoken_spot": "RQQQUSDT",   "perp": "QQQUSDT",   "perp_max_lever": 20,  "ondo_spot": "QQQONUSDT" },
+    { "ticker": "SQQQ",  "rtoken_spot": "RSQQQUSDT",  "perp": "SQQQUSDT",  "perp_max_lever": 20,  "ondo_spot": null },
+    { "ticker": "TQQQ",  "rtoken_spot": "RTQQQUSDT",  "perp": "TQQQUSDT",  "perp_max_lever": 20,  "ondo_spot": null },
+    { "ticker": "PLTR",  "rtoken_spot": "RPLTRUSDT",  "perp": "PLTRUSDT",  "perp_max_lever": 20,  "ondo_spot": null },
+    { "ticker": "CRCL",  "rtoken_spot": "RCRCLUSDT",  "perp": "CRCLUSDT",  "perp_max_lever": 25,  "ondo_spot": null },
+    { "ticker": "HOOD",  "rtoken_spot": "RHOODUSDT",  "perp": "HOODUSDT",  "perp_max_lever": 25,  "ondo_spot": null },
+    { "ticker": "MSTR",  "rtoken_spot": "RMSTRUSDT",  "perp": "MSTRUSDT",  "perp_max_lever": 25,  "ondo_spot": null },
+    { "ticker": "ORCL",  "rtoken_spot": "RORCLUSDT",  "perp": "ORCLUSDT",  "perp_max_lever": 20,  "ondo_spot": null },
+    { "ticker": "NFLX",  "rtoken_spot": "RNFLXUSDT",  "perp": "NFLXUSDT",  "perp_max_lever": 50,  "ondo_spot": null },
+    { "ticker": "BABA",  "rtoken_spot": "RBABAUSDT",  "perp": "BABAUSDT",  "perp_max_lever": 20,  "ondo_spot": null },
+    { "ticker": "GME",   "rtoken_spot": "RGMEUSDT",   "perp": "GMEUSDT",   "perp_max_lever": 20,  "ondo_spot": null }
+  ],
+  "spot_only_rtokens": [
+    { "ticker": "AVGO", "rtoken_spot": "RAVGOUSDT" },
+    { "ticker": "INTC", "rtoken_spot": "RINTCUSDT" },
+    { "ticker": "AMD",  "rtoken_spot": "RAMDUSDT", "ondo_spot": "AMDONUSDT" },
+    { "ticker": "UBER", "rtoken_spot": "RUBERUSDT" },
+    { "ticker": "LLY",  "rtoken_spot": "RLLYUSDT" },
+    { "ticker": "ABNB", "rtoken_spot": "RABNBUSDT" },
+    { "ticker": "UNH",  "rtoken_spot": "RUNHUSDT" }
+  ],
+  "perp_only": [
+    { "ticker": "COIN", "perp": "COINUSDT", "perp_max_lever": 25 },
+    { "ticker": "MU",   "perp": "MUUSDT",   "perp_max_lever": 50, "note": "Micron — Jun 24 earnings showcase runs on this perp; no rMU spot exists" }
+  ]
+}

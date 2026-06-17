@@ -1,0 +1,18 @@
+{
+  "file": "C:\\Users\\prate\\Downloads\\bitget\\data\\snapshots\\2026-06-14.jsonl",
+  "row": {
+    "session_id": "2026-06-14",
+    "date": "2026-06-14",
+    "start_time": "",
+    "end_time": "",
+    "tokens": 0,
+    "intents": 0,
+    "trades": 0,
+    "blocks": 0,
+    "abstains": 0,
+    "guarded_pnl": 0,
+    "unguarded_pnl": 0,
+    "blocked_loss": 0,
+    "ledger_hash": "e36b69db552ad16ac7920f1d3f7be11f39b892fdaf9337cd6558e2c7e6d14e9f"
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "id": "raw_pnl_championship",
+  "claim": "NightDesk can compete on raw PnL over current recordings through a reproducible Alpha Championship.",
+  "acceptance_criteria": [
+    "champion positive",
+    "global same-config replay positive",
+    "paper log exported"
+  ],
+  "evidence": [
+    "evidence/alpha-championship/manifest.json",
+    "evidence/alpha-championship/champion-paper-trading-log.csv"
+  ],
+  "status": "verified",
+  "caveat": "In-sample/current-recording championship, not guaranteed future alpha."
+}

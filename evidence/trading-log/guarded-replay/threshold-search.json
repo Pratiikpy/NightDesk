@@ -1,0 +1,65 @@
+[
+  {
+    "threshold": 0.05,
+    "endingBalance": 1004.3439531700182,
+    "fills": 38,
+    "blocks": 16883,
+    "rows": 16921
+  },
+  {
+    "threshold": 0.1,
+    "endingBalance": 1004.1233513639719,
+    "fills": 36,
+    "blocks": 16852,
+    "rows": 16888
+  },
+  {
+    "threshold": 0.2,
+    "endingBalance": 1002.8602968839521,
+    "fills": 34,
+    "blocks": 16561,
+    "rows": 16595
+  },
+  {
+    "threshold": 0.3,
+    "endingBalance": 1001.6690375653639,
+    "fills": 28,
+    "blocks": 16211,
+    "rows": 16239
+  },
+  {
+    "threshold": 0.5,
+    "endingBalance": 1000.9963496033897,
+    "fills": 20,
+    "blocks": 15613,
+    "rows": 15633
+  },
+  {
+    "threshold": 0.75,
+    "endingBalance": 999.6646545151762,
+    "fills": 12,
+    "blocks": 15001,
+    "rows": 15013
+  },
+  {
+    "threshold": 1.5,
+    "endingBalance": 999.1093010395435,
+    "fills": 4,
+    "blocks": 11394,
+    "rows": 11398
+  },
+  {
+    "threshold": 1,
+    "endingBalance": 998.8789562973268,
+    "fills": 4,
+    "blocks": 14415,
+    "rows": 14419
+  },
+  {
+    "threshold": 2,
+    "endingBalance": 998.4805588235295,
+    "fills": 2,
+    "blocks": 8153,
+    "rows": 8155
+  }
+]

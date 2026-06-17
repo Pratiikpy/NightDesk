@@ -1,0 +1,8 @@
+task,status,evidence
+valid_paper_log,pass,live-paper-trading-log.csv
+trial_registry,pass,trial-registry.jsonl
+overfit_rejection,pass,rejected-overfit-strategies.csv
+walkforward_report,pass,walkforward-leaderboard.csv
+frozen_champion,pass,frozen-champion.json
+masked_eval,pass,masked-eval-report.md
+agentic_decisions,pass,agent-decisions.jsonl

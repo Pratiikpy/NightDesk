@@ -1,0 +1,9 @@
+{
+  "verdict": "REJECT",
+  "reason": "policy BLOCK: no trading permitted",
+  "allowedPolicy": "BLOCK",
+  "classification": "LIQUIDITY-TRAP",
+  "safetyScore": 35,
+  "maxSizeUsd": 0,
+  "certificateExpiresAt": "2026-06-16T13:00:00.000Z"
+}

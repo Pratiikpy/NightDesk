@@ -1,0 +1,17 @@
+{
+  "id": "safety_gateway",
+  "claim": "Unsafe external-agent intents are rejected or capped before execution.",
+  "acceptance_criteria": [
+    "firewall tests pass",
+    "property tests pass",
+    "sample unsafe verdict exists",
+    "external integration proof exists"
+  ],
+  "evidence": [
+    "evidence/sample-outputs/unsafe-sell-verdict.json",
+    "evidence/integration/external-agent-run.jsonl",
+    "test/kernel.property.test.ts"
+  ],
+  "status": "verified",
+  "caveat": "Live trading remains explicitly gated and disabled by default."
+}

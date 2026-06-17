@@ -1,0 +1,138 @@
+{
+  "recording": "data/snapshots/2026-06-15.jsonl",
+  "snapshots": 1452,
+  "summary": [
+    {
+      "agent": "naive_gap_agent",
+      "rows": 16595,
+      "fills": 34,
+      "blocks": 16561,
+      "startingBalance": 1000,
+      "endingBalance": 1003.504882,
+      "netPnlUsdt": 3.504882,
+      "maxDrawdownUsdt": 3.281314,
+      "log": "evidence/agent-arena-v2/naive_gap_agent.csv"
+    },
+    {
+      "agent": "naive_gap_agent_guarded",
+      "rows": 16595,
+      "fills": 34,
+      "blocks": 16561,
+      "startingBalance": 1000,
+      "endingBalance": 1002.860297,
+      "netPnlUsdt": 2.860297,
+      "maxDrawdownUsdt": 2.3645,
+      "log": "evidence/agent-arena-v2/naive_gap_agent_guarded.csv"
+    },
+    {
+      "agent": "perp_trust_agent",
+      "rows": 40,
+      "fills": 32,
+      "blocks": 8,
+      "startingBalance": 1000,
+      "endingBalance": 1007.791439,
+      "netPnlUsdt": 7.791439,
+      "maxDrawdownUsdt": 1.105905,
+      "log": "evidence/agent-arena-v2/perp_trust_agent.csv"
+    },
+    {
+      "agent": "perp_trust_agent_guarded",
+      "rows": 2033,
+      "fills": 30,
+      "blocks": 2003,
+      "startingBalance": 1000,
+      "endingBalance": 1002.231036,
+      "netPnlUsdt": 2.231036,
+      "maxDrawdownUsdt": 3.390378,
+      "log": "evidence/agent-arena-v2/perp_trust_agent_guarded.csv"
+    },
+    {
+      "agent": "momentum_agent",
+      "rows": 2001,
+      "fills": 38,
+      "blocks": 1963,
+      "startingBalance": 1000,
+      "endingBalance": 1009.974693,
+      "netPnlUsdt": 9.974693,
+      "maxDrawdownUsdt": 0.911086,
+      "log": "evidence/agent-arena-v2/momentum_agent.csv"
+    },
+    {
+      "agent": "momentum_agent_guarded",
+      "rows": 16578,
+      "fills": 36,
+      "blocks": 16542,
+      "startingBalance": 1000,
+      "endingBalance": 1002.353547,
+      "netPnlUsdt": 2.353547,
+      "maxDrawdownUsdt": 1.659257,
+      "log": "evidence/agent-arena-v2/momentum_agent_guarded.csv"
+    },
+    {
+      "agent": "news_blind_agent",
+      "rows": 16595,
+      "fills": 34,
+      "blocks": 16561,
+      "startingBalance": 1000,
+      "endingBalance": 1003.504882,
+      "netPnlUsdt": 3.504882,
+      "maxDrawdownUsdt": 3.281314,
+      "log": "evidence/agent-arena-v2/news_blind_agent.csv"
+    },
+    {
+      "agent": "news_blind_agent_guarded",
+      "rows": 16595,
+      "fills": 34,
+      "blocks": 16561,
+      "startingBalance": 1000,
+      "endingBalance": 1002.860297,
+      "netPnlUsdt": 2.860297,
+      "maxDrawdownUsdt": 2.3645,
+      "log": "evidence/agent-arena-v2/news_blind_agent_guarded.csv"
+    },
+    {
+      "agent": "random_agent",
+      "rows": 38,
+      "fills": 38,
+      "blocks": 0,
+      "startingBalance": 1000,
+      "endingBalance": 1009.768537,
+      "netPnlUsdt": 9.768537,
+      "maxDrawdownUsdt": 0.95,
+      "log": "evidence/agent-arena-v2/random_agent.csv"
+    },
+    {
+      "agent": "random_agent_guarded",
+      "rows": 1366,
+      "fills": 38,
+      "blocks": 1328,
+      "startingBalance": 1000,
+      "endingBalance": 1002.697026,
+      "netPnlUsdt": 2.697026,
+      "maxDrawdownUsdt": 1.171664,
+      "log": "evidence/agent-arena-v2/random_agent_guarded.csv"
+    },
+    {
+      "agent": "qwen_council_agent",
+      "rows": 20,
+      "fills": 20,
+      "blocks": 0,
+      "startingBalance": 1000,
+      "endingBalance": 1000.919123,
+      "netPnlUsdt": 0.919123,
+      "maxDrawdownUsdt": 1.078004,
+      "log": "evidence/agent-arena-v2/qwen_council_agent.csv"
+    },
+    {
+      "agent": "nightdesk_guarded_agent",
+      "rows": 20,
+      "fills": 20,
+      "blocks": 0,
+      "startingBalance": 1000,
+      "endingBalance": 1000.99635,
+      "netPnlUsdt": 0.99635,
+      "maxDrawdownUsdt": 0.805834,
+      "log": "evidence/agent-arena-v2/nightdesk_guarded_agent.csv"
+    }
+  ]
+}

@@ -1,0 +1,35 @@
+{
+  "generatedAt": "2026-06-17T16:13:53.645Z",
+  "ok": true,
+  "rows": [
+    {
+      "file": "README.md",
+      "exists": true
+    },
+    {
+      "file": "SUBMISSION.md",
+      "exists": true
+    },
+    {
+      "file": "docs/BITGET_NATIVE_PROOF.md",
+      "exists": true
+    },
+    {
+      "file": "docs/PNL_CLAIM_STANDARD.md",
+      "exists": true
+    },
+    {
+      "file": "docs/CLAIM_LEDGER.md",
+      "exists": true
+    },
+    {
+      "file": "docs/SECURITY_BOUNDARIES.md",
+      "exists": true
+    },
+    {
+      "file": "EVALUATION_STANDARD.md",
+      "exists": true
+    }
+  ],
+  "stale": []
+}

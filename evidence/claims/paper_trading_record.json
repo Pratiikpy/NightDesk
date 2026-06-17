@@ -1,0 +1,16 @@
+{
+  "id": "paper_trading_record",
+  "claim": "NightDesk produces Bitget-style paper trading records with timestamp, asset, direction, price, quantity, and balance change.",
+  "acceptance_criteria": [
+    "CSV exists",
+    "schema contains required Bitget fields",
+    "executed fills and blocked intents are both present"
+  ],
+  "evidence": [
+    "evidence/trading-log/nightdesk-paper-trading-log.csv",
+    "evidence/trading-log/run-summary.md",
+    "evidence:verify"
+  ],
+  "status": "verified",
+  "caveat": "Paper record is execution evidence, not a live capital claim."
+}

@@ -1,0 +1,26 @@
+strategy_id,family,source,direction,total_pnl,max_drawdown,total_trades,win_rate,robustness_score,overfit_verdict,safety_uplift_note
+perp_gap_fade_e0p35_x0_tp2_sl0p75_h9999_n0p5_m2,basis_diagnostic,perp_gap,fade,47.8575,3.998328,5,1,60.53435,PASS,compare against guarded arena and shadow-gateway counterfactuals
+perp_gap_fade_e0p35_x0_tp2_sl0p75_h9999_n0p5_m5,basis_diagnostic,perp_gap,fade,47.8575,3.998328,5,1,60.53435,PASS,compare against guarded arena and shadow-gateway counterfactuals
+perp_gap_fade_e0p35_x0_tp2_sl0p75_h9999_n0p5_m8,basis_diagnostic,perp_gap,fade,47.8575,3.998328,5,1,60.53435,PASS,compare against guarded arena and shadow-gateway counterfactuals
+perp_gap_fade_e0p35_x0_tp2_sl1p25_h9999_n0p5_m2,basis_diagnostic,perp_gap,fade,47.8575,3.998328,5,1,60.53435,PASS,compare against guarded arena and shadow-gateway counterfactuals
+perp_gap_fade_e0p35_x0_tp2_sl1p25_h9999_n0p5_m5,basis_diagnostic,perp_gap,fade,47.8575,3.998328,5,1,60.53435,PASS,compare against guarded arena and shadow-gateway counterfactuals
+perp_gap_fade_e0p35_x0_tp2_sl1p25_h9999_n0p5_m8,basis_diagnostic,perp_gap,fade,47.8575,3.998328,5,1,60.53435,PASS,compare against guarded arena and shadow-gateway counterfactuals
+perp_gap_fade_e0p35_x0_tp2_sl2p5_h9999_n0p5_m2,basis_diagnostic,perp_gap,fade,47.8575,3.998328,5,1,60.53435,PASS,compare against guarded arena and shadow-gateway counterfactuals
+perp_gap_fade_e0p35_x0_tp2_sl2p5_h9999_n0p5_m5,basis_diagnostic,perp_gap,fade,47.8575,3.998328,5,1,60.53435,PASS,compare against guarded arena and shadow-gateway counterfactuals
+perp_gap_fade_e0p35_x0_tp2_sl2p5_h9999_n0p5_m8,basis_diagnostic,perp_gap,fade,47.8575,3.998328,5,1,60.53435,PASS,compare against guarded arena and shadow-gateway counterfactuals
+perp_gap_fade_e0p35_x0_tp2_sl1p25_h9999_n0p35_m5,basis_diagnostic,perp_gap,fade,49.585494,5.365394,13,0.846154,59.537313,PASS,compare against guarded arena and shadow-gateway counterfactuals
+perp_gap_fade_e0p35_x0_tp2_sl1p25_h9999_n0p35_m8,basis_diagnostic,perp_gap,fade,49.585494,5.365394,13,0.846154,59.537313,PASS,compare against guarded arena and shadow-gateway counterfactuals
+perp_gap_fade_e0p35_x0_tp2_sl2p5_h9999_n0p35_m5,basis_diagnostic,perp_gap,fade,49.585494,5.365394,13,0.846154,59.537313,PASS,compare against guarded arena and shadow-gateway counterfactuals
+perp_gap_fade_e0p35_x0_tp2_sl2p5_h9999_n0p35_m8,basis_diagnostic,perp_gap,fade,49.585494,5.365394,13,0.846154,59.537313,PASS,compare against guarded arena and shadow-gateway counterfactuals
+perp_gap_fade_e0p35_x0_tp2_sl0p75_h9999_n0p35_m5,basis_diagnostic,perp_gap,fade,49.399104,5.86181,14,0.857143,58.35739,PASS,compare against guarded arena and shadow-gateway counterfactuals
+perp_gap_fade_e0p35_x0_tp2_sl0p75_h9999_n0p35_m8,basis_diagnostic,perp_gap,fade,49.399104,5.86181,14,0.857143,58.35739,PASS,compare against guarded arena and shadow-gateway counterfactuals
+perp_gap_fade_e0p35_x0_tp2_sl1p25_h9999_n0p35_m2,basis_diagnostic,perp_gap,fade,48.346187,5.908406,11,0.818182,57.206809,PASS,compare against guarded arena and shadow-gateway counterfactuals
+perp_gap_fade_e0p35_x0_tp2_sl2p5_h9999_n0p35_m2,basis_diagnostic,perp_gap,fade,48.346187,5.908406,11,0.818182,57.206809,PASS,compare against guarded arena and shadow-gateway counterfactuals
+perp_gap_fade_e0p35_x0_tp2_sl0p75_h9999_n0p35_m2,basis_diagnostic,perp_gap,fade,48.369378,6.194125,13,0.846154,56.65867,PASS,compare against guarded arena and shadow-gateway counterfactuals
+perp_gap_fade_e0p5_x0_tp1p25_sl1p25_h9999_n0p5_m2,basis_diagnostic,perp_gap,fade,39.364821,4.950387,7,1,50.055335,PASS,compare against guarded arena and shadow-gateway counterfactuals
+perp_gap_fade_e0p5_x0_tp1p25_sl1p25_h9999_n0p5_m5,basis_diagnostic,perp_gap,fade,39.364821,4.950387,7,1,50.055335,PASS,compare against guarded arena and shadow-gateway counterfactuals
+perp_gap_fade_e0p5_x0_tp1p25_sl1p25_h9999_n0p5_m8,basis_diagnostic,perp_gap,fade,39.364821,4.950387,7,1,50.055335,PASS,compare against guarded arena and shadow-gateway counterfactuals
+perp_gap_fade_e0p5_x0_tp1p25_sl2p5_h9999_n0p5_m2,basis_diagnostic,perp_gap,fade,39.364821,4.950387,7,1,50.055335,PASS,compare against guarded arena and shadow-gateway counterfactuals
+perp_gap_fade_e0p5_x0_tp1p25_sl2p5_h9999_n0p5_m5,basis_diagnostic,perp_gap,fade,39.364821,4.950387,7,1,50.055335,PASS,compare against guarded arena and shadow-gateway counterfactuals
+perp_gap_fade_e0p5_x0_tp1p25_sl2p5_h9999_n0p5_m8,basis_diagnostic,perp_gap,fade,39.364821,4.950387,7,1,50.055335,PASS,compare against guarded arena and shadow-gateway counterfactuals
+perp_gap_fade_e0p5_x0p1_tp1p25_sl1p25_h9999_n0p5_m2,basis_diagnostic,perp_gap,fade,39.077488,4.950387,7,1,49.760162,PASS,compare against guarded arena and shadow-gateway counterfactuals

@@ -1,0 +1,29 @@
+{
+  "timestamp": "2026-06-15T17:00:48.134Z",
+  "tool": "evaluate_intent",
+  "surface": "sdk/mcp-compatible",
+  "request": {
+    "ticker": "AAPL",
+    "side": "buy",
+    "sizeUsd": 50
+  },
+  "response": {
+    "verdict": "ALLOW",
+    "reason": "ok"
+  },
+  "certificate": {
+    "version": "1.0",
+    "ticker": "AAPL",
+    "issuedAt": "2026-06-15T17:00:48.134Z",
+    "expiresAt": "2026-06-15T18:00:48.134Z",
+    "anchorSource": "LAST_CLOSE",
+    "anchorStale": false,
+    "classification": "FAIR",
+    "safetyScore": 82,
+    "allowedPolicy": "NORMAL",
+    "maxSizeUsd": 55,
+    "evidence": [
+      "true gap -0.03% within normal"
+    ]
+  }
+}

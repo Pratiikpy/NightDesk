@@ -1,0 +1,6 @@
+agent,blocked_loss,note
+naive_gap_agent,0,positive means guarded path had better net PnL on this sample
+perp_trust_agent,0,positive means guarded path had better net PnL on this sample
+momentum_agent,0,positive means guarded path had better net PnL on this sample
+news_blind_agent,0,positive means guarded path had better net PnL on this sample
+random_agent,0,positive means guarded path had better net PnL on this sample
