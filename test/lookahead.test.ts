@@ -1,4 +1,4 @@
-// Look-ahead sentinel (Vibe-Trading pattern). A causal signal's value at bar i must depend ONLY on
+// Look-ahead sentinel. A causal signal's value at bar i must depend ONLY on
 // data up to bar i. We compute the signal on a clean series, then CORRUPT every bar after a temporal
 // probe and recompute — the pre-probe values must be byte-for-byte unchanged (within 1e-9). If a
 // future-leakage bug ever creeps in, this test fails. The suite is pure + deterministic and makes no

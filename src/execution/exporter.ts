@@ -149,7 +149,7 @@ export function exportTradingEvidence(args: {
       "- `run-events.jsonl`",
       "- `ledger-verification.txt`",
       "",
-      "Nautilus-inspired execution integrity:",
+      "Execution integrity:",
       "",
       "- immutable event topics",
       "- standardized risk denial codes",

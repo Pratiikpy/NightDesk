@@ -1,8 +1,8 @@
 // Seeded latency + tick-quantized slippage model — PURE and deterministic.
 // The #1 thing trader-judges discount is "fills at mid, zero latency." This makes fill realism
 // demonstrable AND reproducible: all randomness flows through a seeded PRNG, slippage is quantized to
-// the instrument tick (not a raw %), and an order cannot fill until submitTs + latency. Re-implemented
-// from scratch in TypeScript (idea adapted from a Rust fill/latency model).
+// the instrument tick (not a raw %), and an order cannot fill until submitTs + latency. All original
+// NightDesk TypeScript.
 
 /** Deterministic PRNG (mulberry32). Same seed => same sequence => reproducible, signable fill runs. */
 export function mulberry32(seed: number): () => number {

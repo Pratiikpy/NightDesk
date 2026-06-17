@@ -158,7 +158,7 @@ export function verifyEvidenceArtifacts(): ArtifactCheck[] {
     "evidence/championship/manifest.json",
     "evidence/manifest.json",
     "docs/PNL_CLAIM_STANDARD.md",
-    "docs/NAUTILUS_LESSONS.md",
+    "docs/EXECUTION_INTEGRITY.md",
     "docs/SECURITY_BOUNDARIES.md",
     "docs/BITGET_NATIVE_PROOF.md",
     "docs/CLAIM_LEDGER.md",
@@ -330,7 +330,7 @@ export function verifyEvidenceArtifacts(): ArtifactCheck[] {
     return true;
   }));
 
-  checks.push(check("Vibe-inspired alpha zoo and compare exist", () => {
+  checks.push(check("alpha zoo and compare exist", () => {
     const zoo = parseCsv("evidence/alpha-factory/alpha-zoo-catalog.csv");
     if (zoo.length < 10) return `too few alpha zoo entries: ${zoo.length}`;
     const compare = parseCsv("evidence/alpha-factory/strategy-compare.csv");

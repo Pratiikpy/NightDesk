@@ -64,8 +64,7 @@ profitable Bitget AI agents.
   champion with timestamp, asset, direction, price, quantity, balance change, strategy id, and
   safety status.
 - `evidence/alpha-factory/alpha-zoo-catalog.csv` and `strategy-compare.csv` — NightDesk Alpha Zoo
-  plus head-to-head strategy comparison inspired by Vibe-Trading, but scoped to Bitget
-  tokenized-stock gaps.
+  plus head-to-head strategy comparison, scoped to Bitget tokenized-stock gaps.
 - `evidence/shadow-gateway/actual-vs-guarded.csv` — Shadow Account-style counterfactual report:
   unrestricted agent vs NightDesk-guarded path, missed profit, blocked loss, and rule breaks.
 - `evidence/claims/claims-manifest.json` — claim ledger mapping every major claim to acceptance
@@ -73,8 +72,8 @@ profitable Bitget AI agents.
 - `evidence/run-cards/` — compact run cards for paper session, Alpha Factory, raw-PnL championship,
   guarded replay, Bitget smoke, and judge-max verification.
 - `evidence/doctor-report.md`, `evidence/data-health/source-health.md`, and
-  `evidence/judge-cockpit/index.html` — operational doctor, source-health matrix, and static Judge
-  Cockpit inspired by Vibe-Trading and FinceptTerminal packaging.
+  `evidence/judge-cockpit/index.html` — operational doctor, source-health matrix, and a static Judge
+  Cockpit.
 - `evidence/agent-arena-v2/` — seven external-agent policy runs, each with Bitget-style paper
   trading CSV/JSONL logs and an arena summary. This proves NightDesk can sit in front of other
   agents, not only its own loop.

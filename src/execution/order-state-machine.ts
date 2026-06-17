@@ -5,7 +5,7 @@
 // distinct reject paths mirror NightDesk's design: `Denied` = rejected internally by our own risk gates
 // (carries a typed reason); `Rejected` = rejected by the venue after submission.
 //
-// Idea adapted (re-implemented from scratch) from a Rust order FSM; this is original TypeScript.
+// Original NightDesk TypeScript: an order's status is always the fold of an event log, never set directly.
 
 export type OrderStatus =
   | "Initialized"

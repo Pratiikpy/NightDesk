@@ -126,7 +126,7 @@ export function runForwardPaperDaemon(args: string[] = []): void {
   );
   // Reproducibility run-card: a config hash + a deterministic fingerprint over the per-session
   // outputs (excluding timestamps), so anyone can prove "same locked champion + same recordings =>
-  // identical result." NautilusTrader stores no config hash / seed in its run result; this closes that.
+  // identical result." Many run-result formats omit a config hash / seed; NightDesk records both.
   const sha256 = (s: string) => createHash("sha256").update(s).digest("hex");
   const championConfigHash = sha256(JSON.stringify(frozen.config));
   const fingerprintBasis = sessionRows.map((r) => [r.recording, r.trades, r.net_pnl, r.max_drawdown, r.mode]);

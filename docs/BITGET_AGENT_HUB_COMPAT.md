@@ -41,20 +41,19 @@ External agent / Agent Hub tool
 - Write/trading mode must be explicit; paper mode is the default evidence path.
 - A trade intent without a valid, unexpired, ticker-matching certificate is rejected.
 
-## NautilusTrader pattern study
+## Execution architecture standards
 
-We cloned `nautechsystems/nautilus_trader` under `.research/nautilus_trader` as an architecture
-reference, not as a runtime dependency. The useful patterns applied to NightDesk are:
+NightDesk's execution layer is a small, reproducible TypeScript layer (no heavyweight engine
+dependency). The standards it holds itself to:
 
 - **Event-driven run log:** NightDesk records market snapshot, certificate, intent, firewall verdict,
   simulated order/fill, account snapshot, and ledger signing events.
-- **Research/paper/live parity:** the same trade intent and certificate contract should work in
-  fixture replay, paper session, and a future live adapter. Only the execution adapter changes.
+- **Research/paper/live parity:** the same trade intent and certificate contract works in fixture
+  replay, paper session, and a future live adapter. Only the execution adapter changes.
 - **Adapter boundary:** PaperPit/BitSim is the current execution adapter; a Bitget live adapter can
   implement the same certified-order input/output later.
 - **Custom data as first-class data:** certificates, firewall verdicts, gate reports, block reasons,
   and ledger hashes are logged alongside prices and fills.
 
-We deliberately do not depend on NautilusTrader for the hackathon: it is a large Python/Rust engine,
-while NightDesk's submission path needs a small, reproducible TypeScript evidence layer specific to
-Bitget tokenized US stocks.
+The submission path stays a small, reproducible TypeScript evidence layer specific to Bitget tokenized
+US stocks — deliberately not a generic trading engine.

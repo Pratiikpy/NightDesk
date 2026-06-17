@@ -154,7 +154,7 @@ const evidenceFiles = [
   "evidence/championship/manifest.json",
   "evidence/manifest.json",
   "docs/PNL_CLAIM_STANDARD.md",
-  "docs/NAUTILUS_LESSONS.md",
+  "docs/EXECUTION_INTEGRITY.md",
   "docs/SECURITY_BOUNDARIES.md",
   "docs/BITGET_NATIVE_PROOF.md",
   "docs/CLAIM_LEDGER.md",

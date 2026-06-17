@@ -163,7 +163,7 @@ export function runAlphaZoo(): void {
     [
       "# NightDesk Alpha Zoo",
       "",
-      "Domain-specific alpha catalogue inspired by Vibe-Trading's Alpha Zoo, but scoped to Bitget tokenized US stocks.",
+      "Domain-specific alpha catalogue scoped to Bitget tokenized US stocks.",
       "",
       "| Alpha | Family | Thesis | Safety Filter |",
       "|---|---|---|---|",

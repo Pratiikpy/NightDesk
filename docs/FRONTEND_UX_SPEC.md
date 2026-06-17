@@ -96,7 +96,7 @@ product and the pitch reinforce each other.
 
 ## 6. Brand pointers (hand to the designer alongside PROJECT.md)
 
-- Vibe: a trader's risk/audit desk **at night** — "NightDesk" is literal. Dark, nocturnal, terminal-grade.
+- Feel: a trader's risk/audit desk **at night** — "NightDesk" is literal. Dark, nocturnal, terminal-grade.
 - Hero image: the **perp-vs-real two-gauge reveal**.
 - Metaphors: the **loop** (autonomy) and the **gate/traffic-light** (firewall).
 - Tone: signed, replayable, honest — never "get rich." Rigor reads as premium; flash reads as cheap.

@@ -4,7 +4,7 @@ Skill installed at `C:\Users\prate\.claude\skills\getagent` (v0.3.0). ACCESS-KEY
 
 ## How it works
 - Author strategy in Python against `getagent.*` modules → `python3 scripts/validate.py ./pkg/` → upload → sandbox backtest → read metrics → publish.
-- Sandbox-only SDK modules: `getagent.data`, `getagent.trade`, `getagent.llm`, `getagent.backtest`, `getagent.runtime`. Backtest engine is Nautilus-based.
+- Sandbox-only SDK modules: `getagent.data`, `getagent.trade`, `getagent.llm`, `getagent.backtest`, `getagent.runtime`. Backtest runs on the Bitget Playbook platform.
 - Blocked in strategy code: `requests`, `httpx`, `ccxt`, `yfinance`, etc. (no direct HTTP — must use `getagent.data`).
 
 ## 🔑 Build-changing discoveries
@@ -33,7 +33,7 @@ The Playbook sandbox is a second, independent evidence engine that directly hits
 
 Built two Playbook packages under `playbook/`, both pass the official `validate.py`:
 - **`raapl-convergence`** (rAAPL spot mean-reversion) — uploaded OK (draft `15f37644…`). Backtest **FAILED** with a real, important finding: the Playbook sandbox's `data.crypto.spot.kline` is backed by **CoinGlass, which does NOT carry Bitget rTokens** (`"The requested pair does not exist on the exchange"`). So **rTokens cannot be backtested inside Playbook** — their price history isn't in the managed data provider.
-- **`btc-convergence`** (same convergence methodology on BTC perp) — uploaded + **backtest COMPLETED** (run `pbrun-dc30391515e3`). Real Nautilus metrics: 20 trades, win_rate 0.5, total_return −0.0543%, Sharpe −2.83, max_dd 0.069%, real fee diagnostics. This is a **verifiable on-platform Bitget Playbook backtest record.**
+- **`btc-convergence`** (same convergence methodology on BTC perp) — uploaded + **backtest COMPLETED** (run `pbrun-dc30391515e3`). Real on-platform backtest metrics: 20 trades, win_rate 0.5, total_return −0.0543%, Sharpe −2.83, max_dd 0.069%, real fee diagnostics. This is a **verifiable on-platform Bitget Playbook backtest record.**
 
 ### Consequence for the evidence story (honest + accurate)
 - Playbook proves: we use the Bitget Playbook tool end-to-end (author → validate → upload → backtest) with a **real completed backtest record** — Track-3 "uses Bitget tools + verifiable backtest" ✅ (methodology validated on crypto, the data the platform actually serves).

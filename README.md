@@ -33,9 +33,9 @@ npm run alpha:factory # Alpha Factory + Overfit Court + frozen champion evidence
 npm run alpha:zoo # NightDesk Alpha Zoo + head-to-head strategy compare
 npm run shadow-gateway # actual vs guarded vs reckless counterfactual reports
 npm run claims:verify # claim ledger: claim -> criteria -> evidence
-npm run run-card # Vibe-style run cards for major judge artifacts
+npm run run-card # run cards for major judge artifacts
 npm run doctor # environment/provider/read-only safety report
-npm run data:health # Fincept-style source-health matrix
+npm run data:health # source-health matrix
 npm run dashboard:judge # static judge cockpit at evidence/judge-cockpit/index.html
 npm run oos:report    # multi-session study over data/snapshots/*.jsonl
 npm run oos:session-bank # session cards + OOS quality scoreboard
@@ -84,8 +84,8 @@ The submission evidence lives in `evidence/`:
   frozen champion: +47.86 USDT total on the recorded sessions with 4.00 USDT max drawdown — this is
   in-sample execution-quality evidence (proof the search/freeze loop works), **not** a future-alpha
   claim; see the honest null edge-test below.
-- `evidence/alpha-factory/alpha-zoo-catalog.csv` and `strategy-compare.csv` — Vibe-Trading-inspired
-  NightDesk Alpha Zoo and head-to-head survivor comparison, scoped to Bitget tokenized-stock gaps.
+- `evidence/alpha-factory/alpha-zoo-catalog.csv` and `strategy-compare.csv` — the NightDesk
+  Alpha Zoo and head-to-head survivor comparison, scoped to Bitget tokenized-stock gaps.
 - `evidence/shadow-gateway/` — Shadow Account-style counterfactuals: actual vs guarded, missed
   profit, blocked loss, and rule-break reports for external-agent policies.
 - `evidence/claims/` — claim ledger mapping every major project claim to acceptance criteria and
@@ -93,7 +93,7 @@ The submission evidence lives in `evidence/`:
 - `evidence/run-cards/` — one-card summaries for paper session, Alpha Factory, raw-PnL
   championship, guarded replay, Bitget smoke, and judge max.
 - `evidence/doctor-report.md` and `evidence/data-health/source-health.md` — one-command operational
-  health checks inspired by Vibe provider doctor and Fincept terminal source matrices.
+  health checks: provider/environment posture and a source-health matrix.
 - `evidence/judge-cockpit/index.html` — static Judge Cockpit summarizing alpha, safety, doctor, and
   data-health state.
 - `evidence/research/` — research-node output with train/test signal-stability selection and an
@@ -223,11 +223,11 @@ proxy (`.env`); the offline simulator uses a deterministic council so it runs wi
 | **PegWatch** | `src/pegwatch/` | Fair value vs the real-stock anchor plus rToken/perp/Ondo basis checks, depeg classification (fee-net), and sValue-adjusted 3-price triangulation. Pure math in `fairvalue.ts`, snapshot builder in `collect.ts`. |
 | **Recorder** | `src/recorder/` | Polls the universe, appends timestamped JSONL snapshots (quotes + book-when-present). The replayable evidence base. |
 | **BitSim** | `src/bitsim/` | Open-source fill sandbox: **quote-first** fills for rTokens (intermittent books), **depth-aware** for perps/Ondo; accounts, PnL, fees, funding. Fills the read-only-execution gap. |
-| **Execution Evidence** | `src/execution/` | Nautilus-inspired, NightDesk-native event topics, lifecycle states, deterministic order IDs, risk denial codes, paper-session exporter, guarded replay, arena v2, research node, and max judge manifest. |
+| **Execution Evidence** | `src/execution/` | NightDesk-native event topics, lifecycle states, an enforced order state machine, deterministic order IDs, risk denial codes, modeled latency/slippage, paper-session exporter, guarded replay, arena v2, research node, and max judge manifest. |
 | **Alpha Factory** | `src/research/alpha-championship.ts`, `src/research/alpha-factory.ts`, `src/research/championship/` | Raw-PnL championship, two-champion Championship Mode, trial registry, Overfit Court, walk-forward leaderboard, frozen champion, expected-vs-actual paper log, masked eval note, and benchmark standard. |
-| **Alpha Zoo + Shadow Gateway** | `src/research/alpha-zoo.ts`, `src/research/shadow-gateway.ts` | Vibe-Trading-inspired tokenized-stock Alpha Zoo, strategy compare, and actual-vs-guarded counterfactuals. |
+| **Alpha Zoo + Shadow Gateway** | `src/research/alpha-zoo.ts`, `src/research/shadow-gateway.ts` | Tokenized-stock Alpha Zoo, strategy compare, and actual-vs-guarded counterfactuals. |
 | **Claim/Run Evidence** | `src/research/claim-ledger.ts`, `src/research/run-card.ts` | Claim ledger and run cards so judges can map each claim to acceptance criteria and reproduction artifacts. |
-| **Ops + Judge Cockpit** | `src/ops/`, `src/face/judge-cockpit.ts` | Doctor report, data-source health matrix, and static Judge Cockpit inspired by Vibe provider doctor and Fincept terminal packaging. |
+| **Ops + Judge Cockpit** | `src/ops/`, `src/face/judge-cockpit.ts` | Doctor report, data-source health matrix, and a static Judge Cockpit. |
 | **Evaluation Standard** | `src/research/`, `EVALUATION_STANDARD.md`, `docs/PNL_CLAIM_STANDARD.md` | OOS session study, walk-forward PnL, cost/regime reports, fill realism stress, and explicit claim boundaries. |
 | **Perception** | `src/perception/` | EventCard schema + the deterministic basis-event generator + provider interface + numeric grounding. |
 | **Council** | `src/council/`, `src/llm/` | Bull/bear/risk-supervisor debate on qwen3.6-plus (pluggable provider; mock for tests) → TradeProposal or NO_TRADE, supervisor veto. |
