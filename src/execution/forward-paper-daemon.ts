@@ -1,4 +1,4 @@
-import { existsSync, mkdirSync, readFileSync, writeFileSync } from "node:fs";
+import { copyFileSync, existsSync, mkdirSync, readFileSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
 import { loadSnapshots } from "../bitsim/market";
 import { hashRecords } from "./exporter";
@@ -6,6 +6,9 @@ import { runAlphaConfig, type AlphaConfig } from "../research/alpha-championship
 import { availableSessionFiles } from "../research/session-study";
 
 const OUT = join(process.cwd(), "evidence", "forward-paper-daemon");
+const FACTORY = join(process.cwd(), "evidence", "alpha-factory");
+const LOCKED = join(FACTORY, "frozen-champion.locked.json");
+const FROZEN = join(FACTORY, "frozen-champion.json");
 
 interface FrozenChampionFile {
   frozenAt: string;
@@ -29,17 +32,31 @@ function writeCsv(file: string, rows: object[]): void {
   writeFileSync(join(OUT, file), [headers.join(","), ...rows.map((r) => headers.map((h) => csvEscape((r as Record<string, unknown>)[h])).join(","))].join("\n") + "\n");
 }
 
-function loadFrozenChampion(): FrozenChampionFile {
-  const file = join(process.cwd(), "evidence", "alpha-factory", "frozen-champion.json");
-  if (!existsSync(file)) throw new Error("Missing frozen champion. Run npm run alpha:factory first.");
-  return JSON.parse(readFileSync(file, "utf8")) as FrozenChampionFile;
+/**
+ * Load the champion config. A *locked* copy (`frozen-champion.locked.json`) wins if present: once you
+ * lock the champion, a later `alpha:factory` re-fit can never disturb the forward track record, so the
+ * forward sessions stay genuinely out-of-sample. Falls back to the latest `frozen-champion.json`.
+ */
+function loadFrozenChampion(): { champ: FrozenChampionFile; locked: boolean } {
+  const file = existsSync(LOCKED) ? LOCKED : FROZEN;
+  if (!existsSync(file)) throw new Error("Missing frozen champion. Run npm run alpha:factory first, then lock it.");
+  return { champ: JSON.parse(readFileSync(file, "utf8")) as FrozenChampionFile, locked: existsSync(LOCKED) };
 }
 
 export function runForwardPaperDaemon(args: string[] = []): void {
   mkdirSync(OUT, { recursive: true });
+
+  // `--lock` snapshots the current frozen champion as the immutable forward-trading champion.
+  if (args.includes("--lock")) {
+    if (!existsSync(FROZEN)) throw new Error("Nothing to lock: run npm run alpha:factory first.");
+    copyFileSync(FROZEN, LOCKED);
+    console.log(`NIGHTDESK FORWARD CHAMPION LOCKED: ${LOCKED}`);
+  }
+
   const inputFiles = args.filter((a) => !a.startsWith("--"));
   const files = (inputFiles.length ? inputFiles : availableSessionFiles()).sort();
-  const frozen = loadFrozenChampion();
+  const { champ: frozen, locked } = loadFrozenChampion();
+  const freezeDay = frozen.frozenAt.slice(0, 10); // YYYY-MM-DD; a session recorded after this is forward/OOS
   const runId = `forward_${new Date().toISOString().replace(/[:.]/g, "-")}`;
   const sessionRows: Record<string, unknown>[] = [];
   const allLogs: Record<string, unknown>[] = [];
@@ -47,6 +64,7 @@ export function runForwardPaperDaemon(args: string[] = []): void {
   for (const file of files) {
     const snapshots = loadSnapshots(file);
     const recording = file.replace(/\\/g, "/").split("/").pop()!.replace(/\.jsonl$/, "");
+    const isForward = recording > freezeDay; // pure string compare on YYYY-MM-DD
     const result = runAlphaConfig(recording, snapshots, frozen.config);
     const sessionHash = hashRecords([runId, frozen.config.id, recording, result.netPnl, result.trades]);
     sessionRows.push({
@@ -62,7 +80,8 @@ export function runForwardPaperDaemon(args: string[] = []): void {
       max_drawdown: Number(result.maxDrawdown.toFixed(6)),
       fees: Number(result.fees.toFixed(6)),
       session_hash: sessionHash,
-      mode: "frozen_config_forward_paper",
+      // in_sample_replay = champion was fit on this day; forward_oos_paper = recorded after the freeze.
+      mode: isForward ? "forward_oos_paper" : "in_sample_replay",
     });
     for (const row of result.rows) {
       allLogs.push({
@@ -70,10 +89,14 @@ export function runForwardPaperDaemon(args: string[] = []): void {
         run_id: `${runId}_${recording}`,
         champion_id: frozen.config.id,
         frozen_at: frozen.frozenAt,
+        sample: isForward ? "forward_oos" : "in_sample",
         forward_session_hash: sessionHash,
       });
     }
   }
+
+  const forwardRows = sessionRows.filter((r) => r.mode === "forward_oos_paper");
+  const sum = (rows: Record<string, unknown>[], k: string) => Number(rows.reduce((s, r) => s + Number(r[k]), 0).toFixed(6));
 
   writeCsv("session-results.csv", sessionRows);
   writeCsv("live-paper-trading-log.csv", allLogs);
@@ -86,11 +109,15 @@ export function runForwardPaperDaemon(args: string[] = []): void {
         runId,
         championId: frozen.config.id,
         frozenAt: frozen.frozenAt,
+        championLocked: locked,
         sessions: sessionRows.length,
-        totalPnl: Number(sessionRows.reduce((sum, r) => sum + Number(r.net_pnl), 0).toFixed(6)),
-        totalTrades: sessionRows.reduce((sum, r) => sum + Number(r.trades), 0),
+        totalPnl: sum(sessionRows, "net_pnl"),
+        totalTrades: sessionRows.reduce((s, r) => s + Number(r.trades), 0),
+        forwardSessions: forwardRows.length,
+        forwardPnl: sum(forwardRows, "net_pnl"),
+        forwardTrades: forwardRows.reduce((s, r) => s + Number(r.trades), 0),
         ledgerHash: hashRecords(sessionRows),
-        note: "This daemon replays the frozen champion over available recordings today and appends future OOS evidence as new recordings are added.",
+        note: "Frozen champion replayed over every recorded session. Sessions recorded after frozen_at are forward/out-of-sample; lock the champion (--lock) so a later re-fit can't disturb the forward track record.",
       },
       null,
       2,
@@ -103,17 +130,26 @@ export function runForwardPaperDaemon(args: string[] = []): void {
       "",
       `Run ID: ${runId}`,
       `Frozen champion: ${frozen.config.id}`,
-      `Frozen at: ${frozen.frozenAt}`,
-      `Sessions processed: ${sessionRows.length}`,
-      `Total PnL: ${sessionRows.reduce((sum, r) => sum + Number(r.net_pnl), 0).toFixed(4)} USDT`,
-      `Total trades: ${sessionRows.reduce((sum, r) => sum + Number(r.trades), 0)}`,
+      `Frozen at: ${frozen.frozenAt}${locked ? " (LOCKED)" : " (not locked — run with --lock before submission)"}`,
       "",
-      "Rule: the champion config is loaded from `evidence/alpha-factory/frozen-champion.json` and is not changed during the daemon run.",
-      "Future OOS strength improves as more `data/snapshots/*.jsonl` sessions are recorded.",
+      "## Forward / out-of-sample track record (the honest number)",
+      `Forward sessions (recorded after the freeze): ${forwardRows.length}`,
+      `Forward PnL: ${sum(forwardRows, "net_pnl").toFixed(4)} USDT`,
+      `Forward trades: ${forwardRows.reduce((s, r) => s + Number(r.trades), 0)}`,
+      "",
+      "## All sessions (forward + in-sample replay)",
+      `Sessions processed: ${sessionRows.length}`,
+      `Total PnL: ${sum(sessionRows, "net_pnl").toFixed(4)} USDT`,
+      `Total trades: ${sessionRows.reduce((s, r) => s + Number(r.trades), 0)}`,
+      "",
+      "Rule: the champion config is loaded from `frozen-champion.locked.json` (or `frozen-champion.json`)",
+      "and is never changed during the daemon run. Sessions dated after `frozen_at` are genuinely",
+      "out-of-sample; the forward record strengthens as more `data/snapshots/*.jsonl` days are recorded.",
       "",
     ].join("\n"),
   );
   console.log(`NIGHTDESK FORWARD PAPER DAEMON COMPLETE: ${join(OUT, "forward-paper-daemon-report.md")}`);
+  console.log(`forward sessions: ${forwardRows.length} · forward PnL: ${sum(forwardRows, "net_pnl").toFixed(4)} USDT · champion ${locked ? "LOCKED" : "not locked"}`);
 }
 
 if (process.argv[1]?.endsWith("forward-paper-daemon.ts")) runForwardPaperDaemon(process.argv.slice(2));

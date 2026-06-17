@@ -45,6 +45,7 @@
     "alpha:freeze-champion": "tsx src/research/alpha-factory.ts",
     "alpha:expected-vs-actual": "tsx src/research/alpha-factory.ts",
     "alpha:paper-daemon": "tsx src/execution/forward-paper-daemon.ts",
+    "alpha:lock-champion": "tsx src/execution/forward-paper-daemon.ts --lock",
     "alpha:daily-promoter": "tsx src/agent/daily-promoter.ts",
     "oos:daemon": "tsx src/ops/oos-background.ts",
     "oos:daemon:once": "tsx src/ops/oos-background.ts --once",

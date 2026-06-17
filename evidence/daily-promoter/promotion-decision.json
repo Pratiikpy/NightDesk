@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-17T16:24:41.542Z",
+  "generatedAt": "2026-06-17T17:25:45.320Z",
   "championId": "perp_gap_fade_e0p35_x0_tp2_sl0p75_h9999_n0p5_m2",
   "frozenAt": "2026-06-17T16:08:20.334Z",
   "decision": "KEEP",
@@ -11,5 +11,5 @@
   "totalTrades": 5,
   "losingSessions": 0,
   "maxObservedDrawdown": 3.998328,
-  "ledgerHash": "a820b77f868fea2bed664380806194164b1a8b083790fad82a85be4537468412"
+  "ledgerHash": "9d176f5a8a62e0c4fe6838e9306559b13f837070cc768ee39e52de0e4ba7e3a7"
 }
