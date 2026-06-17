@@ -1,8 +1,10 @@
 # Forward Paper Daemon
 
-Run ID: forward_2026-06-17T17-57-19-419Z
+Run ID: forward_2026-06-17T18-06-25-941Z
 Frozen champion: perp_gap_fade_e0p35_x0_tp2_sl0p75_h9999_n0p5_m2
 Frozen at: 2026-06-17T16:08:20.334Z (LOCKED)
+Champion config hash: d62fbc88c1ea6482…
+Run fingerprint: 6216c9e35e68871b… (same locked champion + same recordings reproduce this exactly)
 
 ## Forward / out-of-sample track record (the honest number)
 Forward sessions (recorded after the freeze): 0

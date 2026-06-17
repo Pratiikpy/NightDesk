@@ -1,4 +1,5 @@
 import { copyFileSync, existsSync, mkdirSync, readFileSync, writeFileSync } from "node:fs";
+import { createHash } from "node:crypto";
 import { join } from "node:path";
 import { loadSnapshots } from "../bitsim/market";
 import { hashRecords } from "./exporter";
@@ -123,6 +124,33 @@ export function runForwardPaperDaemon(args: string[] = []): void {
       2,
     ) + "\n",
   );
+  // Reproducibility run-card: a config hash + a deterministic fingerprint over the per-session
+  // outputs (excluding timestamps), so anyone can prove "same locked champion + same recordings =>
+  // identical result." NautilusTrader stores no config hash / seed in its run result; this closes that.
+  const sha256 = (s: string) => createHash("sha256").update(s).digest("hex");
+  const championConfigHash = sha256(JSON.stringify(frozen.config));
+  const fingerprintBasis = sessionRows.map((r) => [r.recording, r.trades, r.net_pnl, r.max_drawdown, r.mode]);
+  const runFingerprint = sha256(JSON.stringify(fingerprintBasis));
+  writeFileSync(
+    join(OUT, "forward-run-card.json"),
+    JSON.stringify(
+      {
+        generatedAt: new Date().toISOString(),
+        championId: frozen.config.id,
+        championConfigHash,
+        frozenAt: frozen.frozenAt,
+        championLocked: locked,
+        sessions: sessionRows.length,
+        forwardSessions: forwardRows.length,
+        totalTrades: sessionRows.reduce((s, r) => s + Number(r.trades), 0),
+        runFingerprint,
+        note: "runFingerprint = SHA-256 over the deterministic per-session outputs (recording, trades, net_pnl, max_drawdown, mode), excluding timestamps. Same locked champion + same recordings => identical fingerprint.",
+      },
+      null,
+      2,
+    ) + "\n",
+  );
+
   writeFileSync(
     join(OUT, "forward-paper-daemon-report.md"),
     [
@@ -131,6 +159,8 @@ export function runForwardPaperDaemon(args: string[] = []): void {
       `Run ID: ${runId}`,
       `Frozen champion: ${frozen.config.id}`,
       `Frozen at: ${frozen.frozenAt}${locked ? " (LOCKED)" : " (not locked — run with --lock before submission)"}`,
+      `Champion config hash: ${championConfigHash.slice(0, 16)}…`,
+      `Run fingerprint: ${runFingerprint.slice(0, 16)}… (same locked champion + same recordings reproduce this exactly)`,
       "",
       "## Forward / out-of-sample track record (the honest number)",
       `Forward sessions (recorded after the freeze): ${forwardRows.length}`,
