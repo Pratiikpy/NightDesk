@@ -78,6 +78,7 @@
     "research:tradeability-bridge": "tsx src/research/pnl-casefile.ts",
     "fill:stress": "tsx src/research/fill-realism.ts",
     "stats:report": "tsx src/research/performance-report.ts",
+    "fill:latency-sweep": "tsx src/research/fill-latency-report.ts",
     "fill:slippage-sweep": "tsx src/research/fill-realism.ts",
     "fill:partial-tests": "tsx src/research/fill-realism.ts",
     "fill:realism-report": "tsx src/research/fill-realism.ts",
