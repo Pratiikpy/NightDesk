@@ -1,0 +1,83 @@
+{
+  "generatedAt": "2026-06-17T18:04:02.298Z",
+  "startBalance": 1000,
+  "minReliableN": 10,
+  "blocks": [
+    {
+      "label": "Forward champion — FORWARD (out-of-sample) sessions only",
+      "source": "evidence/forward-paper-daemon/session-results.csv (mode=forward_oos_paper)",
+      "recordings": [],
+      "summary": {
+        "n": 0,
+        "reliable": false,
+        "reliabilityNote": "n=0 < 10: ratios are reported but NOT yet statistically reliable (too few observations). They strengthen as the forward record grows.",
+        "totalPnl": 0,
+        "totalReturnPct": 0,
+        "meanReturnPct": 0,
+        "sharpe": 0,
+        "sortino": 0,
+        "calmar": 0,
+        "maxDrawdownPct": 0,
+        "profitFactor": 0,
+        "expectancy": 0,
+        "winRatePct": 0,
+        "wins": 0,
+        "losses": 0
+      }
+    },
+    {
+      "label": "Forward champion — all sessions (forward + in-sample replay)",
+      "source": "evidence/forward-paper-daemon/session-results.csv",
+      "recordings": [
+        "2026-06-14",
+        "2026-06-15",
+        "2026-06-16",
+        "2026-06-17"
+      ],
+      "summary": {
+        "n": 4,
+        "reliable": false,
+        "reliabilityNote": "n=4 < 10: ratios are reported but NOT yet statistically reliable (too few observations). They strengthen as the forward record grows.",
+        "totalPnl": 47.8575,
+        "totalReturnPct": 4.7858,
+        "meanReturnPct": 1.1964,
+        "sharpe": 0.8419,
+        "sortino": 0,
+        "calmar": 0,
+        "maxDrawdownPct": 0,
+        "profitFactor": null,
+        "expectancy": 11.964375,
+        "winRatePct": 100,
+        "wins": 2,
+        "losses": 0
+      }
+    },
+    {
+      "label": "Raw-PnL championship — global champion, per session (in-sample)",
+      "source": "evidence/alpha-championship/global-champion-session-results.csv",
+      "recordings": [
+        "2026-06-14",
+        "2026-06-15",
+        "2026-06-16",
+        "2026-06-17"
+      ],
+      "summary": {
+        "n": 4,
+        "reliable": false,
+        "reliabilityNote": "n=4 < 10: ratios are reported but NOT yet statistically reliable (too few observations). They strengthen as the forward record grows.",
+        "totalPnl": 49.585494,
+        "totalReturnPct": 4.9585,
+        "meanReturnPct": 1.2396,
+        "sharpe": 0.8533,
+        "sortino": 0,
+        "calmar": 0,
+        "maxDrawdownPct": 0,
+        "profitFactor": null,
+        "expectancy": 12.396373,
+        "winRatePct": 100,
+        "wins": 2,
+        "losses": 0
+      }
+    }
+  ]
+}
