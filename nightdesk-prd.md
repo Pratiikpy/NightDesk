@@ -23,7 +23,7 @@ An adversarial audit (Jun 10) inverted the hero; a bulletproof live-API pass (Ju
 
 ## 0.5 — Trojan Horse rationale (the all-tracks #1 play)
 
-**Verified (V4, `verification-log.md`):** Bitget's official MCP server is **read-only** — its compiled source contains only read-only references and zero order-placement tools; the FAQ confirms "order execution is not fully implemented; positions sync to a simulated account." **Every team's autonomous agent has no real-execution hands.** v3.3 turns our fill-simulator into **Layer 1 of the product** and structures the build as a Trojan Horse for the all-tracks #1 (full rationale + day-by-day plan: `win-strategy.md`; judge-taste profile: `judges-intel.md`):
+**Verified (V4, `verification-log.md`):** Bitget's official MCP server is **read-only** — its compiled source contains only read-only references and zero order-placement tools; the FAQ confirms "order execution is not fully implemented; positions sync to a simulated account." **Every team's autonomous agent has no real-execution hands.** v3.3 turns our fill-simulator into **Layer 1 of the product** — an open-source execution sandbox ready to plug into official execution the moment it ships:
 
 | Layer | What | Why it wins |
 |---|---|---|
@@ -251,7 +251,7 @@ Live (continuous): | 8 Per-position stop-loss (engine-side) | 9 Max daily drawdo
 | Dashboard uptime during judging | >99% |
 | Community posts | ≥1/night auto-generated + event posts within hours |
 
-## 11. Milestones (parallelizable; day-by-day in `win-strategy.md` §5)
+## 11. Milestones (parallelizable)
 
 | Phase | Deliverable |
 |---|---|
@@ -283,7 +283,7 @@ Live (continuous): | 8 Per-position stop-loss (engine-side) | 9 Max daily drawdo
 
 - **Demo link:** PegWatch terminal (live premiums, sim positions, scorecard, replay, zero-intervention counter) **+ BitSim GitHub repo**.
 - **Evidence:** replayable sim logs + API-call volume (guaranteed) + passive user count (bonus).
-- **Description (<200 words):** problem (broken off-hours price discovery) → loop (Skill Hub perception → bull/bear/risk council on Qwen → BitSim execution → 15 gates incl. depeg + fee-edge) → evidence (N autonomous nights, hit rate, published Playbook backtest on real equity data) → modules used. **Framing rules (judges-intel.md): PegWatch = "independent transparency layer that builds trust in Bitget's rTokens"; BitSim = "ready to plug into official execution the moment it ships."**
+- **Description (<200 words):** problem (broken off-hours price discovery) → loop (Skill Hub perception → bull/bear/risk council on Qwen → BitSim execution → 15 gates incl. depeg + fee-edge) → evidence (N autonomous nights, hit rate, published Playbook backtest on real equity data) → modules used. **Framing rules: PegWatch = "independent transparency layer that builds trust in Bitget's rTokens"; BitSim = "ready to plug into official execution the moment it ships."**
 - **Demo video (≤3 min):** Flow A, one real evening, screen-recorded.
 - **Community posts:** bot recaps + dev diary, #BitgetHackathon + @Bitget_AI.
 

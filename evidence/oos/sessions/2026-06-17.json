@@ -4,15 +4,15 @@
     "session_id": "2026-06-17",
     "date": "2026-06-17",
     "start_time": "2026-06-17T08:38:49.731Z",
-    "end_time": "2026-06-17T16:08:20.989Z",
+    "end_time": "2026-06-17T16:24:38.523Z",
     "tokens": 19,
     "intents": 251,
     "trades": 15,
     "blocks": 236,
     "abstains": 0,
-    "guarded_pnl": 3.299419,
-    "unguarded_pnl": 3.299419,
-    "blocked_loss": -75.246186,
-    "ledger_hash": "ba3f00b957b74623431e1fb27ce8fb7b6dfe400270de35f8df23375921d6df28"
+    "guarded_pnl": 5.300272,
+    "unguarded_pnl": 5.300272,
+    "blocked_loss": -86.002991,
+    "ledger_hash": "26413172f70a707fc81fdfb5a64ef54b76a6bb10cc468df124f62bbb2b2c5005"
   }
 }

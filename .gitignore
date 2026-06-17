@@ -24,3 +24,7 @@ logs/
 # Internal strategy / self-assessment docs — keep local, never ship to the judge-facing tree
 win-strategy.md
 judge-eval.md
+
+# More internal strategy / competitor docs — keep local, out of the judge-facing tree
+WINNING.md
+judges-intel.md

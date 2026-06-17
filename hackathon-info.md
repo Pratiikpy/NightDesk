@@ -249,7 +249,7 @@ After building on MuleRun, you can submit your Agent link directly as your hacka
 - [ ] Join official Telegram community
 - [ ] Claim Qwen token credits (check registration email within 24h)
 - [ ] Claim MuleRun credits (code `0526BITGET` at credits.mule.page)
-- [ ] Pick track (see `win-strategy.md` / `nightdesk-prd.md`)
+- [ ] Pick track (see `nightdesk-prd.md`)
 - [ ] Build runnable demo with backtest / sim trading records
 - [ ] Repost official X post + publish dev diary posts (#BitgetHackathon + @Bitget_AI)
 - [ ] Submit between **Jun 15 – Jun 25, 24:00 UTC+8** with all links (demo, repo, video, post links)
