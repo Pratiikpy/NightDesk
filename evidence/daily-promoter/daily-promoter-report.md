@@ -9,6 +9,6 @@ Actual total PnL: 47.8575 USDT
 Error: 0.0000 USDT
 Total trades: 5
 Max observed drawdown: 3.9983 USDT
-Ledger hash: 9d176f5a8a62e0c4fe6838e9306559b13f837070cc768ee39e52de0e4ba7e3a7
+Ledger hash: b92eb40b4f55d89c546165108fcf3831adb28beee7cf0afcfc590e2911e175b6
 
 Policy: KEEP means the frozen champion remains active; WATCH means collect more sessions; RETIRE means rerun Alpha Factory and freeze a new champion.

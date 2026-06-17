@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-17T17:25:59.961Z",
+  "generatedAt": "2026-06-17T17:56:30.781Z",
   "sessions": [
     "C:\\Users\\prate\\Downloads\\bitget\\data\\snapshots\\2026-06-14.jsonl",
     "C:\\Users\\prate\\Downloads\\bitget\\data\\snapshots\\2026-06-15.jsonl",
@@ -56,16 +56,16 @@
       "session_id": "2026-06-17",
       "date": "2026-06-17",
       "start_time": "2026-06-17T08:38:49.731Z",
-      "end_time": "2026-06-17T17:25:42.536Z",
+      "end_time": "2026-06-17T17:56:12.416Z",
       "tokens": 19,
       "intents": 251,
       "trades": 15,
       "blocks": 236,
       "abstains": 0,
-      "guarded_pnl": 3.518535,
-      "unguarded_pnl": 3.518535,
-      "blocked_loss": -77.216157,
-      "ledger_hash": "e0e28d0072cc262b77745a0e459a4c8138d79d1213c5705065ba0c5276685d1b"
+      "guarded_pnl": 5.168057,
+      "unguarded_pnl": 5.168057,
+      "blocked_loss": -88.269735,
+      "ledger_hash": "5fa94544a849120cc2ad4f129a146505d9267828d683f33f0e42a49d73c501fb"
     }
   ]
 }
