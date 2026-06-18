@@ -95,7 +95,7 @@ the perp hides, stands down on news/macro, fades only what it can cleanly captur
 hard gates that demonstrably avoid losses, and signs every action. The green numbers below are labeled
 for exactly what they are: in‑sample execution evidence, not future alpha.
 
-## Real on‑platform evidence
+## Real on-platform evidence
 
 | What | How to see it | Result |
 |---|---|---|
