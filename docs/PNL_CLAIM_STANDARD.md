@@ -17,7 +17,7 @@ Current submission claim level is conservative: Level 2 evidence is generated, L
 
 ## What Counts As PnL
 
-NightDesk separates three economic outputs:
+NightDesk separates four economic outputs:
 
 1. Execution record: proves the agent can create valid paper/live trading records.
 2. Safety uplift: same agent with and without NightDesk, measuring loss avoided, drawdown reduction, false blocks, and net PnL.

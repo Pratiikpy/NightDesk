@@ -243,7 +243,7 @@ Everything is reproducible from a single command, and every claim points to a fi
 - A **tamper test** proving the signed logbook fails verification if anything is altered.
 - A **hostile-input ("red team") report** and **15-gate coverage report**.
 - A live, credential-free **public Bitget read-only proof**.
-- A one-command **final audit** that runs the build, the full test suite (currently **177 unit tests,
+- A one-command **final audit** that runs the build, the full test suite (currently **205 unit tests,
   all passing**, plus property tests), the security checks, and the complete evidence pack — and reports
   PASS/FAIL honestly, including its own known limitations.
 
