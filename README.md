@@ -132,6 +132,20 @@ stops.** The biggest lie in AI trading is a lucky backtest dressed as a guarante
 gaps into certified, gated, executable decisions — not promising a green curve. The green numbers are
 labeled for exactly what they are: in-sample / early-forward execution evidence, not future alpha.
 
+**Claim boundaries** — read these from us, not "discover" them (also on the live cockpit):
+
+| Claim | Status |
+|---|---|
+| Bitget-schema paper trading logs | **Proven** |
+| Certificate firewall + 15 hard gates | **Proven** |
+| External-agent integration (MCP + SDK) | **Proven** |
+| Bitget read-only round-trip | **Proven** |
+| Signed, tamper-evident ledger | **Proven** |
+| PnL champion (+54.93 USDT) | Current-recording paper evidence |
+| Statistical alpha (Deflated Sharpe) | Not yet significant after deflation |
+| Forward out-of-sample record | Growing live |
+| Real live fill | Not claimed (read-only / dust only) |
+
 ## Real on-platform evidence
 
 | What | How to see it | Result |
@@ -224,19 +238,6 @@ See `verification-log.md` for the full list — the ones that quietly break naï
 > The convergence NightDesk trades resolves at the **NYSE open**, so seeing it play out needs a recording
 > that spans off-hours → open. A few-second sim only proves the loop is mechanically correct (every
 > round-trip honestly pays the spread), not the edge. Run the recorder across an open, then `simulate` it.
-
-## Known limitations (disclosed up front)
-
-You should read these from us, not "discover" them:
-
-- **The forward out-of-sample record is early** — it grows only in wall-clock market time; we surface the
-  live counter (sessions, snapshots, recorder status) in the Judge Cockpit rather than fabricate history.
-- **The live receipt is read-only / dry-run** — a real key returns `40014`; we prove the order path, we
-  don't claim a real fill (zero funds at risk).
-- **The PnL champion is current-recording evidence**, not validated future alpha — labeled as such
-  everywhere it appears.
-- **No third-party production users yet** — the gateway is integration-ready and demonstrated end-to-end
-  with example agents, but real adoption is future work.
 
 ---
 

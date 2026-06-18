@@ -17,8 +17,8 @@ out what each tokenized stock is *really* worth at any hour, explains *why* a pr
 stands down when the gap is driven by real news, and **blocks any trade that is unsafe** — and it
 proves every one of those decisions with a tamper-proof, replayable record.
 
-It is not another trading bot trying to get rich. It is the **safety and trust layer** every other
-trading agent should have to pass through first.
+It is not a blind profit bot. It is the **safety and trust layer** every other trading agent should
+have to pass through first.
 
 ---
 
