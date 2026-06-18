@@ -29,6 +29,7 @@ export function runJudgeCockpit(): void {
   const oos = json<{ snapshotsRecorded?: number; targetSessions?: number; status?: string }>("evidence/oos-daemon/state.json");
   const secrets = json<{ ok?: boolean; findings?: number }>("evidence/secrets-scan.json");
   const bankSessions = read("evidence/oos/session-bank/session-quality-report.md").match(/Current sessions:\s*(\d+)/i)?.[1] ?? "—";
+  const overfit = json<{ nTrials?: number; nObservations?: number; rawSharpe?: number; expectedMaxSharpe?: number; deflatedSharpe?: number; deflatedSharpeSignificant?: boolean; minTrackRecordLength?: number | null; pbo?: { status?: string; value?: number | null } }>("evidence/alpha-factory/overfit-stats.json");
 
   const html = `<!doctype html>
 <html lang="en">
@@ -95,6 +96,16 @@ export function runJudgeCockpit(): void {
       <div class="metric"><span class="label">Safety Champion</span><span class="value">${esc(championship?.safetyChampion?.family)}</span></div>
       <div class="metric"><span class="label">Safety Score</span><span class="value">${esc(championship?.safetyChampion?.score_safety)}</span></div>
       <p>Separate green-number mode and production-safety mode. Both keep hard safety invariants.</p>
+    </section>
+    <section>
+      <h2>Selection-Bias Controls</h2>
+      <div class="metric"><span class="label">Trials searched (N)</span><span class="value">${esc(overfit?.nTrials)}</span></div>
+      <div class="metric"><span class="label">Raw per-session Sharpe</span><span class="value">${esc(overfit?.rawSharpe)}</span></div>
+      <div class="metric"><span class="label">Best-of-N luck bar</span><span class="value">${esc(overfit?.expectedMaxSharpe)}</span></div>
+      <div class="metric"><span class="label">Deflated Sharpe</span><span class="value ${overfit?.deflatedSharpeSignificant ? "ok" : "warn"}">${overfit?.deflatedSharpe != null ? (overfit.deflatedSharpe * 100).toFixed(1) + "%" : "—"}</span></div>
+      <div class="metric"><span class="label">Min track record</span><span class="value">${overfit?.minTrackRecordLength == null ? "—" : Math.ceil(overfit.minTrackRecordLength) + " sessions"}</span></div>
+      <div class="metric"><span class="label">PBO (overfit prob.)</span><span class="value">${overfit?.pbo?.status === "computed" && overfit.pbo.value != null ? (overfit.pbo.value * 100).toFixed(1) + "%" : "accruing"}</span></div>
+      <p>Deflated Sharpe &amp; PBO (Bailey &amp; Lopez de Prado). After correcting for ${esc(overfit?.nTrials)} trials, the champion's edge is <b>not yet significant</b> — we surface that, not hide it. <code>npm run overfit:stats</code></p>
     </section>
     <section>
       <h2>Bitget Native Proof</h2>

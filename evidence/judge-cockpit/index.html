@@ -65,6 +65,16 @@
       <p>Separate green-number mode and production-safety mode. Both keep hard safety invariants.</p>
     </section>
     <section>
+      <h2>Selection-Bias Controls</h2>
+      <div class="metric"><span class="label">Trials searched (N)</span><span class="value">9720</span></div>
+      <div class="metric"><span class="label">Raw per-session Sharpe</span><span class="value">0.6718</span></div>
+      <div class="metric"><span class="label">Best-of-N luck bar</span><span class="value">1.6635</span></div>
+      <div class="metric"><span class="label">Deflated Sharpe</span><span class="value warn">0.7%</span></div>
+      <div class="metric"><span class="label">Min track record</span><span class="value">5 sessions</span></div>
+      <div class="metric"><span class="label">PBO (overfit prob.)</span><span class="value">accruing</span></div>
+      <p>Deflated Sharpe &amp; PBO (Bailey &amp; Lopez de Prado). After correcting for 9720 trials, the champion's edge is <b>not yet significant</b> — we surface that, not hide it. <code>npm run overfit:stats</code></p>
+    </section>
+    <section>
       <h2>Bitget Native Proof</h2>
       <div class="metric"><span class="label">Bitget read-only</span><span class="value ok">PASS</span></div>
       <div class="metric"><span class="label">Agent Hub compatibility</span><span class="value ok">PASS</span></div>
@@ -93,7 +103,7 @@
       <div class="metric"><span class="label">Forward sessions (post-freeze)</span><span class="value">1</span></div>
       <div class="metric"><span class="label">OOS session bank</span><span class="value">5 / 10 target</span></div>
       <div class="metric"><span class="label">Recorder</span><span class="value ok">running</span></div>
-      <div class="metric"><span class="label">Snapshots recorded</span><span class="value">16</span></div>
+      <div class="metric"><span class="label">Snapshots recorded</span><span class="value">25</span></div>
       <p>Out-of-sample evidence accumulates over wall-clock market time against a <b>locked</b> champion. Early sample, never fabricated — the record grows every session.</p>
     </section>
     <section>

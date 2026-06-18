@@ -1,0 +1,26 @@
+{
+  "generatedAt": "2026-06-18T06:37:19.306Z",
+  "source": "frozen alpha-factory trial registry",
+  "nTrials": 9720,
+  "nObservations": 5,
+  "rawSharpe": 0.6718,
+  "skew": 0.6308,
+  "kurtosis": 1.6516,
+  "trialSharpeStdev": 0.4317,
+  "expectedMaxSharpe": 1.6635,
+  "probabilisticSharpeVsZero": 0.9522,
+  "deflatedSharpe": 0.0069,
+  "deflatedSharpeSignificant": false,
+  "minTrackRecordLength": 4.9,
+  "minTrackRecordReached": true,
+  "pbo": {
+    "status": "insufficient_slices",
+    "value": null,
+    "slices": 5,
+    "groups": 0,
+    "combinations": 0
+  },
+  "confidence": 0.95,
+  "verdict": "Probabilistic Sharpe vs 0 is 95.2%, but the champion's raw Sharpe (0.67) sits below the expected best-of-9,720 luck bar (1.66), so the Deflated Sharpe collapses to 0.7%. On 5 sessions the edge is not statistically distinguishable from selection bias — we report this rather than claim alpha. It is the quantified form of our \"no validated edge\" position.",
+  "method": "Deflated/Probabilistic Sharpe & MinTRL (Bailey & Lopez de Prado, 2012/2014); PBO via CSCV (Bailey, Borwein, Lopez de Prado & Zhu, 2017). Original implementation."
+}

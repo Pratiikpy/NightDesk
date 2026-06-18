@@ -13,7 +13,7 @@ import { join } from "node:path";
 
 // Canonical values the prose must track. Bump these when the suite/gate set genuinely changes — the
 // guard then forces every doc to follow, which is the whole point.
-const CANONICAL_TESTS = 205;
+const CANONICAL_TESTS = 215;
 const CANONICAL_GATES = 15;
 
 // Must exist (a judge links straight to these).

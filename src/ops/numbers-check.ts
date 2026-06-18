@@ -86,6 +86,13 @@ export function runNumbersCheck(): boolean {
     console.log(`note: ${drift.length} data-dependent value(s) drifted from docs — sync before submission:`);
     for (const s of drift) console.log(`  ~ ${s.label}: evidence says ${s.forms.join(" | ")} (not found in docs)`);
   }
+  // SOFT: surface the Alpha Factory selection-bias controls (Deflated Sharpe / PBO / MinTRL) so any doc
+  // quoting them can be synced. Never fails — these are honesty metrics, reported for visibility.
+  if (existsSync(join(ROOT, "evidence/alpha-factory/overfit-stats.json"))) {
+    const o = readJson("evidence/alpha-factory/overfit-stats.json");
+    const pbo = o.pbo?.status === "computed" && o.pbo?.value != null ? `${(o.pbo.value * 100).toFixed(1)}%` : (o.pbo?.status ?? "n/a");
+    console.log(`overfit controls: raw Sharpe ${o.rawSharpe}, deflated ${(o.deflatedSharpe * 100).toFixed(1)}% (significant=${o.deflatedSharpeSignificant}), MinTRL ${o.minTrackRecordLength ?? "n/a"}, PBO ${pbo}`);
+  }
   if (!ok) process.exitCode = 1;
   return ok;
 }

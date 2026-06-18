@@ -4,6 +4,7 @@ import { loadSnapshots } from "../bitsim/market";
 import { hashRecords } from "../execution/exporter";
 import { alphaConfigGrid, runAlphaConfig, type AlphaConfig, type AlphaResult } from "./alpha-championship";
 import { availableSessionFiles } from "./session-study";
+import { buildOverfitInputs, computeOverfitStats, formatOverfitMarkdown } from "./overfit-stats";
 
 const OUT = join(process.cwd(), "evidence", "alpha-factory");
 
@@ -226,6 +227,10 @@ export function runAlphaFactory(args: string[] = []): void {
     return runAlphaConfig(recording, snapshots, frozenChampion);
   });
   const walkforward = leaveOneOutRows(trials, configsById);
+  const overfitStats = computeOverfitStats(buildOverfitInputs(
+    trials.map((t) => ({ config_id: t.config_id, recording: t.recording, net_pnl: t.net_pnl })),
+    championResults.map((r) => r.netPnl),
+  ));
   const mutations = mutateChampion(frozenChampion);
   const mutationRows = mutations.map((cfg, i) => ({
     ts: new Date().toISOString(),
@@ -297,7 +302,9 @@ export function runAlphaFactory(args: string[] = []): void {
       : `No config passed every rule; best available config was frozen with caveat: ${frozenChampion.id}`,
     "",
     "Walk-forward warning: leave-one-recording-out selection is reported separately and remains the harshest current profit test. The dataset is still too small for a production alpha claim.",
-  ].join("\n") + "\n");
+  ].join("\n") + "\n\n---\n\n" + formatOverfitMarkdown(overfitStats));
+  writeFileSync(join(OUT, "overfit-stats.json"), JSON.stringify({ generatedAt: new Date().toISOString(), source: "alpha-factory run", ...overfitStats }, null, 2) + "\n");
+  writeFileSync(join(OUT, "overfit-court-stats.md"), formatOverfitMarkdown(overfitStats));
   writeFileSync(join(OUT, "masked-eval-report.md"), [
     "# Masked Evaluation Report",
     "",
@@ -376,6 +383,8 @@ export function runAlphaFactory(args: string[] = []): void {
       "trial-registry.jsonl",
       "rejected-overfit-strategies.csv",
       "overfit-court-report.md",
+      "overfit-court-stats.md",
+      "overfit-stats.json",
       "walkforward-leaderboard.csv",
       "frozen-champion.json",
       "champion-oos-results.csv",

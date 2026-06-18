@@ -42,8 +42,10 @@ credentials · no accidental write path · live path dry-run verified, **no real
 ## The rigor (why you can trust the numbers)
 We red-teamed our **own** thesis: the convergence-reversion edge is **null — 49.6% corrective, a coin
 flip** (`npm run backtest -- --daily`), and we publish it. The ~93% "capture" stat is a shuffle-test
-artifact, and we flag it. No look-ahead is possible by construction (a sentinel test proves it). **205
-tests**, every figure replayable from one command.
+artifact, and we flag it. We also **deflate our own champion for selection bias** — after correcting for
+9,720 trials, its Deflated Sharpe is *not yet significant* (`npm run overfit:stats`; Bailey & López de
+Prado's Deflated Sharpe / PBO / MinTRL). No look-ahead is possible by construction (a sentinel test
+proves it). **215 tests**, every figure replayable from one command.
 
 ## Known limitations (disclosed, not buried)
 - Forward OOS record is early — it grows over market time; we show the counter, not invented history.

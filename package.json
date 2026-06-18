@@ -40,6 +40,7 @@
     "championship:export": "tsx src/research/championship/championship-mode.ts",
     "championship:overfit-check": "tsx src/research/championship/championship-mode.ts",
     "alpha:factory": "tsx src/research/alpha-factory.ts",
+    "overfit:stats": "tsx src/research/overfit-report.ts",
     "alpha:search": "tsx src/research/alpha-factory.ts",
     "alpha:overfit-court": "tsx src/research/alpha-factory.ts",
     "alpha:walkforward": "tsx src/research/alpha-factory.ts",

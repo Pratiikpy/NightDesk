@@ -39,7 +39,7 @@ interventions, every decision Ed25519-signed.
 while the perp shows ~0. Paper-trading logs (timestamp, asset, direction, price, quantity, balance
 change). Autonomous Alpha Factory: 9,720 candidates, 48,600 trials, Overfit Court, frozen champion
 +54.93 USDT (in-sample). Forward out-of-sample paper record. A real authenticated Bitget round-trip
-(read-only key, verified on-platform). 205 tests; the whole pack regenerates from one command.
+(read-only key, verified on-platform). 215 tests; the whole pack regenerates from one command.
 
 **4. My take on AI trading.** The biggest lie in AI trading is a lucky backtest dressed as a guaranteed
 edge. We did the opposite — we red-teamed our *own* thesis and report it null (49.6% corrective, a coin

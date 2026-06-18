@@ -6,7 +6,7 @@
 
 <p>
   <img src="https://img.shields.io/badge/Bitget_AI_Hackathon_S1-Track_3-0e7a57?style=flat-square" alt="Bitget AI Hackathon S1 — Track 3">
-  <img src="https://img.shields.io/badge/tests-205_passing-0e7a57?style=flat-square" alt="205 tests passing">
+  <img src="https://img.shields.io/badge/tests-215_passing-0e7a57?style=flat-square" alt="215 tests passing">
   <img src="https://img.shields.io/badge/license-MIT-b5841f?style=flat-square" alt="MIT license">
   <img src="https://img.shields.io/badge/node-18%2B-16160f?style=flat-square" alt="Node 18+">
   <img src="https://img.shields.io/badge/every%20number-reproducible-b5841f?style=flat-square" alt="Every number reproducible">
@@ -76,7 +76,7 @@ not a limitation of how "agentic" it is.
 ```bash
 npm install
 npm run build      # typecheck (tsc --noEmit)
-npm test           # 205 tests + property tests, fully network-free
+npm test           # 215 tests + property tests, fully network-free
 npm run judge      # tests + signed-ledger / firewall / gauntlet repro pack -> "JUDGE PACK VERIFIED"
 npm run judge:max  # tests + evidence-artifact checks + complete manifest
 npm run dashboard  # the landing + live risk desk at http://localhost:8787
@@ -110,6 +110,11 @@ The biggest lie in AI trading is a lucky backtest dressed as a guaranteed edge �
 - **We flag our own best-looking stat.** The ~93% "convergence-capture" rate is a distributional
   artifact (a shuffle control says so), and a live 100%-capture paper session still lost money.
   Convergence ≠ P&L.
+- **We deflate our own champion for selection bias.** The Factory searches 9,720 strategies, so a raw
+  Sharpe isn't enough — we compute the **Deflated Sharpe Ratio, PBO and Minimum Track Record Length**
+  (Bailey & López de Prado) on the frozen trials. Honest result: after correcting for 9,720 trials the
+  champion's Sharpe is **not yet significant** (`npm run overfit:stats`) — which is exactly why we call
+  +54.93 in-sample evidence, not alpha.
 - **No look-ahead is possible by construction.** The LLM only ever sees *real-time numeric state* and
   returns a *qualitative* verdict — all sizing, stops, fills, fees and grading are deterministic,
   type-safe code. A sentinel test (`test/lookahead.test.ts`) proves corrupting post-probe data changes
@@ -124,6 +129,7 @@ what they are: in-sample / early-forward execution evidence, not future alpha.
 |---|---|---|
 | **Paper trading** (Bitget-schema log) | `evidence/trading-log/` · `npm run paper-replay` | guarded replay `1,000.00 → 1,004.34 USDT`, 38 fills, every unsafe intent blocked |
 | **Autonomous Alpha Factory** | `evidence/alpha-factory/` · `npm run alpha:factory` | 9,720 candidates, 48,600 trials, an Overfit Court, frozen champion **+54.93 USDT** / 6.33 DD (in-sample) |
+| **Selection-bias controls** | `evidence/alpha-factory/overfit-court-stats.md` · `npm run overfit:stats` | Deflated Sharpe / PBO / MinTRL (Bailey & López de Prado) — champion *not yet significant* after the 9,720-trial correction, reported not hidden |
 | **Raw-PnL championship** | `evidence/alpha-championship/` | single-session `1,000 → 1,034.61`; global same-config **+54.93 USDT** (current-recording, not future alpha) |
 | **Real authenticated Bitget round-trip** | `evidence/live-receipt/` · `npm run live:trade-proof` | account probe `code 00000`; trade endpoint `40014: read-only key` — the path is real, the key can't trade (zero funds risk) |
 | **Real Agent Hub Skill Hub usage** | `evidence/skillhub/` · `npm run skillhub:proof` | the official Bitget `macro-analyst` skill drives NightDesk's macro abstention via a drop-in `MacroWindow` |
