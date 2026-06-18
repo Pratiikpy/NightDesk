@@ -8,12 +8,12 @@
 // the function). A fresh certificate is signed PER REQUEST with an ephemeral Ed25519 key, so the secret
 // attestation key is never deployed — verifyCertificate checks the certificate's own embedded public
 // key. This is the same issueCertificate + evaluateIntent pipeline the live desk and test suite use.
-import universeData from "./firewall-universe.json";
+import { universe, snapshotAt } from "./firewall-universe";
 import { issueCertificate } from "../src/kernel/certificate";
 import { evaluateIntent } from "../src/kernel/firewall";
 import { generateKeypair } from "../src/ledger/attest";
 
-const DATA: any = universeData;
+const DATA: any = { universe, snapshotAt };
 
 export default function handler(req: any, res: any): void {
   res.setHeader("Access-Control-Allow-Origin", "*");
