@@ -17,6 +17,7 @@ __pycache__/
 !/data/snapshots/
 !/data/research/
 !/data/fixtures/
+!/data/skillhub/
 /recordings/
 
 # Logs

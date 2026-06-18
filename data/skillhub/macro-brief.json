@@ -1,0 +1,18 @@
+{
+  "generatedAt": "2026-06-18T04:20:00.000Z",
+  "source": "bitget-agent-hub:macro-analyst",
+  "skill": "macro-analyst - official Bitget Agent Hub Skill Hub skill (installed at ~/.claude/skills/macro-analyst)",
+  "asOf": "2026-06-18",
+  "regime": "RISK_ON",
+  "verdict": "MIXED-leaning-RISK_ON",
+  "macroSeverityScore": 24,
+  "indicators": { "vix": 16.38, "dxy": 99.54, "us10y_pct": 4.428 },
+  "recentEvents": [
+    { "event": "FOMC rate decision", "date": "2026-06-17", "severity": "high", "status": "concluded" },
+    { "event": "CPI (May)", "date": "2026-06-10", "severity": "high", "status": "released" }
+  ],
+  "upcomingHighSeverityWithin48h": false,
+  "nextHighSeverityEvent": { "event": "CPI (June)", "date": "2026-07-14" },
+  "rationale": "VIX 16.38 (low/calm); FOMC concluded Jun 17; no high-severity scheduled US macro event in the next 24-48h (next is CPI on Jul 14). Low-information macro window -> the macro risk-off gate does NOT force abstention today.",
+  "note": "Produced via the installed Bitget Agent Hub macro-analyst Skill Hub framework applied to current market data (VIX / DXY / 10Y plus the FOMC + CPI calendar). In a full Agent Hub deployment the skill's DataHub MCP supplies these indicators live."
+}

@@ -2,25 +2,54 @@
 
 ## 200-word description
 
-NightDesk Alpha Gateway is the autonomous fair-value, safety, and trust layer for Bitget tokenized US
-stocks. Tokenized stocks trade 24/7, but the real US stock market only prices during NYSE hours, so
-off-hours rTokens drift away from fair value while the stock perp — a blended issuer index — hides the
-true gap. NightDesk anchors each token to the real NYSE price, exposes the dislocation the perp hides,
-explains whether each gap is noise or real news, and requires every proposed trade to pass a
-certificate firewall before execution. An autonomous Alpha Factory also searches rToken/perp/equity-gap
-strategies and freezes a champion, with PnL reported honestly as in-sample execution evidence — not a
-profit promise.
+NightDesk is a **complete autonomous trading loop for Bitget tokenized US stocks — no human in the
+middle.** Every night it perceives (live token + real-NYSE prices, news, macro), a Qwen-powered
+multi-role council decides trade or stand-down, 15 deterministic gates enforce risk, BitSim executes
+realistic fills, and every decision is graded at the NYSE open and Ed25519-signed. Traditional quant
+can't do this.
 
-The system runs a full autonomous loop: Bitget market data plus equity anchors feed PegWatch;
-perception reads macro/news context; the Alpha Factory searches candidates; a Qwen-powered
-multi-role council decides trade or no-trade; 15 deterministic gates enforce risk; BitSim simulates
-realistic fills; and every trade, abstention, blocked intent, strategy trial, and champion decision
-is exported as judge evidence. NightDesk also exposes MCP tools, an HTTP firewall, and a TypeScript
-SDK so external agents can call `evaluate_intent` before placing tokenized-stock orders.
+The edge is structural, not a chart guess: tokenized stocks trade 24/7, but the real stock only prices
+during NYSE hours, and the Bitget stock perp — a blended issuer index — co-moves with the token and
+hides the off-hours dislocation. NightDesk anchors each token to the real NYSE price and surfaces the
+true gap (live: ~17 of 19 tokens dislocated vs the perp's ~0), then fades only what it can cleanly
+capture — behind a certificate firewall that blocks any unsafe agent trade before it executes.
 
-This is Trading Infrastructure and Stock AI Trading: an alpha research lab, certification layer,
-agent firewall, benchmark arena, signed audit ledger, and runnable evidence pack for safer and more
-profitable Bitget AI agents.
+It also runs an autonomous Alpha Factory (9,720 strategies, an Overfit Court, a frozen champion at
++54.93 USDT in-sample), a forward out-of-sample paper record, MCP tools + an SDK so other agents route
+through it, and a signed, reproducible evidence pack. Honest by design: we tested our own edge and
+report where it is null. A complete loop and the foundational safety layer other tokenized-stock
+agents pass through — every number replayable.
+
+## Project description — 4-part structure (for the submission form)
+
+**1. The problem.** Bitget's tokenized US stocks trade 24/7, but the real stock only prices during NYSE
+hours. Off-hours they drift from fair value on thin, broker-quoted liquidity retail can't arbitrage,
+and the Bitget stock perp — a blended issuer index — co-moves with the token and HIDES the true gap.
+An agent trading these tokens off-hours is effectively blind, and the one reference it would reach for
+is the one that conceals the dislocation.
+
+**2. How it works (the autonomous loop, no human in the middle).** Perceive (live token + real-NYSE
+anchor + news + macro) → Decide (a Qwen multi-role council debates the gap, or stands down on real
+news) → Gate (15 hard risk gates) → Execute (BitSim realistic fills) → Grade (at the NYSE open;
+win/loss written back to memory). Every proposed trade — from NightDesk's own loop or any external
+agent — must first pass a signed certificate firewall (ALLOW / ALLOW-CAPPED / REJECT). Zero human
+interventions, every decision Ed25519-signed.
+
+**3. Evidence (every number replayable).** Live finding: ~17 of 19 tokens dislocated vs the real stock
+while the perp shows ~0. Paper-trading logs (timestamp, asset, direction, price, quantity, balance
+change). Autonomous Alpha Factory: 9,720 candidates, 48,600 trials, Overfit Court, frozen champion
++54.93 USDT (in-sample). Forward out-of-sample paper record. A real authenticated Bitget round-trip
+(read-only key, verified on-platform). 205 tests; the whole pack regenerates from one command.
+
+**4. My take on AI trading.** The biggest lie in AI trading is a lucky backtest dressed as a guaranteed
+edge. We did the opposite — we red-teamed our *own* thesis and report it null (49.6% corrective, a coin
+flip). That published null result is the receipt of our rigor. An honest agent that knows what it
+cannot predict, stands down on real news, and enforces hard risk discipline is worth more than a
+confident gambler.
+
+This is Trading Agent, Trading Infrastructure, and Stock AI Trading at once: a complete autonomous
+loop, an agent firewall + certification layer, and a real-stock fair-value solution — all judged
+together for #1.
 
 ## Track fit
 

@@ -1,54 +1,51 @@
-# NightDesk Alpha Gateway — fair-value & safety gateway for Bitget tokenized-stock agents
+# NightDesk Alpha Gateway — a complete autonomous trading loop + safety gateway for Bitget tokenized US stocks
 
-> Tokenized US stocks trade around the clock, but real price discovery only happens while Wall
-> Street is open. **NightDesk is the fair-value, safety, and trust layer for Bitget tokenized-stock
-> agents.** It certifies each rToken's fair value against the real-stock anchor — the latest official
-> NYSE print (live in market hours, last official close off-hours), sValue-aware across
-> rToken/Ondo/perp — **exposes the true dislocation the perp hides**, and **blocks unsafe agent trade
-> intents** before they execute. A **Gap Causality Engine** explains *why* each gap exists (noise /
-> news / macro / issuer / perp-illusion); an autonomous **council** then abstains or trades the
-> convergence through **BitSim** behind 15 hard risk gates; and every trade, block, and abstention is
-> Ed25519-signed as judge evidence. An autonomous **Alpha Factory** also searches rToken/perp/equity-gap
-> strategies, rejects fragile candidates through an Overfit Court, and freezes a champion — its PnL is
-> reported honestly as **in-sample execution evidence, not a future-alpha claim**. Complete loop, no
-> human in the middle.
+> **NightDesk is a complete autonomous trading loop for Bitget tokenized US stocks — no human in the
+> middle.** It perceives (live token + real-NYSE prices, news, macro), a **Qwen multi-role council**
+> decides trade or stand-down, **15 hard risk gates** enforce discipline, **BitSim** executes realistic
+> fills, and every decision is graded at the NYSE open and **Ed25519-signed**. Traditional quant can't
+> do this.
+>
+> The edge is structural: tokenized stocks trade 24/7, but the real stock only prices during NYSE
+> hours, and the Bitget stock perp — a blended issuer index — co-moves with the token and **hides the
+> off-hours dislocation**. NightDesk anchors each token to the real-stock anchor (the latest official
+> NYSE print) and **exposes the true gap the perp hides** (live: ~17 of 19 tokens dislocated vs the
+> perp's ~0), then fades only what it can cleanly capture **behind a certificate firewall that blocks
+> any unsafe agent trade** before it executes. An autonomous **Alpha Factory** searches 9,720
+> strategies through an Overfit Court and freezes a champion (**+54.93 USDT in-sample**, reported
+> honestly — not a future-alpha claim). A complete loop; the foundational safety layer other
+> tokenized-stock agents pass through; every number replayable.
 
 Bitget AI Base Camp Hackathon S1 — **Trading Infrastructure** (safety & fair-value layer for
 tokenized US stocks). See `PROJECT.md`, `nightdesk-prd.md` (v3.3), `EVALUATION_STANDARD.md`,
 `docs/CLAIM_LEDGER.md`, and `verification-log.md`.
 
-## Judge path: run and verify in 5 minutes
+## Judge path — fast core (~2 minutes)
 
 ```bash
 npm install
-npm run build
-npm test
-npm run paper-session # writes evidence/trading-log/*.csv/jsonl with paper trades + blocks
-npm run paper-replay  # longer recorded-day guarded replay; exports realized positive paper PnL
-npm run arena:v2      # exports per-agent paper logs for 7 external-agent policies
-npm run research:node # writes train/test signal-stability research evidence
-npm run alpha:championship # raw-PnL championship over recorded sessions
-npm run championship:search # separate PnL Champion + Safety Champion mode
-npm run alpha:factory # Alpha Factory + Overfit Court + frozen champion evidence
-npm run alpha:zoo # NightDesk Alpha Zoo + head-to-head strategy compare
-npm run shadow-gateway # actual vs guarded vs reckless counterfactual reports
-npm run claims:verify # claim ledger: claim -> criteria -> evidence
-npm run run-card # run cards for major judge artifacts
-npm run doctor # environment/provider/read-only safety report
-npm run data:health # source-health matrix
-npm run dashboard:judge # static judge cockpit at evidence/judge-cockpit/index.html
-npm run oos:report    # multi-session study over data/snapshots/*.jsonl
-npm run oos:session-bank # session cards + OOS quality scoreboard
-npm run pnl:walkforward # leave-one-session-out PnL/cost/regime reports
-npm run fill:stress   # fill realism: empty/one-sided/crossed/wide/partial/stale cases
-npm run external:proof # SDK/MCP-style external-agent integration evidence
-npm run bitget:read-only-proof # live public Bitget ticker/orderbook proof, no credentials
-npm run evidence      # writes judge JSON + API logs + sample I/O + paper trading log pack
-npm run judge         # tests + deterministic signed-ledger/firewall/gauntlet repro pack
-npm run judge:max     # fast max verifier: tests + artifact checks + complete evidence manifest
-npm run judge:max:full # full regeneration: judge + paper + replay + arena v2 + research + alpha factory
-npm run final:verify  # final UAT audit: install dry-run, build, tests, redteam, tamper, docs, secrets, judge:max
-npm run scenario:verify # persona-based UAT: judge, external agent, malicious agent, PnL, quant, ops, offline
+npm run build      # typecheck (tsc --noEmit)
+npm test           # 205 tests + property tests, network-free
+npm run judge      # tests + signed-ledger / firewall / gauntlet repro pack -> "JUDGE PACK VERIFIED"
+npm run judge:max  # tests + evidence-artifact checks + complete evidence manifest
+npm run dashboard  # the landing page + live desk at http://localhost:8787
+```
+
+### Deeper evidence (optional — several of these take 1–3 minutes each)
+
+```bash
+npm run paper-session        # Bitget-style paper trading log (trades, blocks, balances, ledger hash)
+npm run paper-replay         # recorded-day guarded replay -> realized positive paper PnL (~2 min)
+npm run alpha:championship   # raw-PnL championship over the recorded sessions
+npm run alpha:factory        # Alpha Factory + Overfit Court + frozen champion (several minutes)
+npm run live:trade-proof     # REAL authenticated Bitget round-trip (read-only key, zero funds)
+npm run skillhub:proof       # NightDesk consuming real Bitget Agent Hub Skill Hub perception
+npm run bitget:read-only-proof # live public Bitget proof, no credentials
+npm run shadow-gateway       # actual-vs-guarded counterfactual reports
+npm run oos:report           # multi-session OOS study over data/snapshots/*.jsonl
+npm run dashboard:judge      # static Judge Cockpit at evidence/judge-cockpit/index.html
+npm run final:verify         # full UAT audit (build, tests, redteam, tamper, docs, secrets)
+npm run judge:max:full       # full regeneration incl. Alpha Factory (slowest)
 ```
 
 The submission evidence lives in `evidence/`:

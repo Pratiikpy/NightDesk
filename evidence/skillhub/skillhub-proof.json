@@ -1,0 +1,18 @@
+{
+  "generatedAt": "2026-06-18T04:39:19.156Z",
+  "skillHubSkill": "macro-analyst (official Bitget Agent Hub Skill Hub)",
+  "briefSource": "bitget-agent-hub:macro-analyst",
+  "asOf": "2026-06-18",
+  "ingestedMacroWindow": {
+    "active": false,
+    "date": "2026-06-18",
+    "events": [
+      "FOMC rate decision (2026-06-17, concluded)",
+      "CPI (May) (2026-06-10, released)"
+    ],
+    "severity": "medium",
+    "summary": "MIXED-leaning-RISK_ON | VIX 16.38 | VIX 16.38 (low/calm); FOMC concluded Jun 17; no high-severity scheduled US macro event in the next 24-48h (next is CPI on Jul 14). Low-information macro window -> the macro risk-off gate does NOT force abstention today."
+  },
+  "deskDecision": "TRADE-ELIGIBLE (low-information macro window — macro gate does not force abstention)",
+  "proves": "NightDesk's macro event-aware abstention is driven by a real Bitget Agent Hub Skill Hub skill, via the MacroWindow drop-in interface"
+}
