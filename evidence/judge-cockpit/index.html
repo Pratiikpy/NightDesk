@@ -26,6 +26,8 @@
     .ok{color:var(--green)}
     .warn{color:var(--gold)}
     section p{color:var(--muted);font-size:13px;line-height:1.5;margin:12px 0 0}
+    .story{max-width:760px;margin:16px 0 0;color:var(--ink);font-size:15px;line-height:1.55}
+    .story b{font-family:var(--serif);font-weight:500}
     code{font-family:var(--mono);background:var(--panel);padding:1px 6px;border-radius:6px;font-size:12px}
   </style>
 </head>
@@ -33,7 +35,8 @@
   <header>
     <div class="eyebrow">Judge Cockpit · Bitget AI Base Camp Hackathon S1</div>
     <h1>Night<span class="green">Desk</span> — one screen, every receipt</h1>
-    <p>Alpha Factory, Overfit Court, the safety gateway, and paper-trading evidence for Bitget tokenized-stock agents — all verifiable from one command.</p>
+    <p class="story"><b>The perp says ALL CLEAR. The real stock says ~17 of 19 are mispriced.</b> NightDesk surfaces that hidden gap, certifies each token, and runs a firewall that ALLOWs / CAPs / REJECTs every agent trade — then signs and grades the outcome. <b>Bitget created the market; NightDesk makes it agent-safe.</b></p>
+    <p>Alpha Factory, Overfit Court, the safety gateway, the forward record, and paper-trading evidence for Bitget tokenized-stock agents — all verifiable from one command.</p>
   </header>
   <main>
     <section>
@@ -83,6 +86,32 @@
     <section>
       <h2>Data Health</h2>
       <div class="metric"><span class="label">Bitget rToken quote</span><span class="value ok">ok</span></div><div class="metric"><span class="label">Bitget smoke log</span><span class="value ok">ok</span></div><div class="metric"><span class="label">NYSE/Yahoo anchor</span><span class="value ok">ok</span></div><div class="metric"><span class="label">Recorded snapshots</span><span class="value ok">ok</span></div><div class="metric"><span class="label">Alpha Factory</span><span class="value ok">ok</span></div><div class="metric"><span class="label">Paper execution</span><span class="value ok">ok</span></div><div class="metric"><span class="label">Ledger</span><span class="value ok">ok</span></div><div class="metric"><span class="label">Qwen council</span><span class="value ok">ok</span></div><div class="metric"><span class="label">MCP/SDK integration</span><span class="value ok">ok</span></div>
+    </section>
+    <section>
+      <h2>Forward (OOS) Record</h2>
+      <div class="metric"><span class="label">Champion locked</span><span class="value ok">YES</span></div>
+      <div class="metric"><span class="label">Forward sessions (post-freeze)</span><span class="value">1</span></div>
+      <div class="metric"><span class="label">OOS session bank</span><span class="value">5 / 10 target</span></div>
+      <div class="metric"><span class="label">Recorder</span><span class="value ok">running</span></div>
+      <div class="metric"><span class="label">Snapshots recorded</span><span class="value">16</span></div>
+      <p>Out-of-sample evidence accumulates over wall-clock market time against a <b>locked</b> champion. Early sample, never fabricated — the record grows every session.</p>
+    </section>
+    <section>
+      <h2>Security &amp; Live Path</h2>
+      <div class="metric"><span class="label">Secrets scan</span><span class="value ok">CLEAN</span></div>
+      <div class="metric"><span class="label">Findings</span><span class="value"></span></div>
+      <div class="metric"><span class="label">Live trade</span><span class="value">disabled by default</span></div>
+      <div class="metric"><span class="label">Bitget key</span><span class="value ok">read-only (40014)</span></div>
+      <div class="metric"><span class="label">Credentials</span><span class="value">env-only</span></div>
+      <p>Read-only by default with no accidental write path. The live path is dry-run verified and dust-capped — no real fill is claimed.</p>
+    </section>
+    <section>
+      <h2>Known Limitations (disclosed)</h2>
+      <div class="metric"><span class="label">Forward OOS record</span><span class="value warn">still growing</span></div>
+      <div class="metric"><span class="label">Live receipt</span><span class="value warn">read-only / dry-run only</span></div>
+      <div class="metric"><span class="label">PnL champion</span><span class="value warn">current-recording evidence</span></div>
+      <div class="metric"><span class="label">Third-party users</span><span class="value warn">none yet</span></div>
+      <p>Stated up front, not buried. Every number on this page is in-sample or early-forward execution evidence — not a future-alpha promise.</p>
     </section>
     <section>
       <h2>Judge Commands</h2>

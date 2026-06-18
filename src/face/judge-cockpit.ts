@@ -25,6 +25,10 @@ export function runJudgeCockpit(): void {
   const championship = json<{ pnlChampion?: { strategy_id?: string; family?: string; net_pnl?: number; max_dd?: number }; safetyChampion?: { strategy_id?: string; family?: string; net_pnl?: number; max_dd?: number; score_safety?: number } }>("evidence/championship/manifest.json");
   const doctor = json<{ rows?: { check: string; status: string; detail: string }[] }>("evidence/doctor-report.json");
   const dataHealth = json<{ rows?: { source: string; status: string; role: string }[] }>("evidence/data-health/source-health.json");
+  const forward = json<{ forwardSessions?: number; sessions?: number; championLocked?: boolean }>("evidence/forward-paper-daemon/daemon-state.json");
+  const oos = json<{ snapshotsRecorded?: number; targetSessions?: number; status?: string }>("evidence/oos-daemon/state.json");
+  const secrets = json<{ ok?: boolean; findings?: number }>("evidence/secrets-scan.json");
+  const bankSessions = read("evidence/oos/session-bank/session-quality-report.md").match(/Current sessions:\s*(\d+)/i)?.[1] ?? "—";
 
   const html = `<!doctype html>
 <html lang="en">
@@ -54,6 +58,8 @@ export function runJudgeCockpit(): void {
     .ok{color:var(--green)}
     .warn{color:var(--gold)}
     section p{color:var(--muted);font-size:13px;line-height:1.5;margin:12px 0 0}
+    .story{max-width:760px;margin:16px 0 0;color:var(--ink);font-size:15px;line-height:1.55}
+    .story b{font-family:var(--serif);font-weight:500}
     code{font-family:var(--mono);background:var(--panel);padding:1px 6px;border-radius:6px;font-size:12px}
   </style>
 </head>
@@ -61,7 +67,8 @@ export function runJudgeCockpit(): void {
   <header>
     <div class="eyebrow">Judge Cockpit · Bitget AI Base Camp Hackathon S1</div>
     <h1>Night<span class="green">Desk</span> — one screen, every receipt</h1>
-    <p>Alpha Factory, Overfit Court, the safety gateway, and paper-trading evidence for Bitget tokenized-stock agents — all verifiable from one command.</p>
+    <p class="story"><b>The perp says ALL CLEAR. The real stock says ~17 of 19 are mispriced.</b> NightDesk surfaces that hidden gap, certifies each token, and runs a firewall that ALLOWs / CAPs / REJECTs every agent trade — then signs and grades the outcome. <b>Bitget created the market; NightDesk makes it agent-safe.</b></p>
+    <p>Alpha Factory, Overfit Court, the safety gateway, the forward record, and paper-trading evidence for Bitget tokenized-stock agents — all verifiable from one command.</p>
   </header>
   <main>
     <section>
@@ -111,6 +118,32 @@ export function runJudgeCockpit(): void {
     <section>
       <h2>Data Health</h2>
       ${(dataHealth?.rows ?? []).map((r) => `<div class="metric"><span class="label">${esc(r.source)}</span><span class="value ${r.status === "ok" ? "ok" : "warn"}">${esc(r.status)}</span></div>`).join("")}
+    </section>
+    <section>
+      <h2>Forward (OOS) Record</h2>
+      <div class="metric"><span class="label">Champion locked</span><span class="value ok">${forward?.championLocked ? "YES" : "—"}</span></div>
+      <div class="metric"><span class="label">Forward sessions (post-freeze)</span><span class="value">${esc(forward?.forwardSessions ?? 0)}</span></div>
+      <div class="metric"><span class="label">OOS session bank</span><span class="value">${esc(bankSessions)} / 10 target</span></div>
+      <div class="metric"><span class="label">Recorder</span><span class="value ${oos?.status === "running" ? "ok" : "warn"}">${esc(oos?.status ?? "idle")}</span></div>
+      <div class="metric"><span class="label">Snapshots recorded</span><span class="value">${esc(oos?.snapshotsRecorded ?? 0)}</span></div>
+      <p>Out-of-sample evidence accumulates over wall-clock market time against a <b>locked</b> champion. Early sample, never fabricated — the record grows every session.</p>
+    </section>
+    <section>
+      <h2>Security &amp; Live Path</h2>
+      <div class="metric"><span class="label">Secrets scan</span><span class="value ${secrets?.ok ? "ok" : "warn"}">${secrets?.ok ? "CLEAN" : "REVIEW"}</span></div>
+      <div class="metric"><span class="label">Findings</span><span class="value">${esc(secrets?.findings ?? 0)}</span></div>
+      <div class="metric"><span class="label">Live trade</span><span class="value">disabled by default</span></div>
+      <div class="metric"><span class="label">Bitget key</span><span class="value ok">read-only (40014)</span></div>
+      <div class="metric"><span class="label">Credentials</span><span class="value">env-only</span></div>
+      <p>Read-only by default with no accidental write path. The live path is dry-run verified and dust-capped — no real fill is claimed.</p>
+    </section>
+    <section>
+      <h2>Known Limitations (disclosed)</h2>
+      <div class="metric"><span class="label">Forward OOS record</span><span class="value warn">still growing</span></div>
+      <div class="metric"><span class="label">Live receipt</span><span class="value warn">read-only / dry-run only</span></div>
+      <div class="metric"><span class="label">PnL champion</span><span class="value warn">current-recording evidence</span></div>
+      <div class="metric"><span class="label">Third-party users</span><span class="value warn">none yet</span></div>
+      <p>Stated up front, not buried. Every number on this page is in-sample or early-forward execution evidence — not a future-alpha promise.</p>
     </section>
     <section>
       <h2>Judge Commands</h2>

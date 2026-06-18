@@ -49,6 +49,10 @@ off-hours:
 Revealing that dislocation — and acting on it *safely* — is the whole product. **Traditional quant can't
 do this:** it needs the real-stock anchor, event-aware abstention, and a hard safety layer, all at once.
 
+**Bitget created this market; NightDesk makes it agent-safe.** This is the *complement* to the perp, not
+a critique of it — the perp is a fine tradable index; the real-stock anchor is simply the reference an
+autonomous agent needs before it places a trade.
+
 ## The autonomous loop
 
 ```
@@ -61,6 +65,11 @@ GRADE     at the NYSE open: win/loss, written back to memory — 0 human interve
 
 Every proposed trade — NightDesk's own *or any external agent's* — must first clear a signed
 **certificate firewall**: `ALLOW` · `ALLOW-CAPPED` (here's the max safe size) · `REJECT`.
+
+**The research half is just as autonomous:** Alpha Factory → Overfit Court → frozen champion → forward
+paper daemon → expected-vs-actual → promoter. Throughout, the **LLM proposes and reasons; deterministic,
+tested code certifies, gates, executes, signs, and grades.** That split *is* the safety architecture —
+not a limitation of how "agentic" it is.
 
 ## Verify in 2 minutes
 
@@ -80,29 +89,34 @@ in `package.json` — several take 1–3 min each.
 
 ## Honest by design
 
-**The biggest lie in AI trading is a lucky backtest dressed as a guaranteed edge. We did the opposite —
-we red-teamed our own thesis and report where it fails.** This is the project's spine, and the rules
-reward it ("honest self-assessment is valued over exaggeration").
+NightDesk separates **research signal** from **execution proof**, and claims only what it can replay:
 
-- **We do *not* claim a convergence-profit edge.** Our own look-ahead-safe test — does a dislocated
-  token revert toward the real stock next session? — comes back **null: 49.6% corrective, a coin flip**
-  (`npm run backtest -- --daily`). We say so, prominently. The published null result is the *receipt* of
-  the rigor.
-- **The impressive-looking stat is an artifact, and we flag it.** The ~93% "convergence-capture" rate is
-  a distributional artifact (a shuffle control says so) — and a live **100%-capture paper session still
-  lost** money. Convergence ≠ P&L.
-- **The safety gates earn their keep — measurably.** In the paper record, the trades the gates *blocked*
-  would have **lost on average**; a reckless "trade every gap" agent loses far more, far more often.
-  Discipline with a number on it.
+1. **Honest measurement** — it surfaces the true dislocation the perp hides (≈17 of 19 off-hours).
+2. **Risk discipline** — 15 hard gates that *demonstrably* avoid losses: in the paper record, the trades
+   the gates blocked would have lost on average, and a reckless "trade every gap" agent loses far more.
+3. **Restraint** — it stands down on real news or a macro event; abstention is scored, not ignored.
+4. **Auditability** — every decision is Ed25519-signed and replayable.
+5. **Current-recording PnL** — a frozen **PnL champion (+54.93 USDT in-sample)** and a separate **Safety
+   champion**, both routed through the firewall, kept apart on purpose.
+6. **A live forward record** — accumulating out-of-sample against a *locked* champion over wall-clock
+   market time (we show the live counter, never fabricated history).
+
+And the reason you can trust those numbers: **we red-teamed our own thesis and publish where it fails.**
+The biggest lie in AI trading is a lucky backtest dressed as a guaranteed edge — we did the opposite:
+
+- **No convergence-profit edge is claimed.** Our look-ahead-safe test — does a dislocated token revert
+  toward the real stock next session? — comes back **null: 49.6% corrective, a coin flip**
+  (`npm run backtest -- --daily`). The published null result is the *receipt* of the rigor.
+- **We flag our own best-looking stat.** The ~93% "convergence-capture" rate is a distributional
+  artifact (a shuffle control says so), and a live 100%-capture paper session still lost money.
+  Convergence ≠ P&L.
 - **No look-ahead is possible by construction.** The LLM only ever sees *real-time numeric state* and
-  returns a *qualitative* verdict — it never forecasts a chart it could have memorised. All sizing,
-  stops, fills, fees and grading are deterministic, type-safe code. A dedicated sentinel test
-  (`test/lookahead.test.ts`) proves corrupting post-probe data changes no pre-probe signal (to 1e-9).
+  returns a *qualitative* verdict — all sizing, stops, fills, fees and grading are deterministic,
+  type-safe code. A sentinel test (`test/lookahead.test.ts`) proves corrupting post-probe data changes
+  no pre-probe signal (to 1e-9).
 
-**So what NightDesk *is*:** an honest **fair-value, risk & safety desk** — it shows the true dislocation
-the perp hides, stands down on news/macro, fades only what it can cleanly capture (long-only), enforces
-hard gates that demonstrably avoid losses, and signs every action. The green numbers below are labeled
-for exactly what they are: in-sample execution evidence, not future alpha.
+**So NightDesk is an honest fair-value, risk & safety desk.** The green numbers are labeled for exactly
+what they are: in-sample / early-forward execution evidence, not future alpha.
 
 ## Real on-platform evidence
 
@@ -182,7 +196,10 @@ Judged together for all-tracks #1:
 See `verification-log.md` for the full list — the ones that quietly break naïve builds:
 
 - rToken ticker `usdtVolume` is garbage — never used. rToken L2 books are intermittent (~half live);
-  BitSim is quote-first for rTokens, depth-aware for perps/Ondo.
+  BitSim is quote-first for rTokens, depth-aware for perps/Ondo. **No mid-price fantasy:** it refuses
+  empty/crossed/stale books, records partial fills, and charges modeled spread, slippage, fees and
+  funding. The perp leg is informational, not always an executable hedge — which is exactly why the
+  *safety* layer is the production thesis and the PnL champion is labeled paper evidence.
 - Ondo legs are total-return (price = underlying × sValue); the sValue adjustment hook is in place
   (v0 multiplier 1.0; real per-ticker multipliers are a documented, deferred step — never faked). The
   Ondo leg is a secondary cross-check; the primary anchor is the real-stock NYSE print.
@@ -192,6 +209,19 @@ See `verification-log.md` for the full list — the ones that quietly break naï
 > The convergence NightDesk trades resolves at the **NYSE open**, so seeing it play out needs a recording
 > that spans off-hours → open. A few-second sim only proves the loop is mechanically correct (every
 > round-trip honestly pays the spread), not the edge. Run the recorder across an open, then `simulate` it.
+
+## Known limitations (disclosed up front)
+
+You should read these from us, not "discover" them:
+
+- **The forward out-of-sample record is early** — it grows only in wall-clock market time; we surface the
+  live counter (sessions, snapshots, recorder status) in the Judge Cockpit rather than fabricate history.
+- **The live receipt is read-only / dry-run** — a real key returns `40014`; we prove the order path, we
+  don't claim a real fill (zero funds at risk).
+- **The PnL champion is current-recording evidence**, not validated future alpha — labeled as such
+  everywhere it appears.
+- **No third-party production users yet** — the gateway is integration-ready and demonstrated end-to-end
+  with example agents, but real adoption is future work.
 
 ---
 
