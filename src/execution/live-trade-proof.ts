@@ -52,6 +52,33 @@ export async function runLiveTradeProof(args: string[] = []): Promise<void> {
     });
   }
 
+  // --order-path-probe: prove the signed request reaches the live TRADE endpoint WITHOUT placing an
+  // order or reserving any funds — send a deliberately sub-minimum order, which Bitget rejects at
+  // validation. Zero money risk (no order is ever created).
+  if (creds && args.includes("--order-path-probe") && !armed) {
+    const tk = await spotTicker(symbol).catch(() => null);
+    const ref = tk?.bid ?? tk?.last ?? 1;
+    const price = (ref * 0.5).toFixed(2);
+    const size = "0.00001"; // far below any minimum notional -> guaranteed rejection; nothing placed
+    const place = await placeSpotLimitOrder(creds, { symbol, side: "buy", price, size });
+    const orderId = place.data?.orderId ?? null;
+    record("order_path_probe", {
+      ok: place.ok,
+      code: place.code,
+      msg: place.msg,
+      symbol,
+      price,
+      size,
+      orderId,
+      reachedTradeEndpoint: place.code !== "NETWORK",
+      note: "sub-minimum order: rejected at validation -> no order created, no funds reserved; proves the signed request reaches Bitget's live spot trade endpoint with valid auth",
+    });
+    if (orderId) {
+      const c = await cancelSpotOrder(creds, symbol, orderId); // defensive; should never fire
+      record("safety_cancel", { ok: c.ok, code: c.code, orderId });
+    }
+  }
+
   let orderRoundTrip: Record<string, unknown> | null = null;
   if (creds && armed) {
     const tk = await spotTicker(symbol).catch(() => null);
@@ -81,7 +108,13 @@ export async function runLiveTradeProof(args: string[] = []): Promise<void> {
   }
 
   const ledgerHash = hashRecords(steps);
-  const mode = armed ? "real_order_round_trip" : creds ? "authenticated_probe" : "no_credentials";
+  const mode = armed
+    ? "real_order_round_trip"
+    : creds && args.includes("--order-path-probe")
+      ? "order_path_probe"
+      : creds
+        ? "authenticated_probe"
+        : "no_credentials";
   const receipt = {
     runId,
     generatedAt: new Date().toISOString(),
