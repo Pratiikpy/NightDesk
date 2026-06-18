@@ -5,11 +5,18 @@
 <h3>Autonomous fair-value &amp; safety gateway for Bitget tokenized US stocks</h3>
 
 <p>
+  <a href="https://night-desk-nine.vercel.app"><img src="https://img.shields.io/badge/▶%20live%20demo-night--desk.vercel.app-16160f?style=flat-square" alt="Live demo"></a>
   <img src="https://img.shields.io/badge/Bitget_AI_Hackathon_S1-Track_3-0e7a57?style=flat-square" alt="Bitget AI Hackathon S1 — Track 3">
   <img src="https://img.shields.io/badge/tests-215_passing-0e7a57?style=flat-square" alt="215 tests passing">
   <img src="https://img.shields.io/badge/license-MIT-b5841f?style=flat-square" alt="MIT license">
-  <img src="https://img.shields.io/badge/node-18%2B-16160f?style=flat-square" alt="Node 18+">
   <img src="https://img.shields.io/badge/every%20number-reproducible-b5841f?style=flat-square" alt="Every number reproducible">
+</p>
+
+<p>
+  <b>Live:</b> <a href="https://night-desk-nine.vercel.app">night-desk-nine.vercel.app</a> —
+  <a href="https://night-desk-nine.vercel.app">landing</a> ·
+  <a href="https://night-desk-nine.vercel.app/desk">live desk</a> ·
+  <a href="https://night-desk-nine.vercel.app/cockpit">judge cockpit</a>
 </p>
 
 <p>
