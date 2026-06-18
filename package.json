@@ -112,8 +112,8 @@
     "evidence:verify": "tsx src/evidence/verify-artifacts.ts",
     "outcome:audit": "tsx src/evidence/outcome-audit.ts",
     "stress": "tsx src/index.ts stress",
-    "test": "node --import tsx --test \"test/**/*.test.ts\"",
-    "test:properties": "node --import tsx --test \"test/**/*.property.test.ts\""
+    "test": "node scripts/run-tests.mjs .test.ts",
+    "test:properties": "node scripts/run-tests.mjs .property.test.ts"
   },
   "dependencies": {
     "dotenv": "^16.4.7",
