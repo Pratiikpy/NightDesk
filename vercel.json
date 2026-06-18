@@ -3,5 +3,8 @@
   "buildCommand": "npm run web:export",
   "outputDirectory": "web",
   "cleanUrls": true,
-  "framework": null
+  "framework": null,
+  "functions": {
+    "api/firewall.ts": { "includeFiles": "api/firewall-universe.json" }
+  }
 }

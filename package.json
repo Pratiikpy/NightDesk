@@ -11,6 +11,7 @@
     "simulate": "tsx src/index.ts simulate",
     "dashboard": "tsx src/index.ts dashboard",
     "web:export": "tsx src/face/export-landing.ts",
+    "firewall:export": "tsx src/face/export-firewall.ts",
     "backtest": "tsx src/index.ts backtest",
     "flags": "tsx src/index.ts flags",
     "events": "tsx src/index.ts events",
