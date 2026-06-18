@@ -9,7 +9,8 @@
 //                                    (counterfactual: what the avoided trades would have done).
 //   • Ledger proof (/api/verify)  — live Ed25519 signature + tamper-evidence status of today's ledger.
 //   • Evidence (/api/evidence)    — honest backtest receipts + the latest real council transcript.
-// Styling here is intentionally minimal/functional — the visual UI/UX is a separate design pass.
+// Visual design: warm-monochrome editorial — cream surface, warm-black ink, a single green accent,
+// Newsreader serif display + Geist / Geist Mono — matching the NightDesk brand.
 import { createServer } from "node:http";
 import { readFileSync, existsSync } from "node:fs";
 import { join } from "node:path";
@@ -133,41 +134,76 @@ function verifyToday(): unknown {
 const PAGE = `<!doctype html><html><head><meta charset="utf-8"/>
 <title>NightDesk — risk desk for tokenized US stocks</title>
 <meta name="viewport" content="width=device-width,initial-scale=1"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/><link href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@400;500&family=Geist:wght@400;500;600&family=Newsreader:opsz,wght@6..72,400;6..72,500&display=swap" rel="stylesheet"/>
 <style>
-:root{--bg:#0a0e14;--fg:#c9d1d9;--dim:#6b7785;--green:#3fb950;--red:#f85149;--amber:#d29922;--card:#10151f;--line:#1e2630;--blue:#388bfd}
-*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--fg);font:14px/1.5 ui-monospace,SFMono-Regular,Menlo,monospace}
-.wrap{max-width:1100px;margin:0 auto;padding:24px}
-h1{font-size:20px;margin:0 0 2px}.sub{color:var(--dim);margin:0 0 14px;font-size:12px}
-.badge{display:inline-block;font-size:12px;padding:3px 8px;border-radius:6px;border:1px solid var(--line);margin-bottom:16px}
-.badge.ok{color:var(--green);border-color:#1d3b27}.badge.bad{color:var(--red);border-color:#3b1d1d}.badge.warn{color:var(--amber);border-color:#3b3119}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin-bottom:20px}
-.card{background:var(--card);border:1px solid var(--line);border-radius:8px;padding:14px}
-.card .k{color:var(--dim);font-size:11px;text-transform:uppercase;letter-spacing:.05em}
-.card .v{font-size:24px;font-weight:600;margin-top:4px}
-table{width:100%;border-collapse:collapse;font-size:13px;margin-bottom:8px}
-th,td{text-align:right;padding:6px 10px;border-bottom:1px solid var(--line)}th{color:var(--dim);font-weight:500}
+:root{--bg:#faf9f5;--surface:#fbfaf7;--panel:#f4f3ee;--ink:#16160f;--muted:#5e5e54;--faint:#8a8a7e;--line:#e6e4da;--green:#0e7a57;--gold:#b5841f;--red:#c2483a;--sans:'Geist',-apple-system,BlinkMacSystemFont,sans-serif;--serif:'Newsreader',Georgia,serif;--mono:'Geist Mono',ui-monospace,SFMono-Regular,monospace}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:14px;line-height:1.5;-webkit-font-smoothing:antialiased}
+.wrap{max-width:1140px;margin:0 auto;padding:40px 24px 64px}
+.eyebrow{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--faint)}
+h1{font-family:var(--serif);font-weight:400;font-size:clamp(34px,5vw,52px);line-height:1.05;letter-spacing:-.022em;margin:10px 0 0}
+h1 .accent{color:var(--green)}
+.sub{font-family:var(--serif);font-size:clamp(16px,2vw,20px);color:var(--muted);max-width:660px;margin:14px 0 24px;line-height:1.45}
+h2{font-family:var(--mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--faint);margin:40px 0 12px;font-weight:500}
+.note{color:var(--muted);font-size:12.5px;margin:0 0 16px;max-width:780px;line-height:1.5}
+code{font-family:var(--mono);background:var(--panel);padding:1px 6px;border-radius:6px;font-size:12px}
+.pill{display:inline-flex;align-items:center;gap:8px;font-family:var(--mono);font-size:12px;letter-spacing:.02em;padding:8px 15px;border-radius:999px;border:1px solid var(--line);background:var(--surface);margin-bottom:22px}
+.dot{width:9px;height:9px;border-radius:50%;background:var(--faint);flex:none}
+.pill.ok{color:var(--green);border-color:#bfe3d2}.pill.ok .dot{background:var(--green)}
+.pill.bad{color:var(--red);border-color:#e7c3bd}.pill.bad .dot{background:var(--red)}
+.pill.warn{color:var(--gold);border-color:#e8d4a6}.pill.warn .dot{background:var(--gold)}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(165px,1fr));gap:14px;margin:10px 0}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:16px 18px;box-shadow:0 30px 55px -48px rgba(22,22,15,.28)}
+.card .k{font-family:var(--mono);color:var(--faint);font-size:10.5px;text-transform:uppercase;letter-spacing:.1em}
+.card .v{font-family:var(--mono);font-size:26px;font-weight:500;margin-top:6px;font-variant-numeric:tabular-nums;color:var(--ink)}
+.card .v.counter{color:var(--green)}
+table{width:100%;border-collapse:collapse;font-size:13px;font-variant-numeric:tabular-nums}
+th,td{text-align:right;padding:9px 12px;border-bottom:1px solid var(--line)}
+th{font-family:var(--mono);color:var(--faint);font-weight:500;font-size:10.5px;text-transform:uppercase;letter-spacing:.08em}
+td{font-family:var(--mono)}
 th:first-child,td:first-child{text-align:left}
-.pos{color:var(--green)}.neg{color:var(--red)}.amber{color:var(--amber)}.illusion{color:var(--blue)}
-.counter{color:var(--green);font-variant-numeric:tabular-nums}
-footer{color:var(--dim);font-size:11px;margin-top:24px}
-.evidence{background:linear-gradient(135deg,#0d1b2a,#10151f);border:1px solid #1e3a5f;border-radius:10px;padding:16px 18px;margin-bottom:20px}
-.evidence .big{font-size:30px;font-weight:700;color:var(--green)}
-.evidence .lbl{color:var(--dim);font-size:11px;text-transform:uppercase;letter-spacing:.05em}
-.evidence .row{display:flex;gap:28px;flex-wrap:wrap;align-items:baseline}
-.evidence .cap{color:var(--fg);font-size:13px;margin-top:6px}
-h2{font-size:13px;color:var(--dim);text-transform:uppercase;letter-spacing:.05em;margin:24px 0 8px}
-.note{color:var(--dim);font-size:11px;margin:0 0 16px}
-.council{display:grid;gap:8px}
-.deb{background:var(--card);border:1px solid var(--line);border-left:3px solid var(--line);border-radius:6px;padding:10px 12px}
-.deb .role{font-size:11px;text-transform:uppercase;letter-spacing:.05em;margin-bottom:4px}
-.deb .txt{font-size:12.5px;color:var(--fg);white-space:pre-wrap}
+tbody tr:hover{background:var(--panel)}
+.pos{color:var(--green)}.neg{color:var(--red)}.amber{color:var(--gold)}.illusion{color:var(--gold);font-weight:500}
+.panel{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:22px 24px;margin:10px 0}
+.evidence{box-shadow:0 40px 80px -64px rgba(22,22,15,.32)}
+.evidence .row{display:flex;gap:34px;flex-wrap:wrap;align-items:baseline}
+.evidence .big{font-family:var(--mono);font-size:30px;font-weight:500;color:var(--green);font-variant-numeric:tabular-nums}
+.evidence .lbl{font-family:var(--mono);color:var(--faint);font-size:10.5px;text-transform:uppercase;letter-spacing:.1em;margin-top:2px}
+.evidence .cap{color:var(--muted);font-size:13px;margin-top:14px;line-height:1.55;max-width:840px}
+.fw{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-bottom:12px}
+.fw input,.fw select{font-family:var(--mono);font-size:13px;padding:10px 12px;border:1px solid var(--line);border-radius:10px;background:var(--bg);color:var(--ink)}
+.btn{font-family:var(--sans);font-size:14px;font-weight:500;color:#fff;background:var(--ink);padding:11px 22px;border-radius:999px;border:0;cursor:pointer;transition:background .2s}
+.btn:hover{background:#000}
+.verdict{display:inline-flex;align-items:center;gap:10px;font-family:var(--mono);font-size:14px;font-weight:500;padding:9px 16px;border-radius:999px;border:1px solid var(--line);background:var(--surface)}
+.verdict.allow{color:var(--green);border-color:#bfe3d2}.verdict.allow .dot{background:var(--green)}
+.verdict.capped{color:var(--gold);border-color:#e8d4a6}.verdict.capped .dot{background:var(--gold)}
+.verdict.reject{color:var(--red);border-color:#e7c3bd}.verdict.reject .dot{background:var(--red)}
+.fw-detail{font-family:var(--mono);font-size:12px;color:var(--muted);margin-top:8px}
+.council{display:grid;gap:10px}
+.deb{background:var(--surface);border:1px solid var(--line);border-left:3px solid var(--green);border-radius:12px;padding:13px 16px}
+.deb .role{font-family:var(--mono);font-size:10.5px;text-transform:uppercase;letter-spacing:.1em;color:var(--faint);margin-bottom:5px}
+.deb .txt{font-size:13px;color:var(--ink);white-space:pre-wrap;line-height:1.5}
+footer{font-family:var(--mono);color:var(--faint);font-size:11px;margin-top:36px;border-top:1px solid var(--line);padding-top:16px}
+a{color:var(--green)}
 </style></head><body><div class="wrap">
-<h1>NightDesk <span style="color:var(--dim)">· risk desk for Bitget tokenized US stocks</span></h1>
-<p class="sub">Tokenized stocks trade 24/7 while the NYSE sleeps. NightDesk measures the true gap vs the real stock, explains why it exists, and decides trade / abstain / avoid. Auto-refresh 15s.</p>
-<div id="verify" class="badge"></div>
+<div class="eyebrow">Live Desk · Bitget tokenized US stocks</div>
+<h1>Night<span class="accent">Desk</span></h1>
+<p class="sub">Tokenized stocks trade 24/7 while the NYSE sleeps. NightDesk measures the true gap versus the real stock, explains why it exists, and decides trade, abstain, or avoid — every decision signed and replayable. Auto-refresh 15s.</p>
+<div id="verify" class="pill"></div>
 <div id="risk" class="note"></div>
-<div class="evidence" id="evidence"></div>
+<div class="panel evidence" id="evidence"></div>
 <div class="grid" id="cards"></div>
+
+<h2>Try the safety gateway — ask before you trade</h2>
+<p class="note">Any agent can ask NightDesk before placing a tokenized-stock order: ALLOW · ALLOW-CAPPED (with the max safe size) · REJECT. Backed by <code>/api/firewall</code>.</p>
+<div class="fw">
+<input id="fw-ticker" value="NVDA" size="6" aria-label="ticker"/>
+<select id="fw-side"><option value="buy">buy</option><option value="sell">sell</option></select>
+<input id="fw-size" value="50" size="6" aria-label="size in USD"/>
+<button class="btn" id="fw-go">Evaluate intent</button>
+<span id="fw-verdict"></span>
+</div>
+<div id="fw-detail" class="fw-detail"></div>
 
 <h2>Risk desk — true gap vs the REAL stock (the perp hides it)</h2>
 <p class="note">true gap = rToken vs the real-stock anchor (latest NYSE print — live in market hours, last official close off-hours) · perp gap = vs the index that masks it · cause → action. Refreshes ~60s.</p>
@@ -202,8 +238,8 @@ async function tick(){
     const rb=document.querySelector('#risk');
     rb.textContent='Risk envelope — long-only · max '+rk.maxPositionPct+'%/position · max '+rk.maxGrossPct+'% gross · daily stop '+rk.maxDailyDrawdownPct+'% · net-edge gate (edge − fee − slippage ≥ '+rk.netEdgeMarginPct+'%) · '+rk.gateCount+' hard gates · '+(rk.riskOff?'⚠ RISK-OFF (high-macro day, standing down)':'risk-on');
     // verify badge
-    const vb=document.querySelector('#verify');vb.className='badge '+(!vf.present?'warn':(vf.signatureValid&&vf.tamperEvident?'ok':'bad'));
-    vb.textContent=!vf.present?'no signed ledger yet — run npm run simulate':(vf.signatureValid&&vf.tamperEvident?('ledger signature VALID · tamper-evident · '+vf.recordCount+' records · pubkey#'+vf.publicKeyFingerprint):'ledger signature INVALID');
+    const vb=document.querySelector('#verify');vb.className='pill '+(!vf.present?'warn':(vf.signatureValid&&vf.tamperEvident?'ok':'bad'));
+    vb.replaceChildren();vb.appendChild(el('span',null,'dot'));vb.appendChild(el('span',!vf.present?'no signed ledger yet — run npm run simulate':(vf.signatureValid&&vf.tamperEvident?('ledger signature VALID · tamper-evident · '+vf.recordCount+' records · pubkey#'+vf.publicKeyFingerprint):'ledger signature INVALID')));
     // risk desk
     const rd=document.querySelector('#riskdesk tbody');rd.replaceChildren();
     let actionable=0;
@@ -292,6 +328,20 @@ async function loadEvidence(){
     }
   }catch(e){/* ignore */}
 }
+async function fw(){
+  const t=(document.querySelector('#fw-ticker').value||'').toUpperCase().trim();
+  const side=document.querySelector('#fw-side').value;
+  const size=Number(document.querySelector('#fw-size').value||'0');
+  const vEl=document.querySelector('#fw-verdict');const dEl=document.querySelector('#fw-detail');
+  try{
+    const r=await fetch('/api/firewall?ticker='+encodeURIComponent(t)+'&side='+side+'&sizeUsd='+size).then(x=>x.json());
+    const map={ALLOW:'allow',ALLOW_CAPPED:'capped',REJECT:'reject'};const cls=map[r.verdict]||'reject';
+    vEl.replaceChildren();const pill=el('span',null,'verdict '+cls);pill.appendChild(el('span',null,'dot'));pill.appendChild(el('span',(r.verdict||'REJECT').split('_').join('-')));vEl.appendChild(pill);
+    const bits=[];if(r.reason)bits.push(r.reason);if(r.classification)bits.push('class '+r.classification);if(r.allowedPolicy)bits.push('policy '+r.allowedPolicy);if(r.maxSizeUsd!=null)bits.push('max $'+r.maxSizeUsd);if(r.safetyScore!=null)bits.push('safety '+r.safetyScore);
+    dEl.textContent=bits.join('  ·  ');
+  }catch(e){dEl.textContent='error: '+e;}
+}
+document.querySelector('#fw-go').addEventListener('click',fw);fw();
 tick();setInterval(tick,15000);
 loadQuality();setInterval(loadQuality,60000);
 loadEvidence();setInterval(loadEvidence,20000);
