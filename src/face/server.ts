@@ -16,6 +16,7 @@ import { readFileSync, existsSync } from "node:fs";
 import { join } from "node:path";
 import pLimit from "p-limit";
 import { LANDING_PAGE } from "./landing";
+import { runJudgeCockpit } from "./judge-cockpit";
 import { collect } from "../pegwatch/collect";
 import { buildScorecard, summarizeJudgment } from "../ledger/scorecard";
 import { classifyGap } from "../perception/causality";
@@ -356,6 +357,11 @@ export function startServer(port = Number(process.env.PORT) || 8787): void {
       } else if (req.url === "/desk" || req.url === "/desk.html") {
         res.writeHead(200, { "Content-Type": "text/html; charset=utf-8" });
         res.end(PAGE);
+      } else if (req.url === "/cockpit" || req.url === "/cockpit.html") {
+        const cockpit = join(process.cwd(), "evidence", "judge-cockpit", "index.html");
+        if (!existsSync(cockpit)) runJudgeCockpit();
+        res.writeHead(200, { "Content-Type": "text/html; charset=utf-8" });
+        res.end(readFileSync(cockpit, "utf8"));
       } else if (req.url === "/api/pegwatch") {
         const snap = await collect();
         res.writeHead(200, { "Content-Type": "application/json" });

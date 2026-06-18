@@ -105,6 +105,7 @@ footer .meta{font-family:var(--mono);font-size:11.5px;color:var(--faint);letter-
     <a class="lnk" href="#how">How it works</a>
     <a class="lnk" href="#gateway">The firewall</a>
     <a class="lnk" href="#evidence">Evidence</a>
+    <a class="lnk" href="/cockpit">Judge cockpit</a>
     <a class="btn btn-dark" href="/desk">Open live desk <span class="ar">→</span></a>
   </div>
 </div></nav>
@@ -192,7 +193,7 @@ footer .meta{font-family:var(--mono);font-size:11.5px;color:var(--faint);letter-
 <div class="wrap"><div class="band">
   <h2>A complete loop. No human in the middle.</h2>
   <p>The fair-value and safety layer the tokenized-stock era needs — every number replayable.</p>
-  <div class="cta" style="justify-content:center"><a class="btn btn-dark" href="/desk">Open the live desk <span class="ar">→</span></a><a class="btn btn-ghost" href="/desk#gateway">Open the live firewall</a></div>
+  <div class="cta" style="justify-content:center"><a class="btn btn-dark" href="/desk">Open the live desk <span class="ar">→</span></a><a class="btn btn-ghost" href="/cockpit">Open the judge cockpit</a></div>
 </div></div>
 
 <footer><div class="wrap grid">
