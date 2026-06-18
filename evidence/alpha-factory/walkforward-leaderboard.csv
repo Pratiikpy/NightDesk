@@ -1,5 +1,6 @@
 fold,selected_config,train_pnl,train_trades,test_recording,test_pnl,test_trades,test_wins,test_losses,method
-leave_2026-06-14_out,perp_gap_fade_e0p35_x0_tp2_sl1p25_h9999_n0p35_m5,49.370083,14,2026-06-14,0,0,0,0,leave-one-recording-out champion selection
-leave_2026-06-15_out,perp_gap_fade_e0p35_x0_tp2_sl0p75_h30_n0p5_m2,27.702084,4,2026-06-15,0.749113,19,9,10,leave-one-recording-out champion selection
-leave_2026-06-16_out,perp_gap_fade_e0p35_x0_tp2_sl1p25_h9999_n0p35_m5,49.370083,14,2026-06-16,0,0,0,0,leave-one-recording-out champion selection
-leave_2026-06-17_out,perp_gap_fade_e0p1_x0_tp0p75_sl0p75_h9999_n0p5_m5,29.2706,19,2026-06-17,-12.553004,3,0,3,leave-one-recording-out champion selection
+leave_2026-06-14_out,perp_gap_fade_e0p35_x0_tp2_sl1p25_h9999_n0p35_m5,54.926313,18,2026-06-14,0,0,0,0,leave-one-recording-out champion selection
+leave_2026-06-15_out,perp_gap_fade_e0p35_x0_tp2_sl1p25_h9999_n0p35_m2,33.1776,9,2026-06-15,20.509406,7,5,2,leave-one-recording-out champion selection
+leave_2026-06-16_out,perp_gap_fade_e0p35_x0_tp2_sl1p25_h9999_n0p35_m5,54.926313,18,2026-06-16,0,0,0,0,leave-one-recording-out champion selection
+leave_2026-06-17_out,perp_gap_fade_e0p5_x0p1_tp1p25_sl1p25_h9999_n0p5_m2,26.729791,6,2026-06-17,17.033927,4,4,0,leave-one-recording-out champion selection
+leave_2026-06-18_out,perp_gap_fade_e0p35_x0_tp2_sl1p25_h9999_n0p35_m5,56.361161,17,2026-06-18,-1.434848,1,0,1,leave-one-recording-out champion selection

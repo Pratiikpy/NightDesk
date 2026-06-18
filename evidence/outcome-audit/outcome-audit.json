@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-17T16:06:44.287Z",
+  "generatedAt": "2026-06-18T03:35:36.604Z",
   "pass": 8,
   "warn": 4,
   "fail": 0,
@@ -47,7 +47,7 @@
     {
       "name": "OOS session depth",
       "severity": "warn",
-      "detail": "4 sessions, 3 active. This is enough for a hackathon evidence pack, not enough for a production alpha claim."
+      "detail": "5 sessions, 4 active. This is enough for a hackathon evidence pack, not enough for a production alpha claim."
     },
     {
       "name": "fill realism outcome cases",

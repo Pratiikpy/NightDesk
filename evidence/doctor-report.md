@@ -6,7 +6,7 @@
 | package_scripts | pass | judge:max and judge:max:full expected |
 | snapshots | pass | data/snapshots directory |
 | bitget_readonly_evidence | pass | live-market-snapshot.json |
-| qwen_key | warn | Qwen key optional for deterministic/offline judge path |
+| qwen_key | pass | Qwen key optional for deterministic/offline judge path |
 | live_trade_default | pass | live trading should be disabled unless explicitly enabled |
 | shell_tools_default | pass | shell-capable tools should be opt-in |
 | evidence_manifest | pass | max judge manifest |

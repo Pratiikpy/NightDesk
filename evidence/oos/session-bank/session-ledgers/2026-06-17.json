@@ -1,7 +1,7 @@
 {
   "session_id": "2026-06-17",
-  "ledger_hash": "c3a22c230a44cf62c214a97cf503e5f5334d504f7aee600a4823d0b8ceb65dda",
-  "guarded_pnl": "4.012641",
-  "unguarded_pnl": "4.012641",
+  "ledger_hash": "d2788cd2d9fb36d8d31456cb24da0cd56b048afcb0d8b75b060650d8f00b4c54",
+  "guarded_pnl": "-3.94689",
+  "unguarded_pnl": "-3.94689",
   "reproduce_command": "npm run oos:report && npm run oos:session-bank"
 }

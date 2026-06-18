@@ -1,0 +1,244 @@
+{
+  "asOf": "2026-06-17T18:30:35.000Z",
+  "tokens": [
+    {
+      "ticker": "AAPL",
+      "trueGapPct": -0.003379405900458838,
+      "perpGapPct": -0.03716090672612873,
+      "classification": "FAIR",
+      "qualityGrade": "B",
+      "safetyScore": 74,
+      "policy": "NORMAL",
+      "evidence": [
+        "true gap -0.00% within normal"
+      ]
+    },
+    {
+      "ticker": "TSLA",
+      "trueGapPct": 0.01870137642130177,
+      "perpGapPct": 0.042399830400668186,
+      "classification": "FAIR",
+      "qualityGrade": "C",
+      "safetyScore": 69,
+      "policy": "NORMAL",
+      "evidence": [
+        "true gap 0.02% within normal"
+      ]
+    },
+    {
+      "ticker": "NVDA",
+      "trueGapPct": -0.026710698849001215,
+      "perpGapPct": -0.19877342253895144,
+      "classification": "FAIR",
+      "qualityGrade": "C",
+      "safetyScore": 84,
+      "policy": "NORMAL",
+      "evidence": [
+        "true gap -0.03% within normal"
+      ]
+    },
+    {
+      "ticker": "MSFT",
+      "trueGapPct": -0.013052785464421075,
+      "perpGapPct": -0.24872058651180207,
+      "classification": "FAIR",
+      "qualityGrade": "B",
+      "safetyScore": 89,
+      "policy": "NORMAL",
+      "evidence": [
+        "true gap -0.01% within normal"
+      ]
+    },
+    {
+      "ticker": "GOOGL",
+      "trueGapPct": -0.008209281961479192,
+      "perpGapPct": -0.06153677848127853,
+      "classification": "FAIR",
+      "qualityGrade": "B",
+      "safetyScore": 89,
+      "policy": "NORMAL",
+      "evidence": [
+        "true gap -0.01% within normal"
+      ]
+    },
+    {
+      "ticker": "AMZN",
+      "trueGapPct": 0.0020908254578888737,
+      "perpGapPct": -0.11486091387521265,
+      "classification": "FAIR",
+      "qualityGrade": "B",
+      "safetyScore": 89,
+      "policy": "NORMAL",
+      "evidence": [
+        "true gap 0.00% within normal"
+      ]
+    },
+    {
+      "ticker": "META",
+      "trueGapPct": -0.006957610756479676,
+      "perpGapPct": -0.19184860454015049,
+      "classification": "FAIR",
+      "qualityGrade": "C",
+      "safetyScore": 69,
+      "policy": "NORMAL",
+      "evidence": [
+        "true gap -0.01% within normal"
+      ]
+    },
+    {
+      "ticker": "SPY",
+      "trueGapPct": 0.002010589102620474,
+      "perpGapPct": -0.014071860299918852,
+      "classification": "FAIR",
+      "qualityGrade": "B",
+      "safetyScore": 81,
+      "policy": "NORMAL",
+      "evidence": [
+        "true gap 0.00% within normal"
+      ]
+    },
+    {
+      "ticker": "QQQ",
+      "trueGapPct": 0.0053517690341137215,
+      "perpGapPct": -0.09527530450399266,
+      "classification": "FAIR",
+      "qualityGrade": "B",
+      "safetyScore": 81,
+      "policy": "NORMAL",
+      "evidence": [
+        "true gap 0.01% within normal"
+      ]
+    },
+    {
+      "ticker": "SQQQ",
+      "trueGapPct": -0.012966804979259745,
+      "perpGapPct": -0.14245014245014173,
+      "classification": "FAIR",
+      "qualityGrade": "D",
+      "safetyScore": 70,
+      "policy": "NORMAL",
+      "evidence": [
+        "true gap -0.01% within normal"
+      ]
+    },
+    {
+      "ticker": "TQQQ",
+      "trueGapPct": -0.08799497171591124,
+      "perpGapPct": 0.006291286568097456,
+      "classification": "FAIR",
+      "qualityGrade": "D",
+      "safetyScore": 70,
+      "policy": "NORMAL",
+      "evidence": [
+        "true gap -0.09% within normal"
+      ]
+    },
+    {
+      "ticker": "PLTR",
+      "trueGapPct": 0.04107542942492785,
+      "perpGapPct": -0.06341390629665501,
+      "classification": "FAIR",
+      "qualityGrade": "D",
+      "safetyScore": 70,
+      "policy": "NORMAL",
+      "evidence": [
+        "true gap 0.04% within normal"
+      ]
+    },
+    {
+      "ticker": "CRCL",
+      "trueGapPct": -0.018261504747991927,
+      "perpGapPct": -0.12769062385989272,
+      "classification": "FAIR",
+      "qualityGrade": "D",
+      "safetyScore": 70,
+      "policy": "NORMAL",
+      "evidence": [
+        "true gap -0.02% within normal"
+      ]
+    },
+    {
+      "ticker": "HOOD",
+      "trueGapPct": 0,
+      "perpGapPct": 0.01842638658559999,
+      "classification": "FAIR",
+      "qualityGrade": "D",
+      "safetyScore": 55,
+      "policy": "NORMAL",
+      "evidence": [
+        "true gap 0.00% within normal"
+      ]
+    },
+    {
+      "ticker": "MSTR",
+      "trueGapPct": -0.012262916939164778,
+      "perpGapPct": 0,
+      "classification": "FAIR",
+      "qualityGrade": "D",
+      "safetyScore": 70,
+      "policy": "NORMAL",
+      "evidence": [
+        "true gap -0.01% within normal"
+      ]
+    },
+    {
+      "ticker": "ORCL",
+      "trueGapPct": -0.05084428269421117,
+      "perpGapPct": -0.09094799914402733,
+      "classification": "FAIR",
+      "qualityGrade": "D",
+      "safetyScore": 70,
+      "policy": "NORMAL",
+      "evidence": [
+        "true gap -0.05% within normal"
+      ]
+    },
+    {
+      "ticker": "NFLX",
+      "trueGapPct": 0,
+      "perpGapPct": -0.1480146727588582,
+      "classification": "FAIR",
+      "qualityGrade": "C",
+      "safetyScore": 76,
+      "policy": "NORMAL",
+      "evidence": [
+        "true gap 0.00% within normal"
+      ]
+    },
+    {
+      "ticker": "BABA",
+      "trueGapPct": -0.04132990448198705,
+      "perpGapPct": -0.16969363419556252,
+      "classification": "FAIR",
+      "qualityGrade": "D",
+      "safetyScore": 70,
+      "policy": "NORMAL",
+      "evidence": [
+        "true gap -0.04% within normal"
+      ]
+    },
+    {
+      "ticker": "GME",
+      "trueGapPct": -0.023148148148159988,
+      "perpGapPct": -0.0462855820412014,
+      "classification": "FAIR",
+      "qualityGrade": "C",
+      "safetyScore": 76,
+      "policy": "NORMAL",
+      "evidence": [
+        "true gap -0.02% within normal"
+      ]
+    }
+  ],
+  "summary": {
+    "FAIR": 19
+  },
+  "attestation": {
+    "algo": "ed25519",
+    "recordCount": 19,
+    "recordsSha256": "b1d6f782f94cf0d2213eb6862c08bc41a9fea46ba174d8380165fe2583d156f3",
+    "signatureHex": "cf9b9a13ce4e75d7c806c81d6de6b33ef849e9987b59ad0a0be46fb71c65bc6ffb8108fce74660d34297f3689bad3a579fb596fb512333591d4d2eb94247f501",
+    "publicKeyPem": "-----BEGIN PUBLIC KEY-----\nMCowBQYDK2VwAyEA9l3qyeEpQZNDdh2cpTZnr6NJAKPycCAmt0tiGCSl1Ws=\n-----END PUBLIC KEY-----\n",
+    "signedAt": "2026-06-17T18:30:38.992Z"
+  }
+}

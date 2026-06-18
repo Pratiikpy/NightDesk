@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-17T18:32:42.368Z",
+  "generatedAt": "2026-06-18T03:41:32.780Z",
   "ok": true,
   "hard": [
     {
@@ -23,17 +23,17 @@
     {
       "label": "factory trials",
       "forms": [
-        "38880",
-        "38,880"
+        "48600",
+        "48,600"
       ],
       "docs": [
         {
           "file": "README.md",
-          "matched": "38,880"
+          "matched": "48,600"
         },
         {
           "file": "SUBMISSION.md",
-          "matched": "38,880"
+          "matched": "48,600"
         }
       ],
       "ok": true
@@ -44,35 +44,35 @@
     {
       "label": "factory champion total_pnl",
       "forms": [
-        "47.55",
-        "+47.55"
+        "54.93",
+        "+54.93"
       ],
       "docs": [
         {
           "file": "README.md",
-          "matched": null
+          "matched": "54.93"
         },
         {
           "file": "SUBMISSION.md",
-          "matched": null
+          "matched": "54.93"
         }
       ],
-      "inSync": false
+      "inSync": true
     },
     {
       "label": "factory champion max_drawdown",
       "forms": [
-        "4.00",
-        "+4.00"
+        "6.33",
+        "+6.33"
       ],
       "docs": [
         {
           "file": "README.md",
-          "matched": "4.00"
+          "matched": "6.33"
         },
         {
           "file": "SUBMISSION.md",
-          "matched": "4.00"
+          "matched": "6.33"
         }
       ],
       "inSync": true
@@ -80,35 +80,35 @@
     {
       "label": "factory rejected",
       "forms": [
-        "8327",
-        "8,327"
+        "8444",
+        "8,444"
       ],
       "docs": [
         {
           "file": "README.md",
-          "matched": null
+          "matched": "8,444"
         },
         {
           "file": "SUBMISSION.md",
-          "matched": null
+          "matched": "8,444"
         }
       ],
-      "inSync": false
+      "inSync": true
     },
     {
       "label": "championship global PnL",
       "forms": [
-        "49.59",
-        "+49.59"
+        "54.93",
+        "+54.93"
       ],
       "docs": [
         {
           "file": "README.md",
-          "matched": "49.59"
+          "matched": "54.93"
         },
         {
           "file": "SUBMISSION.md",
-          "matched": "49.59"
+          "matched": "54.93"
         }
       ],
       "inSync": true

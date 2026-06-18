@@ -1,10 +1,10 @@
 # NightDesk Paper Trading Run Summary
 
-Run ID: run_20260617183225_paper
+Run ID: run_20260618033003_paper
 Mode: paper
 Assets: 19 Bitget tokenized US stock basis pairs
-Started: 2026-06-17T18:32:25.302Z
-Ended: 2026-06-17T18:32:25.564Z
+Started: 2026-06-18T03:30:03.886Z
+Ended: 2026-06-18T03:30:04.182Z
 Market regime: recorded tokenized-stock snapshot replay
 Total intents: 19
 Allowed: 3
@@ -14,7 +14,7 @@ Trades simulated: 8
 Blocked unsafe intents: 11
 Starting balance: 1000.00 USDT
 Ending balance: 999.67 USDT
-Ledger hash: b69be22b874ff2ff49d8ae825e949324f8504db6496e1554ed2faade4a51ed74
+Ledger hash: 9c36d1386f2186cb63e954b30fe8ab053c677f314b7f20bc8653afc298f313fe
 Ledger verification: pass
 
 Generated files:

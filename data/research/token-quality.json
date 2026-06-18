@@ -1,0 +1,287 @@
+[
+  {
+    "ticker": "SPY",
+    "grade": "B",
+    "qualityScore": 80.2,
+    "components": {
+      "tracking": 87,
+      "stability": 83,
+      "liquidity": 60
+    },
+    "trackingGrade": "tight",
+    "liquidity": "quote-only",
+    "meanAbsPremiumPct": 0.532,
+    "maxAbsPremiumPct": 2.38,
+    "rightsClarity": "not verified"
+  },
+  {
+    "ticker": "AAPL",
+    "grade": "B",
+    "qualityScore": 79.5,
+    "components": {
+      "tracking": 78,
+      "stability": 68,
+      "liquidity": 100
+    },
+    "trackingGrade": "tight",
+    "liquidity": "L2-book",
+    "meanAbsPremiumPct": 0.864,
+    "maxAbsPremiumPct": 4.914,
+    "rightsClarity": "not verified"
+  },
+  {
+    "ticker": "GOOGL",
+    "grade": "B",
+    "qualityScore": 74.4,
+    "components": {
+      "tracking": 73,
+      "stability": 59,
+      "liquidity": 100
+    },
+    "trackingGrade": "tight",
+    "liquidity": "L2-book",
+    "meanAbsPremiumPct": 1.061,
+    "maxAbsPremiumPct": 7.053,
+    "rightsClarity": "not verified"
+  },
+  {
+    "ticker": "QQQ",
+    "grade": "B",
+    "qualityScore": 74.4,
+    "components": {
+      "tracking": 80,
+      "stability": 74,
+      "liquidity": 60
+    },
+    "trackingGrade": "tight",
+    "liquidity": "quote-only",
+    "meanAbsPremiumPct": 0.793,
+    "maxAbsPremiumPct": 2.921,
+    "rightsClarity": "not verified"
+  },
+  {
+    "ticker": "AMZN",
+    "grade": "B",
+    "qualityScore": 73.6,
+    "components": {
+      "tracking": 71,
+      "stability": 61,
+      "liquidity": 100
+    },
+    "trackingGrade": "tight",
+    "liquidity": "L2-book",
+    "meanAbsPremiumPct": 1.175,
+    "maxAbsPremiumPct": 4.872,
+    "rightsClarity": "not verified"
+  },
+  {
+    "ticker": "MSFT",
+    "grade": "B",
+    "qualityScore": 71.4,
+    "components": {
+      "tracking": 68,
+      "stability": 58,
+      "liquidity": 100
+    },
+    "trackingGrade": "tight",
+    "liquidity": "L2-book",
+    "meanAbsPremiumPct": 1.268,
+    "maxAbsPremiumPct": 5.115,
+    "rightsClarity": "not verified"
+  },
+  {
+    "ticker": "NVDA",
+    "grade": "C",
+    "qualityScore": 68.5,
+    "components": {
+      "tracking": 65,
+      "stability": 54,
+      "liquidity": 100
+    },
+    "trackingGrade": "tight",
+    "liquidity": "L2-book",
+    "meanAbsPremiumPct": 1.406,
+    "maxAbsPremiumPct": 4.747,
+    "rightsClarity": "not verified"
+  },
+  {
+    "ticker": "META",
+    "grade": "C",
+    "qualityScore": 68.1,
+    "components": {
+      "tracking": 67,
+      "stability": 49,
+      "liquidity": 100
+    },
+    "trackingGrade": "tight",
+    "liquidity": "L2-book",
+    "meanAbsPremiumPct": 1.321,
+    "maxAbsPremiumPct": 9.128,
+    "rightsClarity": "not verified"
+  },
+  {
+    "ticker": "NFLX",
+    "grade": "C",
+    "qualityScore": 67.7,
+    "components": {
+      "tracking": 76,
+      "stability": 59,
+      "liquidity": 60
+    },
+    "trackingGrade": "tight",
+    "liquidity": "quote-only",
+    "meanAbsPremiumPct": 0.968,
+    "maxAbsPremiumPct": 8.999,
+    "rightsClarity": "not verified"
+  },
+  {
+    "ticker": "TSLA",
+    "grade": "C",
+    "qualityScore": 62.2,
+    "components": {
+      "tracking": 58,
+      "stability": 43,
+      "liquidity": 100
+    },
+    "trackingGrade": "loose",
+    "liquidity": "L2-book",
+    "meanAbsPremiumPct": 1.661,
+    "maxAbsPremiumPct": 7.639,
+    "rightsClarity": "not verified"
+  },
+  {
+    "ticker": "GME",
+    "grade": "C",
+    "qualityScore": 61,
+    "components": {
+      "tracking": 66,
+      "stability": 53,
+      "liquidity": 60
+    },
+    "trackingGrade": "tight",
+    "liquidity": "quote-only",
+    "meanAbsPremiumPct": 1.349,
+    "maxAbsPremiumPct": 7.314,
+    "rightsClarity": "not verified"
+  },
+  {
+    "ticker": "BABA",
+    "grade": "D",
+    "qualityScore": 48.6,
+    "components": {
+      "tracking": 53,
+      "stability": 34,
+      "liquidity": 60
+    },
+    "trackingGrade": "loose",
+    "liquidity": "quote-only",
+    "meanAbsPremiumPct": 1.883,
+    "maxAbsPremiumPct": 7.236,
+    "rightsClarity": "not verified"
+  },
+  {
+    "ticker": "PLTR",
+    "grade": "D",
+    "qualityScore": 45,
+    "components": {
+      "tracking": 48,
+      "stability": 30,
+      "liquidity": 60
+    },
+    "trackingGrade": "loose",
+    "liquidity": "quote-only",
+    "meanAbsPremiumPct": 2.068,
+    "maxAbsPremiumPct": 9.369,
+    "rightsClarity": "not verified"
+  },
+  {
+    "ticker": "TQQQ",
+    "grade": "D",
+    "qualityScore": 39.2,
+    "components": {
+      "tracking": 41,
+      "stability": 23,
+      "liquidity": 60
+    },
+    "trackingGrade": "loose",
+    "liquidity": "quote-only",
+    "meanAbsPremiumPct": 2.369,
+    "maxAbsPremiumPct": 8.72,
+    "rightsClarity": "not verified"
+  },
+  {
+    "ticker": "SQQQ",
+    "grade": "D",
+    "qualityScore": 38.9,
+    "components": {
+      "tracking": 40,
+      "stability": 22,
+      "liquidity": 60
+    },
+    "trackingGrade": "loose",
+    "liquidity": "quote-only",
+    "meanAbsPremiumPct": 2.39,
+    "maxAbsPremiumPct": 8.675,
+    "rightsClarity": "not verified"
+  },
+  {
+    "ticker": "ORCL",
+    "grade": "D",
+    "qualityScore": 38.3,
+    "components": {
+      "tracking": 42,
+      "stability": 18,
+      "liquidity": 60
+    },
+    "trackingGrade": "loose",
+    "liquidity": "quote-only",
+    "meanAbsPremiumPct": 2.323,
+    "maxAbsPremiumPct": 11.875,
+    "rightsClarity": "not verified"
+  },
+  {
+    "ticker": "HOOD",
+    "grade": "D",
+    "qualityScore": 27.7,
+    "components": {
+      "tracking": 30,
+      "stability": 3,
+      "liquidity": 60
+    },
+    "trackingGrade": "loose",
+    "liquidity": "quote-only",
+    "meanAbsPremiumPct": 2.813,
+    "maxAbsPremiumPct": 13.702,
+    "rightsClarity": "not verified"
+  },
+  {
+    "ticker": "MSTR",
+    "grade": "D",
+    "qualityScore": 27,
+    "components": {
+      "tracking": 30,
+      "stability": 0,
+      "liquidity": 60
+    },
+    "trackingGrade": "loose",
+    "liquidity": "quote-only",
+    "meanAbsPremiumPct": 2.802,
+    "maxAbsPremiumPct": 13.422,
+    "rightsClarity": "not verified"
+  },
+  {
+    "ticker": "CRCL",
+    "grade": "D",
+    "qualityScore": 24.8,
+    "components": {
+      "tracking": 26,
+      "stability": 0,
+      "liquidity": 60
+    },
+    "trackingGrade": "loose",
+    "liquidity": "quote-only",
+    "meanAbsPremiumPct": 2.975,
+    "maxAbsPremiumPct": 18.829,
+    "rightsClarity": "not verified"
+  }
+]

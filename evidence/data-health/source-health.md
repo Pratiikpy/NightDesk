@@ -9,5 +9,5 @@
 | Alpha Factory | ok | strategy research data | evidence/alpha-factory/manifest.json |
 | Paper execution | ok | Bitget-required trading record | evidence/trading-log/nightdesk-paper-trading-log.csv |
 | Ledger | ok | tamper-evident audit | evidence/trading-log/ledger-verification.txt |
-| Qwen council | warn | optional live council path | env presence only; key not printed |
+| Qwen council | ok | optional live council path | env presence only; key not printed |
 | MCP/SDK integration | ok | external-agent proof | evidence/integration/mcp-tool-call-log.jsonl |

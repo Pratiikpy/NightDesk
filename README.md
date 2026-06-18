@@ -71,17 +71,17 @@ The submission evidence lives in `evidence/`:
   paper trading CSV plus a summary report. This is integration/benchmark evidence, not the main
   alpha claim.
 - `evidence/alpha-championship/` — raw-PnL search over recorded sessions. Current single-session
-  champion: 1,000.00 -> 1,030.59 USDT on the 2026-06-15 recording; the global same-config replay
-  totals +49.59 USDT across the available recordings. This is labeled as current-recording
+  champion: 1,000.00 -> 1,034.61 USDT on the 2026-06-17 recording; the global same-config replay
+  totals +54.93 USDT across the available recordings. This is labeled as current-recording
   championship evidence, not guaranteed future alpha.
 - `evidence/championship/` — explicit two-champion mode: `leaderboard_pnl.csv`,
   `leaderboard_safety.csv`, frozen PnL Champion, frozen Safety Champion, both paper logs, and
   `champion-overfit-check.md`. This protects the green-number story without weakening the safety
   thesis.
 - `evidence/alpha-factory/` — autonomous Alpha Factory evidence: 9,720 candidate strategies,
-  38,880 recorded trials, 8,289 rejected overfit/fragile configs, walk-forward leaderboard, frozen
+  48,600 recorded trials, 8,444 rejected overfit/fragile configs, walk-forward leaderboard, frozen
   champion, expected-vs-actual paper log, masked-eval note, and agent benchmark standard. Current
-  frozen champion: +47.86 USDT total on the recorded sessions with 4.00 USDT max drawdown — this is
+  frozen champion: +54.93 USDT total on the recorded sessions with 6.33 USDT max drawdown — this is
   in-sample execution-quality evidence (proof the search/freeze loop works), **not** a future-alpha
   claim; see the honest null edge-test below.
 - `evidence/alpha-factory/alpha-zoo-catalog.csv` and `strategy-compare.csv` — the NightDesk

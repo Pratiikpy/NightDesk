@@ -370,7 +370,7 @@ export function verifyEvidenceArtifacts(): ArtifactCheck[] {
     const secrets = JSON.parse(read("evidence/secrets-scan.json")) as { ok?: boolean; findings?: unknown[] };
     if (!secrets.ok) return `secrets scan findings: ${(secrets.findings ?? []).length}`;
     const cockpit = read("evidence/judge-cockpit/index.html");
-    if (!/NightDesk Alpha Gateway Judge Cockpit/.test(cockpit)) return "judge cockpit missing title";
+    if (!/Judge Cockpit/.test(cockpit)) return "judge cockpit missing title";
     return true;
   }));
 

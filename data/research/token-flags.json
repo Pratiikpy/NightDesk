@@ -1,0 +1,325 @@
+[
+  {
+    "ticker": "AAPL",
+    "tracking": {
+      "nDays": 64,
+      "meanAbsPremiumPct": 0.864,
+      "stdevPremiumPct": 1.291,
+      "maxAbsPremiumPct": 4.914,
+      "returnCorrelation": 0.085
+    },
+    "trackingGrade": "tight",
+    "liquidity": "L2-book",
+    "dividends": "not verified — see issuer",
+    "votingRights": "not verified — see issuer",
+    "corporateActions": "not verified — see issuer",
+    "structure": "Bitget rToken (intermediary-backed model; synthetic-vs-custodial not verified)",
+    "note": "meanAbs/stdev/max premium are robust daily level gaps. returnCorrelation is a CAVEATED diagnostic — confounded by rToken 00:00-UTC close vs ~21:00-UTC NYSE close; matched-timestamp tracking comes from the live equity-aware recorder. Legal rights are NOT asserted — confirm with the issuer."
+  },
+  {
+    "ticker": "TSLA",
+    "tracking": {
+      "nDays": 64,
+      "meanAbsPremiumPct": 1.661,
+      "stdevPremiumPct": 2.266,
+      "maxAbsPremiumPct": 7.639,
+      "returnCorrelation": 0.389
+    },
+    "trackingGrade": "loose",
+    "liquidity": "L2-book",
+    "dividends": "not verified — see issuer",
+    "votingRights": "not verified — see issuer",
+    "corporateActions": "not verified — see issuer",
+    "structure": "Bitget rToken (intermediary-backed model; synthetic-vs-custodial not verified)",
+    "note": "meanAbs/stdev/max premium are robust daily level gaps. returnCorrelation is a CAVEATED diagnostic — confounded by rToken 00:00-UTC close vs ~21:00-UTC NYSE close; matched-timestamp tracking comes from the live equity-aware recorder. Legal rights are NOT asserted — confirm with the issuer."
+  },
+  {
+    "ticker": "NVDA",
+    "tracking": {
+      "nDays": 64,
+      "meanAbsPremiumPct": 1.406,
+      "stdevPremiumPct": 1.859,
+      "maxAbsPremiumPct": 4.747,
+      "returnCorrelation": 0.43
+    },
+    "trackingGrade": "tight",
+    "liquidity": "L2-book",
+    "dividends": "not verified — see issuer",
+    "votingRights": "not verified — see issuer",
+    "corporateActions": "not verified — see issuer",
+    "structure": "Bitget rToken (intermediary-backed model; synthetic-vs-custodial not verified)",
+    "note": "meanAbs/stdev/max premium are robust daily level gaps. returnCorrelation is a CAVEATED diagnostic — confounded by rToken 00:00-UTC close vs ~21:00-UTC NYSE close; matched-timestamp tracking comes from the live equity-aware recorder. Legal rights are NOT asserted — confirm with the issuer."
+  },
+  {
+    "ticker": "MSFT",
+    "tracking": {
+      "nDays": 64,
+      "meanAbsPremiumPct": 1.268,
+      "stdevPremiumPct": 1.699,
+      "maxAbsPremiumPct": 5.115,
+      "returnCorrelation": 0.415
+    },
+    "trackingGrade": "tight",
+    "liquidity": "L2-book",
+    "dividends": "not verified — see issuer",
+    "votingRights": "not verified — see issuer",
+    "corporateActions": "not verified — see issuer",
+    "structure": "Bitget rToken (intermediary-backed model; synthetic-vs-custodial not verified)",
+    "note": "meanAbs/stdev/max premium are robust daily level gaps. returnCorrelation is a CAVEATED diagnostic — confounded by rToken 00:00-UTC close vs ~21:00-UTC NYSE close; matched-timestamp tracking comes from the live equity-aware recorder. Legal rights are NOT asserted — confirm with the issuer."
+  },
+  {
+    "ticker": "GOOGL",
+    "tracking": {
+      "nDays": 64,
+      "meanAbsPremiumPct": 1.061,
+      "stdevPremiumPct": 1.64,
+      "maxAbsPremiumPct": 7.053,
+      "returnCorrelation": 0.475
+    },
+    "trackingGrade": "tight",
+    "liquidity": "L2-book",
+    "dividends": "not verified — see issuer",
+    "votingRights": "not verified — see issuer",
+    "corporateActions": "not verified — see issuer",
+    "structure": "Bitget rToken (intermediary-backed model; synthetic-vs-custodial not verified)",
+    "note": "meanAbs/stdev/max premium are robust daily level gaps. returnCorrelation is a CAVEATED diagnostic — confounded by rToken 00:00-UTC close vs ~21:00-UTC NYSE close; matched-timestamp tracking comes from the live equity-aware recorder. Legal rights are NOT asserted — confirm with the issuer."
+  },
+  {
+    "ticker": "AMZN",
+    "tracking": {
+      "nDays": 64,
+      "meanAbsPremiumPct": 1.175,
+      "stdevPremiumPct": 1.568,
+      "maxAbsPremiumPct": 4.872,
+      "returnCorrelation": 0.455
+    },
+    "trackingGrade": "tight",
+    "liquidity": "L2-book",
+    "dividends": "not verified — see issuer",
+    "votingRights": "not verified — see issuer",
+    "corporateActions": "not verified — see issuer",
+    "structure": "Bitget rToken (intermediary-backed model; synthetic-vs-custodial not verified)",
+    "note": "meanAbs/stdev/max premium are robust daily level gaps. returnCorrelation is a CAVEATED diagnostic — confounded by rToken 00:00-UTC close vs ~21:00-UTC NYSE close; matched-timestamp tracking comes from the live equity-aware recorder. Legal rights are NOT asserted — confirm with the issuer."
+  },
+  {
+    "ticker": "META",
+    "tracking": {
+      "nDays": 64,
+      "meanAbsPremiumPct": 1.321,
+      "stdevPremiumPct": 2.052,
+      "maxAbsPremiumPct": 9.128,
+      "returnCorrelation": 0.514
+    },
+    "trackingGrade": "tight",
+    "liquidity": "L2-book",
+    "dividends": "not verified — see issuer",
+    "votingRights": "not verified — see issuer",
+    "corporateActions": "not verified — see issuer",
+    "structure": "Bitget rToken (intermediary-backed model; synthetic-vs-custodial not verified)",
+    "note": "meanAbs/stdev/max premium are robust daily level gaps. returnCorrelation is a CAVEATED diagnostic — confounded by rToken 00:00-UTC close vs ~21:00-UTC NYSE close; matched-timestamp tracking comes from the live equity-aware recorder. Legal rights are NOT asserted — confirm with the issuer."
+  },
+  {
+    "ticker": "SPY",
+    "tracking": {
+      "nDays": 64,
+      "meanAbsPremiumPct": 0.532,
+      "stdevPremiumPct": 0.691,
+      "maxAbsPremiumPct": 2.38,
+      "returnCorrelation": 0.49
+    },
+    "trackingGrade": "tight",
+    "liquidity": "quote-only",
+    "dividends": "not verified — see issuer",
+    "votingRights": "not verified — see issuer",
+    "corporateActions": "not verified — see issuer",
+    "structure": "Bitget rToken (intermediary-backed model; synthetic-vs-custodial not verified)",
+    "note": "meanAbs/stdev/max premium are robust daily level gaps. returnCorrelation is a CAVEATED diagnostic — confounded by rToken 00:00-UTC close vs ~21:00-UTC NYSE close; matched-timestamp tracking comes from the live equity-aware recorder. Legal rights are NOT asserted — confirm with the issuer."
+  },
+  {
+    "ticker": "QQQ",
+    "tracking": {
+      "nDays": 64,
+      "meanAbsPremiumPct": 0.793,
+      "stdevPremiumPct": 1.031,
+      "maxAbsPremiumPct": 2.921,
+      "returnCorrelation": 0.489
+    },
+    "trackingGrade": "tight",
+    "liquidity": "quote-only",
+    "dividends": "not verified — see issuer",
+    "votingRights": "not verified — see issuer",
+    "corporateActions": "not verified — see issuer",
+    "structure": "Bitget rToken (intermediary-backed model; synthetic-vs-custodial not verified)",
+    "note": "meanAbs/stdev/max premium are robust daily level gaps. returnCorrelation is a CAVEATED diagnostic — confounded by rToken 00:00-UTC close vs ~21:00-UTC NYSE close; matched-timestamp tracking comes from the live equity-aware recorder. Legal rights are NOT asserted — confirm with the issuer."
+  },
+  {
+    "ticker": "SQQQ",
+    "tracking": {
+      "nDays": 64,
+      "meanAbsPremiumPct": 2.39,
+      "stdevPremiumPct": 3.102,
+      "maxAbsPremiumPct": 8.675,
+      "returnCorrelation": 0.489
+    },
+    "trackingGrade": "loose",
+    "liquidity": "quote-only",
+    "dividends": "not verified — see issuer",
+    "votingRights": "not verified — see issuer",
+    "corporateActions": "not verified — see issuer",
+    "structure": "Bitget rToken (intermediary-backed model; synthetic-vs-custodial not verified)",
+    "note": "meanAbs/stdev/max premium are robust daily level gaps. returnCorrelation is a CAVEATED diagnostic — confounded by rToken 00:00-UTC close vs ~21:00-UTC NYSE close; matched-timestamp tracking comes from the live equity-aware recorder. Legal rights are NOT asserted — confirm with the issuer."
+  },
+  {
+    "ticker": "TQQQ",
+    "tracking": {
+      "nDays": 64,
+      "meanAbsPremiumPct": 2.369,
+      "stdevPremiumPct": 3.096,
+      "maxAbsPremiumPct": 8.72,
+      "returnCorrelation": 0.494
+    },
+    "trackingGrade": "loose",
+    "liquidity": "quote-only",
+    "dividends": "not verified — see issuer",
+    "votingRights": "not verified — see issuer",
+    "corporateActions": "not verified — see issuer",
+    "structure": "Bitget rToken (intermediary-backed model; synthetic-vs-custodial not verified)",
+    "note": "meanAbs/stdev/max premium are robust daily level gaps. returnCorrelation is a CAVEATED diagnostic — confounded by rToken 00:00-UTC close vs ~21:00-UTC NYSE close; matched-timestamp tracking comes from the live equity-aware recorder. Legal rights are NOT asserted — confirm with the issuer."
+  },
+  {
+    "ticker": "PLTR",
+    "tracking": {
+      "nDays": 64,
+      "meanAbsPremiumPct": 2.068,
+      "stdevPremiumPct": 2.82,
+      "maxAbsPremiumPct": 9.369,
+      "returnCorrelation": 0.422
+    },
+    "trackingGrade": "loose",
+    "liquidity": "quote-only",
+    "dividends": "not verified — see issuer",
+    "votingRights": "not verified — see issuer",
+    "corporateActions": "not verified — see issuer",
+    "structure": "Bitget rToken (intermediary-backed model; synthetic-vs-custodial not verified)",
+    "note": "meanAbs/stdev/max premium are robust daily level gaps. returnCorrelation is a CAVEATED diagnostic — confounded by rToken 00:00-UTC close vs ~21:00-UTC NYSE close; matched-timestamp tracking comes from the live equity-aware recorder. Legal rights are NOT asserted — confirm with the issuer."
+  },
+  {
+    "ticker": "CRCL",
+    "tracking": {
+      "nDays": 64,
+      "meanAbsPremiumPct": 2.975,
+      "stdevPremiumPct": 4.298,
+      "maxAbsPremiumPct": 18.829,
+      "returnCorrelation": 0.43
+    },
+    "trackingGrade": "loose",
+    "liquidity": "quote-only",
+    "dividends": "not verified — see issuer",
+    "votingRights": "not verified — see issuer",
+    "corporateActions": "not verified — see issuer",
+    "structure": "Bitget rToken (intermediary-backed model; synthetic-vs-custodial not verified)",
+    "note": "meanAbs/stdev/max premium are robust daily level gaps. returnCorrelation is a CAVEATED diagnostic — confounded by rToken 00:00-UTC close vs ~21:00-UTC NYSE close; matched-timestamp tracking comes from the live equity-aware recorder. Legal rights are NOT asserted — confirm with the issuer."
+  },
+  {
+    "ticker": "HOOD",
+    "tracking": {
+      "nDays": 64,
+      "meanAbsPremiumPct": 2.813,
+      "stdevPremiumPct": 3.887,
+      "maxAbsPremiumPct": 13.702,
+      "returnCorrelation": 0.33
+    },
+    "trackingGrade": "loose",
+    "liquidity": "quote-only",
+    "dividends": "not verified — see issuer",
+    "votingRights": "not verified — see issuer",
+    "corporateActions": "not verified — see issuer",
+    "structure": "Bitget rToken (intermediary-backed model; synthetic-vs-custodial not verified)",
+    "note": "meanAbs/stdev/max premium are robust daily level gaps. returnCorrelation is a CAVEATED diagnostic — confounded by rToken 00:00-UTC close vs ~21:00-UTC NYSE close; matched-timestamp tracking comes from the live equity-aware recorder. Legal rights are NOT asserted — confirm with the issuer."
+  },
+  {
+    "ticker": "MSTR",
+    "tracking": {
+      "nDays": 64,
+      "meanAbsPremiumPct": 2.802,
+      "stdevPremiumPct": 4.01,
+      "maxAbsPremiumPct": 13.422,
+      "returnCorrelation": 0.225
+    },
+    "trackingGrade": "loose",
+    "liquidity": "quote-only",
+    "dividends": "not verified — see issuer",
+    "votingRights": "not verified — see issuer",
+    "corporateActions": "not verified — see issuer",
+    "structure": "Bitget rToken (intermediary-backed model; synthetic-vs-custodial not verified)",
+    "note": "meanAbs/stdev/max premium are robust daily level gaps. returnCorrelation is a CAVEATED diagnostic — confounded by rToken 00:00-UTC close vs ~21:00-UTC NYSE close; matched-timestamp tracking comes from the live equity-aware recorder. Legal rights are NOT asserted — confirm with the issuer."
+  },
+  {
+    "ticker": "ORCL",
+    "tracking": {
+      "nDays": 64,
+      "meanAbsPremiumPct": 2.323,
+      "stdevPremiumPct": 3.289,
+      "maxAbsPremiumPct": 11.875,
+      "returnCorrelation": 0.496
+    },
+    "trackingGrade": "loose",
+    "liquidity": "quote-only",
+    "dividends": "not verified — see issuer",
+    "votingRights": "not verified — see issuer",
+    "corporateActions": "not verified — see issuer",
+    "structure": "Bitget rToken (intermediary-backed model; synthetic-vs-custodial not verified)",
+    "note": "meanAbs/stdev/max premium are robust daily level gaps. returnCorrelation is a CAVEATED diagnostic — confounded by rToken 00:00-UTC close vs ~21:00-UTC NYSE close; matched-timestamp tracking comes from the live equity-aware recorder. Legal rights are NOT asserted — confirm with the issuer."
+  },
+  {
+    "ticker": "NFLX",
+    "tracking": {
+      "nDays": 64,
+      "meanAbsPremiumPct": 0.968,
+      "stdevPremiumPct": 1.626,
+      "maxAbsPremiumPct": 8.999,
+      "returnCorrelation": 0.224
+    },
+    "trackingGrade": "tight",
+    "liquidity": "quote-only",
+    "dividends": "not verified — see issuer",
+    "votingRights": "not verified — see issuer",
+    "corporateActions": "not verified — see issuer",
+    "structure": "Bitget rToken (intermediary-backed model; synthetic-vs-custodial not verified)",
+    "note": "meanAbs/stdev/max premium are robust daily level gaps. returnCorrelation is a CAVEATED diagnostic — confounded by rToken 00:00-UTC close vs ~21:00-UTC NYSE close; matched-timestamp tracking comes from the live equity-aware recorder. Legal rights are NOT asserted — confirm with the issuer."
+  },
+  {
+    "ticker": "BABA",
+    "tracking": {
+      "nDays": 64,
+      "meanAbsPremiumPct": 1.883,
+      "stdevPremiumPct": 2.652,
+      "maxAbsPremiumPct": 7.236,
+      "returnCorrelation": 0.116
+    },
+    "trackingGrade": "loose",
+    "liquidity": "quote-only",
+    "dividends": "not verified — see issuer",
+    "votingRights": "not verified — see issuer",
+    "corporateActions": "not verified — see issuer",
+    "structure": "Bitget rToken (intermediary-backed model; synthetic-vs-custodial not verified)",
+    "note": "meanAbs/stdev/max premium are robust daily level gaps. returnCorrelation is a CAVEATED diagnostic — confounded by rToken 00:00-UTC close vs ~21:00-UTC NYSE close; matched-timestamp tracking comes from the live equity-aware recorder. Legal rights are NOT asserted — confirm with the issuer."
+  },
+  {
+    "ticker": "GME",
+    "tracking": {
+      "nDays": 64,
+      "meanAbsPremiumPct": 1.349,
+      "stdevPremiumPct": 1.891,
+      "maxAbsPremiumPct": 7.314,
+      "returnCorrelation": 0.552
+    },
+    "trackingGrade": "tight",
+    "liquidity": "quote-only",
+    "dividends": "not verified — see issuer",
+    "votingRights": "not verified — see issuer",
+    "corporateActions": "not verified — see issuer",
+    "structure": "Bitget rToken (intermediary-backed model; synthetic-vs-custodial not verified)",
+    "note": "meanAbs/stdev/max premium are robust daily level gaps. returnCorrelation is a CAVEATED diagnostic — confounded by rToken 00:00-UTC close vs ~21:00-UTC NYSE close; matched-timestamp tracking comes from the live equity-aware recorder. Legal rights are NOT asserted — confirm with the issuer."
+  }
+]

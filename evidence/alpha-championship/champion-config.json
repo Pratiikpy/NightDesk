@@ -1,13 +1,13 @@
 {
-  "id": "perp_gap_fade_e0p1_x0_tp0p75_sl0p75_h9999_n0p5_m5",
+  "id": "perp_gap_fade_e0p35_x0_tp2_sl1p25_h9999_n0p35_m2",
   "source": "perp_gap",
   "direction": "fade",
-  "entryPct": 0.1,
+  "entryPct": 0.35,
   "exitPct": 0,
-  "takeProfitPct": 0.75,
-  "stopLossPct": 0.75,
+  "takeProfitPct": 2,
+  "stopLossPct": 1.25,
   "maxHoldSnapshots": 9999,
-  "notionalPct": 0.5,
-  "maxConcurrent": 5,
+  "notionalPct": 0.35,
+  "maxConcurrent": 2,
   "feePct": 0.1
 }

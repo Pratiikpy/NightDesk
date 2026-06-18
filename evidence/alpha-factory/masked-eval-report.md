@@ -4,7 +4,7 @@ The frozen champion is selected from numeric features only: source, direction, t
 
 Masked fields: ticker names, company names, narrative labels, and calendar dates are not inputs to the strategy config search.
 
-Frozen champion: perp_gap_fade_e0p35_x0_tp2_sl0p75_h9999_n0p5_m2
+Frozen champion: perp_gap_fade_e0p35_x0_tp2_sl1p25_h9999_n0p35_m5
 Signal source: perp_gap
 Decision type: fade
 

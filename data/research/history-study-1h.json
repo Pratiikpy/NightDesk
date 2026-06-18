@@ -1,0 +1,476 @@
+{
+  "generatedTs": 1781662604898,
+  "config": {
+    "granularity": "1h",
+    "horizon": 6,
+    "stretchPct": 0.5,
+    "entryPct": 1,
+    "exitPct": 0.3,
+    "feePct": 0.5
+  },
+  "pairsWithData": 19,
+  "totalPremiumObservations": 13145,
+  "convergenceCapture": {
+    "events": 185,
+    "captured": 171,
+    "ratePct": 92.4,
+    "avgNarrowingPct": 0.4933
+  },
+  "pegTrackingError": {
+    "meanImprovementPct": -1.33,
+    "pairsPositive": 7,
+    "pairsTotal": 19
+  },
+  "basisBacktest": {
+    "trades": 18,
+    "winRatePct": 100,
+    "totalPnlPct": 10.02,
+    "losses": 0,
+    "forcedExits": 0,
+    "avgHoldBars": 2.9,
+    "note": "survivorship-free: non-converging positions are time-stopped/marked-to-end and counted as losses (forcedExits)"
+  },
+  "control": {
+    "note": "random = same #entries at random bars/sides under identical exit+fee+time-stop; shuffle = premium series time-order destroyed. Edge is real only if real clears these.",
+    "randomEntry": {
+      "captureRatePct": 49.9,
+      "basisPnlPct": -6.63
+    },
+    "shuffledSeries": {
+      "captureRatePct": 97.4
+    },
+    "edgeOverRandom": {
+      "capturePts": 42.5,
+      "basisPnlPct": 16.66
+    },
+    "captureVsShufflePts": -5
+  },
+  "perpLeg": {
+    "convergence": {
+      "events": 186,
+      "captured": 172,
+      "ratePct": 92.5
+    },
+    "backtest": {
+      "trades": 18,
+      "winRatePct": 44.4,
+      "totalPnlPct": -7.67,
+      "avgHoldBars": 2.9
+    }
+  },
+  "outOfSample": {
+    "inSample": {
+      "events": 143,
+      "captured": 130,
+      "ratePct": 90.9
+    },
+    "outSample": {
+      "events": 42,
+      "captured": 41,
+      "ratePct": 97.6
+    }
+  },
+  "costSweep": [
+    {
+      "feePct": 0.3,
+      "trades": 18,
+      "winRatePct": 100,
+      "totalPnlPct": 13.62
+    },
+    {
+      "feePct": 0.5,
+      "trades": 18,
+      "winRatePct": 100,
+      "totalPnlPct": 10.02
+    },
+    {
+      "feePct": 0.8,
+      "trades": 18,
+      "winRatePct": 94.4,
+      "totalPnlPct": 4.62
+    }
+  ],
+  "riskAdjusted": {
+    "trades": 18,
+    "sharpe": 3.588,
+    "sortino": null,
+    "maxDrawdownPct": 0,
+    "profitFactor": null,
+    "avgReturnPct": 0.557
+  },
+  "edgeCI": {
+    "n": 18,
+    "mean": 0.5569,
+    "lo": 0.4885,
+    "hi": 0.6313,
+    "excludesZero": true
+  },
+  "walkForward": [
+    {
+      "fold": 1,
+      "events": 66,
+      "captured": 59,
+      "ratePct": 89.4
+    },
+    {
+      "fold": 2,
+      "events": 50,
+      "captured": 46,
+      "ratePct": 92
+    },
+    {
+      "fold": 3,
+      "events": 36,
+      "captured": 34,
+      "ratePct": 94.4
+    },
+    {
+      "fold": 4,
+      "events": 31,
+      "captured": 30,
+      "ratePct": 96.8
+    }
+  ],
+  "regimeSplit": [
+    {
+      "phase": "OVERNIGHT",
+      "events": 98,
+      "captureRatePct": 90.8
+    },
+    {
+      "phase": "PRE_OPEN",
+      "events": 38,
+      "captureRatePct": 100
+    },
+    {
+      "phase": "WEEKEND",
+      "events": 30,
+      "captureRatePct": 93.3
+    },
+    {
+      "phase": "EARNINGS_SPRINT",
+      "events": 12,
+      "captureRatePct": 100
+    },
+    {
+      "phase": "STAND_DOWN",
+      "events": 4,
+      "captureRatePct": 100
+    },
+    {
+      "phase": "HOLIDAY",
+      "events": 3,
+      "captureRatePct": 0
+    }
+  ],
+  "gapReversion": {
+    "n": 0,
+    "reversionReturnPct": 0,
+    "correctiveRatePct": 0,
+    "baselineAbsRetPct": 0,
+    "cheapNextRetPct": 0,
+    "richNextRetPct": 0
+  },
+  "reversionByGapSize": [],
+  "clairvoyant": {
+    "opportunities": 16,
+    "maxPnlPct": 10.18,
+    "capturedPctOfMax": 98.4
+  },
+  "signals": {
+    "halfLife": {
+      "medianBars": 0.8,
+      "fast": {
+        "trades": 5,
+        "winRatePct": 100,
+        "pnlPct": 3.08,
+        "edgeOverRandomPct": 4.9
+      },
+      "slow": {
+        "trades": 13,
+        "winRatePct": 100,
+        "pnlPct": 6.94,
+        "edgeOverRandomPct": 11.76
+      }
+    },
+    "basket": {
+      "medianStressPct": 0.115,
+      "highStress": {
+        "events": 175,
+        "captureRatePct": 93.1
+      },
+      "lowStress": {
+        "events": 10,
+        "captureRatePct": 80
+      }
+    }
+  },
+  "perPair": [
+    {
+      "ticker": "AAPL",
+      "points": 692,
+      "captureRatePct": 0,
+      "events": 0,
+      "trackingImprovementPct": 0.82,
+      "basisTrades": 0,
+      "basisWinRatePct": 0,
+      "basisPnlPct": 0,
+      "basisForced": 0,
+      "perpTrades": 0,
+      "perpPnlPct": 0,
+      "perpWinRatePct": 0
+    },
+    {
+      "ticker": "TSLA",
+      "points": 721,
+      "captureRatePct": 100,
+      "events": 4,
+      "trackingImprovementPct": -1.05,
+      "basisTrades": 1,
+      "basisWinRatePct": 100,
+      "basisPnlPct": 0.65,
+      "basisForced": 0,
+      "perpTrades": 1,
+      "perpPnlPct": 0.259,
+      "perpWinRatePct": 100
+    },
+    {
+      "ticker": "NVDA",
+      "points": 695,
+      "captureRatePct": 100,
+      "events": 4,
+      "trackingImprovementPct": -0.05,
+      "basisTrades": 0,
+      "basisWinRatePct": 0,
+      "basisPnlPct": 0,
+      "basisForced": 0,
+      "perpTrades": 0,
+      "perpPnlPct": 0,
+      "perpWinRatePct": 0
+    },
+    {
+      "ticker": "MSFT",
+      "points": 691,
+      "captureRatePct": 100,
+      "events": 1,
+      "trackingImprovementPct": -4.64,
+      "basisTrades": 0,
+      "basisWinRatePct": 0,
+      "basisPnlPct": 0,
+      "basisForced": 0,
+      "perpTrades": 0,
+      "perpPnlPct": 0,
+      "perpWinRatePct": 0
+    },
+    {
+      "ticker": "GOOGL",
+      "points": 701,
+      "captureRatePct": 100,
+      "events": 6,
+      "trackingImprovementPct": 0.57,
+      "basisTrades": 1,
+      "basisWinRatePct": 100,
+      "basisPnlPct": 0.38,
+      "basisForced": 0,
+      "perpTrades": 1,
+      "perpPnlPct": -0.587,
+      "perpWinRatePct": 0
+    },
+    {
+      "ticker": "AMZN",
+      "points": 689,
+      "captureRatePct": 100,
+      "events": 1,
+      "trackingImprovementPct": -2.29,
+      "basisTrades": 0,
+      "basisWinRatePct": 0,
+      "basisPnlPct": 0,
+      "basisForced": 0,
+      "perpTrades": 0,
+      "perpPnlPct": 0,
+      "perpWinRatePct": 0
+    },
+    {
+      "ticker": "META",
+      "points": 690,
+      "captureRatePct": 0,
+      "events": 0,
+      "trackingImprovementPct": -2.19,
+      "basisTrades": 0,
+      "basisWinRatePct": 0,
+      "basisPnlPct": 0,
+      "basisForced": 0,
+      "perpTrades": 0,
+      "perpPnlPct": 0,
+      "perpWinRatePct": 0
+    },
+    {
+      "ticker": "SPY",
+      "points": 690,
+      "captureRatePct": 0,
+      "events": 0,
+      "trackingImprovementPct": -1.21,
+      "basisTrades": 0,
+      "basisWinRatePct": 0,
+      "basisPnlPct": 0,
+      "basisForced": 0,
+      "perpTrades": 0,
+      "perpPnlPct": 0,
+      "perpWinRatePct": 0
+    },
+    {
+      "ticker": "QQQ",
+      "points": 689,
+      "captureRatePct": 0,
+      "events": 0,
+      "trackingImprovementPct": 1.29,
+      "basisTrades": 0,
+      "basisWinRatePct": 0,
+      "basisPnlPct": 0,
+      "basisForced": 0,
+      "perpTrades": 0,
+      "perpPnlPct": 0,
+      "perpWinRatePct": 0
+    },
+    {
+      "ticker": "SQQQ",
+      "points": 689,
+      "captureRatePct": 97.7,
+      "events": 43,
+      "trackingImprovementPct": -1.43,
+      "basisTrades": 2,
+      "basisWinRatePct": 100,
+      "basisPnlPct": 1.367,
+      "basisForced": 0,
+      "perpTrades": 2,
+      "perpPnlPct": 0.915,
+      "perpWinRatePct": 50
+    },
+    {
+      "ticker": "TQQQ",
+      "points": 689,
+      "captureRatePct": 91.2,
+      "events": 34,
+      "trackingImprovementPct": 0.33,
+      "basisTrades": 4,
+      "basisWinRatePct": 100,
+      "basisPnlPct": 2.36,
+      "basisForced": 0,
+      "perpTrades": 4,
+      "perpPnlPct": -3.476,
+      "perpWinRatePct": 0
+    },
+    {
+      "ticker": "PLTR",
+      "points": 687,
+      "captureRatePct": 100,
+      "events": 1,
+      "trackingImprovementPct": -0.71,
+      "basisTrades": 0,
+      "basisWinRatePct": 0,
+      "basisPnlPct": 0,
+      "basisForced": 0,
+      "perpTrades": 0,
+      "perpPnlPct": 0,
+      "perpWinRatePct": 0
+    },
+    {
+      "ticker": "CRCL",
+      "points": 690,
+      "captureRatePct": 100,
+      "events": 12,
+      "trackingImprovementPct": -0.51,
+      "basisTrades": 3,
+      "basisWinRatePct": 100,
+      "basisPnlPct": 1.991,
+      "basisForced": 0,
+      "perpTrades": 3,
+      "perpPnlPct": -0.3,
+      "perpWinRatePct": 33.3
+    },
+    {
+      "ticker": "HOOD",
+      "points": 689,
+      "captureRatePct": 100,
+      "events": 3,
+      "trackingImprovementPct": 0.02,
+      "basisTrades": 0,
+      "basisWinRatePct": 0,
+      "basisPnlPct": 0,
+      "basisForced": 0,
+      "perpTrades": 0,
+      "perpPnlPct": 0,
+      "perpWinRatePct": 0
+    },
+    {
+      "ticker": "MSTR",
+      "points": 689,
+      "captureRatePct": 100,
+      "events": 6,
+      "trackingImprovementPct": 0.47,
+      "basisTrades": 1,
+      "basisWinRatePct": 100,
+      "basisPnlPct": 0.546,
+      "basisForced": 0,
+      "perpTrades": 1,
+      "perpPnlPct": -4.106,
+      "perpWinRatePct": 0
+    },
+    {
+      "ticker": "ORCL",
+      "points": 689,
+      "captureRatePct": 100,
+      "events": 10,
+      "trackingImprovementPct": 0.11,
+      "basisTrades": 1,
+      "basisWinRatePct": 100,
+      "basisPnlPct": 0.543,
+      "basisForced": 0,
+      "perpTrades": 1,
+      "perpPnlPct": -2.821,
+      "perpWinRatePct": 0
+    },
+    {
+      "ticker": "NFLX",
+      "points": 688,
+      "captureRatePct": 100,
+      "events": 1,
+      "trackingImprovementPct": -4.28,
+      "basisTrades": 0,
+      "basisWinRatePct": 0,
+      "basisPnlPct": 0,
+      "basisForced": 0,
+      "perpTrades": 0,
+      "perpPnlPct": 0,
+      "perpWinRatePct": 0
+    },
+    {
+      "ticker": "BABA",
+      "points": 690,
+      "captureRatePct": 100,
+      "events": 1,
+      "trackingImprovementPct": -1.05,
+      "basisTrades": 0,
+      "basisWinRatePct": 0,
+      "basisPnlPct": 0,
+      "basisForced": 0,
+      "perpTrades": 0,
+      "perpPnlPct": 0,
+      "perpWinRatePct": 0
+    },
+    {
+      "ticker": "GME",
+      "points": 687,
+      "captureRatePct": 82.8,
+      "events": 58,
+      "trackingImprovementPct": -9.54,
+      "basisTrades": 5,
+      "basisWinRatePct": 100,
+      "basisPnlPct": 2.187,
+      "basisForced": 0,
+      "perpTrades": 5,
+      "perpPnlPct": 2.442,
+      "perpWinRatePct": 100
+    }
+  ]
+}

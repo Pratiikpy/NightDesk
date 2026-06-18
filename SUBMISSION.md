@@ -46,8 +46,8 @@ profitable Bitget AI agents.
 - `evidence/trading-log/guarded-replay/threshold-search.json` — transparent threshold search; this
   is labeled as execution evidence, not an out-of-sample alpha claim.
 - `evidence/alpha-championship/alpha-championship-report.md` — raw-PnL championship report over
-  recorded sessions. Current single-session champion: 1,000.00 -> 1,030.59 USDT on the 2026-06-15
-  recording; global same-config replay totals +49.59 USDT across available recordings.
+  recorded sessions. Current single-session champion: 1,000.00 -> 1,034.61 USDT on the 2026-06-17
+  recording; global same-config replay totals +54.93 USDT across available recordings.
 - `evidence/championship/` — two-champion Championship Mode: `leaderboard_pnl.csv`,
   `leaderboard_safety.csv`, frozen PnL Champion, frozen Safety Champion, both paper logs, and
   `champion-overfit-check.md`. Current PnL Champion is separated from the Safety Champion so the
@@ -56,9 +56,9 @@ profitable Bitget AI agents.
   same-sample PnL, leave-one-session/token checks, cost/slippage/threshold stress, max drawdown,
   profit concentration, and fragility label.
 - `evidence/alpha-factory/manifest.json` — autonomous Alpha Factory manifest: 9,720 candidates,
-  38,880 trials, 8,289 rejected configs, walk-forward leaderboard, frozen champion, live-paper log,
+  48,600 trials, 8,444 rejected configs, walk-forward leaderboard, frozen champion, live-paper log,
   expected-vs-actual report, masked-eval note, and agent benchmark standard. Current frozen
-  champion: +47.86 USDT total on the recorded sessions with 4.00 USDT max drawdown — in-sample
+  champion: +54.93 USDT total on the recorded sessions with 6.33 USDT max drawdown — in-sample
   execution-quality evidence, not a future-alpha claim.
 - `evidence/alpha-factory/live-paper-trading-log.csv` — Bitget-style paper log for the frozen
   champion with timestamp, asset, direction, price, quantity, balance change, strategy id, and

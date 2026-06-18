@@ -10,9 +10,12 @@ __pycache__/
 *.pyc
 *.tar.gz
 
-# Data recordings (large; published separately, not via git)
-# NOTE: root-anchored so this ignores ONLY the top-level recordings dir, never src/data/.
-/data/
+# Data: ignore everything under the top-level data/ EXCEPT the recordings + research that
+# judges need to reproduce results. The signing key (data/ledger/) is never un-ignored.
+# Root-anchored with /data/* so it never touches src/data/.
+/data/*
+!/data/snapshots/
+!/data/research/
 /recordings/
 
 # Logs

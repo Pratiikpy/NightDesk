@@ -6,8 +6,8 @@ The blocked-loss figure below is a raw repeated-intent diagnostic from replay, n
 
 | Metric |Value |Interpretation |
 | --- |--- |--- |
-| Raw blocked-loss diagnostic |15093.2166 USDT |sum of repeated counterfactual losing intents in OOS/session study |
-| Mean blocked-loss diagnostic per block |0.896378 USDT |normalizes the repeated-intent exposure |
+| Raw blocked-loss diagnostic |15167.8809 USDT |sum of repeated counterfactual losing intents in OOS/session study |
+| Mean blocked-loss diagnostic per block |0.863037 USDT |normalizes the repeated-intent exposure |
 | False block cost |not measured |needs per-block counterfactual winner/loss attribution |
 | Guarded replay PnL |4.3440 USDT |positive same-sample execution evidence |
 | Paper session PnL |-0.3345 USDT |valid compliance record, not tuned for profit |

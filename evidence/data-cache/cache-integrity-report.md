@@ -7,4 +7,5 @@ Rule: settled historical snapshot files can be reused for deterministic replay; 
 | data/snapshots/2026-06-14.jsonl | 8571528 | settled_replay_fixture |
 | data/snapshots/2026-06-15.jsonl | 25764641 | settled_replay_fixture |
 | data/snapshots/2026-06-16.jsonl | 161924 | settled_replay_fixture |
-| data/snapshots/2026-06-17.jsonl | 1578213 | forming_or_recent_do_not_treat_as_settled |
+| data/snapshots/2026-06-17.jsonl | 2469027 | settled_replay_fixture |
+| data/snapshots/2026-06-18.jsonl | 540252 | forming_or_recent_do_not_treat_as_settled |

@@ -14,5 +14,5 @@ Command: `npm run alpha:championship`
 NightDesk can compete on raw paper PnL over current recordings with reproducible candidate search.
 
 ## Notes
-- single_session_net_pnl=30.588985
-- global_total_pnl=49.585494
+- single_session_net_pnl=34.612448
+- global_total_pnl=54.926313

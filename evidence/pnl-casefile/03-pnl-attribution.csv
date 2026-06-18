@@ -1,3 +1,3 @@
 run_id,gross_edge_estimate_usdt,fees_spread_slippage_estimate_usdt,blocked_loss_estimate_usdt,missed_profit_estimate_usdt,net_pnl_usdt,claim
 paper_session,0.000001,-0.334502,0,not_measured,-0.334501,execution_record_not_alpha
-guarded_replay,5.907859,-1.563906,-15093.216645,not_measured,4.343953,same_sample_execution_evidence
+guarded_replay,5.907859,-1.563906,-15167.880948,not_measured,4.343953,same_sample_execution_evidence

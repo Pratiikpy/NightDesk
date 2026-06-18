@@ -2,14 +2,14 @@
 
 Championship Mode exists to compete on raw paper PnL while keeping it separate from the production-oriented Safety Champion.
 
-Sessions: 4
+Sessions: 5
 Strategy candidates: 10515
-Trials: 42060
+Trials: 52575
 
 ## Winners
 
-PnL champion: GapFade_perp_gap_entry0_35_exit0_tp2_sl0_75_h9999_n0_65_m2 (GapFade)
-Safety champion: GapFade_perp_gap_entry0_35_exit0_tp2_sl0_75_h9999_n0_65_m2 (GapFade)
+PnL champion: GapFade_perp_gap_entry0_35_exit0_tp2_sl1_25_h9999_n0_65_m2 (GapFade)
+Safety champion: GapFade_perp_gap_entry0_35_exit0_tp2_sl1_25_h9999_n0_65_m2 (GapFade)
 
 ## Hard Safety Invariants
 

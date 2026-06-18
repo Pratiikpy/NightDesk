@@ -15,6 +15,6 @@ Autonomous strategy generation, trial registry, overfit rejection, frozen champi
 
 ## Notes
 - candidates=9720
-- trials=38880
-- rejected=8327
-- champion_pnl=47.549719
+- trials=48600
+- rejected=8444
+- champion_pnl=54.926313

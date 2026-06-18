@@ -1,0 +1,248 @@
+{
+  "asOf": "2026-06-16T09:42:02.381Z",
+  "tokens": [
+    {
+      "ticker": "AAPL",
+      "trueGapPct": -0.09614735847784393,
+      "perpGapPct": -0.10457251766769629,
+      "classification": "FAIR",
+      "qualityGrade": "B",
+      "safetyScore": 74,
+      "policy": "NORMAL",
+      "evidence": [
+        "true gap -0.10% within normal"
+      ]
+    },
+    {
+      "ticker": "TSLA",
+      "trueGapPct": -1.656329806639899,
+      "perpGapPct": -0.09882887779808698,
+      "classification": "NEWS-DRIVEN",
+      "qualityGrade": "C",
+      "safetyScore": 65,
+      "policy": "ABSTAIN",
+      "evidence": [
+        "news: catalyst: \"1 Analyst Puts the Odds of a Tesla and SpaceX Merger at 80%. Here's What That Would Mean for Tesla Investors.\""
+      ]
+    },
+    {
+      "ticker": "NVDA",
+      "trueGapPct": -0.5248293716168554,
+      "perpGapPct": -0.18891538951993486,
+      "classification": "MISPRICED",
+      "qualityGrade": "C",
+      "safetyScore": 86,
+      "policy": "LONG-ONLY FADE",
+      "evidence": [
+        "perp hides it: vs-perp -0.19% vs vs-NYSE -0.52%"
+      ]
+    },
+    {
+      "ticker": "MSFT",
+      "trueGapPct": -0.11006603962377369,
+      "perpGapPct": -0.2273692626739687,
+      "classification": "FAIR",
+      "qualityGrade": "B",
+      "safetyScore": 89,
+      "policy": "NORMAL",
+      "evidence": [
+        "true gap -0.11% within normal"
+      ]
+    },
+    {
+      "ticker": "GOOGL",
+      "trueGapPct": -0.10829836198726878,
+      "perpGapPct": -0.046055483311649076,
+      "classification": "FAIR",
+      "qualityGrade": "B",
+      "safetyScore": 74,
+      "policy": "NORMAL",
+      "evidence": [
+        "true gap -0.11% within normal"
+      ]
+    },
+    {
+      "ticker": "AMZN",
+      "trueGapPct": 0.8149743923258137,
+      "perpGapPct": -0.04433070707478334,
+      "classification": "NEWS-DRIVEN",
+      "qualityGrade": "B",
+      "safetyScore": 70,
+      "policy": "ABSTAIN",
+      "evidence": [
+        "news: catalyst: \"Amazon Unveils Multibillion-Dollar Missouri Data Center Investment\""
+      ]
+    },
+    {
+      "ticker": "META",
+      "trueGapPct": -0.16260025611647094,
+      "perpGapPct": -0.22480424349581932,
+      "classification": "FAIR",
+      "qualityGrade": "C",
+      "safetyScore": 84,
+      "policy": "NORMAL",
+      "evidence": [
+        "true gap -0.16% within normal"
+      ]
+    },
+    {
+      "ticker": "SPY",
+      "trueGapPct": -0.09339851357259792,
+      "perpGapPct": -0.008618517880117022,
+      "classification": "FAIR",
+      "qualityGrade": "B",
+      "safetyScore": 81,
+      "policy": "NORMAL",
+      "evidence": [
+        "true gap -0.09% within normal"
+      ]
+    },
+    {
+      "ticker": "QQQ",
+      "trueGapPct": 0.023521505376337976,
+      "perpGapPct": -0.15697428707512262,
+      "classification": "FAIR",
+      "qualityGrade": "B",
+      "safetyScore": 81,
+      "policy": "NORMAL",
+      "evidence": [
+        "true gap 0.02% within normal"
+      ]
+    },
+    {
+      "ticker": "SQQQ",
+      "trueGapPct": -0.12393280088130461,
+      "perpGapPct": 0,
+      "classification": "FAIR",
+      "qualityGrade": "D",
+      "safetyScore": 70,
+      "policy": "NORMAL",
+      "evidence": [
+        "true gap -0.12% within normal"
+      ]
+    },
+    {
+      "ticker": "TQQQ",
+      "trueGapPct": 0.27189975174369285,
+      "perpGapPct": -0.011788282447253468,
+      "classification": "FAIR",
+      "qualityGrade": "D",
+      "safetyScore": 70,
+      "policy": "NORMAL",
+      "evidence": [
+        "true gap 0.27% within normal"
+      ]
+    },
+    {
+      "ticker": "PLTR",
+      "trueGapPct": 0.1707371390394104,
+      "perpGapPct": -0.09994447529149798,
+      "classification": "FAIR",
+      "qualityGrade": "D",
+      "safetyScore": 70,
+      "policy": "NORMAL",
+      "evidence": [
+        "true gap 0.17% within normal"
+      ]
+    },
+    {
+      "ticker": "CRCL",
+      "trueGapPct": 1.2054695933789077,
+      "perpGapPct": -0.23057821922666805,
+      "classification": "MISPRICED",
+      "qualityGrade": "D",
+      "safetyScore": 71,
+      "policy": "WATCH",
+      "evidence": [
+        "perp hides it: vs-perp -0.23% vs vs-NYSE 1.21%",
+        "rToken quote-only (thin)"
+      ]
+    },
+    {
+      "ticker": "HOOD",
+      "trueGapPct": 0.03057480635956088,
+      "perpGapPct": -0.06618133686300232,
+      "classification": "FAIR",
+      "qualityGrade": "D",
+      "safetyScore": 55,
+      "policy": "NORMAL",
+      "evidence": [
+        "true gap 0.03% within normal"
+      ]
+    },
+    {
+      "ticker": "MSTR",
+      "trueGapPct": 0.8159219155101584,
+      "perpGapPct": -0.049140049140047416,
+      "classification": "MISPRICED",
+      "qualityGrade": "D",
+      "safetyScore": 71,
+      "policy": "WATCH",
+      "evidence": [
+        "perp hides it: vs-perp -0.05% vs vs-NYSE 0.82%",
+        "rToken quote-only (thin)"
+      ]
+    },
+    {
+      "ticker": "ORCL",
+      "trueGapPct": 0.08046096345516485,
+      "perpGapPct": -0.11398077869594096,
+      "classification": "FAIR",
+      "qualityGrade": "D",
+      "safetyScore": 70,
+      "policy": "NORMAL",
+      "evidence": [
+        "true gap 0.08% within normal"
+      ]
+    },
+    {
+      "ticker": "NFLX",
+      "trueGapPct": -0.17142157462960764,
+      "perpGapPct": -0.07966174397940771,
+      "classification": "FAIR",
+      "qualityGrade": "C",
+      "safetyScore": 76,
+      "policy": "NORMAL",
+      "evidence": [
+        "true gap -0.17% within normal"
+      ]
+    },
+    {
+      "ticker": "BABA",
+      "trueGapPct": -2.3322967569968776,
+      "perpGapPct": -0.22238358899881122,
+      "classification": "NEWS-DRIVEN",
+      "qualityGrade": "D",
+      "safetyScore": 50,
+      "policy": "ABSTAIN",
+      "evidence": [
+        "news: catalyst: \"Alibaba in talks to acquire Chinese grocery delivery company — report\""
+      ]
+    },
+    {
+      "ticker": "GME",
+      "trueGapPct": -0.04599816007358791,
+      "perpGapPct": -0.18373909049149814,
+      "classification": "FAIR",
+      "qualityGrade": "C",
+      "safetyScore": 61,
+      "policy": "NORMAL",
+      "evidence": [
+        "true gap -0.05% within normal"
+      ]
+    }
+  ],
+  "summary": {
+    "FAIR": 13,
+    "NEWS-DRIVEN": 3,
+    "MISPRICED": 3
+  },
+  "attestation": {
+    "algo": "ed25519",
+    "recordCount": 19,
+    "recordsSha256": "b7071befc842a604b15feb53dc5d0be22e061d86179feff4c29bae190e6354a9",
+    "signatureHex": "26ed950c00b5024f24ac4c7718cda83e35c1a365af6b4cbd68ae79fe6e9964eb1e0a5f6300f74a8885242363b16996aa57510f4031a52da1cf1427dcad5e8a08",
+    "publicKeyPem": "-----BEGIN PUBLIC KEY-----\nMCowBQYDK2VwAyEA9l3qyeEpQZNDdh2cpTZnr6NJAKPycCAmt0tiGCSl1Ws=\n-----END PUBLIC KEY-----\n",
+    "signedAt": "2026-06-16T09:42:07.065Z"
+  }
+}

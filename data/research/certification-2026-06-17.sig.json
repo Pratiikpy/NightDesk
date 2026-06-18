@@ -1,0 +1,8 @@
+{
+  "algo": "ed25519",
+  "recordCount": 19,
+  "recordsSha256": "b1d6f782f94cf0d2213eb6862c08bc41a9fea46ba174d8380165fe2583d156f3",
+  "signatureHex": "cf9b9a13ce4e75d7c806c81d6de6b33ef849e9987b59ad0a0be46fb71c65bc6ffb8108fce74660d34297f3689bad3a579fb596fb512333591d4d2eb94247f501",
+  "publicKeyPem": "-----BEGIN PUBLIC KEY-----\nMCowBQYDK2VwAyEA9l3qyeEpQZNDdh2cpTZnr6NJAKPycCAmt0tiGCSl1Ws=\n-----END PUBLIC KEY-----\n",
+  "signedAt": "2026-06-17T18:30:38.992Z"
+}

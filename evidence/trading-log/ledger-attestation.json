@@ -1,11 +1,11 @@
 {
-  "ledgerHash": "b69be22b874ff2ff49d8ae825e949324f8504db6496e1554ed2faade4a51ed74",
+  "ledgerHash": "9c36d1386f2186cb63e954b30fe8ab053c677f314b7f20bc8653afc298f313fe",
   "attestation": {
     "algo": "ed25519",
     "recordCount": 1,
-    "recordsSha256": "891cb93cc60da205682e17d4b9d9572434daf23eb9181c36728a9a95fb5fddc4",
-    "signatureHex": "1c4de6fb761edc65995a4002c57d73fef337a3cf3320d2ca69e44551be9815a50cb8cc57052becbafd3a6ac0347a98d723dc8263e69216a55ad482705ed29c09",
+    "recordsSha256": "c9b9b6a08532f8729be5103dc4ea1a042c0eb13a219b49a3ae7e23f24acdd180",
+    "signatureHex": "fee50e4b9ba9dde9987654896688b57aa28568ad215ed7ad9d3b928abc7a2007aa8f0efb2d4f1692718d19e988c1da68aaa9db894ea69a08bdcfad473a0a9a0e",
     "publicKeyPem": "-----BEGIN PUBLIC KEY-----\nMCowBQYDK2VwAyEA9l3qyeEpQZNDdh2cpTZnr6NJAKPycCAmt0tiGCSl1Ws=\n-----END PUBLIC KEY-----\n",
-    "signedAt": "2026-06-17T18:32:25.566Z"
+    "signedAt": "2026-06-18T03:30:04.183Z"
   }
 }

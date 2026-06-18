@@ -139,8 +139,8 @@ as a paper-traded record.
 
 We are deliberately, aggressively honest about what these numbers mean:
 
-- The lab searched roughly **9,700 candidate strategies across ~38,900 recorded trials** and rejected
-  **~8,300** as fragile or overfit.
+- The lab searched roughly **9,700 candidate strategies across ~48,600 recorded trials** and rejected
+  **~8,400** as fragile or overfit.
 - The frozen champion shows a **positive paper result on the recordings we have** (a few tens of
   dollars of simulated profit on a 1,000-dollar starting balance, with small drawdown).
 - **We label this exactly as what it is: results on the recordings we already have — *not* a promise of
