@@ -11,8 +11,9 @@ __pycache__/
 *.tar.gz
 
 # Data recordings (large; published separately, not via git)
-data/
-recordings/
+# NOTE: root-anchored so this ignores ONLY the top-level recordings dir, never src/data/.
+/data/
+/recordings/
 
 # Logs
 *.log
