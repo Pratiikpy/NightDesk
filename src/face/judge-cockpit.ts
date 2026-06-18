@@ -32,27 +32,36 @@ export function runJudgeCockpit(): void {
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>NightDesk Judge Cockpit</title>
+  <link rel="icon" href="data:,"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@400;500&family=Geist:wght@400;500;600&family=Newsreader:opsz,wght@6..72,400;6..72,500&display=swap" rel="stylesheet"/>
   <style>
-    body { margin: 0; font-family: Arial, sans-serif; background: #0c0f14; color: #e8edf2; }
-    header { padding: 24px 32px; border-bottom: 1px solid #28313d; background: #121822; }
-    h1 { margin: 0 0 6px; font-size: 28px; }
-    p { color: #aeb9c6; }
-    main { padding: 24px 32px; display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px; }
-    section { border: 1px solid #28313d; background: #151c27; border-radius: 8px; padding: 16px; }
-    h2 { font-size: 16px; margin: 0 0 12px; color: #78d0ff; }
-    .metric { display: flex; justify-content: space-between; gap: 12px; padding: 8px 0; border-bottom: 1px solid #26303b; }
-    .metric:last-child { border-bottom: 0; }
-    .label { color: #aeb9c6; }
-    .value { font-weight: 700; text-align: right; }
-    .ok { color: #74e39a; }
-    .warn { color: #ffd166; }
-    code { color: #9bdcff; }
+    :root{--bg:#faf9f5;--surface:#fbfaf7;--panel:#f3f1ea;--ink:#16160f;--muted:#5e5e54;--faint:#8a8a7e;--line:#e6e4da;--green:#0e7a57;--gold:#b5841f;--sans:'Geist',-apple-system,BlinkMacSystemFont,sans-serif;--serif:'Newsreader',Georgia,serif;--mono:'Geist Mono',ui-monospace,SFMono-Regular,monospace}
+    *{box-sizing:border-box}
+    body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);-webkit-font-smoothing:antialiased}
+    header{padding:48px 40px 30px;border-bottom:1px solid var(--line)}
+    .eyebrow{font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--faint)}
+    h1{font-family:var(--serif);font-weight:400;font-size:clamp(30px,4vw,44px);letter-spacing:-.02em;margin:10px 0 8px}
+    h1 .green{color:var(--green)}
+    header p{color:var(--muted);max-width:680px;margin:0;font-size:15px;line-height:1.5}
+    main{padding:28px 40px 64px;display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:18px;max-width:1240px}
+    section{border:1px solid var(--line);background:var(--surface);border-radius:16px;padding:22px;box-shadow:0 34px 60px -54px rgba(22,22,15,.3)}
+    h2{font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;margin:0 0 14px;color:var(--green);font-weight:500}
+    .metric{display:flex;justify-content:space-between;gap:12px;padding:9px 0;border-bottom:1px solid var(--line)}
+    .metric:last-child{border-bottom:0}
+    .label{color:var(--muted);font-size:14px}
+    .value{font-family:var(--mono);font-weight:500;text-align:right;font-variant-numeric:tabular-nums}
+    .ok{color:var(--green)}
+    .warn{color:var(--gold)}
+    section p{color:var(--muted);font-size:13px;line-height:1.5;margin:12px 0 0}
+    code{font-family:var(--mono);background:var(--panel);padding:1px 6px;border-radius:6px;font-size:12px}
   </style>
 </head>
 <body>
   <header>
-    <h1>NightDesk Alpha Gateway Judge Cockpit</h1>
-    <p>Alpha Factory + Overfit Court + Safety Gateway + Paper Trading Evidence for Bitget tokenized-stock agents.</p>
+    <div class="eyebrow">Judge Cockpit · Bitget AI Base Camp Hackathon S1</div>
+    <h1>Night<span class="green">Desk</span> — one screen, every receipt</h1>
+    <p>Alpha Factory, Overfit Court, the safety gateway, and paper-trading evidence for Bitget tokenized-stock agents — all verifiable from one command.</p>
   </header>
   <main>
     <section>

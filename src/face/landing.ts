@@ -126,16 +126,16 @@ footer .meta{font-family:var(--mono);font-size:11.5px;color:var(--faint);letter-
   <div class="reveal">
     <div class="gauge">
       <div class="lbl">Measured vs the perp</div>
-      <div class="big">~0</div>
+      <div class="big" id="perp-num">~0</div>
       <div class="desc">dislocations. Everything looks calm — the perp says all-clear.</div>
     </div>
     <div class="gauge real">
       <div class="lbl">Measured vs the real stock</div>
-      <div class="big">17 / 19</div>
+      <div class="big" id="real-num">17 / 19</div>
       <div class="desc">tokens dislocated off-hours. The gap the perp hides — surfaced.</div>
     </div>
   </div>
-  <p class="verdict-line">The perp says <span class="mono" style="font-size:.8em">ALL CLEAR</span>. The real stock says <span class="green">17 of 19 are mispriced</span>.</p>
+  <p class="verdict-line">The perp says <span class="mono" style="font-size:.8em">ALL CLEAR</span>. The real stock says <span class="green" id="verdict-real">17 of 19 are mispriced</span>. <span class="mono" id="reveal-live" style="font-size:.6em;color:var(--faint)"></span></p>
 </div></section>
 
 <section class="section"><div class="wrap">
@@ -199,4 +199,17 @@ footer .meta{font-family:var(--mono);font-size:11.5px;color:var(--faint);letter-
   <div class="meta">Bitget AI Base Camp Hackathon S1 · tokenized US stocks · signed &amp; replayable</div>
 </div></footer>
 
+<script>
+(function(){
+  function disloc(rows,key){var n=0;for(var i=0;i<rows.length;i++){var v=rows[i][key];if(v!=null&&Math.abs(v)>=0.5)n++;}return n;}
+  fetch('/api/causality').then(function(r){return r.json();}).then(function(d){
+    var rows=(d&&d.rows)||[];if(!rows.length)return;
+    var total=rows.length, real=disloc(rows,'trueGapPct'), perp=disloc(rows,'perpGapPct');
+    var rn=document.getElementById('real-num'); if(rn) rn.textContent=real+' / '+total;
+    var pn=document.getElementById('perp-num'); if(pn) pn.textContent=(perp===0?'~0':String(perp));
+    var vr=document.getElementById('verdict-real'); if(vr) vr.textContent=real+' of '+total+' are mispriced';
+    var lv=document.getElementById('reveal-live'); if(lv) lv.textContent='· live now';
+  }).catch(function(){});
+})();
+</script>
 </body></html>`;
