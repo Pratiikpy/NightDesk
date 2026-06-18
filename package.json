@@ -93,6 +93,7 @@
     "bitget:agent-hub-demo": "tsx src/integrations/bitget-agent-hub/readOnlyProof.ts",
     "bitget:compat": "tsx src/integrations/bitget-agent-hub/compat-report.ts",
     "live:receipt": "tsx src/execution/live-receipt.ts",
+    "live:trade-proof": "tsx src/execution/live-trade-proof.ts",
     "export:trading-log": "tsx src/execution/paper-session.ts",
     "external-agent-demo": "tsx src/execution/paper-session.ts --external-agent-demo",
     "demo": "tsx src/index.ts demo",

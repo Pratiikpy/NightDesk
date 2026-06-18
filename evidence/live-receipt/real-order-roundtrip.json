@@ -1,0 +1,25 @@
+{
+  "runId": "livetrade_2026-06-18T04-06-01-259Z",
+  "generatedAt": "2026-06-18T04:06:03.040Z",
+  "mode": "authenticated_probe",
+  "symbol": "RAAPLUSDT",
+  "note": "Real authenticated Bitget round-trip. The order path uses a non-fillable limit (50% below market) plus an immediate cancel, so it can never fill and costs nothing. Read-only by default; the real order is double-gated (--execute + NIGHTDESK_LIVE_ORDER=1).",
+  "steps": [
+    {
+      "name": "authenticated_account_probe",
+      "at": "2026-06-18T04:06:03.039Z",
+      "ok": true,
+      "httpStatus": 200,
+      "code": "00000",
+      "msg": "success",
+      "summary": {
+        "coins": 15,
+        "hasUSDT": true
+      },
+      "requestPath": "/api/v2/spot/account/assets",
+      "proves": "real credentials sign correctly against Bitget's authenticated API"
+    }
+  ],
+  "orderRoundTrip": null,
+  "ledgerHash": "beda0a349765e96999f0d76cdd40a1ade8de546eb40d18b24cebe3b2ddb47e58"
+}
