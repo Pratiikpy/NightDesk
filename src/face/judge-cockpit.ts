@@ -84,6 +84,8 @@ nav .row{display:flex;align-items:center;justify-content:space-between;height:62
 .ok{color:var(--green)}.warn{color:var(--gold)}.bad{color:var(--red)}
 .card p{color:var(--muted);font-size:13px;line-height:1.55;margin-top:12px}
 .card p b{color:var(--ink);font-weight:500}
+.flink{display:block;margin:9px 0;color:var(--green);font-family:var(--mono);font-size:12.5px;word-break:break-all}
+.flink:hover{text-decoration:underline}
 table.claims{width:100%;border-collapse:collapse;margin-top:24px;font-size:15px}
 .claims td{padding:12px 0;border-bottom:1px solid var(--line)}
 .claims tr:last-child td{border-bottom:0}
@@ -118,6 +120,20 @@ footer .meta{font-family:var(--mono);font-size:11.5px;color:var(--faint);letter-
 </header>
 
 <main class="wrap">
+  <section class="section">
+    <div class="kicker">Live · callable on the public URL, no login</div>
+    <h2 class="h2">Poke the firewall yourself.</h2>
+    <div class="grid">
+      <div class="card">
+        <h3>GET /api/firewall</h3>
+        <p>Any agent — or you, right now — can ask the gate before placing a tokenized-stock trade. It returns a real, Ed25519-signed verdict in real time:</p>
+        <a class="flink" href="https://night-desk-nine.vercel.app/api/firewall?ticker=NVDA&side=buy&sizeUsd=50" target="_blank" rel="noopener">▶ ALLOW — NVDA buy $50</a>
+        <a class="flink" href="https://night-desk-nine.vercel.app/api/firewall?ticker=AAPL&side=buy&sizeUsd=500" target="_blank" rel="noopener">▶ ALLOW-CAPPED — AAPL buy $500 (capped to the safe size)</a>
+        <a class="flink" href="https://night-desk-nine.vercel.app/api/firewall?ticker=FOO&side=buy&sizeUsd=50" target="_blank" rel="noopener">▶ REJECT — unknown ticker</a>
+        <p><code>curl "https://night-desk-nine.vercel.app/api/firewall?ticker=NVDA&side=buy&sizeUsd=50"</code></p>
+      </div>
+    </div>
+  </section>
   <section class="section">
     <div class="kicker">Green numbers · current-recording paper evidence, not future alpha</div>
     <h2 class="h2">Two champions, kept honest.</h2>

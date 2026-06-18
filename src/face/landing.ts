@@ -169,7 +169,7 @@ footer .meta{font-family:var(--mono);font-size:11.5px;color:var(--faint);letter-
     <div>
       <h2 class="h2">The firewall every agent passes through.</h2>
       <p class="lead">Any AI agent can ask NightDesk before it places a tokenized-stock order. It answers with one verdict — and a trade with no valid certificate, an expired one, the wrong token, or a forbidden strategy is rejected before any money moves.</p>
-      <div class="cta" style="margin-top:24px"><a class="btn btn-dark" href="/desk#gateway">Try it live <span class="ar">→</span></a></div>
+      <div class="cta" style="margin-top:24px"><a class="btn btn-dark" href="/desk#gateway">Try it live <span class="ar">→</span></a><a class="btn btn-ghost" href="/api/firewall?ticker=NVDA&side=buy&sizeUsd=50" target="_blank" rel="noopener">Call the live API <span class="ar">→</span></a></div>
     </div>
     <div class="verdicts">
       <div class="vrow allow"><span class="dot"></span><span class="tag">ALLOW</span><span class="txt">Safe. Proceed.</span></div>

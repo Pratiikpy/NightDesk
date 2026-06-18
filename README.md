@@ -180,6 +180,15 @@ The same surface is an MCP tool `evaluate_intent` (`npm run mcp`), so Claude, Cu
 Agent Hub agent can route trades through the gateway. Contract in `AGENT_INTENT_SPEC.md`; runnable example
 `npx tsx sdk/examples/external-agent.ts`.
 
+**Or call it live, right now** — the firewall is deployed and callable on the public URL (no login), so a
+judge or an agent can poke the gate and watch it issue a real, Ed25519‑signed verdict:
+
+```bash
+curl "https://night-desk-nine.vercel.app/api/firewall?ticker=NVDA&side=buy&sizeUsd=50"   # ALLOW
+curl "https://night-desk-nine.vercel.app/api/firewall?ticker=AAPL&side=buy&sizeUsd=500"  # ALLOW_CAPPED
+curl "https://night-desk-nine.vercel.app/api/firewall?ticker=FOO&side=buy&sizeUsd=50"     # REJECT
+```
+
 ## How it uses Bitget
 
 - **Bitget** — live public market data for all 19 pairs (rToken + blended-index perp + Ondo cross-check);
