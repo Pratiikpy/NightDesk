@@ -4,7 +4,7 @@ A deterministic mean-reversion Playbook on **BTC perpetual futures**. It buys sh
 below the recent price path and exits as price reverts. Signal-only, transparent, rules-based.
 
 This is the **methodology + platform-integration proof** for the NightDesk project (see
-`../../nightdesk-prd.md`). NightDesk's edge is convergence/mean-reversion on tokenized US stocks
+`../../README.md`). NightDesk's edge is convergence/mean-reversion on tokenized US stocks
 (rTokens); because Bitget Playbook's managed historical-data provider covers crypto pairs and
 does **not** carry Bitget rTokens, the rToken-specific convergence is backtested and sim-traded
 on our own open-source **BitSim** sandbox against real recorded Bitget rToken order books, while

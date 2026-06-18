@@ -5,7 +5,7 @@ harvests the temporary discounts that open up when the US market is closed and t
 liquidity is thin, then exits as price converges back toward fair value. Direction-neutral,
 long-only on spot, signal-only.
 
-This is the published-backtest arm of the NightDesk project (see `../../nightdesk-prd.md`): the
+This is the published-backtest arm of the NightDesk project (see `../../README.md`): the
 deterministic strategy lives here on Bitget Playbook for verifiable on-platform backtest
 evidence, while the LLM bull/bear/risk council runs in the live NightDesk runtime (LLM-driven
 strategies cannot be backtested in Playbook).
