@@ -34,3 +34,16 @@ judge-eval.md
 # More internal strategy / competitor docs — keep local, out of the judge-facing tree
 WINNING.md
 judges-intel.md
+
+# Internal planning / notes / AI config — keep local, never in the public judge-facing repo
+CLAUDE.md
+LANDSCAPE.md
+ROADMAP.md
+hackathon-info.md
+getagent-capabilities.md
+research-resume-note.md
+research-findings.md
+product-vision-prd.md
+paper-trading-report.md
+evidence-summary.md
+nightdesk-prd.md

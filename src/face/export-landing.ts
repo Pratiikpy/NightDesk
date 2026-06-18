@@ -5,12 +5,12 @@ import { mkdirSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
 import { LANDING_PAGE } from "./landing";
 
-const REPO = "https://github.com/Pratiikpy/NightDesk";
-
 export function exportLanding(): void {
   const OUT = join(process.cwd(), "web");
   mkdirSync(OUT, { recursive: true });
-  const html = LANDING_PAGE.split('href="/desk#gateway"').join(`href="${REPO}#readme" target="_blank" rel="noopener"`).split('href="/desk"').join(`href="${REPO}" target="_blank" rel="noopener"`);
+  // Static deploy: the live-desk CTAs point at the captured desk snapshot (web/desk.html). Relative
+  // links so they resolve both on the host root and when opened locally.
+  const html = LANDING_PAGE.split('href="/desk#gateway"').join('href="desk.html#gateway"').split('href="/desk"').join('href="desk.html"');
   writeFileSync(join(OUT, "index.html"), html);
   console.log(`NIGHTDESK LANDING EXPORTED: ${join(OUT, "index.html")} (${html.length} bytes)`);
 }

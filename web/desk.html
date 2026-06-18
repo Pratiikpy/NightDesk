@@ -1,0 +1,91 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<title>NightDesk — risk desk for tokenized US stocks</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="icon" href="data:,"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin=""><link href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@400;500&amp;family=Geist:wght@400;500;600&amp;family=Newsreader:opsz,wght@6..72,400;6..72,500&amp;display=swap" rel="stylesheet">
+<style>
+:root{--bg:#faf9f5;--surface:#fbfaf7;--panel:#f4f3ee;--ink:#16160f;--muted:#5e5e54;--faint:#8a8a7e;--line:#e6e4da;--green:#0e7a57;--gold:#b5841f;--red:#c2483a;--sans:'Geist',-apple-system,BlinkMacSystemFont,sans-serif;--serif:'Newsreader',Georgia,serif;--mono:'Geist Mono',ui-monospace,SFMono-Regular,monospace}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:14px;line-height:1.5;-webkit-font-smoothing:antialiased}
+.wrap{max-width:1140px;margin:0 auto;padding:40px 24px 64px}
+.eyebrow{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--faint)}
+h1{font-family:var(--serif);font-weight:400;font-size:clamp(34px,5vw,52px);line-height:1.05;letter-spacing:-.022em;margin:10px 0 0}
+h1 .accent{color:var(--green)}
+.sub{font-family:var(--serif);font-size:clamp(16px,2vw,20px);color:var(--muted);max-width:660px;margin:14px 0 24px;line-height:1.45}
+h2{font-family:var(--mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--faint);margin:40px 0 12px;font-weight:500}
+.note{color:var(--muted);font-size:12.5px;margin:0 0 16px;max-width:780px;line-height:1.5}
+code{font-family:var(--mono);background:var(--panel);padding:1px 6px;border-radius:6px;font-size:12px}
+.pill{display:inline-flex;align-items:center;gap:8px;font-family:var(--mono);font-size:12px;letter-spacing:.02em;padding:8px 15px;border-radius:999px;border:1px solid var(--line);background:var(--surface);margin-bottom:22px}
+.dot{width:9px;height:9px;border-radius:50%;background:var(--faint);flex:none}
+.pill.ok{color:var(--green);border-color:#bfe3d2}.pill.ok .dot{background:var(--green)}
+.pill.bad{color:var(--red);border-color:#e7c3bd}.pill.bad .dot{background:var(--red)}
+.pill.warn{color:var(--gold);border-color:#e8d4a6}.pill.warn .dot{background:var(--gold)}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(165px,1fr));gap:14px;margin:10px 0}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:16px 18px;box-shadow:0 30px 55px -48px rgba(22,22,15,.28)}
+.card .k{font-family:var(--mono);color:var(--faint);font-size:10.5px;text-transform:uppercase;letter-spacing:.1em}
+.card .v{font-family:var(--mono);font-size:26px;font-weight:500;margin-top:6px;font-variant-numeric:tabular-nums;color:var(--ink)}
+.card .v.counter{color:var(--green)}
+table{width:100%;border-collapse:collapse;font-size:13px;font-variant-numeric:tabular-nums}
+th,td{text-align:right;padding:9px 12px;border-bottom:1px solid var(--line)}
+th{font-family:var(--mono);color:var(--faint);font-weight:500;font-size:10.5px;text-transform:uppercase;letter-spacing:.08em}
+td{font-family:var(--mono)}
+th:first-child,td:first-child{text-align:left}
+tbody tr:hover{background:var(--panel)}
+.pos{color:var(--green)}.neg{color:var(--red)}.amber{color:var(--gold)}.illusion{color:var(--gold);font-weight:500}
+.panel{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:22px 24px;margin:10px 0}
+.evidence{box-shadow:0 40px 80px -64px rgba(22,22,15,.32)}
+.evidence .row{display:flex;gap:34px;flex-wrap:wrap;align-items:baseline}
+.evidence .big{font-family:var(--mono);font-size:30px;font-weight:500;color:var(--green);font-variant-numeric:tabular-nums}
+.evidence .lbl{font-family:var(--mono);color:var(--faint);font-size:10.5px;text-transform:uppercase;letter-spacing:.1em;margin-top:2px}
+.evidence .cap{color:var(--muted);font-size:13px;margin-top:14px;line-height:1.55;max-width:840px}
+.fw{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-bottom:12px}
+.fw input,.fw select{font-family:var(--mono);font-size:13px;padding:10px 12px;border:1px solid var(--line);border-radius:10px;background:var(--bg);color:var(--ink)}
+.btn{font-family:var(--sans);font-size:14px;font-weight:500;color:#fff;background:var(--ink);padding:11px 22px;border-radius:999px;border:0;cursor:pointer;transition:background .2s}
+.btn:hover{background:#000}
+.verdict{display:inline-flex;align-items:center;gap:10px;font-family:var(--mono);font-size:14px;font-weight:500;padding:9px 16px;border-radius:999px;border:1px solid var(--line);background:var(--surface)}
+.verdict.allow{color:var(--green);border-color:#bfe3d2}.verdict.allow .dot{background:var(--green)}
+.verdict.capped{color:var(--gold);border-color:#e8d4a6}.verdict.capped .dot{background:var(--gold)}
+.verdict.reject{color:var(--red);border-color:#e7c3bd}.verdict.reject .dot{background:var(--red)}
+.fw-detail{font-family:var(--mono);font-size:12px;color:var(--muted);margin-top:8px}
+.council{display:grid;gap:10px}
+.deb{background:var(--surface);border:1px solid var(--line);border-left:3px solid var(--green);border-radius:12px;padding:13px 16px}
+.deb .role{font-family:var(--mono);font-size:10.5px;text-transform:uppercase;letter-spacing:.1em;color:var(--faint);margin-bottom:5px}
+.deb .txt{font-size:13px;color:var(--ink);white-space:pre-wrap;line-height:1.5}
+footer{font-family:var(--mono);color:var(--faint);font-size:11px;margin-top:36px;border-top:1px solid var(--line);padding-top:16px}
+a{color:var(--green)}
+</style></head><body><div style="font-family:Geist Mono,monospace;font-size:12px;text-align:center;padding:9px;background:#16160f;color:#eceae2">Live-desk snapshot · for the real-time desk, run <code style="color:#3fdd86">npm run dashboard</code> · <a href="/" style="color:#3fdd86">← home</a></div><div class="wrap">
+<div class="eyebrow">Live Desk · Bitget tokenized US stocks · <a href="/" style="color:var(--green)">home</a></div>
+<h1>Night<span class="accent">Desk</span></h1>
+<p class="sub">Tokenized stocks trade 24/7 while the NYSE sleeps. NightDesk measures the true gap versus the real stock, explains why it exists, and decides trade, abstain, or avoid — every decision signed and replayable. Auto-refresh 15s.</p>
+<div id="verify" class="pill ok"><span class="dot"></span><span>ledger signature VALID · tamper-evident · 1 records · pubkey#a7145920020b748d</span></div>
+<div id="risk" class="note">Risk envelope — long-only · max 10%/position · max 50% gross · daily stop 3% · net-edge gate (edge − fee − slippage ≥ 0%) · 15 hard gates · risk-on</div>
+<div class="panel evidence" id="evidence"><div class="row"><div><div class="big">+14.32pp</div><div class="lbl">basis edge over random</div></div><div><div class="big">-7.89%</div><div class="lbl">tradeable perp leg</div></div><div><div class="big">13,152</div><div class="lbl">real observations</div></div><div><div class="big">19</div><div class="lbl">rToken pairs</div></div></div><div class="cap">Gap-fading beats a random-entry baseline; random entry loses -5.62pp. We report the 92.8% convergence-capture as a distribution artifact (shuffle control 97.5%), not as edge. The LLM judges a live basis it could not have seen in training — no look-ahead/contamination. Reproduce: npm run backtest.</div></div>
+<div class="grid" id="cards"><div class="card"><div class="k">Zero-intervention nights</div><div class="v counter">1</div></div><div class="card"><div class="k">Trades graded</div><div class="v">1</div></div><div class="card"><div class="k">Convergence</div><div class="v">100%</div></div><div class="card"><div class="k">Abstained</div><div class="v">0</div></div><div class="card"><div class="k">Actionable gaps now</div><div class="v">14/19</div></div><div class="card"><div class="k">Sim PnL</div><div class="v">+23.75</div></div></div>
+
+<h2>Try the safety gateway — ask before you trade</h2>
+<p class="note">Any agent can ask NightDesk before placing a tokenized-stock order: ALLOW · ALLOW-CAPPED (with the max safe size) · REJECT. Backed by <code>/api/firewall</code>.</p>
+<div class="fw">
+<input id="fw-ticker" value="NVDA" size="6" aria-label="ticker">
+<select id="fw-side"><option value="buy">buy</option><option value="sell">sell</option></select>
+<input id="fw-size" value="50" size="6" aria-label="size in USD">
+<button class="btn" id="fw-go" disabled="">Evaluate intent (live only)</button>
+<span id="fw-verdict"><span class="verdict reject"><span class="dot"></span><span>REJECT</span></span></span>
+</div>
+<div id="fw-detail" class="fw-detail">policy WATCH: no trading permitted  ·  class MISPRICED  ·  policy WATCH  ·  max $0  ·  safety 83</div>
+
+<h2>Risk desk — true gap vs the REAL stock (the perp hides it)</h2>
+<p class="note">true gap = rToken vs the real-stock anchor (latest NYSE print — live in market hours, last official close off-hours) · perp gap = vs the index that masks it · cause → action. Refreshes ~60s.</p>
+<table id="riskdesk"><thead><tr><th>Ticker</th><th>rToken</th><th>NYSE</th><th>True gap</th><th>Perp gap</th><th>Cause</th><th>Action</th><th>Liq</th></tr></thead><tbody><tr><td>AAPL</td><td>297.62</td><td>295.95</td><td>+0.56%</td><td>-0.02%</td><td>NEWS</td><td class="amber">ABSTAIN</td><td>L2</td></tr><tr><td>TSLA</td><td>398.52</td><td>396.38</td><td>+0.54%</td><td>+0.05%</td><td>EARNINGS</td><td class="amber">ABSTAIN</td><td>L2</td></tr><tr><td>NVDA</td><td>205.89</td><td>204.65</td><td>+0.61%</td><td>-0.15%</td><td class="illusion">PERP_ILLUSION</td><td class="pos">FADE</td><td>L2</td></tr><tr><td>MSFT</td><td>381.24</td><td>378.91</td><td>+0.61%</td><td>-0.24%</td><td class="illusion">PERP_ILLUSION</td><td class="pos">FADE</td><td>L2</td></tr><tr><td>GOOGL</td><td>364.91</td><td>363.79</td><td>+0.31%</td><td>-0.08%</td><td>NONE</td><td>NONE</td><td>L2</td></tr><tr><td>AMZN</td><td>239.22</td><td>237.50</td><td>+0.72%</td><td>-0.18%</td><td class="illusion">PERP_ILLUSION</td><td class="pos">FADE</td><td>L2</td></tr><tr><td>META</td><td>574.56</td><td>567.58</td><td>+1.23%</td><td>-0.20%</td><td class="illusion">PERP_ILLUSION</td><td class="pos">FADE</td><td>L2</td></tr><tr><td>SPY</td><td>744.99</td><td>740.96</td><td>+0.54%</td><td>-0.13%</td><td class="illusion">PERP_ILLUSION</td><td class="pos">FADE</td><td>quote</td></tr><tr><td>QQQ</td><td>731.42</td><td>722.51</td><td>+1.23%</td><td>-0.11%</td><td class="illusion">PERP_ILLUSION</td><td class="pos">FADE</td><td>quote</td></tr><tr><td>SQQQ</td><td>38.14</td><td>39.52</td><td class="neg">-3.50%</td><td>-0.07%</td><td class="illusion">PERP_ILLUSION</td><td class="pos">FADE</td><td>quote</td></tr><tr><td>TQQQ</td><td>80.31</td><td>77.54</td><td class="neg">+3.58%</td><td>+0.04%</td><td class="illusion">PERP_ILLUSION</td><td class="pos">FADE</td><td>quote</td></tr><tr><td>PLTR</td><td>131.66</td><td>130.63</td><td>+0.78%</td><td>-0.07%</td><td class="illusion">PERP_ILLUSION</td><td class="pos">FADE</td><td>quote</td></tr><tr><td>CRCL</td><td>80.63</td><td>80.59</td><td>+0.05%</td><td>-0.14%</td><td>NONE</td><td>NONE</td><td>quote</td></tr><tr><td>HOOD</td><td>107.40</td><td>105.20</td><td class="neg">+2.09%</td><td>-0.13%</td><td>NEWS</td><td class="amber">ABSTAIN</td><td>quote</td></tr><tr><td>MSTR</td><td>116.89</td><td>116.56</td><td>+0.28%</td><td>-0.00%</td><td>NONE</td><td>NONE</td><td>quote</td></tr><tr><td>ORCL</td><td>185.29</td><td>183.53</td><td>+0.96%</td><td>-0.06%</td><td>NEWS</td><td class="amber">ABSTAIN</td><td>quote</td></tr><tr><td>NFLX</td><td>77.31</td><td>76.96</td><td>+0.46%</td><td>-0.08%</td><td>NONE</td><td>NONE</td><td>quote</td></tr><tr><td>BABA</td><td>105.57</td><td>107.44</td><td class="neg">-1.74%</td><td>-0.30%</td><td class="illusion">PERP_ILLUSION</td><td class="pos">FADE</td><td>quote</td></tr><tr><td>GME</td><td>21.55</td><td>21.51</td><td>+0.19%</td><td>-0.14%</td><td>NONE</td><td>NONE</td><td>quote</td></tr></tbody></table>
+
+<h2>Counterfactual judgment — we grade abstentions &amp; blocked trades too</h2>
+<div id="judgment" class="note">Traded converged 100% · abstained 0 (would-have-converged 0%, avg 0pp) · gated 0 (would-have-converged 0%, avg 0pp). Abstained/gated converging LESS than traded = good judgment; negative gated pp = gates avoided losses.</div>
+
+<h2>Tokenized stock quality board — reliability grade (not alpha)</h2>
+<p class="note">tracking 50% · stability 30% · liquidity 20%. Legal rights excluded — never fabricated. Run <code>npm run flags</code> to refresh.</p>
+<table id="quality"><thead><tr><th>Ticker</th><th>Grade</th><th>Score</th><th>Track</th><th>Stable</th><th>Liquidity</th><th>Rights</th></tr></thead><tbody><tr><td>SPY</td><td class="pos">B</td><td>80.2</td><td>87</td><td>83</td><td>quote-only</td><td>not verified</td></tr><tr><td>AAPL</td><td class="pos">B</td><td>79.5</td><td>78</td><td>68</td><td>L2-book</td><td>not verified</td></tr><tr><td>GOOGL</td><td class="pos">B</td><td>74.4</td><td>73</td><td>59</td><td>L2-book</td><td>not verified</td></tr><tr><td>QQQ</td><td class="pos">B</td><td>74.4</td><td>80</td><td>74</td><td>quote-only</td><td>not verified</td></tr><tr><td>AMZN</td><td class="pos">B</td><td>73.6</td><td>71</td><td>61</td><td>L2-book</td><td>not verified</td></tr><tr><td>MSFT</td><td class="pos">B</td><td>71.4</td><td>68</td><td>58</td><td>L2-book</td><td>not verified</td></tr><tr><td>NVDA</td><td class="amber">C</td><td>68.5</td><td>65</td><td>54</td><td>L2-book</td><td>not verified</td></tr><tr><td>META</td><td class="amber">C</td><td>68.1</td><td>67</td><td>49</td><td>L2-book</td><td>not verified</td></tr><tr><td>NFLX</td><td class="amber">C</td><td>67.7</td><td>76</td><td>59</td><td>quote-only</td><td>not verified</td></tr><tr><td>TSLA</td><td class="amber">C</td><td>62.2</td><td>58</td><td>43</td><td>L2-book</td><td>not verified</td></tr><tr><td>GME</td><td class="amber">C</td><td>61.0</td><td>66</td><td>53</td><td>quote-only</td><td>not verified</td></tr><tr><td>BABA</td><td class="neg">D</td><td>48.6</td><td>53</td><td>34</td><td>quote-only</td><td>not verified</td></tr><tr><td>PLTR</td><td class="neg">D</td><td>45.0</td><td>48</td><td>30</td><td>quote-only</td><td>not verified</td></tr><tr><td>TQQQ</td><td class="neg">D</td><td>39.2</td><td>41</td><td>23</td><td>quote-only</td><td>not verified</td></tr><tr><td>SQQQ</td><td class="neg">D</td><td>38.9</td><td>40</td><td>22</td><td>quote-only</td><td>not verified</td></tr><tr><td>ORCL</td><td class="neg">D</td><td>38.3</td><td>42</td><td>18</td><td>quote-only</td><td>not verified</td></tr><tr><td>HOOD</td><td class="neg">D</td><td>27.7</td><td>30</td><td>3</td><td>quote-only</td><td>not verified</td></tr><tr><td>MSTR</td><td class="neg">D</td><td>27.0</td><td>30</td><td>0</td><td>quote-only</td><td>not verified</td></tr><tr><td>CRCL</td><td class="neg">D</td><td>24.8</td><td>26</td><td>0</td><td>quote-only</td><td>not verified</td></tr></tbody></table>
+
+<h2>Latest autonomous council debate (Qwen)</h2>
+<div class="council" id="council"><div class="deb"><div class="role">bull · NVDA</div><div class="txt">Premium gap vs fair value is real; expect convergence.</div></div><div class="deb"><div class="role">bear · NVDA</div><div class="txt">Funding/liquidity risk exists but is bounded.</div></div><div class="deb"><div class="role">research_manager · NVDA</div><div class="txt">Net stance: take the convergence; conviction 0.6.</div></div><div class="deb"><div class="role">risk_aggressive · NVDA</div><div class="txt">Edge clears the fee floor; modest size up is justified.</div></div><div class="deb"><div class="role">risk_conservative · NVDA</div><div class="txt">Thin rToken books and funding risk — keep size small.</div></div><div class="deb"><div class="role">risk_neutral · NVDA</div><div class="txt">Balanced: take it at standard conservative size.</div></div><div class="deb"><div class="role">portfolio_manager · NVDA</div><div class="txt">{"decision":"TRADE","side":"buy","instrument":"spot","sizePct":4,"stop":null,"takeProfit":null,"expectedEdgePct":0.92,"expectedHorizonMin":120,"isBasisArb":true,"pConverge":0.59,"thesis":"buy long convergence on 0.92% premium"}</div></div></div>
+<footer id="foot">Updated 2026-06-18T05:05:46.883Z · live market data · LLM tokens 210</footer>
+</div>
+</body></html>

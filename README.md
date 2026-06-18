@@ -17,7 +17,7 @@
 > tokenized-stock agents pass through; every number replayable.
 
 Bitget AI Base Camp Hackathon S1 — **Trading Infrastructure** (safety & fair-value layer for
-tokenized US stocks). See `PROJECT.md`, `nightdesk-prd.md` (v3.3), `EVALUATION_STANDARD.md`,
+tokenized US stocks). See `PROJECT.md`, `SUBMISSION.md`, `EVALUATION_STANDARD.md`,
 `docs/CLAIM_LEDGER.md`, and `verification-log.md`.
 
 ## Judge path — fast core (~2 minutes)
