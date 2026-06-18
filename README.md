@@ -212,6 +212,20 @@ Agent Hub agent can route trades through the gateway. Contract in `AGENT_INTENT_
 `config/universe.json` is the single source of truth (live-verified): 19 basis pairs, 7 spot-only rTokens,
 2 perp-only, 10 Ondo cross-checks. No symbols are hardcoded anywhere else.
 
+## Beyond tokenized stocks
+
+The reusable core of NightDesk is **broker- and asset-agnostic**. The trade-intent contract is
+exchange-agnostic by design (`AGENT_INTENT_SPEC.md`), and the safety kernel that consumes it — the
+**certificate firewall, the Ed25519-signed ledger, and the MCP/SDK gateway** — never assumes a venue.
+
+- **Today** — the gateway is hardened on Bitget tokenized US stocks: the highest-risk surface, where the
+  real anchor is closed most of the week and the perp hides the gap.
+- **Tomorrow** — the same `evaluate_intent` contract fronts any Agent Hub market or broker. Swap the data
+  adapter and the price anchor; the certificate, gates, ledger, and verdict stay identical.
+
+Tokenized stocks are the first surface we proved it on, not the only one it fits — which is what makes
+NightDesk **infrastructure a gate other agents pass through**, not one more single-market bot.
+
 ## Track fit
 
 Judged together for all-tracks #1:
