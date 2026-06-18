@@ -42,10 +42,11 @@ change). Autonomous Alpha Factory: 9,720 candidates, 48,600 trials, Overfit Cour
 (read-only key, verified on-platform). 215 tests; the whole pack regenerates from one command.
 
 **4. My take on AI trading.** The biggest lie in AI trading is a lucky backtest dressed as a guaranteed
-edge. We did the opposite — we red-teamed our *own* thesis and report it null (49.6% corrective, a coin
-flip). That published null result is the receipt of our rigor. An honest agent that knows what it
-cannot predict, stands down on real news, and enforces hard risk discipline is worth more than a
-confident gambler.
+edge. We did the opposite — we tested the raw convergence edge honestly and report exactly where it stops
+(49.6% corrective, a coin flip; and a Deflated Sharpe that, after correcting for 9,720 trials, is not yet
+significant). The raw edge alone is not the product: NightDesk's value is turning noisy tokenized-stock
+gaps into certified, gated, executable decisions. An honest agent that knows what it cannot predict,
+stands down on real news, and enforces hard risk discipline is worth more than a confident gambler.
 
 This is Trading Agent, Trading Infrastructure, and Stock AI Trading at once: a complete autonomous
 loop, an agent firewall + certification layer, and a real-stock fair-value solution — all judged

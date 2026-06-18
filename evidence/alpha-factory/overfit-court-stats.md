@@ -15,6 +15,6 @@ trial registry. By design they are conservative — we would rather understate t
 | Min track record length | 5 sessions | sessions needed for significance vs 0; have 5 |
 | Probability of backtest overfitting | not yet computable — needs ≥8 session slices, have 5 (accumulating) | lower is better; ~50% = no better than chance |
 
-**Verdict.** Probabilistic Sharpe vs 0 is 95.2%, but the champion's raw Sharpe (0.67) sits below the expected best-of-9,720 luck bar (1.66), so the Deflated Sharpe collapses to 0.7%. On 5 sessions the edge is not statistically distinguishable from selection bias — we report this rather than claim alpha. It is the quantified form of our "no validated edge" position.
+**Verdict.** Probabilistic Sharpe vs 0 is 95.2%, but the champion's raw Sharpe (0.67) sits below the expected best-of-9,720 luck bar (1.66), so the Deflated Sharpe is 0.7%. We tested the raw convergence edge honestly: on 5 sessions it is not yet statistically significant. The raw edge alone is not the product — NightDesk's value is turning these noisy gaps into certified, gated, executable decisions.
 
 _Method: Deflated/Probabilistic Sharpe & MinTRL (Bailey & Lopez de Prado, 2012/2014); PBO via CSCV (Bailey, Borwein, Lopez de Prado & Zhu, 2017). Original implementation._

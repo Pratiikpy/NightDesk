@@ -40,12 +40,12 @@ shows the live counter (forward sessions, OOS session bank vs target, recorder s
 credentials · no accidental write path · live path dry-run verified, **no real fill claimed**.
 
 ## The rigor (why you can trust the numbers)
-We red-teamed our **own** thesis: the convergence-reversion edge is **null — 49.6% corrective, a coin
-flip** (`npm run backtest -- --daily`), and we publish it. The ~93% "capture" stat is a shuffle-test
-artifact, and we flag it. We also **deflate our own champion for selection bias** — after correcting for
-9,720 trials, its Deflated Sharpe is *not yet significant* (`npm run overfit:stats`; Bailey & López de
-Prado's Deflated Sharpe / PBO / MinTRL). No look-ahead is possible by construction (a sentinel test
-proves it). **215 tests**, every figure replayable from one command.
+We tested the raw convergence edge honestly and report exactly where it stops: it's **49.6% corrective —
+a coin flip** (`npm run backtest -- --daily`), the ~93% "capture" stat is a shuffle-test artifact, and
+after correcting for 9,720 trials the champion's **Deflated Sharpe is not yet significant**
+(`npm run overfit:stats`; Bailey & López de Prado). The raw edge alone isn't the product — **NightDesk's
+value is turning noisy gaps into certified, gated, executable decisions.** No look-ahead is possible by
+construction (a sentinel test proves it). **215 tests**, every figure replayable from one command.
 
 ## Known limitations (disclosed, not buried)
 - Forward OOS record is early — it grows over market time; we show the counter, not invented history.

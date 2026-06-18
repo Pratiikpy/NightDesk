@@ -101,12 +101,13 @@ NightDesk separates **research signal** from **execution proof**, and claims onl
 6. **A live forward record** — accumulating out-of-sample against a *locked* champion over wall-clock
    market time (we show the live counter, never fabricated history).
 
-And the reason you can trust those numbers: **we red-teamed our own thesis and publish where it fails.**
-The biggest lie in AI trading is a lucky backtest dressed as a guaranteed edge — we did the opposite:
+And the reason you can trust those numbers: **we tested the raw edge honestly and report exactly where it
+stops.** The biggest lie in AI trading is a lucky backtest dressed as a guaranteed edge — we did the opposite:
 
-- **No convergence-profit edge is claimed.** Our look-ahead-safe test — does a dislocated token revert
-  toward the real stock next session? — comes back **null: 49.6% corrective, a coin flip**
-  (`npm run backtest -- --daily`). The published null result is the *receipt* of the rigor.
+- **The raw convergence edge alone is not enough — and we say so.** Our look-ahead-safe test — does a
+  dislocated token revert toward the real stock next session? — comes back **49.6% corrective, a coin
+  flip** (`npm run backtest -- --daily`). So the product isn't the raw signal; it's the certified, gated,
+  executable layer *around* it. Publishing that test is the *receipt* of the rigor.
 - **We flag our own best-looking stat.** The ~93% "convergence-capture" rate is a distributional
   artifact (a shuffle control says so), and a live 100%-capture paper session still lost money.
   Convergence ≠ P&L.
@@ -120,8 +121,9 @@ The biggest lie in AI trading is a lucky backtest dressed as a guaranteed edge �
   type-safe code. A sentinel test (`test/lookahead.test.ts`) proves corrupting post-probe data changes
   no pre-probe signal (to 1e-9).
 
-**So NightDesk is an honest fair-value, risk & safety desk.** The green numbers are labeled for exactly
-what they are: in-sample / early-forward execution evidence, not future alpha.
+**So NightDesk is an honest fair-value, risk & safety desk.** Its value is turning noisy tokenized-stock
+gaps into certified, gated, executable decisions — not promising a green curve. The green numbers are
+labeled for exactly what they are: in-sample / early-forward execution evidence, not future alpha.
 
 ## Real on-platform evidence
 

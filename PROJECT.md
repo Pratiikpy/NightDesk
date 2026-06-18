@@ -159,12 +159,13 @@ The biggest weakness in any AI-trading project is the temptation to **overclaim*
 backtest as a guaranteed edge. NightDesk does the opposite, on purpose, and this is its strongest
 selling point.
 
-**We tested our own central money-making idea — and reported that it failed.**
+**We tested the raw convergence edge honestly — and it is not enough on its own.**
 
 The natural bet is "a dislocated token will snap back toward the real stock by the next session." We
-ran that test honestly, and the answer came back **null**: the token moved the "right" way only about
-**49.6% of the time — a coin flip**. So we **do not claim a convergence-profit edge.** We say so in
-writing, prominently.
+ran that test honestly, and the answer came back **49.6% of the time — a coin flip**. So the raw signal
+alone is not the product; **NightDesk's value is turning those noisy gaps into certified, gated,
+executable decisions** — and we say exactly that in writing, prominently, rather than dressing the raw
+edge up as alpha.
 
 We back this up with the kind of controls a professional trader would demand:
 

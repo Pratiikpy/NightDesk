@@ -262,8 +262,8 @@ export function computeOverfitStats(input: OverfitStatsInput): OverfitStats {
     verdict = `Deflated Sharpe ${pct(dsr)} ≥ ${pct(confidence)}: the champion's edge survives correction for ${trials} trials over ${T} sessions.`;
   } else if (belowLuckBar) {
     verdict =
-      `Probabilistic Sharpe vs 0 is ${pct(psr0)}, but the champion's raw Sharpe (${sr.toFixed(2)}) sits below the expected best-of-${trials} luck bar (${sr0.toFixed(2)}), so the Deflated Sharpe collapses to ${pct(dsr)}. ` +
-      `On ${T} sessions the edge is not statistically distinguishable from selection bias — we report this rather than claim alpha. It is the quantified form of our "no validated edge" position.`;
+      `Probabilistic Sharpe vs 0 is ${pct(psr0)}, but the champion's raw Sharpe (${sr.toFixed(2)}) sits below the expected best-of-${trials} luck bar (${sr0.toFixed(2)}), so the Deflated Sharpe is ${pct(dsr)}. ` +
+      `We tested the raw convergence edge honestly: on ${T} sessions it is not yet statistically significant. The raw edge alone is not the product — NightDesk's value is turning these noisy gaps into certified, gated, executable decisions.`;
   } else {
     verdict =
       `Deflated Sharpe ${pct(dsr)} (< ${pct(confidence)}): the edge clears the ${trials}-trial luck bar, but ${T} sessions is too short to confirm it` +
