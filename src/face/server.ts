@@ -15,6 +15,7 @@ import { createServer } from "node:http";
 import { readFileSync, existsSync } from "node:fs";
 import { join } from "node:path";
 import pLimit from "p-limit";
+import { LANDING_PAGE } from "./landing";
 import { collect } from "../pegwatch/collect";
 import { buildScorecard, summarizeJudgment } from "../ledger/scorecard";
 import { classifyGap } from "../perception/causality";
@@ -134,7 +135,7 @@ function verifyToday(): unknown {
 const PAGE = `<!doctype html><html><head><meta charset="utf-8"/>
 <title>NightDesk — risk desk for tokenized US stocks</title>
 <meta name="viewport" content="width=device-width,initial-scale=1"/>
-<link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/><link href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@400;500&family=Geist:wght@400;500;600&family=Newsreader:opsz,wght@6..72,400;6..72,500&display=swap" rel="stylesheet"/>
+<link rel="icon" href="data:,"/><link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/><link href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@400;500&family=Geist:wght@400;500;600&family=Newsreader:opsz,wght@6..72,400;6..72,500&display=swap" rel="stylesheet"/>
 <style>
 :root{--bg:#faf9f5;--surface:#fbfaf7;--panel:#f4f3ee;--ink:#16160f;--muted:#5e5e54;--faint:#8a8a7e;--line:#e6e4da;--green:#0e7a57;--gold:#b5841f;--red:#c2483a;--sans:'Geist',-apple-system,BlinkMacSystemFont,sans-serif;--serif:'Newsreader',Georgia,serif;--mono:'Geist Mono',ui-monospace,SFMono-Regular,monospace}
 *{box-sizing:border-box}
@@ -186,13 +187,13 @@ tbody tr:hover{background:var(--panel)}
 footer{font-family:var(--mono);color:var(--faint);font-size:11px;margin-top:36px;border-top:1px solid var(--line);padding-top:16px}
 a{color:var(--green)}
 </style></head><body><div class="wrap">
-<div class="eyebrow">Live Desk · Bitget tokenized US stocks</div>
+<div class="eyebrow">Live Desk · Bitget tokenized US stocks · <a href="/" style="color:var(--green)">home</a></div>
 <h1>Night<span class="accent">Desk</span></h1>
 <p class="sub">Tokenized stocks trade 24/7 while the NYSE sleeps. NightDesk measures the true gap versus the real stock, explains why it exists, and decides trade, abstain, or avoid — every decision signed and replayable. Auto-refresh 15s.</p>
-<div id="verify" class="pill"></div>
+<div id="verify" class="pill"><span class="dot"></span><span>checking signed ledger…</span></div>
 <div id="risk" class="note"></div>
 <div class="panel evidence" id="evidence"></div>
-<div class="grid" id="cards"></div>
+<div class="grid" id="cards"><div class="card"><div class="k">loading</div><div class="v">…</div></div></div>
 
 <h2>Try the safety gateway — ask before you trade</h2>
 <p class="note">Any agent can ask NightDesk before placing a tokenized-stock order: ALLOW · ALLOW-CAPPED (with the max safe size) · REJECT. Backed by <code>/api/firewall</code>.</p>
@@ -207,7 +208,7 @@ a{color:var(--green)}
 
 <h2>Risk desk — true gap vs the REAL stock (the perp hides it)</h2>
 <p class="note">true gap = rToken vs the real-stock anchor (latest NYSE print — live in market hours, last official close off-hours) · perp gap = vs the index that masks it · cause → action. Refreshes ~60s.</p>
-<table id="riskdesk"><thead><tr><th>Ticker</th><th>rToken</th><th>NYSE</th><th>True gap</th><th>Perp gap</th><th>Cause</th><th>Action</th><th>Liq</th></tr></thead><tbody></tbody></table>
+<table id="riskdesk"><thead><tr><th>Ticker</th><th>rToken</th><th>NYSE</th><th>True gap</th><th>Perp gap</th><th>Cause</th><th>Action</th><th>Liq</th></tr></thead><tbody><tr><td>loading live market data…</td></tr></tbody></table>
 
 <h2>Counterfactual judgment — we grade abstentions &amp; blocked trades too</h2>
 <div id="judgment" class="note"></div>
@@ -227,52 +228,51 @@ const fmt=(n,d=2)=>n==null?'-':Number(n).toFixed(d);
 const sign=(n,d=2)=>n==null?'-':(n>=0?'+':'')+fmt(n,d)+'%';
 function el(tag,text,cls){const e=document.createElement(tag);if(text!=null)e.textContent=String(text);if(cls)e.className=cls;return e;}
 const ACT={FADE:'pos',ABSTAIN:'amber',AVOID:'neg',NONE:''};
+async function jget(u){try{const r=await fetch(u);if(!r.ok)return null;return await r.json();}catch(e){return null;}}
+let lastActionable='…';let lastSc=null;
+function renderCards(sc){
+  const s=sc.scorecard;
+  const cards=[
+    ['Zero-intervention nights',sc.interventionFreeNights||0,'counter'],
+    ['Trades graded',s.graded],
+    ['Convergence',s.convergenceRatePct+'%'],
+    ['Abstained',s.abstained||0],
+    ['Actionable gaps now',lastActionable],
+    ['Sim PnL',(s.totalSimPnl>=0?'+':'')+s.totalSimPnl],
+  ];
+  const cwrap=document.querySelector('#cards');cwrap.replaceChildren();
+  for(const c of cards){const d=el('div',null,'card');d.appendChild(el('div',c[0],'k'));d.appendChild(el('div',c[1],c[2]?'v '+c[2]:'v'));cwrap.appendChild(d);}
+}
 async function tick(){
-  try{
-    const [sc,cz,vf,rk]=await Promise.all([
-      fetch('/api/scorecard').then(r=>r.json()),
-      fetch('/api/causality').then(r=>r.json()),
-      fetch('/api/verify').then(r=>r.json()),
-      fetch('/api/risk').then(r=>r.json())
-    ]);
-    const rb=document.querySelector('#risk');
-    rb.textContent='Risk envelope — long-only · max '+rk.maxPositionPct+'%/position · max '+rk.maxGrossPct+'% gross · daily stop '+rk.maxDailyDrawdownPct+'% · net-edge gate (edge − fee − slippage ≥ '+rk.netEdgeMarginPct+'%) · '+rk.gateCount+' hard gates · '+(rk.riskOff?'⚠ RISK-OFF (high-macro day, standing down)':'risk-on');
-    // verify badge
-    const vb=document.querySelector('#verify');vb.className='pill '+(!vf.present?'warn':(vf.signatureValid&&vf.tamperEvident?'ok':'bad'));
-    vb.replaceChildren();vb.appendChild(el('span',null,'dot'));vb.appendChild(el('span',!vf.present?'no signed ledger yet — run npm run simulate':(vf.signatureValid&&vf.tamperEvident?('ledger signature VALID · tamper-evident · '+vf.recordCount+' records · pubkey#'+vf.publicKeyFingerprint):'ledger signature INVALID')));
-    // risk desk
-    const rd=document.querySelector('#riskdesk tbody');rd.replaceChildren();
-    let actionable=0;
+  // Fast local endpoints first — these paint immediately so the page is never blank.
+  const [vf,rk]=await Promise.all([jget('/api/verify'),jget('/api/risk')]);
+  if(rk){document.querySelector('#risk').textContent='Risk envelope — long-only · max '+rk.maxPositionPct+'%/position · max '+rk.maxGrossPct+'% gross · daily stop '+rk.maxDailyDrawdownPct+'% · net-edge gate (edge − fee − slippage ≥ '+rk.netEdgeMarginPct+'%) · '+rk.gateCount+' hard gates · '+(rk.riskOff?'⚠ RISK-OFF (high-macro day, standing down)':'risk-on');}
+  if(vf){const vb=document.querySelector('#verify');vb.className='pill '+(!vf.present?'warn':(vf.signatureValid&&vf.tamperEvident?'ok':'bad'));vb.replaceChildren();vb.appendChild(el('span',null,'dot'));vb.appendChild(el('span',!vf.present?'no signed ledger yet — run npm run simulate':(vf.signatureValid&&vf.tamperEvident?('ledger signature VALID · tamper-evident · '+vf.recordCount+' records · pubkey#'+vf.publicKeyFingerprint):'ledger signature INVALID')));}
+  const sc=await jget('/api/scorecard');
+  if(sc){lastSc=sc;const j=sc.judgment;
+    document.querySelector('#judgment').textContent=j?('Traded converged '+j.tradedConvergedPct+'% · abstained '+j.abstained.n+' (would-have-converged '+j.abstained.wouldHaveConvergedPct+'%, avg '+j.abstained.avgWouldBePnlPct+'pp) · gated '+j.gated.n+' (would-have-converged '+j.gated.wouldHaveConvergedPct+'%, avg '+j.gated.avgWouldBePnlPct+'pp). Abstained/gated converging LESS than traded = good judgment; negative gated pp = gates avoided losses.'):'No graded trades yet — run npm run simulate to generate the signed scorecard.';
+    renderCards(sc);
+  }
+  // Slow live endpoint last — the risk desk keeps its loading row until this returns.
+  const cz=await jget('/api/causality');
+  const rd=document.querySelector('#riskdesk tbody');
+  if(cz){
+    rd.replaceChildren();let actionable=0;
     for(const r of (cz.rows||[])){
       if(r.type&&r.type!=='NONE'&&r.type!=='UNKNOWN')actionable++;
       const tr=document.createElement('tr');
-      tr.appendChild(el('td',r.ticker));
-      tr.appendChild(el('td',fmt(r.rPrice)));
-      tr.appendChild(el('td',fmt(r.equityPrice)));
+      tr.appendChild(el('td',r.ticker));tr.appendChild(el('td',fmt(r.rPrice)));tr.appendChild(el('td',fmt(r.equityPrice)));
       tr.appendChild(el('td',sign(r.trueGapPct),r.trueGapPct==null?'':(Math.abs(r.trueGapPct)>=1.5?'neg':'')));
       tr.appendChild(el('td',sign(r.perpGapPct)));
       tr.appendChild(el('td',r.type,r.type==='PERP_ILLUSION'?'illusion':''));
-      tr.appendChild(el('td',r.action,ACT[r.action]||''));
-      tr.appendChild(el('td',r.liquidity));
+      tr.appendChild(el('td',r.action,ACT[r.action]||''));tr.appendChild(el('td',r.liquidity));
       rd.appendChild(tr);
     }
-    // judgment
-    const j=sc.judgment;
-    if(j){document.querySelector('#judgment').textContent='Traded converged '+j.tradedConvergedPct+'% · abstained '+j.abstained.n+' (would-have-converged '+j.abstained.wouldHaveConvergedPct+'%, avg '+j.abstained.avgWouldBePnlPct+'pp) · gated '+j.gated.n+' (would-have-converged '+j.gated.wouldHaveConvergedPct+'%, avg '+j.gated.avgWouldBePnlPct+'pp). Abstained/gated converging LESS than traded = good judgment; negative gated pp = gates avoided losses.';}
-    // cards
-    const s=sc.scorecard;
-    const cards=[
-      ['Zero-intervention nights',sc.interventionFreeNights||0,'counter'],
-      ['Trades graded',s.graded],
-      ['Convergence',s.convergenceRatePct+'%'],
-      ['Abstained',s.abstained||0],
-      ['Actionable gaps now',actionable+'/'+((cz.rows||[]).length)],
-      ['Sim PnL',(s.totalSimPnl>=0?'+':'')+s.totalSimPnl],
-    ];
-    const cwrap=document.querySelector('#cards');cwrap.replaceChildren();
-    for(const c of cards){const d=el('div',null,'card');d.appendChild(el('div',c[0],'k'));d.appendChild(el('div',c[1],c[2]?'v '+c[2]:'v'));cwrap.appendChild(d);}
-    document.querySelector('#foot').textContent='Updated '+(cz.isoTime||'')+(cz.macroActive?' · HIGH macro day: desk stands down':'')+' · LLM tokens '+(s.llmPromptTokens+s.llmCompletionTokens);
-  }catch(e){document.querySelector('#foot').textContent='error: '+e}
+    lastActionable=actionable+'/'+((cz.rows||[]).length);
+    if(lastSc)renderCards(lastSc);
+    const tok=lastSc?(lastSc.scorecard.llmPromptTokens+lastSc.scorecard.llmCompletionTokens):0;
+    document.querySelector('#foot').textContent='Updated '+(cz.isoTime||'')+(cz.macroActive?' · HIGH macro day: desk stands down':'')+' · live market data · LLM tokens '+tok;
+  }else if(!rd.querySelector('tr td:nth-child(2)')){rd.replaceChildren();const tr=document.createElement('tr');tr.appendChild(el('td','live market data unavailable right now — retrying…'));rd.appendChild(tr);}
 }
 async function loadQuality(){
   try{
@@ -351,6 +351,9 @@ export function startServer(port = Number(process.env.PORT) || 8787): void {
   const server = createServer(async (req, res) => {
     try {
       if (req.url === "/" || req.url === "/index.html") {
+        res.writeHead(200, { "Content-Type": "text/html; charset=utf-8" });
+        res.end(LANDING_PAGE);
+      } else if (req.url === "/desk" || req.url === "/desk.html") {
         res.writeHead(200, { "Content-Type": "text/html; charset=utf-8" });
         res.end(PAGE);
       } else if (req.url === "/api/pegwatch") {
