@@ -10,6 +10,9 @@ __pycache__/
 *.pyc
 *.tar.gz
 
+# Stray tooling artifacts — never commit
+.playwright-mcp/
+
 # Data: ignore everything under the top-level data/ EXCEPT the recordings + research that
 # judges need to reproduce results. The signing key (data/ledger/) is never un-ignored.
 # Root-anchored with /data/* so it never touches src/data/.
