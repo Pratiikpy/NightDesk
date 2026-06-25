@@ -1,7 +1,7 @@
 // Persistent recorder loop. `npm run record`. Every tick: collect → append JSONL → heartbeat.
 // Restart-safe (append-only). Ctrl+C stops cleanly.
 import { collect } from "../pegwatch/collect";
-import { appendSnapshot } from "./store";
+import { appendNormalizedSnapshot, appendSnapshot } from "./store";
 
 export async function record(intervalMs = 30_000): Promise<void> {
   console.log(`[recorder] starting — interval=${intervalMs}ms, Ctrl+C to stop`);
@@ -16,12 +16,13 @@ export async function record(intervalMs = 30_000): Promise<void> {
     try {
       const snap = await collect();
       const file = appendSnapshot(snap);
+      const normalized = appendNormalizedSnapshot(snap);
       const nonNormal = snap.rows.filter((r) => r.state && r.state !== "NORMAL").length;
       const depegEq = snap.rows.filter((r) => r.stateVsEquity && r.stateVsEquity !== "NORMAL").length;
       const triFlagged = snap.rows.filter((r) => r.triangulation?.flagged).length;
       const withBook = snap.rows.filter((r) => (r.rToken?.bookLevels ?? 0) > 0).length;
       console.log(
-        `[${snap.isoTime}] ${snap.rows.length} rows → ${file} | book=${withBook}/${snap.rows.length} vsPerp-nn=${nonNormal} vsEQ-depeg=${depegEq} tri-flagged=${triFlagged}`
+        `[${snap.isoTime}] ${snap.rows.length} rows → ${file} | normalized=${normalized.appended} duplicate=${normalized.duplicates} book=${withBook}/${snap.rows.length} vsPerp-nn=${nonNormal} vsEQ-depeg=${depegEq} tri-flagged=${triFlagged}`
       );
     } catch (e) {
       console.error("[recorder] tick error:", e);

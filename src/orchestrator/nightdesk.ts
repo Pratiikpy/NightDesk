@@ -374,6 +374,9 @@ export function simCouncilProvider(): MockLLMProvider {
     const tp = side === "buy" ? price * 1.02 : price * 0.98;
     return JSON.stringify({
       decision: "TRADE",
+      // Grounding: cite the evidence facts the council validator requires (magnitude + a market fact).
+      // Mirrors what the live PM must emit; without these the grounded-trade check downgrades to NO_TRADE.
+      citations: ["event:magnitude_pct", "market:premium_pct"],
       side,
       instrument: dir === "long" ? "spot" : "perp",
       sizePct: 4,

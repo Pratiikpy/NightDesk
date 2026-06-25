@@ -98,8 +98,8 @@ footer .meta{font-family:var(--mono);font-size:11.5px;color:var(--faint);letter-
       <div class="card">
         <h3>Autonomous Alpha Factory</h3>
         <div class="metric"><span class="label">Candidates</span><span class="value ">9720</span></div>
-        <div class="metric"><span class="label">Trials</span><span class="value ">48600</span></div>
-        <div class="metric"><span class="label">Rejected (Overfit Court)</span><span class="value ">8444</span></div>
+        <div class="metric"><span class="label">Trials</span><span class="value ">58320</span></div>
+        <div class="metric"><span class="label">Rejected (Overfit Court)</span><span class="value ">8446</span></div>
         <div class="metric"><span class="label">Frozen champion PnL</span><span class="value ok">54.926313</span></div>
         <div class="metric"><span class="label">Champion max DD</span><span class="value ">6.333389</span></div>
       </div>
@@ -115,7 +115,7 @@ footer .meta{font-family:var(--mono);font-size:11.5px;color:var(--faint);letter-
         <div class="metric"><span class="label">PnL champion</span><span class="value ">GapFade</span></div>
         <div class="metric"><span class="label">PnL net</span><span class="value ok">68.708829</span></div>
         <div class="metric"><span class="label">Safety champion</span><span class="value ">GapFade</span></div>
-        <div class="metric"><span class="label">Safety score</span><span class="value ">43.329326</span></div>
+        <div class="metric"><span class="label">Safety score</span><span class="value ">43.804326</span></div>
         <p>Green-number mode and production-safety mode, frozen separately. Both keep hard safety invariants.</p>
       </div>
     </div>
@@ -128,10 +128,10 @@ footer .meta{font-family:var(--mono);font-size:11.5px;color:var(--faint);letter-
       <div class="card">
         <h3>Deflated Sharpe · PBO · MinTRL</h3>
         <div class="metric"><span class="label">Trials searched (N)</span><span class="value ">9720</span></div>
-        <div class="metric"><span class="label">Raw per-session Sharpe</span><span class="value ">0.6718</span></div>
-        <div class="metric"><span class="label">Best-of-N luck bar</span><span class="value ">1.6635</span></div>
-        <div class="metric"><span class="label">Deflated Sharpe</span><span class="value warn">0.7%</span></div>
-        <div class="metric"><span class="label">Min track record</span><span class="value ">5 sessions</span></div>
+        <div class="metric"><span class="label">Raw per-session Sharpe</span><span class="value ">0.5984</span></div>
+        <div class="metric"><span class="label">Best-of-N luck bar</span><span class="value ">1.4885</span></div>
+        <div class="metric"><span class="label">Deflated Sharpe</span><span class="value warn">0.4%</span></div>
+        <div class="metric"><span class="label">Min track record</span><span class="value ">6 sessions</span></div>
         <div class="metric"><span class="label">PBO (overfit prob.)</span><span class="value ">accruing</span></div>
         <p>We tested the raw convergence edge honestly: after correcting for 9720 trials it is <b>not yet statistically significant</b>. The raw edge alone isn't the product — NightDesk's value is turning noisy gaps into <b>certified, gated, executable</b> decisions. <code>npm run overfit:stats</code></p>
       </div>
@@ -174,15 +174,15 @@ footer .meta{font-family:var(--mono);font-size:11.5px;color:var(--faint);letter-
       <div class="card">
         <h3>Forward (OOS) Record</h3>
         <div class="metric"><span class="label">Champion locked</span><span class="value ok">YES</span></div>
-        <div class="metric"><span class="label">Forward sessions (post-freeze)</span><span class="value ">1</span></div>
-        <div class="metric"><span class="label">OOS session bank</span><span class="value ">5 / 10 target</span></div>
+        <div class="metric"><span class="label">Forward sessions (post-freeze)</span><span class="value ">2</span></div>
+        <div class="metric"><span class="label">OOS session bank</span><span class="value ">6 / 10 target</span></div>
         <div class="metric"><span class="label">Recorder</span><span class="value warn">once_complete</span></div>
         <div class="metric"><span class="label">Snapshots recorded</span><span class="value ">1</span></div>
         <p>The record grows every session against a <b>locked</b> champion. Early sample shown as a live counter, not invented history.</p>
       </div>
       <div class="card">
         <h3>Data Health</h3>
-        <div class="metric"><span class="label">Bitget rToken quote</span><span class="value ok">ok</span></div><div class="metric"><span class="label">Bitget smoke log</span><span class="value ok">ok</span></div><div class="metric"><span class="label">NYSE/Yahoo anchor</span><span class="value ok">ok</span></div><div class="metric"><span class="label">Recorded snapshots</span><span class="value ok">ok</span></div><div class="metric"><span class="label">Alpha Factory</span><span class="value ok">ok</span></div><div class="metric"><span class="label">Paper execution</span><span class="value ok">ok</span></div><div class="metric"><span class="label">Ledger</span><span class="value ok">ok</span></div><div class="metric"><span class="label">Qwen council</span><span class="value ok">ok</span></div><div class="metric"><span class="label">MCP/SDK integration</span><span class="value ok">ok</span></div>
+        <div class="metric"><span class="label">Bitget rToken quote</span><span class="value ok">ok</span></div><div class="metric"><span class="label">Bitget smoke log</span><span class="value ok">ok</span></div><div class="metric"><span class="label">Bitget public stream</span><span class="value ok">ok</span></div><div class="metric"><span class="label">Stream resilience</span><span class="value ok">ok</span></div><div class="metric"><span class="label">Point-in-time store</span><span class="value ok">ok</span></div><div class="metric"><span class="label">Equity anchor consensus</span><span class="value ok">ok</span></div><div class="metric"><span class="label">NYSE/Yahoo anchor</span><span class="value ok">ok</span></div><div class="metric"><span class="label">Recorded snapshots</span><span class="value ok">ok</span></div><div class="metric"><span class="label">Alpha Factory</span><span class="value ok">ok</span></div><div class="metric"><span class="label">Paper execution</span><span class="value ok">ok</span></div><div class="metric"><span class="label">Ledger</span><span class="value ok">ok</span></div><div class="metric"><span class="label">Qwen council</span><span class="value ok">ok</span></div><div class="metric"><span class="label">MCP/SDK integration</span><span class="value ok">ok</span></div>
       </div>
     </div>
   </section>

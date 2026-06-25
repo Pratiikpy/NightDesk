@@ -2,9 +2,9 @@
 
 Championship Mode exists to compete on raw paper PnL while keeping it separate from the production-oriented Safety Champion.
 
-Sessions: 5
+Sessions: 6
 Strategy candidates: 10515
-Trials: 52575
+Trials: 63090
 
 ## Winners
 

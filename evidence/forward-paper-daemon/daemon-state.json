@@ -1,15 +1,15 @@
 {
-  "generatedAt": "2026-06-18T03:37:30.021Z",
-  "runId": "forward_2026-06-18T03-37-29-624Z",
+  "generatedAt": "2026-06-24T16:10:29.394Z",
+  "runId": "forward_2026-06-24T16-10-28-823Z",
   "championId": "perp_gap_fade_e0p35_x0_tp2_sl0p75_h9999_n0p5_m2",
   "frozenAt": "2026-06-17T16:08:20.334Z",
   "championLocked": true,
-  "sessions": 5,
+  "sessions": 6,
   "totalPnl": 45.339496,
   "totalTrades": 8,
-  "forwardSessions": 1,
+  "forwardSessions": 2,
   "forwardPnl": -2.049783,
   "forwardTrades": 1,
-  "ledgerHash": "fdbefc7388bfe8e054346ec120c5aa4dd8a7a87749266a2ef612bfaafcb83e1e",
+  "ledgerHash": "c5526f4eb61573b63e52400b50de4e501d58372d4608593ad1d969a391e2d05a",
   "note": "Frozen champion replayed over every recorded session. Sessions recorded after frozen_at are forward/out-of-sample; lock the champion (--lock) so a later re-fit can't disturb the forward track record."
 }

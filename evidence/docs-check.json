@@ -1,6 +1,10 @@
 {
-  "generatedAt": "2026-06-18T03:41:33.676Z",
+  "generatedAt": "2026-06-25T00:06:43.198Z",
   "ok": true,
+  "canonical": {
+    "tests": 215,
+    "gates": 15
+  },
   "rows": [
     {
       "file": "README.md",
@@ -8,6 +12,10 @@
     },
     {
       "file": "SUBMISSION.md",
+      "exists": true
+    },
+    {
+      "file": "PROJECT.md",
       "exists": true
     },
     {

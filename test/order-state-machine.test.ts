@@ -65,6 +65,25 @@ test("can cancel/expire an open order; cannot fill a canceled order", () => {
   assert.equal(o.filledQty, 3); // partial fills are preserved on cancel
 });
 
+test("a fill may race a cancel request until cancel acknowledgement", () => {
+  const order = new OrderLifecycle(10).apply({ type: "Submit" }).apply({ type: "Accept" });
+  order.apply({ type: "CancelRequest" });
+  assert.equal(order.status, "CancelPending");
+  order.apply({ type: "Fill", fillQty: 3 });
+  assert.equal(order.status, "CancelPending");
+  assert.equal(order.filledQty, 3);
+  order.apply({ type: "CancelAck" });
+  assert.equal(order.status, "Canceled");
+  assert.equal(order.filledQty, 3);
+});
+
+test("a full late fill wins the race against cancel acknowledgement", () => {
+  const order = new OrderLifecycle(2).apply({ type: "Submit" }).apply({ type: "Accept" }).apply({ type: "CancelRequest" });
+  order.apply({ type: "Fill", fillQty: 2 });
+  assert.equal(order.status, "Filled");
+  assert.throws(() => order.apply({ type: "CancelAck" }), /terminal/);
+});
+
 test("transition() is a pure lookup returning null for illegal moves", () => {
   assert.equal(transition("Initialized", "Submit"), "Submitted");
   assert.equal(transition("Accepted", "Fill"), "PartiallyFilled");
@@ -92,7 +111,7 @@ test("constructor rejects non-positive quantity", () => {
 
 test("every terminal state has no outgoing transitions", () => {
   for (const s of TERMINAL_STATES) {
-    for (const ev of ["Submit", "Deny", "Reject", "Accept", "Fill", "Cancel", "Expire"] as const) {
+    for (const ev of ["Submit", "Deny", "Reject", "Accept", "Fill", "CancelRequest", "CancelAck", "Cancel", "Expire"] as const) {
       assert.equal(transition(s, ev), null, `${s} should have no outgoing ${ev}`);
     }
   }

@@ -1,0 +1,29 @@
+{
+  "generatedAt": "2026-06-24T14:44:44.898Z",
+  "mode": "public-read-only",
+  "credentialsUsed": false,
+  "writesEnabled": false,
+  "success": true,
+  "records": 2,
+  "channels": [
+    "ticker",
+    "books5"
+  ],
+  "gaps": 0,
+  "finalStatus": {
+    "state": "stopped",
+    "connectionAttempt": 1,
+    "reconnects": 0,
+    "records": 2,
+    "gaps": 0,
+    "lastMessageAt": 1782312284897,
+    "lastBackfillAt": null,
+    "nextReconnectAt": null,
+    "circuit": {
+      "state": "closed",
+      "failures": 0,
+      "retryAt": null
+    }
+  },
+  "errors": []
+}

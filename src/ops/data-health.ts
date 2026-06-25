@@ -30,6 +30,10 @@ export function runDataHealth(): void {
   const rows: SourceHealth[] = [
     { source: "Bitget rToken quote", status: has("evidence/bitget-live/live-market-snapshot.json") ? "ok" : "missing", evidence: `symbol=${snapshotSymbol()}`, role: "live/public market proof" },
     { source: "Bitget smoke log", status: has("evidence/bitget-live/bitget-smoke-log.jsonl") ? "ok" : "warn", evidence: "evidence/bitget-live/bitget-smoke-log.jsonl", role: "read-only adapter proof" },
+    { source: "Bitget public stream", status: has("evidence/data-platform/live-stream-smoke.json") ? "ok" : "warn", evidence: "evidence/data-platform/live-stream-smoke.json", role: "live ticker/book stream receipt" },
+    { source: "Stream resilience", status: has("evidence/data-platform/stream-resilience-proof.json") ? "ok" : "missing", evidence: "evidence/data-platform/stream-resilience-proof.json", role: "reconnect/backfill/heartbeat/circuit proof" },
+    { source: "Point-in-time store", status: has("evidence/data-platform/point-in-time-proof.json") ? "ok" : "missing", evidence: "evidence/data-platform/point-in-time-proof.json", role: "immutable replay and leakage proof" },
+    { source: "Equity anchor consensus", status: has("evidence/data-platform/live-anchor-comparison.json") ? "ok" : "warn", evidence: "evidence/data-platform/live-anchor-comparison.json", role: "independent source agreement" },
     { source: "NYSE/Yahoo anchor", status: has("evidence/oos/session-summary.csv") ? "ok" : "warn", evidence: "evidence/oos/session-summary.csv", role: "fair-value anchor study" },
     { source: "Recorded snapshots", status: has("data/snapshots") ? "ok" : "missing", evidence: "data/snapshots/*.jsonl", role: "replay/OOS/alpha factory base" },
     { source: "Alpha Factory", status: has("evidence/alpha-factory/manifest.json") ? "ok" : "missing", evidence: "evidence/alpha-factory/manifest.json", role: "strategy research data" },

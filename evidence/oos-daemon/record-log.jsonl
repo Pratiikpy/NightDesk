@@ -222,3 +222,4 @@
 {"timestamp":"2026-06-18T03:17:39.328Z","file":"C:\\Users\\prate\\Downloads\\bitget\\data\\snapshots\\2026-06-18.jsonl","tokens":19,"snapshotTime":"2026-06-18T03:17:29.462Z","vsPerpNonNormal":0,"vsEquityDepeg":18}
 {"timestamp":"2026-06-18T03:23:00.285Z","file":"C:\\Users\\prate\\Downloads\\bitget\\data\\snapshots\\2026-06-18.jsonl","tokens":19,"snapshotTime":"2026-06-18T03:22:39.337Z","vsPerpNonNormal":0,"vsEquityDepeg":18}
 {"timestamp":"2026-06-18T03:37:29.623Z","file":"C:\\Users\\prate\\Downloads\\bitget\\data\\snapshots\\2026-06-18.jsonl","tokens":19,"snapshotTime":"2026-06-18T03:37:20.158Z","vsPerpNonNormal":0,"vsEquityDepeg":17}
+{"timestamp":"2026-06-24T16:10:28.822Z","file":"C:\\Users\\prate\\Downloads\\bitget\\data\\snapshots\\2026-06-24.jsonl","tokens":19,"snapshotTime":"2026-06-24T16:10:25.916Z","vsPerpNonNormal":0,"vsEquityDepeg":0,"normalizedEvents":64,"normalizedDuplicates":0}

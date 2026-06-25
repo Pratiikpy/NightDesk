@@ -1,0 +1,11 @@
+{
+  "sourcesRequired": 2,
+  "consensusTradeable": true,
+  "selectedObservedPrice": 100.1,
+  "inventedAverageAvoided": true,
+  "sourceProvenancePreserved": true,
+  "priceContradictionFailsClosed": true,
+  "marketStateContradictionFailsClosed": true,
+  "singleSourceFailsClosed": true,
+  "staleSourcesFailClosed": true
+}

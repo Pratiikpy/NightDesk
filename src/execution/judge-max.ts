@@ -32,6 +32,16 @@ import { runCacheIntegrity } from "../data/cache-integrity";
 import { runOosBackground } from "../ops/oos-background";
 import { runLiveReceipt } from "./live-receipt";
 import { runChampionshipMode } from "../research/championship/championship-mode";
+import { runGatewayProof } from "../gateway/proof";
+import { runDataPlatformProof } from "../data/platform-proof";
+import { runStreamResilienceProof } from "../data/stream-proof";
+import { runAnchorRedundancyProof } from "../anchor/anchor-proof";
+import { runDataCoverage } from "../data/coverage";
+import { runMonth2ExitAudit } from "../data/month2-exit-audit";
+import { runExecutionV2Proof } from "./execution-v2-proof";
+import { runLiveShadowCalibration } from "./live-shadow-calibration";
+import { runMonth3ExitAudit } from "./month3-exit-audit";
+import { runMonth4ExitAudit } from "../research/month4-exit-audit";
 
 const evidenceFiles = [
   "evidence/trading-log/nightdesk-paper-trading-log.csv",
@@ -95,6 +105,11 @@ const evidenceFiles = [
   "evidence/alpha-factory/bench-results.csv",
   "evidence/alpha-factory/agent-scorecards.md",
   "evidence/alpha-factory/manifest.json",
+  "evidence/alpha-factory/strategy-catalog.jsonl",
+  "evidence/alpha-factory/stability-surface.csv",
+  "evidence/alpha-factory/champion-registry.json",
+  "evidence/alpha-factory/month4-exit-audit.json",
+  "evidence/alpha-factory/month4-exit-audit.md",
   "evidence/alpha-factory/alpha-zoo-catalog.csv",
   "evidence/alpha-factory/alpha-zoo-catalog.md",
   "evidence/alpha-factory/strategy-compare.csv",
@@ -152,6 +167,37 @@ const evidenceFiles = [
   "evidence/championship/champion-overfit-card.md",
   "evidence/championship/trial-registry.csv",
   "evidence/championship/manifest.json",
+  "evidence/trading-gateway/runtime-foundation.json",
+  "evidence/trading-gateway/runtime-foundation.md",
+  "evidence/trading-gateway/idempotency-journal.jsonl",
+  "evidence/data-platform/point-in-time-proof.json",
+  "evidence/data-platform/point-in-time-report.md",
+  "evidence/data-platform/normalized-events.jsonl",
+  "evidence/data-platform/sequence-gaps.jsonl",
+  "evidence/data-platform/stream-resilience-proof.json",
+  "evidence/data-platform/stream-resilience-report.md",
+  "evidence/data-platform/live-stream-smoke.json",
+  "evidence/data-platform/live-stream-records.jsonl",
+  "evidence/data-platform/live-stream-status.jsonl",
+  "evidence/data-platform/anchor-redundancy-proof.json",
+  "evidence/data-platform/anchor-redundancy-report.md",
+  "evidence/data-platform/live-anchor-comparison.json",
+  "evidence/data-platform/live-anchor-universe.json",
+  "evidence/data-platform/live-anchor-universe.csv",
+  "evidence/data-platform/coverage.json",
+  "evidence/data-platform/coverage.csv",
+  "evidence/data-platform/coverage-report.md",
+  "evidence/data-platform/month2-exit-audit.json",
+  "evidence/data-platform/month2-exit-audit.md",
+  "evidence/execution-v2/execution-v2-proof.json",
+  "evidence/execution-v2/execution-v2-report.md",
+  "evidence/execution-v2/account-events.jsonl",
+  "evidence/execution-v2/durable-account-events.jsonl",
+  "evidence/execution-v2/live-shadow-calibration.json",
+  "evidence/execution-v2/live-shadow-calibration.csv",
+  "evidence/execution-v2/live-shadow-calibration.md",
+  "evidence/execution-v2/month3-exit-audit.json",
+  "evidence/execution-v2/month3-exit-audit.md",
   "evidence/manifest.json",
   "docs/PNL_CLAIM_STANDARD.md",
   "docs/EXECUTION_INTEGRITY.md",
@@ -172,40 +218,62 @@ function writeMaxManifest(): boolean {
   return ok;
 }
 
+async function runStage(name: string, action: () => unknown | Promise<unknown>): Promise<void> {
+  const startedAt = performance.now();
+  console.log(`[judge:max] START ${name}`);
+  try {
+    await action();
+    console.log(`[judge:max] PASS  ${name} (${((performance.now() - startedAt) / 1_000).toFixed(1)}s)`);
+  } catch (error) {
+    console.error(`[judge:max] FAIL  ${name} (${((performance.now() - startedAt) / 1_000).toFixed(1)}s)`);
+    throw error;
+  }
+}
+
 export async function runJudgeMax(): Promise<void> {
-  await runJudge();
-  await runPaperSession([]);
-  runGuardedReplay([]);
-  runAgentArenaV2([]);
-  runResearchNode([]);
-  runOosReport([]);
-  runSessionBank();
-  runWalkForwardPnl([]);
-  runFillRealism();
-  runIntegrationProof();
-  await runBitgetReadOnlyProof();
-  runOutcomeAudit();
-  runPnlCasefile();
-  runAlphaChampionship([]);
-  runAlphaFactory([]);
-  runAlphaZoo();
-  runAlphaCompare();
-  runShadowGateway();
-  runClaimLedger();
-  runRunCards();
-  runDoctor();
-  runDataHealth();
-  runDocsCheck();
-  runSecretsScan();
-  runForwardPaperDaemon([]);
-  runDailyPromoter();
-  runSecurityReport();
-  runBitgetCompatReport();
-  runCacheIntegrity();
-  await runOosBackground(["--once"]);
-  runLiveReceipt([]);
-  runChampionshipMode([]);
-  runJudgeCockpit();
+  await runStage("judge core", runJudge);
+  await runStage("paper session", () => runPaperSession([]));
+  await runStage("guarded replay", () => runGuardedReplay([]));
+  await runStage("agent arena v2", () => runAgentArenaV2([]));
+  await runStage("research node", () => runResearchNode([]));
+  await runStage("OOS report", () => runOosReport([]));
+  await runStage("session bank", runSessionBank);
+  await runStage("walk-forward PnL", () => runWalkForwardPnl([]));
+  await runStage("fill realism", runFillRealism);
+  await runStage("integration proof", runIntegrationProof);
+  await runStage("Bitget read-only proof", runBitgetReadOnlyProof);
+  await runStage("outcome audit", runOutcomeAudit);
+  await runStage("PnL casefile", runPnlCasefile);
+  await runStage("alpha championship", () => runAlphaChampionship([]));
+  await runStage("alpha factory", () => runAlphaFactory([]));
+  await runStage("Month 4 exit audit", runMonth4ExitAudit);
+  await runStage("alpha zoo", runAlphaZoo);
+  await runStage("alpha compare", runAlphaCompare);
+  await runStage("shadow gateway", runShadowGateway);
+  await runStage("claim ledger", runClaimLedger);
+  await runStage("run cards", runRunCards);
+  await runStage("doctor", runDoctor);
+  await runStage("point-in-time data proof", runDataPlatformProof);
+  await runStage("stream resilience proof", runStreamResilienceProof);
+  await runStage("anchor redundancy proof", runAnchorRedundancyProof);
+  await runStage("docs check", runDocsCheck);
+  await runStage("secrets scan", runSecretsScan);
+  await runStage("forward paper daemon", () => runForwardPaperDaemon([]));
+  await runStage("daily promoter", runDailyPromoter);
+  await runStage("security report", runSecurityReport);
+  await runStage("Bitget compatibility report", runBitgetCompatReport);
+  await runStage("cache integrity", runCacheIntegrity);
+  await runStage("OOS background tick", () => runOosBackground(["--once"]));
+  await runStage("data coverage", runDataCoverage);
+  await runStage("Month 2 exit audit", runMonth2ExitAudit);
+  await runStage("execution engine v2 proof", runExecutionV2Proof);
+  await runStage("live shadow execution calibration", runLiveShadowCalibration);
+  await runStage("Month 3 exit audit", runMonth3ExitAudit);
+  await runStage("data health", runDataHealth);
+  await runStage("live receipt", () => runLiveReceipt([]));
+  await runStage("championship mode", () => runChampionshipMode([]));
+  await runStage("gateway proof", runGatewayProof);
+  await runStage("judge cockpit", runJudgeCockpit);
   const ok = writeMaxManifest();
   if (!ok) process.exitCode = 1;
 }

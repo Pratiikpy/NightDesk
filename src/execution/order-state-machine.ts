@@ -14,11 +14,12 @@ export type OrderStatus =
   | "Rejected" // venue rejection (post-submit)
   | "Accepted"
   | "PartiallyFilled"
+  | "CancelPending"
   | "Filled"
   | "Canceled"
   | "Expired";
 
-export type OrderEventType = "Submit" | "Deny" | "Reject" | "Accept" | "Fill" | "Cancel" | "Expire";
+export type OrderEventType = "Submit" | "Deny" | "Reject" | "Accept" | "Fill" | "CancelRequest" | "CancelAck" | "Cancel" | "Expire";
 
 /** Typed denial reasons for the internal `Denied` path — mirror NightDesk's hard risk gates. */
 export type DenialReason =
@@ -46,8 +47,9 @@ export const TERMINAL_STATES: ReadonlySet<OrderStatus> = new Set<OrderStatus>([
 const TABLE: Record<OrderStatus, Partial<Record<OrderEventType, OrderStatus>>> = {
   Initialized: { Deny: "Denied", Submit: "Submitted" },
   Submitted: { Reject: "Rejected", Accept: "Accepted", Cancel: "Canceled", Expire: "Expired" },
-  Accepted: { Fill: "PartiallyFilled", Cancel: "Canceled", Expire: "Expired" },
-  PartiallyFilled: { Fill: "PartiallyFilled", Cancel: "Canceled", Expire: "Expired" },
+  Accepted: { Fill: "PartiallyFilled", CancelRequest: "CancelPending", Cancel: "Canceled", Expire: "Expired" },
+  PartiallyFilled: { Fill: "PartiallyFilled", CancelRequest: "CancelPending", Cancel: "Canceled", Expire: "Expired" },
+  CancelPending: { Fill: "CancelPending", CancelAck: "Canceled", Expire: "Expired" },
   Denied: {},
   Rejected: {},
   Filled: {},
@@ -94,7 +96,7 @@ export class OrderLifecycle {
         throw new Error(`overfill: ${this.filledQty + q} would exceed order quantity ${this.quantity}`);
       }
       this.filledQty += q;
-      this.status = this.filledQty >= this.quantity - EPS ? "Filled" : "PartiallyFilled";
+      this.status = this.filledQty >= this.quantity - EPS ? "Filled" : next;
     } else {
       this.status = next;
       if (ev.type === "Deny") this.denialReason = ev.reason ?? null;

@@ -14,7 +14,7 @@ Fail: 0
 | PASS | same-agent guarded delta is present | 5 same-agent pairs; pnl improved in 0, drawdown reduced in 2 |
 | PASS | arena downside behavior | NightDesk max DD 0.8058 USDT is at/below arena median 1.6593 |
 | WARN | walk-forward differential | no demonstrated walk-forward PnL uplift yet: positive=0, negative=0, total_delta=0.0000 USDT |
-| WARN | OOS session depth | 5 sessions, 4 active. This is enough for a hackathon evidence pack, not enough for a production alpha claim. |
+| WARN | OOS session depth | 6 sessions, 4 active. This is enough for a hackathon evidence pack, not enough for a production alpha claim. |
 | PASS | fill realism outcome cases | 7/7 fill realism cases pass |
 | PASS | external integration proof | 5 external agent calls, verdicts: ALLOW |
 | PASS | live/read-only Bitget proof | read-only live/public snapshot present for RAAPLUSDT |

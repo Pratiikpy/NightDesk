@@ -99,6 +99,11 @@ export function verifyEvidenceArtifacts(): ArtifactCheck[] {
     "evidence/alpha-factory/bench-results.csv",
     "evidence/alpha-factory/agent-scorecards.md",
     "evidence/alpha-factory/manifest.json",
+    "evidence/alpha-factory/strategy-catalog.jsonl",
+    "evidence/alpha-factory/stability-surface.csv",
+    "evidence/alpha-factory/champion-registry.json",
+    "evidence/alpha-factory/month4-exit-audit.json",
+    "evidence/alpha-factory/month4-exit-audit.md",
     "evidence/alpha-factory/alpha-zoo-catalog.csv",
     "evidence/alpha-factory/alpha-zoo-catalog.md",
     "evidence/alpha-factory/strategy-compare.csv",
@@ -156,6 +161,37 @@ export function verifyEvidenceArtifacts(): ArtifactCheck[] {
     "evidence/championship/champion-overfit-card.md",
     "evidence/championship/trial-registry.csv",
     "evidence/championship/manifest.json",
+    "evidence/trading-gateway/runtime-foundation.json",
+    "evidence/trading-gateway/runtime-foundation.md",
+    "evidence/trading-gateway/idempotency-journal.jsonl",
+    "evidence/data-platform/point-in-time-proof.json",
+    "evidence/data-platform/point-in-time-report.md",
+    "evidence/data-platform/normalized-events.jsonl",
+    "evidence/data-platform/sequence-gaps.jsonl",
+    "evidence/data-platform/stream-resilience-proof.json",
+    "evidence/data-platform/stream-resilience-report.md",
+    "evidence/data-platform/live-stream-smoke.json",
+    "evidence/data-platform/live-stream-records.jsonl",
+    "evidence/data-platform/live-stream-status.jsonl",
+    "evidence/data-platform/anchor-redundancy-proof.json",
+    "evidence/data-platform/anchor-redundancy-report.md",
+    "evidence/data-platform/live-anchor-comparison.json",
+    "evidence/data-platform/live-anchor-universe.json",
+    "evidence/data-platform/live-anchor-universe.csv",
+    "evidence/data-platform/coverage.json",
+    "evidence/data-platform/coverage.csv",
+    "evidence/data-platform/coverage-report.md",
+    "evidence/data-platform/month2-exit-audit.json",
+    "evidence/data-platform/month2-exit-audit.md",
+    "evidence/execution-v2/execution-v2-proof.json",
+    "evidence/execution-v2/execution-v2-report.md",
+    "evidence/execution-v2/account-events.jsonl",
+    "evidence/execution-v2/durable-account-events.jsonl",
+    "evidence/execution-v2/live-shadow-calibration.json",
+    "evidence/execution-v2/live-shadow-calibration.csv",
+    "evidence/execution-v2/live-shadow-calibration.md",
+    "evidence/execution-v2/month3-exit-audit.json",
+    "evidence/execution-v2/month3-exit-audit.md",
     "evidence/manifest.json",
     "docs/PNL_CLAIM_STANDARD.md",
     "docs/EXECUTION_INTEGRITY.md",
@@ -443,6 +479,250 @@ export function verifyEvidenceArtifacts(): ArtifactCheck[] {
     const manifest = JSON.parse(read("evidence/championship/manifest.json")) as { candidates?: number; trials?: number };
     if (!manifest.candidates || manifest.candidates < 1000) return "too few championship candidates";
     if (!manifest.trials || manifest.trials < manifest.candidates) return "too few championship trials";
+    return true;
+  }));
+
+  checks.push(check("trading gateway runtime foundation prevents duplicate execution", () => {
+    const proof = JSON.parse(read("evidence/trading-gateway/runtime-foundation.json")) as {
+      protocolVersion?: string;
+      controls?: Record<string, boolean>;
+      duplicateRequest?: { sameRunId?: boolean; executionCount?: number; firstReplayed?: boolean; duplicateReplayed?: boolean };
+      rateLimit?: { firstAllowed?: boolean; secondAllowed?: boolean };
+      runtime?: { readyBeforeDrain?: boolean; readyAfterDrain?: boolean; liveAfterDrain?: boolean; acceptingAfterDrain?: boolean };
+    };
+    if (proof.protocolVersion !== "nightdesk.v1") return "bad gateway protocol version";
+    if (!proof.controls || Object.values(proof.controls).some((value) => value !== true)) return "gateway control missing";
+    if (!proof.duplicateRequest?.sameRunId || proof.duplicateRequest.executionCount !== 1) return "duplicate execution was not suppressed";
+    if (proof.duplicateRequest.firstReplayed !== false || proof.duplicateRequest.duplicateReplayed !== true) return "bad idempotency replay evidence";
+    if (!proof.rateLimit?.firstAllowed || proof.rateLimit.secondAllowed !== false) return "rate-limit proof failed";
+    if (!proof.runtime?.readyBeforeDrain || proof.runtime.readyAfterDrain !== false) return "readiness did not fail closed on drain";
+    if (!proof.runtime.liveAfterDrain || proof.runtime.acceptingAfterDrain !== false) return "bad drain liveness evidence";
+    const journal = jsonl("evidence/trading-gateway/idempotency-journal.jsonl") as { status?: string }[];
+    if (journal.length !== 2 || journal[0]?.status !== "running" || journal[1]?.status !== "completed") return "bad idempotency journal lifecycle";
+    return true;
+  }));
+
+  checks.push(check("point-in-time data platform excludes leakage and quarantined observations", () => {
+    const proof = JSON.parse(read("evidence/data-platform/point-in-time-proof.json")) as {
+      schemaVersion?: string;
+      eventsWritten?: number;
+      pointInTimeEvents?: number;
+      futureEventsExcluded?: number;
+      quarantinedEventsExcluded?: number;
+      sequenceGapsDetected?: number;
+      deterministicReplay?: boolean;
+      replayHash?: string;
+      contradictionFailsClosed?: boolean;
+      duplicateStatus?: string;
+      statusCounts?: Record<string, number>;
+      calendarHorizon2027?: boolean;
+      futureCorporateActionExcluded?: boolean;
+      splitAdjustmentCorrect?: boolean;
+    };
+    if (proof.schemaVersion !== "nightdesk.data.v1") return "bad data schema version";
+    if (proof.eventsWritten !== 4 || proof.pointInTimeEvents !== 2) return "bad point-in-time event counts";
+    if (proof.futureEventsExcluded !== 1 || proof.quarantinedEventsExcluded !== 1) return "leakage/quarantine exclusion failed";
+    if (proof.sequenceGapsDetected !== 1) return "sequence gap was not detected";
+    if (!proof.deterministicReplay || !/^[a-f0-9]{64}$/.test(proof.replayHash ?? "")) return "deterministic replay proof failed";
+    if (!proof.contradictionFailsClosed) return "contradictory anchors did not fail closed";
+    if (proof.duplicateStatus !== "duplicate") return "duplicate data append was not idempotent";
+    if (!proof.statusCounts?.quarantined || !proof.statusCounts?.degraded) return "quality status coverage incomplete";
+    if (!proof.calendarHorizon2027) return "generated exchange calendar does not cover the one-year horizon";
+    if (!proof.futureCorporateActionExcluded || !proof.splitAdjustmentCorrect) return "point-in-time corporate-action handling failed";
+    const normalized = jsonl("evidence/data-platform/normalized-events.jsonl") as { schemaVersion?: string; payloadHash?: string }[];
+    if (normalized.length !== 4 || !normalized.every((row) => row.schemaVersion === "nightdesk.data.v1" && /^[a-f0-9]{64}$/.test(row.payloadHash ?? ""))) return "normalized event evidence invalid";
+    const gaps = jsonl("evidence/data-platform/sequence-gaps.jsonl") as { expected?: number; actual?: number }[];
+    if (gaps.length !== 1 || gaps[0]?.expected !== 2 || gaps[0]?.actual !== 3) return "sequence gap evidence invalid";
+    return true;
+  }));
+
+  checks.push(check("public stream runtime reconnects, backfills, heartbeats, and opens its circuit", () => {
+    const proof = JSON.parse(read("evidence/data-platform/stream-resilience-proof.json")) as Record<string, unknown>;
+    const requiredTrue = [
+      "subscriptionSent",
+      "sequenceGapDetected",
+      "sequenceRegressionRejected",
+      "gapBackfillCompleted",
+      "reconnectBackfillCompleted",
+      "heartbeatSent",
+      "circuitOpened",
+      "halfOpenProbeAllowed",
+      "parserAcceptedKnownChannel",
+    ];
+    const failed = requiredTrue.filter((field) => proof[field] !== true);
+    if (failed.length) return `stream controls failed: ${failed.join(", ")}`;
+    if (proof.credentialsRequired !== false || proof.writesEnabled !== false) return "stream proof is not read-only";
+    if (proof.finalState !== "stopped") return "stream did not stop cleanly";
+    const delays = proof.boundedReconnectDelaysMs as number[];
+    if (!Array.isArray(delays) || delays.join(",") !== "100,200,400,800,800") return "reconnect delays are not bounded";
+    return true;
+  }));
+
+  checks.push(check("live public stream receipt contains ticker and book data without credentials", () => {
+    const smoke = JSON.parse(read("evidence/data-platform/live-stream-smoke.json")) as {
+      mode?: string;
+      credentialsUsed?: boolean;
+      writesEnabled?: boolean;
+      success?: boolean;
+      records?: number;
+      channels?: string[];
+      errors?: string[];
+    };
+    if (smoke.mode !== "public-read-only" || smoke.credentialsUsed !== false || smoke.writesEnabled !== false) return "live stream receipt is not read-only";
+    if (!smoke.success || Number(smoke.records) < 2) return "live stream did not deliver sufficient records";
+    if (!smoke.channels?.includes("ticker") || !smoke.channels.includes("books5")) return "live stream did not prove ticker and book channels";
+    if (smoke.errors?.length) return `live stream reported errors: ${smoke.errors.join(", ")}`;
+    const records = jsonl("evidence/data-platform/live-stream-records.jsonl") as { topic?: { channel?: string }; payload?: unknown }[];
+    if (!records.some((row) => row.topic?.channel === "ticker") || !records.some((row) => row.topic?.channel === "books5")) return "live stream records lack required channels";
+    if (/api[_-]?key|secret|passphrase/i.test(JSON.stringify(records))) return "live stream records contain credential-like fields";
+    return true;
+  }));
+
+  checks.push(check("equity anchors require fresh independent agreement and have a live receipt", () => {
+    const proof = JSON.parse(read("evidence/data-platform/anchor-redundancy-proof.json")) as Record<string, unknown>;
+    const requiredTrue = [
+      "consensusTradeable",
+      "inventedAverageAvoided",
+      "sourceProvenancePreserved",
+      "priceContradictionFailsClosed",
+      "marketStateContradictionFailsClosed",
+      "singleSourceFailsClosed",
+      "staleSourcesFailClosed",
+    ];
+    const failed = requiredTrue.filter((field) => proof[field] !== true);
+    if (failed.length) return `anchor controls failed: ${failed.join(", ")}`;
+    if (proof.sourcesRequired !== 2) return "anchor proof does not require two sources";
+    const live = JSON.parse(read("evidence/data-platform/live-anchor-comparison.json")) as {
+      mode?: string;
+      credentialsUsed?: boolean;
+      writesEnabled?: boolean;
+      sources?: { source?: string; price?: number; asOf?: number }[];
+      resolution?: { status?: string; tradeable?: boolean; maxDeviationPct?: number };
+      success?: boolean;
+    };
+    if (live.mode !== "public-read-only" || live.credentialsUsed !== false || live.writesEnabled !== false) return "live anchor receipt is not read-only";
+    if (!live.success || live.resolution?.status !== "consensus" || live.resolution.tradeable !== true) return "live anchor sources did not reach consensus";
+    if (live.sources?.length !== 2 || new Set(live.sources.map((row) => row.source)).size !== 2) return "live anchor receipt lacks two independent sources";
+    if (!live.sources.every((row) => Number.isFinite(row.price) && Number.isFinite(row.asOf))) return "live anchor receipt contains invalid observations";
+    const universe = JSON.parse(read("evidence/data-platform/live-anchor-universe.json")) as {
+      mode?: string;
+      credentialsUsed?: boolean;
+      writesEnabled?: boolean;
+      universeSize?: number;
+      consensus?: number;
+      coveragePct?: number;
+      allPairsConfirmed?: boolean;
+      rows?: { status?: string; tradeable?: boolean; source_count?: number }[];
+    };
+    if (universe.mode !== "public-read-only" || universe.credentialsUsed !== false || universe.writesEnabled !== false) return "universe anchor receipt is not read-only";
+    if (universe.universeSize !== 19 || universe.consensus !== 19 || universe.coveragePct !== 100 || !universe.allPairsConfirmed) return "live universe anchor coverage is incomplete";
+    if (universe.rows?.length !== 19 || !universe.rows.every((row) => row.status === "consensus" && row.tradeable === true && row.source_count === 2)) return "live universe contains unconfirmed anchor rows";
+    return true;
+  }));
+
+  checks.push(check("normalized real-data coverage is quantified and currently healthy", () => {
+    const coverage = JSON.parse(read("evidence/data-platform/coverage.json")) as {
+      schemaVersion?: string;
+      events?: number;
+      streamCount?: number;
+      instruments?: number;
+      sources?: number;
+      kinds?: number;
+      quarantined?: number;
+      latestValidStreams?: number;
+      latestDegradedStreams?: number;
+      latestQuarantinedStreams?: number;
+      streams?: { events?: number; maxLatencyMs?: number; cadenceGaps?: number }[];
+    };
+    if (coverage.schemaVersion !== "nightdesk.data.v1") return "coverage uses the wrong schema";
+    if (Number(coverage.events) < 64 || coverage.streamCount !== 64 || coverage.instruments !== 19) return "coverage does not include the full normalized universe";
+    if (coverage.sources !== 3 || coverage.kinds !== 3) return "coverage lacks expected source/kind diversity";
+    if (coverage.latestValidStreams !== coverage.streamCount || coverage.latestDegradedStreams !== 0 || coverage.latestQuarantinedStreams !== 0) return "latest stream observations are not all valid";
+    if (!Array.isArray(coverage.streams) || coverage.streams.length !== coverage.streamCount) return "stream coverage rows are incomplete";
+    if (!coverage.streams.every((row) => Number(row.events) >= 1 && Number.isFinite(row.maxLatencyMs) && Number(row.cadenceGaps) >= 0)) return "stream coverage metrics are invalid";
+    return true;
+  }));
+
+  checks.push(check("Month 2 point-in-time data platform passes its requirement audit", () => {
+    const audit = JSON.parse(read("evidence/data-platform/month2-exit-audit.json")) as {
+      milestone?: string;
+      passed?: boolean;
+      rows?: { requirement?: string; passed?: boolean; evidence?: string[] }[];
+    };
+    if (audit.milestone !== "Month 2: Point-in-time data platform" || audit.passed !== true) return "Month 2 audit did not pass";
+    if (!Array.isArray(audit.rows) || audit.rows.length < 10 || !audit.rows.every((row) => row.passed && row.evidence?.length)) return "Month 2 audit rows are incomplete";
+    return true;
+  }));
+
+  checks.push(check("execution v2 enforces realistic fills, venue rules, races, and reconciliation", () => {
+    const proof = JSON.parse(read("evidence/execution-v2/execution-v2-proof.json")) as {
+      schema?: string;
+      passed?: boolean;
+      rows?: { requirement?: string; passed?: boolean }[];
+    };
+    const required = new Set([
+      "limit protection",
+      "partial fill remainder",
+      "venue tick/lot/notional rules",
+      "price-time queue position",
+      "cancel/fill race",
+      "implementation shortfall attribution",
+      "event-sourced account reconciliation",
+      "account drift detection",
+      "durable crash recovery",
+      "deterministic depth event replay",
+    ]);
+    if (proof.schema !== "nightdesk.execution-v2-proof.v1" || proof.passed !== true) return "execution v2 proof did not pass";
+    if (!Array.isArray(proof.rows) || proof.rows.length !== required.size || !proof.rows.every((row) => row.passed && required.has(row.requirement ?? ""))) return "execution v2 proof rows are incomplete";
+    const accountEvents = jsonl("evidence/execution-v2/account-events.jsonl") as { type?: string; sequence?: number }[];
+    if (accountEvents.length < 3 || accountEvents[0]?.type !== "ACCOUNT_OPENED") return "account reconstruction events are incomplete";
+    if (!accountEvents.every((event, index) => event.sequence === index + 1)) return "account event sequence is not contiguous";
+    const durableEvents = jsonl("evidence/execution-v2/durable-account-events.jsonl") as { type?: string; sequence?: number }[];
+    if (durableEvents.length < 2 || durableEvents[0]?.type !== "ACCOUNT_OPENED" || !durableEvents.every((event, index) => event.sequence === index + 1)) return "durable account recovery journal is invalid";
+    return true;
+  }));
+
+  checks.push(check("live shadow execution reports simulator error by liquidity tier", () => {
+    const proof = JSON.parse(read("evidence/execution-v2/live-shadow-calibration.json")) as {
+      schema?: string;
+      mode?: string;
+      credentialsUsed?: boolean;
+      writesEnabled?: boolean;
+      universeSize?: number;
+      symbolsCalibrated?: number;
+      executableSymbols?: number;
+      cases?: number;
+      success?: boolean;
+      tiers?: { tier?: string; symbols?: number; cases?: number; meanDepthCoveragePct?: number | null }[];
+    };
+    if (proof.schema !== "nightdesk.live-shadow-calibration.v1" || proof.mode !== "public-read-only" || proof.credentialsUsed !== false || proof.writesEnabled !== false) return "shadow calibration is not a public read-only receipt";
+    if (!proof.success || proof.universeSize !== 19 || proof.symbolsCalibrated !== 19 || proof.cases !== 114) return "shadow calibration does not cover the full universe";
+    if (!Array.isArray(proof.tiers) || !proof.tiers.some((tier) => tier.tier === "A" && Number(tier.cases) > 0) || !proof.tiers.some((tier) => tier.tier === "D" && Number(tier.cases) > 0 && tier.meanDepthCoveragePct === 0)) return "liquidity-tier error reporting is incomplete";
+    if (!Number.isFinite(proof.executableSymbols) || Number(proof.executableSymbols) < 1) return "live receipt contains no executable books";
+    return true;
+  }));
+
+  checks.push(check("Month 3 execution engine v2 passes its requirement audit", () => {
+    const audit = JSON.parse(read("evidence/execution-v2/month3-exit-audit.json")) as {
+      milestone?: string;
+      passed?: boolean;
+      rows?: { requirement?: string; passed?: boolean; evidence?: string[] }[];
+    };
+    if (audit.milestone !== "Month 3: Execution engine v2" || audit.passed !== true) return "Month 3 audit did not pass";
+    if (!Array.isArray(audit.rows) || audit.rows.length !== 8 || !audit.rows.every((row) => row.passed && row.evidence?.length)) return "Month 3 audit rows are incomplete";
+    return true;
+  }));
+
+  checks.push(check("Month 4 Alpha Factory v2 passes its governance and lineage audit", () => {
+    const audit = JSON.parse(read("evidence/alpha-factory/month4-exit-audit.json")) as {
+      milestone?: string;
+      passed?: boolean;
+      rows?: { requirement?: string; passed?: boolean; evidence?: string[] }[];
+    };
+    if (audit.milestone !== "Month 4: Alpha Factory v2" || audit.passed !== true) return "Month 4 audit did not pass";
+    if (!Array.isArray(audit.rows) || audit.rows.length !== 8 || !audit.rows.every((row) => row.passed && row.evidence?.length)) return "Month 4 audit rows are incomplete";
+    const frozen = JSON.parse(read("evidence/alpha-factory/frozen-champion.json")) as { freezeId?: string };
+    if (!frozen.freezeId || !existsSync(join(root(), "evidence", "alpha-factory", "freezes", `${frozen.freezeId}.json`))) return "immutable champion freeze artifact is missing";
     return true;
   }));
 

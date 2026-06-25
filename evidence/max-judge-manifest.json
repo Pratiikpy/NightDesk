@@ -1,625 +1,805 @@
 {
-  "generatedAt": "2026-06-18T03:38:36.085Z",
+  "generatedAt": "2026-06-25T00:06:54.973Z",
   "manifest": [
     {
       "file": "evidence/trading-log/nightdesk-paper-trading-log.csv",
       "exists": true,
-      "generatedAt": "2026-06-18T03:38:36.079Z"
+      "generatedAt": "2026-06-25T00:06:54.962Z"
     },
     {
       "file": "evidence/trading-log/run-events.jsonl",
       "exists": true,
-      "generatedAt": "2026-06-18T03:38:36.079Z"
+      "generatedAt": "2026-06-25T00:06:54.963Z"
     },
     {
       "file": "evidence/trading-log/block-reasons.csv",
       "exists": true,
-      "generatedAt": "2026-06-18T03:38:36.079Z"
+      "generatedAt": "2026-06-25T00:06:54.963Z"
     },
     {
       "file": "evidence/trading-log/ledger-verification.txt",
       "exists": true,
-      "generatedAt": "2026-06-18T03:38:36.079Z"
+      "generatedAt": "2026-06-25T00:06:54.963Z"
     },
     {
       "file": "evidence/trading-log/guarded-replay/guarded-replay-paper-trading-log.csv",
       "exists": true,
-      "generatedAt": "2026-06-18T03:38:36.079Z"
+      "generatedAt": "2026-06-25T00:06:54.963Z"
     },
     {
       "file": "evidence/agent-arena-v2/arena-v2-summary.json",
       "exists": true,
-      "generatedAt": "2026-06-18T03:38:36.079Z"
+      "generatedAt": "2026-06-25T00:06:54.963Z"
     },
     {
       "file": "evidence/research/walk-forward-report.md",
       "exists": true,
-      "generatedAt": "2026-06-18T03:38:36.079Z"
+      "generatedAt": "2026-06-25T00:06:54.964Z"
     },
     {
       "file": "evidence/research/leaderboard.json",
       "exists": true,
-      "generatedAt": "2026-06-18T03:38:36.079Z"
+      "generatedAt": "2026-06-25T00:06:54.964Z"
     },
     {
       "file": "evidence/oos/oos-report.md",
       "exists": true,
-      "generatedAt": "2026-06-18T03:38:36.079Z"
+      "generatedAt": "2026-06-25T00:06:54.964Z"
     },
     {
       "file": "evidence/oos/session-summary.csv",
       "exists": true,
-      "generatedAt": "2026-06-18T03:38:36.079Z"
+      "generatedAt": "2026-06-25T00:06:54.964Z"
     },
     {
       "file": "evidence/oos/session-bank/session-summary.csv",
       "exists": true,
-      "generatedAt": "2026-06-18T03:38:36.079Z"
+      "generatedAt": "2026-06-25T00:06:54.964Z"
     },
     {
       "file": "evidence/oos/session-bank/session-quality-report.md",
       "exists": true,
-      "generatedAt": "2026-06-18T03:38:36.079Z"
+      "generatedAt": "2026-06-25T00:06:54.964Z"
     },
     {
       "file": "evidence/oos/session-bank/manifest.json",
       "exists": true,
-      "generatedAt": "2026-06-18T03:38:36.079Z"
+      "generatedAt": "2026-06-25T00:06:54.964Z"
     },
     {
       "file": "evidence/walkforward/pnl-report.md",
       "exists": true,
-      "generatedAt": "2026-06-18T03:38:36.079Z"
+      "generatedAt": "2026-06-25T00:06:54.964Z"
     },
     {
       "file": "evidence/walkforward/fold-results.csv",
       "exists": true,
-      "generatedAt": "2026-06-18T03:38:36.079Z"
+      "generatedAt": "2026-06-25T00:06:54.964Z"
     },
     {
       "file": "evidence/walkforward/purged-split-report.md",
       "exists": true,
-      "generatedAt": "2026-06-18T03:38:36.080Z"
+      "generatedAt": "2026-06-25T00:06:54.965Z"
     },
     {
       "file": "evidence/walkforward/purged-split-report.csv",
       "exists": true,
-      "generatedAt": "2026-06-18T03:38:36.080Z"
+      "generatedAt": "2026-06-25T00:06:54.965Z"
     },
     {
       "file": "evidence/fill-model/fill-model-report.md",
       "exists": true,
-      "generatedAt": "2026-06-18T03:38:36.080Z"
+      "generatedAt": "2026-06-25T00:06:54.965Z"
     },
     {
       "file": "evidence/fill-model/partial-fill-cases.csv",
       "exists": true,
-      "generatedAt": "2026-06-18T03:38:36.080Z"
+      "generatedAt": "2026-06-25T00:06:54.965Z"
     },
     {
       "file": "evidence/fill-model/adverse-selection-cases.csv",
       "exists": true,
-      "generatedAt": "2026-06-18T03:38:36.080Z"
+      "generatedAt": "2026-06-25T00:06:54.965Z"
     },
     {
       "file": "evidence/integration/external-agent-run.jsonl",
       "exists": true,
-      "generatedAt": "2026-06-18T03:38:36.080Z"
+      "generatedAt": "2026-06-25T00:06:54.965Z"
     },
     {
       "file": "evidence/integration/malicious-agent-rejections.jsonl",
       "exists": true,
-      "generatedAt": "2026-06-18T03:38:36.080Z"
+      "generatedAt": "2026-06-25T00:06:54.965Z"
     },
     {
       "file": "evidence/integration/abuse-report.md",
       "exists": true,
-      "generatedAt": "2026-06-18T03:38:36.080Z"
+      "generatedAt": "2026-06-25T00:06:54.965Z"
     },
     {
       "file": "evidence/bitget-live/read-only-proof.md",
       "exists": true,
-      "generatedAt": "2026-06-18T03:38:36.080Z"
+      "generatedAt": "2026-06-25T00:06:54.965Z"
     },
     {
       "file": "evidence/bitget-live/live-market-snapshot.json",
       "exists": true,
-      "generatedAt": "2026-06-18T03:38:36.080Z"
+      "generatedAt": "2026-06-25T00:06:54.965Z"
     },
     {
       "file": "evidence/outcome-audit/outcome-audit.md",
       "exists": true,
-      "generatedAt": "2026-06-18T03:38:36.080Z"
+      "generatedAt": "2026-06-25T00:06:54.965Z"
     },
     {
       "file": "evidence/outcome-audit/outcome-audit.json",
       "exists": true,
-      "generatedAt": "2026-06-18T03:38:36.080Z"
+      "generatedAt": "2026-06-25T00:06:54.965Z"
     },
     {
       "file": "evidence/pnl-casefile/00-executive-summary.md",
       "exists": true,
-      "generatedAt": "2026-06-18T03:38:36.080Z"
+      "generatedAt": "2026-06-25T00:06:54.965Z"
     },
     {
       "file": "evidence/pnl-casefile/02-guarded-vs-unguarded.csv",
       "exists": true,
-      "generatedAt": "2026-06-18T03:38:36.080Z"
+      "generatedAt": "2026-06-25T00:06:54.965Z"
     },
     {
       "file": "evidence/pnl-casefile/03-pnl-attribution.csv",
       "exists": true,
-      "generatedAt": "2026-06-18T03:38:36.080Z"
+      "generatedAt": "2026-06-25T00:06:54.965Z"
     },
     {
       "file": "evidence/pnl-casefile/perp-leg-autopsy.md",
       "exists": true,
-      "generatedAt": "2026-06-18T03:38:36.080Z"
+      "generatedAt": "2026-06-25T00:06:54.966Z"
     },
     {
       "file": "evidence/pnl-casefile/safety-alpha-report.md",
       "exists": true,
-      "generatedAt": "2026-06-18T03:38:36.080Z"
+      "generatedAt": "2026-06-25T00:06:54.966Z"
     },
     {
       "file": "evidence/pnl-casefile/tradeability-bridge.md",
       "exists": true,
-      "generatedAt": "2026-06-18T03:38:36.080Z"
+      "generatedAt": "2026-06-25T00:06:54.966Z"
     },
     {
       "file": "evidence/pnl-casefile/manifest.json",
       "exists": true,
-      "generatedAt": "2026-06-18T03:38:36.080Z"
+      "generatedAt": "2026-06-25T00:06:54.966Z"
     },
     {
       "file": "evidence/alpha-championship/alpha-championship-report.md",
       "exists": true,
-      "generatedAt": "2026-06-18T03:38:36.080Z"
+      "generatedAt": "2026-06-25T00:06:54.966Z"
     },
     {
       "file": "evidence/alpha-championship/aggregate-leaderboard.csv",
       "exists": true,
-      "generatedAt": "2026-06-18T03:38:36.081Z"
+      "generatedAt": "2026-06-25T00:06:54.966Z"
     },
     {
       "file": "evidence/alpha-championship/champion-config.json",
       "exists": true,
-      "generatedAt": "2026-06-18T03:38:36.081Z"
+      "generatedAt": "2026-06-25T00:06:54.966Z"
     },
     {
       "file": "evidence/alpha-championship/champion-paper-trading-log.csv",
       "exists": true,
-      "generatedAt": "2026-06-18T03:38:36.081Z"
+      "generatedAt": "2026-06-25T00:06:54.966Z"
     },
     {
       "file": "evidence/alpha-championship/global-champion-config.json",
       "exists": true,
-      "generatedAt": "2026-06-18T03:38:36.081Z"
+      "generatedAt": "2026-06-25T00:06:54.966Z"
     },
     {
       "file": "evidence/alpha-championship/global-champion-paper-trading-log.csv",
       "exists": true,
-      "generatedAt": "2026-06-18T03:38:36.081Z"
+      "generatedAt": "2026-06-25T00:06:54.966Z"
     },
     {
       "file": "evidence/alpha-championship/global-champion-session-results.csv",
       "exists": true,
-      "generatedAt": "2026-06-18T03:38:36.081Z"
+      "generatedAt": "2026-06-25T00:06:54.967Z"
     },
     {
       "file": "evidence/alpha-championship/leaderboard.csv",
       "exists": true,
-      "generatedAt": "2026-06-18T03:38:36.081Z"
+      "generatedAt": "2026-06-25T00:06:54.967Z"
     },
     {
       "file": "evidence/alpha-championship/session-best.csv",
       "exists": true,
-      "generatedAt": "2026-06-18T03:38:36.081Z"
+      "generatedAt": "2026-06-25T00:06:54.967Z"
     },
     {
       "file": "evidence/alpha-championship/manifest.json",
       "exists": true,
-      "generatedAt": "2026-06-18T03:38:36.081Z"
+      "generatedAt": "2026-06-25T00:06:54.967Z"
     },
     {
       "file": "evidence/alpha-factory/candidate-strategies.csv",
       "exists": true,
-      "generatedAt": "2026-06-18T03:38:36.081Z"
+      "generatedAt": "2026-06-25T00:06:54.967Z"
     },
     {
       "file": "evidence/alpha-factory/trial-registry.jsonl",
       "exists": true,
-      "generatedAt": "2026-06-18T03:38:36.081Z"
+      "generatedAt": "2026-06-25T00:06:54.967Z"
     },
     {
       "file": "evidence/alpha-factory/rejected-overfit-strategies.csv",
       "exists": true,
-      "generatedAt": "2026-06-18T03:38:36.081Z"
+      "generatedAt": "2026-06-25T00:06:54.967Z"
     },
     {
       "file": "evidence/alpha-factory/overfit-court-report.md",
       "exists": true,
-      "generatedAt": "2026-06-18T03:38:36.081Z"
+      "generatedAt": "2026-06-25T00:06:54.967Z"
     },
     {
       "file": "evidence/alpha-factory/walkforward-leaderboard.csv",
       "exists": true,
-      "generatedAt": "2026-06-18T03:38:36.081Z"
+      "generatedAt": "2026-06-25T00:06:54.967Z"
     },
     {
       "file": "evidence/alpha-factory/frozen-champion.json",
       "exists": true,
-      "generatedAt": "2026-06-18T03:38:36.081Z"
+      "generatedAt": "2026-06-25T00:06:54.967Z"
     },
     {
       "file": "evidence/alpha-factory/champion-oos-results.csv",
       "exists": true,
-      "generatedAt": "2026-06-18T03:38:36.081Z"
+      "generatedAt": "2026-06-25T00:06:54.967Z"
     },
     {
       "file": "evidence/alpha-factory/live-paper-trading-log.csv",
       "exists": true,
-      "generatedAt": "2026-06-18T03:38:36.081Z"
+      "generatedAt": "2026-06-25T00:06:54.967Z"
     },
     {
       "file": "evidence/alpha-factory/expected-vs-actual.csv",
       "exists": true,
-      "generatedAt": "2026-06-18T03:38:36.081Z"
+      "generatedAt": "2026-06-25T00:06:54.967Z"
     },
     {
       "file": "evidence/alpha-factory/daily-alpha-report.md",
       "exists": true,
-      "generatedAt": "2026-06-18T03:38:36.081Z"
+      "generatedAt": "2026-06-25T00:06:54.967Z"
     },
     {
       "file": "evidence/alpha-factory/mutation-history.jsonl",
       "exists": true,
-      "generatedAt": "2026-06-18T03:38:36.082Z"
+      "generatedAt": "2026-06-25T00:06:54.967Z"
     },
     {
       "file": "evidence/alpha-factory/agent-decisions.jsonl",
       "exists": true,
-      "generatedAt": "2026-06-18T03:38:36.082Z"
+      "generatedAt": "2026-06-25T00:06:54.967Z"
     },
     {
       "file": "evidence/alpha-factory/masked-eval-report.md",
       "exists": true,
-      "generatedAt": "2026-06-18T03:38:36.082Z"
+      "generatedAt": "2026-06-25T00:06:54.967Z"
     },
     {
       "file": "evidence/alpha-factory/agent-benchmark-standard.md",
       "exists": true,
-      "generatedAt": "2026-06-18T03:38:36.082Z"
+      "generatedAt": "2026-06-25T00:06:54.967Z"
     },
     {
       "file": "evidence/alpha-factory/bench-results.csv",
       "exists": true,
-      "generatedAt": "2026-06-18T03:38:36.082Z"
+      "generatedAt": "2026-06-25T00:06:54.967Z"
     },
     {
       "file": "evidence/alpha-factory/agent-scorecards.md",
       "exists": true,
-      "generatedAt": "2026-06-18T03:38:36.082Z"
+      "generatedAt": "2026-06-25T00:06:54.967Z"
     },
     {
       "file": "evidence/alpha-factory/manifest.json",
       "exists": true,
-      "generatedAt": "2026-06-18T03:38:36.082Z"
+      "generatedAt": "2026-06-25T00:06:54.968Z"
+    },
+    {
+      "file": "evidence/alpha-factory/strategy-catalog.jsonl",
+      "exists": true,
+      "generatedAt": "2026-06-25T00:06:54.968Z"
+    },
+    {
+      "file": "evidence/alpha-factory/stability-surface.csv",
+      "exists": true,
+      "generatedAt": "2026-06-25T00:06:54.968Z"
+    },
+    {
+      "file": "evidence/alpha-factory/champion-registry.json",
+      "exists": true,
+      "generatedAt": "2026-06-25T00:06:54.968Z"
+    },
+    {
+      "file": "evidence/alpha-factory/month4-exit-audit.json",
+      "exists": true,
+      "generatedAt": "2026-06-25T00:06:54.968Z"
+    },
+    {
+      "file": "evidence/alpha-factory/month4-exit-audit.md",
+      "exists": true,
+      "generatedAt": "2026-06-25T00:06:54.968Z"
     },
     {
       "file": "evidence/alpha-factory/alpha-zoo-catalog.csv",
       "exists": true,
-      "generatedAt": "2026-06-18T03:38:36.082Z"
+      "generatedAt": "2026-06-25T00:06:54.968Z"
     },
     {
       "file": "evidence/alpha-factory/alpha-zoo-catalog.md",
       "exists": true,
-      "generatedAt": "2026-06-18T03:38:36.082Z"
+      "generatedAt": "2026-06-25T00:06:54.968Z"
     },
     {
       "file": "evidence/alpha-factory/strategy-compare.csv",
       "exists": true,
-      "generatedAt": "2026-06-18T03:38:36.082Z"
+      "generatedAt": "2026-06-25T00:06:54.968Z"
     },
     {
       "file": "evidence/alpha-factory/strategy-compare.md",
       "exists": true,
-      "generatedAt": "2026-06-18T03:38:36.082Z"
+      "generatedAt": "2026-06-25T00:06:54.968Z"
     },
     {
       "file": "evidence/shadow-gateway/actual-vs-guarded.csv",
       "exists": true,
-      "generatedAt": "2026-06-18T03:38:36.082Z"
+      "generatedAt": "2026-06-25T00:06:54.968Z"
     },
     {
       "file": "evidence/shadow-gateway/missed-profit.csv",
       "exists": true,
-      "generatedAt": "2026-06-18T03:38:36.082Z"
+      "generatedAt": "2026-06-25T00:06:54.968Z"
     },
     {
       "file": "evidence/shadow-gateway/blocked-loss.csv",
       "exists": true,
-      "generatedAt": "2026-06-18T03:38:36.082Z"
+      "generatedAt": "2026-06-25T00:06:54.968Z"
     },
     {
       "file": "evidence/shadow-gateway/rule-breaks.md",
       "exists": true,
-      "generatedAt": "2026-06-18T03:38:36.082Z"
+      "generatedAt": "2026-06-25T00:06:54.968Z"
     },
     {
       "file": "evidence/shadow-gateway/counterfactual-trades.jsonl",
       "exists": true,
-      "generatedAt": "2026-06-18T03:38:36.082Z"
+      "generatedAt": "2026-06-25T00:06:54.968Z"
     },
     {
       "file": "evidence/claims/claims-manifest.json",
       "exists": true,
-      "generatedAt": "2026-06-18T03:38:36.082Z"
+      "generatedAt": "2026-06-25T00:06:54.968Z"
     },
     {
       "file": "evidence/claims/claims-report.md",
       "exists": true,
-      "generatedAt": "2026-06-18T03:38:36.082Z"
+      "generatedAt": "2026-06-25T00:06:54.968Z"
     },
     {
       "file": "evidence/run-cards/manifest.json",
       "exists": true,
-      "generatedAt": "2026-06-18T03:38:36.082Z"
+      "generatedAt": "2026-06-25T00:06:54.968Z"
     },
     {
       "file": "evidence/run-cards/paper-session-card.md",
       "exists": true,
-      "generatedAt": "2026-06-18T03:38:36.082Z"
+      "generatedAt": "2026-06-25T00:06:54.968Z"
     },
     {
       "file": "evidence/run-cards/alpha-factory-card.md",
       "exists": true,
-      "generatedAt": "2026-06-18T03:38:36.083Z"
+      "generatedAt": "2026-06-25T00:06:54.968Z"
     },
     {
       "file": "evidence/run-cards/alpha-championship-card.md",
       "exists": true,
-      "generatedAt": "2026-06-18T03:38:36.083Z"
+      "generatedAt": "2026-06-25T00:06:54.968Z"
     },
     {
       "file": "evidence/run-cards/guarded-replay-card.md",
       "exists": true,
-      "generatedAt": "2026-06-18T03:38:36.083Z"
+      "generatedAt": "2026-06-25T00:06:54.969Z"
     },
     {
       "file": "evidence/run-cards/bitget-smoke-card.md",
       "exists": true,
-      "generatedAt": "2026-06-18T03:38:36.083Z"
+      "generatedAt": "2026-06-25T00:06:54.969Z"
     },
     {
       "file": "evidence/run-cards/judge-max-card.md",
       "exists": true,
-      "generatedAt": "2026-06-18T03:38:36.083Z"
+      "generatedAt": "2026-06-25T00:06:54.969Z"
     },
     {
       "file": "evidence/doctor-report.md",
       "exists": true,
-      "generatedAt": "2026-06-18T03:38:36.083Z"
+      "generatedAt": "2026-06-25T00:06:54.969Z"
     },
     {
       "file": "evidence/doctor-report.json",
       "exists": true,
-      "generatedAt": "2026-06-18T03:38:36.083Z"
+      "generatedAt": "2026-06-25T00:06:54.969Z"
     },
     {
       "file": "evidence/data-health/source-health.json",
       "exists": true,
-      "generatedAt": "2026-06-18T03:38:36.083Z"
+      "generatedAt": "2026-06-25T00:06:54.969Z"
     },
     {
       "file": "evidence/data-health/source-health.md",
       "exists": true,
-      "generatedAt": "2026-06-18T03:38:36.083Z"
+      "generatedAt": "2026-06-25T00:06:54.969Z"
     },
     {
       "file": "evidence/docs-check.json",
       "exists": true,
-      "generatedAt": "2026-06-18T03:38:36.083Z"
+      "generatedAt": "2026-06-25T00:06:54.969Z"
     },
     {
       "file": "evidence/secrets-scan.json",
       "exists": true,
-      "generatedAt": "2026-06-18T03:38:36.083Z"
+      "generatedAt": "2026-06-25T00:06:54.969Z"
     },
     {
       "file": "evidence/judge-cockpit/index.html",
       "exists": true,
-      "generatedAt": "2026-06-18T03:38:36.083Z"
+      "generatedAt": "2026-06-25T00:06:54.969Z"
     },
     {
       "file": "evidence/forward-paper-daemon/session-results.csv",
       "exists": true,
-      "generatedAt": "2026-06-18T03:38:36.083Z"
+      "generatedAt": "2026-06-25T00:06:54.969Z"
     },
     {
       "file": "evidence/forward-paper-daemon/live-paper-trading-log.csv",
       "exists": true,
-      "generatedAt": "2026-06-18T03:38:36.083Z"
+      "generatedAt": "2026-06-25T00:06:54.969Z"
     },
     {
       "file": "evidence/forward-paper-daemon/daemon-state.json",
       "exists": true,
-      "generatedAt": "2026-06-18T03:38:36.083Z"
+      "generatedAt": "2026-06-25T00:06:54.969Z"
     },
     {
       "file": "evidence/forward-paper-daemon/forward-paper-daemon-report.md",
       "exists": true,
-      "generatedAt": "2026-06-18T03:38:36.083Z"
+      "generatedAt": "2026-06-25T00:06:54.969Z"
     },
     {
       "file": "evidence/daily-promoter/promotion-decision.json",
       "exists": true,
-      "generatedAt": "2026-06-18T03:38:36.083Z"
+      "generatedAt": "2026-06-25T00:06:54.969Z"
     },
     {
       "file": "evidence/daily-promoter/daily-promoter-report.md",
       "exists": true,
-      "generatedAt": "2026-06-18T03:38:36.083Z"
+      "generatedAt": "2026-06-25T00:06:54.969Z"
     },
     {
       "file": "evidence/security/security-boundaries.md",
       "exists": true,
-      "generatedAt": "2026-06-18T03:38:36.083Z"
+      "generatedAt": "2026-06-25T00:06:54.969Z"
     },
     {
       "file": "evidence/security/security-boundaries.json",
       "exists": true,
-      "generatedAt": "2026-06-18T03:38:36.083Z"
+      "generatedAt": "2026-06-25T00:06:54.969Z"
     },
     {
       "file": "evidence/bitget-live/agent-hub-compat-report.md",
       "exists": true,
-      "generatedAt": "2026-06-18T03:38:36.084Z"
+      "generatedAt": "2026-06-25T00:06:54.969Z"
     },
     {
       "file": "evidence/bitget-live/agent-hub-compat-report.json",
       "exists": true,
-      "generatedAt": "2026-06-18T03:38:36.084Z"
+      "generatedAt": "2026-06-25T00:06:54.969Z"
     },
     {
       "file": "evidence/data-cache/cache-integrity-report.md",
       "exists": true,
-      "generatedAt": "2026-06-18T03:38:36.084Z"
+      "generatedAt": "2026-06-25T00:06:54.970Z"
     },
     {
       "file": "evidence/data-cache/cache-integrity-report.json",
       "exists": true,
-      "generatedAt": "2026-06-18T03:38:36.084Z"
+      "generatedAt": "2026-06-25T00:06:54.970Z"
     },
     {
       "file": "evidence/oos-daemon/state.json",
       "exists": true,
-      "generatedAt": "2026-06-18T03:38:36.084Z"
+      "generatedAt": "2026-06-25T00:06:54.970Z"
     },
     {
       "file": "evidence/oos-daemon/record-log.jsonl",
       "exists": true,
-      "generatedAt": "2026-06-18T03:38:36.084Z"
+      "generatedAt": "2026-06-25T00:06:54.970Z"
     },
     {
       "file": "evidence/oos-daemon/refresh-log.jsonl",
       "exists": true,
-      "generatedAt": "2026-06-18T03:38:36.084Z"
+      "generatedAt": "2026-06-25T00:06:54.970Z"
     },
     {
       "file": "evidence/live-receipt/order-preview.json",
       "exists": true,
-      "generatedAt": "2026-06-18T03:38:36.084Z"
+      "generatedAt": "2026-06-25T00:06:54.970Z"
     },
     {
       "file": "evidence/live-receipt/firewall-verdict.json",
       "exists": true,
-      "generatedAt": "2026-06-18T03:38:36.084Z"
+      "generatedAt": "2026-06-25T00:06:54.970Z"
     },
     {
       "file": "evidence/live-receipt/execution-receipt.json",
       "exists": true,
-      "generatedAt": "2026-06-18T03:38:36.084Z"
+      "generatedAt": "2026-06-25T00:06:54.970Z"
     },
     {
       "file": "evidence/live-receipt/ledger-verify.txt",
       "exists": true,
-      "generatedAt": "2026-06-18T03:38:36.084Z"
+      "generatedAt": "2026-06-25T00:06:54.970Z"
     },
     {
       "file": "evidence/live-receipt/live-receipt-report.md",
       "exists": true,
-      "generatedAt": "2026-06-18T03:38:36.084Z"
+      "generatedAt": "2026-06-25T00:06:54.970Z"
     },
     {
       "file": "evidence/championship/leaderboard_pnl.csv",
       "exists": true,
-      "generatedAt": "2026-06-18T03:38:36.084Z"
+      "generatedAt": "2026-06-25T00:06:54.970Z"
     },
     {
       "file": "evidence/championship/leaderboard_safety.csv",
       "exists": true,
-      "generatedAt": "2026-06-18T03:38:36.084Z"
+      "generatedAt": "2026-06-25T00:06:54.970Z"
     },
     {
       "file": "evidence/championship/champion-pnl.json",
       "exists": true,
-      "generatedAt": "2026-06-18T03:38:36.084Z"
+      "generatedAt": "2026-06-25T00:06:54.970Z"
     },
     {
       "file": "evidence/championship/champion-safety.json",
       "exists": true,
-      "generatedAt": "2026-06-18T03:38:36.084Z"
+      "generatedAt": "2026-06-25T00:06:54.970Z"
     },
     {
       "file": "evidence/championship/champion-pnl-paper-log.csv",
       "exists": true,
-      "generatedAt": "2026-06-18T03:38:36.084Z"
+      "generatedAt": "2026-06-25T00:06:54.970Z"
     },
     {
       "file": "evidence/championship/champion-safety-paper-log.csv",
       "exists": true,
-      "generatedAt": "2026-06-18T03:38:36.084Z"
+      "generatedAt": "2026-06-25T00:06:54.970Z"
     },
     {
       "file": "evidence/championship/championship-report.md",
       "exists": true,
-      "generatedAt": "2026-06-18T03:38:36.084Z"
+      "generatedAt": "2026-06-25T00:06:54.970Z"
     },
     {
       "file": "evidence/championship/pnl-vs-safety-comparison.md",
       "exists": true,
-      "generatedAt": "2026-06-18T03:38:36.084Z"
+      "generatedAt": "2026-06-25T00:06:54.970Z"
     },
     {
       "file": "evidence/championship/champion-overfit-check.md",
       "exists": true,
-      "generatedAt": "2026-06-18T03:38:36.084Z"
+      "generatedAt": "2026-06-25T00:06:54.970Z"
     },
     {
       "file": "evidence/championship/champion-overfit-card.md",
       "exists": true,
-      "generatedAt": "2026-06-18T03:38:36.085Z"
+      "generatedAt": "2026-06-25T00:06:54.970Z"
     },
     {
       "file": "evidence/championship/trial-registry.csv",
       "exists": true,
-      "generatedAt": "2026-06-18T03:38:36.085Z"
+      "generatedAt": "2026-06-25T00:06:54.971Z"
     },
     {
       "file": "evidence/championship/manifest.json",
       "exists": true,
-      "generatedAt": "2026-06-18T03:38:36.085Z"
+      "generatedAt": "2026-06-25T00:06:54.971Z"
+    },
+    {
+      "file": "evidence/trading-gateway/runtime-foundation.json",
+      "exists": true,
+      "generatedAt": "2026-06-25T00:06:54.971Z"
+    },
+    {
+      "file": "evidence/trading-gateway/runtime-foundation.md",
+      "exists": true,
+      "generatedAt": "2026-06-25T00:06:54.971Z"
+    },
+    {
+      "file": "evidence/trading-gateway/idempotency-journal.jsonl",
+      "exists": true,
+      "generatedAt": "2026-06-25T00:06:54.971Z"
+    },
+    {
+      "file": "evidence/data-platform/point-in-time-proof.json",
+      "exists": true,
+      "generatedAt": "2026-06-25T00:06:54.971Z"
+    },
+    {
+      "file": "evidence/data-platform/point-in-time-report.md",
+      "exists": true,
+      "generatedAt": "2026-06-25T00:06:54.971Z"
+    },
+    {
+      "file": "evidence/data-platform/normalized-events.jsonl",
+      "exists": true,
+      "generatedAt": "2026-06-25T00:06:54.971Z"
+    },
+    {
+      "file": "evidence/data-platform/sequence-gaps.jsonl",
+      "exists": true,
+      "generatedAt": "2026-06-25T00:06:54.971Z"
+    },
+    {
+      "file": "evidence/data-platform/stream-resilience-proof.json",
+      "exists": true,
+      "generatedAt": "2026-06-25T00:06:54.971Z"
+    },
+    {
+      "file": "evidence/data-platform/stream-resilience-report.md",
+      "exists": true,
+      "generatedAt": "2026-06-25T00:06:54.971Z"
+    },
+    {
+      "file": "evidence/data-platform/live-stream-smoke.json",
+      "exists": true,
+      "generatedAt": "2026-06-25T00:06:54.971Z"
+    },
+    {
+      "file": "evidence/data-platform/live-stream-records.jsonl",
+      "exists": true,
+      "generatedAt": "2026-06-25T00:06:54.971Z"
+    },
+    {
+      "file": "evidence/data-platform/live-stream-status.jsonl",
+      "exists": true,
+      "generatedAt": "2026-06-25T00:06:54.971Z"
+    },
+    {
+      "file": "evidence/data-platform/anchor-redundancy-proof.json",
+      "exists": true,
+      "generatedAt": "2026-06-25T00:06:54.971Z"
+    },
+    {
+      "file": "evidence/data-platform/anchor-redundancy-report.md",
+      "exists": true,
+      "generatedAt": "2026-06-25T00:06:54.971Z"
+    },
+    {
+      "file": "evidence/data-platform/live-anchor-comparison.json",
+      "exists": true,
+      "generatedAt": "2026-06-25T00:06:54.971Z"
+    },
+    {
+      "file": "evidence/data-platform/live-anchor-universe.json",
+      "exists": true,
+      "generatedAt": "2026-06-25T00:06:54.971Z"
+    },
+    {
+      "file": "evidence/data-platform/live-anchor-universe.csv",
+      "exists": true,
+      "generatedAt": "2026-06-25T00:06:54.971Z"
+    },
+    {
+      "file": "evidence/data-platform/coverage.json",
+      "exists": true,
+      "generatedAt": "2026-06-25T00:06:54.972Z"
+    },
+    {
+      "file": "evidence/data-platform/coverage.csv",
+      "exists": true,
+      "generatedAt": "2026-06-25T00:06:54.972Z"
+    },
+    {
+      "file": "evidence/data-platform/coverage-report.md",
+      "exists": true,
+      "generatedAt": "2026-06-25T00:06:54.972Z"
+    },
+    {
+      "file": "evidence/data-platform/month2-exit-audit.json",
+      "exists": true,
+      "generatedAt": "2026-06-25T00:06:54.972Z"
+    },
+    {
+      "file": "evidence/data-platform/month2-exit-audit.md",
+      "exists": true,
+      "generatedAt": "2026-06-25T00:06:54.972Z"
+    },
+    {
+      "file": "evidence/execution-v2/execution-v2-proof.json",
+      "exists": true,
+      "generatedAt": "2026-06-25T00:06:54.972Z"
+    },
+    {
+      "file": "evidence/execution-v2/execution-v2-report.md",
+      "exists": true,
+      "generatedAt": "2026-06-25T00:06:54.972Z"
+    },
+    {
+      "file": "evidence/execution-v2/account-events.jsonl",
+      "exists": true,
+      "generatedAt": "2026-06-25T00:06:54.972Z"
+    },
+    {
+      "file": "evidence/execution-v2/durable-account-events.jsonl",
+      "exists": true,
+      "generatedAt": "2026-06-25T00:06:54.972Z"
+    },
+    {
+      "file": "evidence/execution-v2/live-shadow-calibration.json",
+      "exists": true,
+      "generatedAt": "2026-06-25T00:06:54.972Z"
+    },
+    {
+      "file": "evidence/execution-v2/live-shadow-calibration.csv",
+      "exists": true,
+      "generatedAt": "2026-06-25T00:06:54.972Z"
+    },
+    {
+      "file": "evidence/execution-v2/live-shadow-calibration.md",
+      "exists": true,
+      "generatedAt": "2026-06-25T00:06:54.972Z"
+    },
+    {
+      "file": "evidence/execution-v2/month3-exit-audit.json",
+      "exists": true,
+      "generatedAt": "2026-06-25T00:06:54.972Z"
+    },
+    {
+      "file": "evidence/execution-v2/month3-exit-audit.md",
+      "exists": true,
+      "generatedAt": "2026-06-25T00:06:54.972Z"
     },
     {
       "file": "evidence/manifest.json",
       "exists": true,
-      "generatedAt": "2026-06-18T03:38:36.085Z"
+      "generatedAt": "2026-06-25T00:06:54.972Z"
     },
     {
       "file": "docs/PNL_CLAIM_STANDARD.md",
       "exists": true,
-      "generatedAt": "2026-06-18T03:38:36.085Z"
+      "generatedAt": "2026-06-25T00:06:54.972Z"
     },
     {
       "file": "docs/EXECUTION_INTEGRITY.md",
       "exists": true,
-      "generatedAt": "2026-06-18T03:38:36.085Z"
+      "generatedAt": "2026-06-25T00:06:54.972Z"
     },
     {
       "file": "docs/SECURITY_BOUNDARIES.md",
       "exists": true,
-      "generatedAt": "2026-06-18T03:38:36.085Z"
+      "generatedAt": "2026-06-25T00:06:54.973Z"
     },
     {
       "file": "docs/BITGET_NATIVE_PROOF.md",
       "exists": true,
-      "generatedAt": "2026-06-18T03:38:36.085Z"
+      "generatedAt": "2026-06-25T00:06:54.973Z"
     },
     {
       "file": "docs/CLAIM_LEDGER.md",
       "exists": true,
-      "generatedAt": "2026-06-18T03:38:36.085Z"
+      "generatedAt": "2026-06-25T00:06:54.973Z"
     }
   ]
 }

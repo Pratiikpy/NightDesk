@@ -25,6 +25,8 @@ export interface MarketQuote {
   askSz?: number | null;
   book?: { bids: [number, number][]; asks: [number, number][] };
   fundingRate?: number | null;
+  lastTradeSide?: Side | null;
+  lastTradeQty?: number | null;
 }
 
 export type FillStatus = "filled" | "partial" | "rejected" | "pending";

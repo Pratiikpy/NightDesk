@@ -7,14 +7,14 @@ trial registry. By design they are conservative — we would rather understate t
 | Control | Value | Reading |
 | --- | --- | --- |
 | Trials searched (N) | 9,720 | the multiple-testing budget we deflate for |
-| Champion sessions (T) | 5 | length of the out-of-sample-style record so far |
-| Raw per-session Sharpe | 0.6718 | before any correction |
-| Expected max Sharpe from N trials | 1.6635 | the bar luck alone would clear |
-| Probabilistic Sharpe vs 0 | 95.2% | P(true Sharpe > 0) |
-| **Deflated Sharpe** | **0.7%** | P(edge survives the N-trial correction); significant at ≥95.0%: **NO** |
-| Min track record length | 5 sessions | sessions needed for significance vs 0; have 5 |
-| Probability of backtest overfitting | not yet computable — needs ≥8 session slices, have 5 (accumulating) | lower is better; ~50% = no better than chance |
+| Champion sessions (T) | 6 | length of the out-of-sample-style record so far |
+| Raw per-session Sharpe | 0.5984 | before any correction |
+| Expected max Sharpe from N trials | 1.514 | the bar luck alone would clear |
+| Probabilistic Sharpe vs 0 | 96.5% | P(true Sharpe > 0) |
+| **Deflated Sharpe** | **0.3%** | P(edge survives the N-trial correction); significant at ≥95.0%: **NO** |
+| Min track record length | 6 sessions | sessions needed for significance vs 0; have 6 |
+| Probability of backtest overfitting | not yet computable — needs ≥8 session slices, have 6 (accumulating) | lower is better; ~50% = no better than chance |
 
-**Verdict.** Probabilistic Sharpe vs 0 is 95.2%, but the champion's raw Sharpe (0.67) sits below the expected best-of-9,720 luck bar (1.66), so the Deflated Sharpe is 0.7%. We tested the raw convergence edge honestly: on 5 sessions it is not yet statistically significant. The raw edge alone is not the product — NightDesk's value is turning these noisy gaps into certified, gated, executable decisions.
+**Verdict.** Probabilistic Sharpe vs 0 is 96.5%, but the champion's raw Sharpe (0.60) sits below the expected best-of-9,720 luck bar (1.51), so the Deflated Sharpe is 0.3%. We tested the raw convergence edge honestly: on 6 sessions it is not yet statistically significant. The raw edge alone is not the product — NightDesk's value is turning these noisy gaps into certified, gated, executable decisions.
 
 _Method: Deflated/Probabilistic Sharpe & MinTRL (Bailey & Lopez de Prado, 2012/2014); PBO via CSCV (Bailey, Borwein, Lopez de Prado & Zhu, 2017). Original implementation._

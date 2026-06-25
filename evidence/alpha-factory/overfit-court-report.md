@@ -1,12 +1,35 @@
 # NightDesk Overfit Court
 
 Candidates tested: 9720
-Trials recorded: 48600
-Rejected configs: 8444
-Passed configs: 1276
+Trials recorded: 58320
+Rejected configs: 8448
+Passed configs: 1272
 
 Rejection rules: no trades, non-positive total PnL, worst session loss greater than 5 USDT, drawdown too large relative to PnL, or low active-session hit rate.
 
 Frozen champion passed Overfit Court: perp_gap_fade_e0p35_x0_tp2_sl1p25_h9999_n0p35_m5
 
-Walk-forward warning: leave-one-recording-out selection is reported separately and remains the harshest current profit test. The dataset is still too small for a production alpha claim.
+Walk-forward warning: purged leave-one-recording-out selection with adjacent-session embargo is reported separately and remains the harshest current profit test. The dataset is still too small for a production alpha claim.
+
+---
+
+# Overfit Court — Selection-Bias Controls
+
+The Alpha Factory searches many strategies, so the single best in-sample result is partly luck.
+These are the canonical corrections for that (Bailey & Lopez de Prado), computed from the frozen
+trial registry. By design they are conservative — we would rather understate the edge than oversell it.
+
+| Control | Value | Reading |
+| --- | --- | --- |
+| Trials searched (N) | 9,720 | the multiple-testing budget we deflate for |
+| Champion sessions (T) | 6 | length of the out-of-sample-style record so far |
+| Raw per-session Sharpe | 0.5984 | before any correction |
+| Expected max Sharpe from N trials | 1.514 | the bar luck alone would clear |
+| Probabilistic Sharpe vs 0 | 96.5% | P(true Sharpe > 0) |
+| **Deflated Sharpe** | **0.3%** | P(edge survives the N-trial correction); significant at ≥95.0%: **NO** |
+| Min track record length | 6 sessions | sessions needed for significance vs 0; have 6 |
+| Probability of backtest overfitting | not yet computable — needs ≥8 session slices, have 6 (accumulating) | lower is better; ~50% = no better than chance |
+
+**Verdict.** Probabilistic Sharpe vs 0 is 96.5%, but the champion's raw Sharpe (0.60) sits below the expected best-of-9,720 luck bar (1.51), so the Deflated Sharpe is 0.3%. We tested the raw convergence edge honestly: on 6 sessions it is not yet statistically significant. The raw edge alone is not the product — NightDesk's value is turning these noisy gaps into certified, gated, executable decisions.
+
+_Method: Deflated/Probabilistic Sharpe & MinTRL (Bailey & Lopez de Prado, 2012/2014); PBO via CSCV (Bailey, Borwein, Lopez de Prado & Zhu, 2017). Original implementation._

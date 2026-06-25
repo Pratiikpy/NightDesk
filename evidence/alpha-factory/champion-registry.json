@@ -1,0 +1,111 @@
+{
+  "schema": "nightdesk.champion-registry.v1",
+  "generatedAt": "2026-06-24T16:41:23.859Z",
+  "champion": {
+    "status": "champion",
+    "config_id": "perp_gap_fade_e0p35_x0_tp2_sl1p25_h9999_n0p35_m5",
+    "config_hash": "c030ea4a053327ce6eb222c7b509aac46e56efed9dbc0aeb1468af94e423ebe1",
+    "freeze_id": "a3d6b2899ca96e570f4c16db",
+    "score": 62.977581
+  },
+  "challengers": [
+    {
+      "status": "challenger",
+      "config_id": "perp_gap_fade_e0p35_x0_tp2_sl1p25_h9999_n0p35_m8",
+      "config_hash": "f037d5639d18b56a93b0589ee4cdde091c28043a68444cbb60865354364d24f2",
+      "score": 62.977581
+    },
+    {
+      "status": "challenger",
+      "config_id": "perp_gap_fade_e0p35_x0_tp2_sl2p5_h9999_n0p35_m5",
+      "config_hash": "748bb5cac19d98bb703f3ae77d8caf17417548cc7d141ba100d0970ae1f76f6f",
+      "score": 62.977581
+    },
+    {
+      "status": "challenger",
+      "config_id": "perp_gap_fade_e0p35_x0_tp2_sl2p5_h9999_n0p35_m8",
+      "config_hash": "37e286dcc0ecbf54b6c04474a083bcb55a7a6a0d9818a34d8665b7bb93c41398",
+      "score": 62.977581
+    },
+    {
+      "status": "challenger",
+      "config_id": "perp_gap_fade_e0p35_x0_tp2_sl1p25_h9999_n0p35_m2",
+      "config_hash": "a8c6a494fe872858b20b41ea3b4960101b30564db657d580d616f1439e25193a",
+      "score": 61.731226
+    },
+    {
+      "status": "challenger",
+      "config_id": "perp_gap_fade_e0p35_x0_tp2_sl2p5_h9999_n0p35_m2",
+      "config_hash": "beb9c8160c21ef50a7b07fa49e5731d4440c9dc5c88436640a9ac26e95425700",
+      "score": 61.731226
+    }
+  ],
+  "watch": [
+    {
+      "status": "watch",
+      "config_id": "perp_gap_fade_e0p35_x0_tp2_sl0p75_h9999_n0p35_m5",
+      "config_hash": "d4db92e588a722f7c337aa6502d5c351fc5c081938a555a054f69c5ed19fdc1a",
+      "score": 60.664999
+    },
+    {
+      "status": "watch",
+      "config_id": "perp_gap_fade_e0p35_x0_tp2_sl0p75_h9999_n0p35_m8",
+      "config_hash": "a303cfe9f55842864cb739982b2217da949ea88c07ac05eca53c7d478575b7fb",
+      "score": 60.664999
+    },
+    {
+      "status": "watch",
+      "config_id": "perp_gap_fade_e0p35_x0_tp2_sl0p75_h9999_n0p35_m2",
+      "config_hash": "8f67184a03625163ce745767e6fc0be5c5a12840ff278f46aad46a6e2dc27acb",
+      "score": 59.629496
+    },
+    {
+      "status": "watch",
+      "config_id": "perp_gap_fade_e0p5_x0p1_tp1p25_sl1p25_h9999_n0p5_m2",
+      "config_hash": "7e241255775922850b8a3fef11810b8f5d628115cf06e7e9fd08d54fe5d3ba01",
+      "score": 54.563973
+    },
+    {
+      "status": "watch",
+      "config_id": "perp_gap_fade_e0p5_x0p1_tp1p25_sl1p25_h9999_n0p5_m5",
+      "config_hash": "3f203b7a04b00314d26391f3d1a265cc09c701e3effd2733d38a919e5e3015b7",
+      "score": 54.563973
+    },
+    {
+      "status": "watch",
+      "config_id": "perp_gap_fade_e0p5_x0p1_tp1p25_sl1p25_h9999_n0p5_m8",
+      "config_hash": "f7c4246ce4310262e8cbb37752f03a50bf8a582755ab67f59ef0529dcff1c0b0",
+      "score": 54.563973
+    },
+    {
+      "status": "watch",
+      "config_id": "perp_gap_fade_e0p5_x0p1_tp1p25_sl2p5_h9999_n0p5_m2",
+      "config_hash": "dac35b3c8a8489255b106381223ce5aa6b28b8e861f03f205cae9bf8fbc70807",
+      "score": 54.563973
+    },
+    {
+      "status": "watch",
+      "config_id": "perp_gap_fade_e0p5_x0p1_tp1p25_sl2p5_h9999_n0p5_m5",
+      "config_hash": "5616e7daee175531c06c1f47c1173273a0ff3064b5281fc6c7469b46bce14174",
+      "score": 54.563973
+    },
+    {
+      "status": "watch",
+      "config_id": "perp_gap_fade_e0p5_x0p1_tp1p25_sl2p5_h9999_n0p5_m8",
+      "config_hash": "07b53392f446b289b71baa530e8235314c993df925619d86774eecdf994931fa",
+      "score": 54.563973
+    },
+    {
+      "status": "watch",
+      "config_id": "perp_gap_fade_e0p5_x0_tp1p25_sl1p25_h9999_n0p5_m2",
+      "config_hash": "5e218b211dfd4b1363f77facd05dced44666839dbdb28d2f23a513ef6ea2c793",
+      "score": 54.455288
+    }
+  ],
+  "retired": [],
+  "rejected": {
+    "status": "rejected",
+    "count": 8448,
+    "evidence": "rejected-overfit-strategies.csv"
+  }
+}

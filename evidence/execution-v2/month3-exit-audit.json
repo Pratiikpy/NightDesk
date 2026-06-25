@@ -1,0 +1,83 @@
+{
+  "milestone": "Month 3: Execution engine v2",
+  "generatedAt": "2026-06-24T16:31:41.864Z",
+  "passed": true,
+  "rows": [
+    {
+      "requirement": "Depth-aware ordered event replay is deterministic",
+      "passed": true,
+      "evidence": [
+        "evidence/execution-v2/execution-v2-proof.json",
+        "test/depth-replay.test.ts"
+      ],
+      "detail": "Ordered market/order events reproduce the same fill/account fingerprint and reject sequence or time regressions."
+    },
+    {
+      "requirement": "Latency degrades execution on a deterministic price path",
+      "passed": true,
+      "evidence": [
+        "evidence/fill-model/latency-sweep.csv",
+        "evidence/fill-model/latency-sweep.md"
+      ],
+      "detail": "3 latency points with increasing adverse cost."
+    },
+    {
+      "requirement": "Partial fills, queue position, and venue rejects are enforced",
+      "passed": true,
+      "evidence": [
+        "evidence/execution-v2/execution-v2-proof.json",
+        "test/bitsim.test.ts",
+        "test/venue-rules.test.ts",
+        "test/queue-position.test.ts"
+      ],
+      "detail": "Resting quantity survives partial execution, aggressor volume clears queue ahead, and invalid venue increments fail before accounting."
+    },
+    {
+      "requirement": "Cancel/fill races and fill invariants have adversarial tests",
+      "passed": true,
+      "evidence": [
+        "test/order-state-machine.test.ts",
+        "test/execution-v2.property.test.ts"
+      ],
+      "detail": "Late fills are accepted only before cancel acknowledgement; depth and queue conservation are property-tested."
+    },
+    {
+      "requirement": "Implementation shortfall is attributed",
+      "passed": true,
+      "evidence": [
+        "evidence/execution-v2/execution-v2-proof.json",
+        "evidence/execution-v2/live-shadow-calibration.json"
+      ],
+      "detail": "Delay, execution impact, and fees are separated; live depth cases report fee-inclusive shortfall by tier."
+    },
+    {
+      "requirement": "Live public books calibrate simulation error by liquidity tier",
+      "passed": true,
+      "evidence": [
+        "evidence/execution-v2/live-shadow-calibration.json",
+        "evidence/execution-v2/live-shadow-calibration.csv",
+        "evidence/execution-v2/live-shadow-calibration.md"
+      ],
+      "detail": "19/19 symbols, 114 cases, 7 with executable two-sided depth; no-book symbols are D/untradeable."
+    },
+    {
+      "requirement": "Paper accounts reconcile exactly and recover after restart",
+      "passed": true,
+      "evidence": [
+        "evidence/execution-v2/account-events.jsonl",
+        "evidence/execution-v2/durable-account-events.jsonl",
+        "test/account-reconciliation.test.ts"
+      ],
+      "detail": "Append-only account events rebuild balances/positions exactly, detect drift, and restore from disk after process restart."
+    },
+    {
+      "requirement": "No fantasy fills",
+      "passed": true,
+      "evidence": [
+        "evidence/execution-v2/execution-v2-report.md",
+        "evidence/fill-model/fill-model-report.md"
+      ],
+      "detail": "Limits never consume worse prices, visible/depth liquidity caps fills, and unfilled quantities remain pending."
+    }
+  ]
+}

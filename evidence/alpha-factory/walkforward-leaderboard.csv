@@ -1,6 +1,7 @@
-fold,selected_config,train_pnl,train_trades,test_recording,test_pnl,test_trades,test_wins,test_losses,method
-leave_2026-06-14_out,perp_gap_fade_e0p35_x0_tp2_sl1p25_h9999_n0p35_m5,54.926313,18,2026-06-14,0,0,0,0,leave-one-recording-out champion selection
-leave_2026-06-15_out,perp_gap_fade_e0p35_x0_tp2_sl1p25_h9999_n0p35_m2,33.1776,9,2026-06-15,20.509406,7,5,2,leave-one-recording-out champion selection
-leave_2026-06-16_out,perp_gap_fade_e0p35_x0_tp2_sl1p25_h9999_n0p35_m5,54.926313,18,2026-06-16,0,0,0,0,leave-one-recording-out champion selection
-leave_2026-06-17_out,perp_gap_fade_e0p5_x0p1_tp1p25_sl1p25_h9999_n0p5_m2,26.729791,6,2026-06-17,17.033927,4,4,0,leave-one-recording-out champion selection
-leave_2026-06-18_out,perp_gap_fade_e0p35_x0_tp2_sl1p25_h9999_n0p35_m5,56.361161,17,2026-06-18,-1.434848,1,0,1,leave-one-recording-out champion selection
+fold,selected_config,train_pnl,train_trades,test_recording,test_pnl,test_trades,test_wins,test_losses,train_recordings,purged_recordings,no_test_parameter_selection,method
+leave_2026-06-14_out,perp_gap_fade_e0p35_x0_tp2_sl1p25_h9999_n0p35_m2,33.1776,9,2026-06-14,0,0,0,0,2026-06-16|2026-06-17|2026-06-18|2026-06-24,2026-06-15,true,purged leave-one-recording-out champion selection with adjacent-session embargo
+leave_2026-06-15_out,perp_gap_fade_e0p35_x0_tp2_sl1p25_h9999_n0p35_m2,33.1776,9,2026-06-15,20.509406,7,5,2,2026-06-17|2026-06-18|2026-06-24,2026-06-14|2026-06-16,true,purged leave-one-recording-out champion selection with adjacent-session embargo
+leave_2026-06-16_out,equity_gap_momentum_e0p1_x0_tp0p75_sl0p75_h9999_n0p35_m5,2.134299,4,2026-06-16,-3.501173,4,1,3,2026-06-14|2026-06-18|2026-06-24,2026-06-15|2026-06-17,true,purged leave-one-recording-out champion selection with adjacent-session embargo
+leave_2026-06-17_out,perp_gap_fade_e0p5_x0p1_tp1p25_sl1p25_h9999_n0p5_m2,28.385906,5,2026-06-17,17.033927,4,4,0,2026-06-14|2026-06-15|2026-06-24,2026-06-16|2026-06-18,true,purged leave-one-recording-out champion selection with adjacent-session embargo
+leave_2026-06-18_out,perp_gap_fade_e0p1_x0_tp0p75_sl0p75_h9999_n0p5_m5,29.2706,19,2026-06-18,-5.755855,3,0,3,2026-06-14|2026-06-15|2026-06-16,2026-06-17|2026-06-24,true,purged leave-one-recording-out champion selection with adjacent-session embargo
+leave_2026-06-24_out,perp_gap_fade_e0p35_x0_tp2_sl1p25_h9999_n0p35_m5,56.361161,17,2026-06-24,0,0,0,0,2026-06-14|2026-06-15|2026-06-16|2026-06-17,2026-06-18,true,purged leave-one-recording-out champion selection with adjacent-session embargo

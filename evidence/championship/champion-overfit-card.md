@@ -3,7 +3,7 @@
 | Metric | PnL Champion | Safety Champion |
 | --- | ---: | ---: |
 | Configs tested | 10515 | 10515 |
-| Trials tested | 52575 | 52575 |
+| Trials tested | 63090 | 63090 |
 | Winner rank | 1 | 1 |
 | Same-sample PnL | 68.708829 | 68.708829 |
 | Leave-one-session-out PnL | 23.166415 | 23.166415 |

@@ -1,10 +1,10 @@
 # Live Receipt Dry Run
 
-Receipt ID: receipt_2026-06-18T03-37-45-447Z
+Receipt ID: receipt_2026-06-24T16-10-59-227Z
 Symbol: RAAPLUSDT
 Mode: dry_run
 Boundary: blocked (LIVE_TRADE_DISABLED)
 Submitted: false
-Ledger hash: 39a241d6b2b3fb5a67014e2604e4c7747529da57e23b3496b5772835d8bb13bc
+Ledger hash: b571a968338b0223fff7fd7b47f7ca8ff8fd4ae06292cbd305cfb03b89ee8194
 
 This evidence proves the gated live-receipt path. It does not claim a real exchange fill.

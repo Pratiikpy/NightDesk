@@ -1,7 +1,7 @@
 # Championship Overfit Check
 
 Strategies tested: 10515
-Session trials: 52575
+Session trials: 63090
 
 ## PnL Champion
 

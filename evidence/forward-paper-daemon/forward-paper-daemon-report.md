@@ -1,18 +1,18 @@
 # Forward Paper Daemon
 
-Run ID: forward_2026-06-18T03-37-29-624Z
+Run ID: forward_2026-06-24T16-10-28-823Z
 Frozen champion: perp_gap_fade_e0p35_x0_tp2_sl0p75_h9999_n0p5_m2
 Frozen at: 2026-06-17T16:08:20.334Z (LOCKED)
 Champion config hash: d62fbc88c1ea6482…
-Run fingerprint: 93efbe2ec62ba978… (same locked champion + same recordings reproduce this exactly)
+Run fingerprint: dc104297e6b9080d… (same locked champion + same recordings reproduce this exactly)
 
 ## Forward / out-of-sample track record (the honest number)
-Forward sessions (recorded after the freeze): 1
+Forward sessions (recorded after the freeze): 2
 Forward PnL: -2.0498 USDT
 Forward trades: 1
 
 ## All sessions (forward + in-sample replay)
-Sessions processed: 5
+Sessions processed: 6
 Total PnL: 45.3395 USDT
 Total trades: 8
 

@@ -1,6 +1,6 @@
 # NightDesk Multi-Session OOS Study
 
-Sessions: 5
+Sessions: 6
 Total guarded PnL: 0.32 USDT
 Total unguarded PnL: 0.32 USDT
 Logged blocked loss estimate: -15139.43 USDT

@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-18T03:41:32.780Z",
+  "generatedAt": "2026-06-25T00:06:56.372Z",
   "ok": true,
   "hard": [
     {
@@ -23,17 +23,17 @@
     {
       "label": "factory trials",
       "forms": [
-        "48600",
-        "48,600"
+        "58320",
+        "58,320"
       ],
       "docs": [
         {
           "file": "README.md",
-          "matched": "48,600"
+          "matched": "58,320"
         },
         {
           "file": "SUBMISSION.md",
-          "matched": "48,600"
+          "matched": "58,320"
         }
       ],
       "ok": true
@@ -80,17 +80,17 @@
     {
       "label": "factory rejected",
       "forms": [
-        "8444",
-        "8,444"
+        "8448",
+        "8,448"
       ],
       "docs": [
         {
           "file": "README.md",
-          "matched": "8,444"
+          "matched": "8,448"
         },
         {
           "file": "SUBMISSION.md",
-          "matched": "8,444"
+          "matched": "8,448"
         }
       ],
       "inSync": true

@@ -29,6 +29,22 @@ test("depthFill VWAPs across levels and reports slippage", () => {
   assert.equal(r.fillQty, 4);
 });
 
+test("depthFill never consumes liquidity beyond a limit price", () => {
+  const book = {
+    asks: [[100, 2], [101, 5]] as [number, number][],
+    bids: [] as [number, number][],
+  };
+  const result = depthFill("buy", 4, book, 100);
+  assert.equal(result.fillQty, 2);
+  assert.equal(result.avgPrice, 100);
+});
+
+test("quoteFill caps execution at visible touch size", () => {
+  const q: MarketQuote = { symbol: "X", bid: 99, ask: 100, last: 99.5, askSz: 2 };
+  const result = quoteFill("buy", 5, q);
+  assert.equal(result.fillQty, 2);
+});
+
 test("Account spot buy/sell tracks cash, units, realized PnL, fees", () => {
   const a = new Account("t", 10_000, { spotTakerPct: 0.1, perpTakerPct: 0.06 });
   a.applySpotFill("RAAPLUSDT", "buy", 10, 100); // cost 1000 + fee 1 => cash 8999
@@ -81,4 +97,75 @@ test("BitSim market order fills immediately via quote", () => {
   const f = sim.submit(o, q);
   assert.equal(f.status, "filled");
   assert.ok(f.avgPrice! >= 406);
+});
+
+test("BitSim keeps the unfilled remainder of a partially filled limit order", () => {
+  const sim = new BitSim();
+  sim.createAccount("a", 10_000);
+  const order: Order = {
+    id: "partial-limit",
+    accountId: "a",
+    symbol: "RAAPLUSDT",
+    kind: "spot",
+    side: "buy",
+    type: "limit",
+    qty: 5,
+    limitPrice: 100,
+    ts: 1,
+  };
+  const first = sim.submit(order, { symbol: order.symbol, bid: 99, ask: 100, last: 100, askSz: 2 });
+  assert.equal(first.status, "partial");
+  assert.equal(first.qty, 2);
+  assert.equal(sim.pending.length, 1);
+  assert.equal(sim.pending[0]!.remainingQty, 3);
+
+  const second = sim.onMarket(new Map([[order.symbol, { symbol: order.symbol, bid: 99, ask: 100, last: 100, askSz: 3 }]]));
+  assert.equal(second[0]!.status, "filled");
+  assert.equal(second[0]!.qty, 3);
+  assert.equal(sim.pending.length, 0);
+});
+
+test("BitSim rejects invalid venue tick, lot, and notional before accounting", () => {
+  const rules = { tickSize: 0.1, lotSize: 0.01, minQty: 0.01, minNotional: 5 };
+  const sim = new BitSim({ venueRules: { RAAPLUSDT: rules } });
+  const account = sim.createAccount("a", 10_000);
+  const q: MarketQuote = { symbol: "RAAPLUSDT", bid: 99.9, ask: 100, last: 100 };
+  const badTick = sim.submit({ id: "tick", accountId: "a", symbol: q.symbol, kind: "spot", side: "buy", type: "limit", qty: 1, limitPrice: 100.05, ts: 1 }, q);
+  const badLot = sim.submit({ id: "lot", accountId: "a", symbol: q.symbol, kind: "spot", side: "buy", type: "market", qty: 1.005, ts: 1 }, q);
+  const tooSmall = sim.submit({ id: "small", accountId: "a", symbol: q.symbol, kind: "spot", side: "buy", type: "market", qty: 0.01, ts: 1 }, q);
+  assert.match(badTick.reason!, /PRICE_TICK/);
+  assert.match(badLot.reason!, /QUANTITY_LOT/);
+  assert.match(tooSmall.reason!, /NOTIONAL_RANGE/);
+  assert.equal(account.cash, 10_000);
+});
+
+test("BitSim rejects naked spot sells and overspending buys", () => {
+  const sim = new BitSim();
+  const account = sim.createAccount("a", 10);
+  const q: MarketQuote = { symbol: "RAAPLUSDT", bid: 99, ask: 100, last: 100 };
+  const sell = sim.submit({ id: "sell", accountId: "a", symbol: q.symbol, kind: "spot", side: "sell", type: "market", qty: 1, ts: 1 }, q);
+  const buy = sim.submit({ id: "buy", accountId: "a", symbol: q.symbol, kind: "spot", side: "buy", type: "market", qty: 1, ts: 1 }, q);
+  assert.equal(sell.reason, "insufficient spot position");
+  assert.equal(buy.reason, "insufficient cash");
+  assert.equal(account.cash, 10);
+});
+
+test("BitSim resting limits fill only after aggressor volume clears queue ahead", () => {
+  const sim = new BitSim();
+  const account = sim.createAccount("a", 10_000);
+  const order: Order = { id: "queued", accountId: "a", symbol: "RAAPLUSDT", kind: "spot", side: "buy", type: "limit", qty: 5, limitPrice: 99, ts: 1 };
+  const resting: MarketQuote = { symbol: order.symbol, bid: 99, ask: 100, last: 99, bidSz: 3, askSz: 10 };
+  assert.equal(sim.submit(order, resting).status, "pending");
+  assert.equal(sim.pending[0]!.queue!.aheadQty, 3);
+
+  const first = sim.onMarket(new Map([[order.symbol, { ...resting, lastTradeSide: "sell", lastTradeQty: 2 }]]));
+  assert.equal(first.length, 0);
+  assert.equal(sim.pending[0]!.queue!.aheadQty, 1);
+
+  const second = sim.onMarket(new Map([[order.symbol, { ...resting, lastTradeSide: "sell", lastTradeQty: 4 }]]));
+  assert.equal(second.length, 1);
+  assert.equal(second[0]!.qty, 3);
+  assert.equal(second[0]!.status, "partial");
+  assert.equal(sim.pending[0]!.remainingQty, 2);
+  assert.equal(account.spot.get(order.symbol)!.units, 3);
 });

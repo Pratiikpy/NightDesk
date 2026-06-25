@@ -1,0 +1,3 @@
+{"state":"connecting","connectionAttempt":1,"reconnects":0,"records":0,"gaps":0,"lastMessageAt":null,"lastBackfillAt":null,"nextReconnectAt":null,"circuit":{"state":"closed","failures":0,"retryAt":null}}
+{"state":"live","connectionAttempt":1,"reconnects":0,"records":0,"gaps":0,"lastMessageAt":null,"lastBackfillAt":null,"nextReconnectAt":null,"circuit":{"state":"closed","failures":0,"retryAt":null}}
+{"state":"stopped","connectionAttempt":1,"reconnects":0,"records":2,"gaps":0,"lastMessageAt":1782312284897,"lastBackfillAt":null,"nextReconnectAt":null,"circuit":{"state":"closed","failures":0,"retryAt":null}}

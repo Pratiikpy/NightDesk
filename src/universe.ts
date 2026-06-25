@@ -8,6 +8,7 @@ const UNIVERSE_PATH = join(here, "..", "config", "universe.json");
 
 export interface Pair {
   ticker: string;
+  asset_class?: "stocks" | "etf";
   rtoken_spot: string;
   perp: string;
   perp_max_lever: number;
@@ -15,6 +16,7 @@ export interface Pair {
 }
 export interface SpotOnly {
   ticker: string;
+  asset_class?: "stocks" | "etf";
   rtoken_spot: string;
   ondo_spot?: string;
 }

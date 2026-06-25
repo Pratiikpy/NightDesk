@@ -1,0 +1,23 @@
+{
+  "schemaVersion": "nightdesk.data.v1",
+  "eventsWritten": 4,
+  "pointInTimeEvents": 2,
+  "futureEventsExcluded": 1,
+  "quarantinedEventsExcluded": 1,
+  "sequenceGapsDetected": 1,
+  "deterministicReplay": true,
+  "replayHash": "f487960ba7101c18fdc8c1be2a884466222dd8b00dc1c92e7cdfed0ab97d2848",
+  "contradictionFailsClosed": true,
+  "duplicateStatus": "duplicate",
+  "partitions": [
+    "data/.point-in-time-proof/kind=market.quote/source=fixture-feed/date=1970-01-01/events.jsonl"
+  ],
+  "statusCounts": {
+    "valid": 2,
+    "degraded": 1,
+    "quarantined": 1
+  },
+  "calendarHorizon2027": true,
+  "futureCorporateActionExcluded": true,
+  "splitAdjustmentCorrect": true
+}

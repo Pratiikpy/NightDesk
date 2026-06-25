@@ -4,6 +4,7 @@ import type { LLMProvider, LLMUsage } from "../llm/provider";
 import { addUsage, emptyUsage } from "../llm/provider";
 import type { EventCard } from "../perception/eventcard";
 import { bullMessages, bearMessages, researchManagerMessages, riskDebatorMessages, portfolioManagerMessages, type CouncilContext } from "./prompts";
+import { buildCouncilEvidence, validateGroundedTrade, type GroundingReport } from "./grounding";
 
 export type { CouncilContext } from "./prompts";
 
@@ -27,12 +28,15 @@ export interface CouncilResult {
   proposal: TradeProposal;
   transcript: { role: string; content: string }[];
   usage: LLMUsage;
+  grounding: GroundingReport;
 }
 export interface CouncilLimits {
   maxSizePct: number;
   maxLeverage: number;
+  maxCalls: number;
+  maxTotalTokens: number;
 }
-export const DEFAULT_LIMITS: CouncilLimits = { maxSizePct: 10, maxLeverage: 3 };
+export const DEFAULT_LIMITS: CouncilLimits = { maxSizePct: 10, maxLeverage: 3, maxCalls: 7, maxTotalTokens: 12_000 };
 
 const clamp = (n: number, lo: number, hi: number) => Math.max(lo, Math.min(hi, n));
 
@@ -42,26 +46,35 @@ export async function runCouncil(
   ctx: CouncilContext,
   limits: CouncilLimits = DEFAULT_LIMITS
 ): Promise<CouncilResult> {
+  const evidence = ctx.evidence?.length ? ctx.evidence : buildCouncilEvidence(card, ctx);
+  const groundedContext: CouncilContext = { ...ctx, evidence };
   let usage = emptyUsage();
+  let calls = 0;
   const transcript: { role: string; content: string }[] = [];
   const call = async (messages: ReturnType<typeof bullMessages>, role: string, temperature: number): Promise<string> => {
-    const r = await llm.complete(messages, { temperature });
+    if (++calls > limits.maxCalls) throw new Error("council call budget exceeded");
+    const r = await llm.complete(messages, { temperature, maxTokens: 800 });
     usage = addUsage(usage, r.usage);
+    if (usage.promptTokens + usage.completionTokens > limits.maxTotalTokens) throw new Error("council token budget exceeded");
     transcript.push({ role, content: r.text });
     return r.text;
   };
 
   // Analyst debate → research synthesis → 3-way risk debate → portfolio-manager decision (with veto).
-  const bull = await call(bullMessages(card, ctx), "bull", 0.4);
-  const bear = await call(bearMessages(card, ctx, bull), "bear", 0.4);
-  const research = await call(researchManagerMessages(card, ctx, bull, bear), "research_manager", 0.3);
-  const aggressive = await call(riskDebatorMessages("AGGRESSIVE", card, ctx, research), "risk_aggressive", 0.4);
-  const conservative = await call(riskDebatorMessages("CONSERVATIVE", card, ctx, research), "risk_conservative", 0.4);
-  const neutral = await call(riskDebatorMessages("NEUTRAL", card, ctx, research), "risk_neutral", 0.3);
-  const pm = await call(portfolioManagerMessages(card, ctx, research, { aggressive, conservative, neutral }), "portfolio_manager", 0.1);
+  const bull = await call(bullMessages(card, groundedContext), "bull", 0.4);
+  const bear = await call(bearMessages(card, groundedContext, bull), "bear", 0.4);
+  const research = await call(researchManagerMessages(card, groundedContext, bull, bear), "research_manager", 0.3);
+  const aggressive = await call(riskDebatorMessages("AGGRESSIVE", card, groundedContext, research), "risk_aggressive", 0.4);
+  const conservative = await call(riskDebatorMessages("CONSERVATIVE", card, groundedContext, research), "risk_conservative", 0.4);
+  const neutral = await call(riskDebatorMessages("NEUTRAL", card, groundedContext, research), "risk_neutral", 0.3);
+  const pm = await call(portfolioManagerMessages(card, groundedContext, research, { aggressive, conservative, neutral }), "portfolio_manager", 0.1);
 
-  const proposal = parseProposal(pm, card, ctx, limits);
-  return { proposal, transcript, usage };
+  const parsed = extractJson(pm);
+  const grounding = parsed && String(parsed.decision ?? "").toUpperCase() === "TRADE"
+    ? validateGroundedTrade(parsed, card, evidence)
+    : { grounded: true, citations: [], failures: [], activeFactIds: evidence.map((item) => item.id).sort() };
+  const proposal = grounding.grounded ? parseProposal(pm, card, groundedContext, limits) : noTrade(ctx, card.eventId, `grounding failed: ${grounding.failures.join("; ")}`);
+  return { proposal, transcript, usage, grounding };
 }
 
 function noTrade(ctx: CouncilContext, eventRef: string, thesis: string): TradeProposal {

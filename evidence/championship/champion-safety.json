@@ -1,6 +1,6 @@
 {
-  "selected_at": "2026-06-18T03:38:36.061Z",
-  "data_cutoff": "2026-06-18T03:38:36.061Z",
+  "selected_at": "2026-06-24T16:12:02.171Z",
+  "data_cutoff": "2026-06-24T16:12:02.171Z",
   "objective": "safety",
   "strategy_id": "GapFade_perp_gap_entry0_35_exit0_tp2_sl1_25_h9999_n0_65_m2",
   "family": "GapFade",
@@ -21,16 +21,16 @@
     "strategy_id": "GapFade_perp_gap_entry0_35_exit0_tp2_sl1_25_h9999_n0_65_m2",
     "family": "GapFade",
     "params_hash": "41014f4689f5f1d0",
-    "sessions": 5,
+    "sessions": 6,
     "trades": 8,
-    "blocks": 87,
+    "blocks": 106,
     "net_pnl": 68.708829,
     "max_dd": 11.276728,
     "fees": 10.002094,
     "slippage": 5.001047,
     "turnover": 10002.093654,
     "score_pnl": 64.889438,
-    "score_safety": 43.329326,
+    "score_safety": 43.804326,
     "cost_stress_pnl": 66.70841,
     "min_leave_one_session_pnl": 23.166415,
     "leave_one_token_out_pnl": 69.417871,
@@ -46,5 +46,5 @@
     "liquidityTrapBlock": true,
     "feeSlippageEdgeCheck": true
   },
-  "signature": "6fb2062f95feac21d276b6a6009275cfba797df26b0e5d8a34736058680fc8f2"
+  "signature": "ef8230e8e05f9cd18fe8c35140ef6fdbd0638b54d1e9a8de1eb200e222367850"
 }

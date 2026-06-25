@@ -2,7 +2,7 @@ import "dotenv/config";
 import { existsSync, mkdirSync, readFileSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
 import { collect } from "../pegwatch/collect";
-import { appendSnapshot } from "../recorder/store";
+import { appendNormalizedSnapshot, appendSnapshot } from "../recorder/store";
 import { runForwardPaperDaemon } from "../execution/forward-paper-daemon";
 import { runDailyPromoter } from "../agent/daily-promoter";
 import { runOosReport } from "../research/session-study";
@@ -54,6 +54,7 @@ function countRecordedSessions(): number {
 async function recordTick(state: DaemonState): Promise<void> {
   const snap = await collect();
   const file = appendSnapshot(snap);
+  const normalized = appendNormalizedSnapshot(snap);
   const nonNormal = snap.rows.filter((r) => r.state && r.state !== "NORMAL").length;
   const depegEq = snap.rows.filter((r) => r.stateVsEquity && r.stateVsEquity !== "NORMAL").length;
   state.ticks += 1;
@@ -66,6 +67,8 @@ async function recordTick(state: DaemonState): Promise<void> {
     snapshotTime: snap.isoTime,
     vsPerpNonNormal: nonNormal,
     vsEquityDepeg: depegEq,
+    normalizedEvents: normalized.appended,
+    normalizedDuplicates: normalized.duplicates,
   });
 }
 

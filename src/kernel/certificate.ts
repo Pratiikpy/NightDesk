@@ -7,6 +7,10 @@
 // the ledger. This turns "NightDesk says X is safe" into "prove it, with a signature that expires."
 import { attest, verifyAttestation, type Attestation, type Keypair } from "../ledger/attest";
 import type { TokenCert, CertLabel, CertPolicy } from "../research/certify";
+import {
+  buildCertificatePayload,
+  impliedMaxSizeUsd as canonicalImpliedMaxSizeUsd,
+} from "../../api/certificate-policy.js";
 
 export interface CertPayload {
   version: "1.0";
@@ -29,30 +33,18 @@ export interface NightDeskCertificate {
 
 /** Size cap implied by the safety score — higher safety earns more size; unsafe earns zero. */
 export function impliedMaxSizeUsd(policy: CertPolicy, safetyScore: number): number {
-  if (policy === "BLOCK" || policy === "AVOID" || policy === "ABSTAIN" || policy === "WATCH") return 0;
-  // NORMAL / LONG_ONLY_FADE: scale 0..$100 by how far safety clears 60.
-  return Math.max(0, Math.round(((safetyScore - 60) / 40) * 100));
+  return canonicalImpliedMaxSizeUsd(policy, safetyScore);
 }
 
 export function issueCertificate(cert: TokenCert, opts: { anchorSource: CertPayload["anchorSource"]; anchorStale: boolean; now?: number; ttlSec?: number; keys?: Keypair }): NightDeskCertificate {
   const now = opts.now ?? Date.now();
   const ttlSec = opts.ttlSec ?? 120; // 2 min — short, because off-hours quotes go stale
-  // The issuer enforces the kernel's own laws: a stale anchor can never yield a tradeable certificate.
-  const classification: CertLabel = opts.anchorStale ? "STALE" : cert.classification;
-  const allowedPolicy: CertPolicy = opts.anchorStale ? "ABSTAIN" : cert.policy;
-  const payload: CertPayload = {
-    version: "1.0",
-    ticker: cert.ticker,
-    issuedAt: new Date(now).toISOString(),
-    expiresAt: new Date(now + ttlSec * 1000).toISOString(),
+  const payload = buildCertificatePayload(cert, {
     anchorSource: opts.anchorSource,
     anchorStale: opts.anchorStale,
-    classification,
-    safetyScore: cert.safetyScore,
-    allowedPolicy,
-    maxSizeUsd: impliedMaxSizeUsd(allowedPolicy, cert.safetyScore),
-    evidence: cert.evidence,
-  };
+    now,
+    ttlSec,
+  }) as CertPayload;
   return { payload, attestation: attest([payload], opts.keys) };
 }
 

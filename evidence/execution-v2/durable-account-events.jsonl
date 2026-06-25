@@ -1,0 +1,2 @@
+{"sequence":1,"id":"account:durable:opened","accountId":"durable","ts":0,"type":"ACCOUNT_OPENED","cash":1000,"fees":{"spotTakerPct":0.1,"perpTakerPct":0.06}}
+{"sequence":2,"id":"fill:durable-buy:0","accountId":"durable","ts":1,"type":"SPOT_FILL","symbol":"RAAPLUSDT","side":"buy","qty":1,"price":100}

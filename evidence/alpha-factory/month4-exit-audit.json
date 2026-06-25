@@ -1,0 +1,79 @@
+{
+  "milestone": "Month 4: Alpha Factory v2",
+  "generatedAt": "2026-06-24T16:42:42.628Z",
+  "passed": true,
+  "rows": [
+    {
+      "requirement": "Typed strategy DSL separates economic and risk components",
+      "passed": true,
+      "evidence": [
+        "evidence/alpha-factory/strategy-catalog.jsonl",
+        "src/research/strategy-dsl.ts",
+        "test/strategy-dsl.test.ts"
+      ],
+      "detail": "9720 typed, hard-gated strategy specifications with deterministic hashes."
+    },
+    {
+      "requirement": "Every trial has complete code/data/config/cost lineage",
+      "passed": true,
+      "evidence": [
+        "evidence/alpha-factory/trial-registry.jsonl",
+        "evidence/alpha-factory/manifest.json"
+      ],
+      "detail": "58320 trials trace to strategy, code, dataset, cutoff, feature set, and cost model."
+    },
+    {
+      "requirement": "Leaderboard and rejected rows trace to configuration hashes",
+      "passed": true,
+      "evidence": [
+        "evidence/alpha-factory/candidate-strategies.csv",
+        "evidence/alpha-factory/rejected-overfit-strategies.csv"
+      ],
+      "detail": "9720 leaderboard rows and 8448 rejected rows retain lineage."
+    },
+    {
+      "requirement": "Purged and embargoed folds never select on the test session",
+      "passed": true,
+      "evidence": [
+        "evidence/alpha-factory/walkforward-leaderboard.csv"
+      ],
+      "detail": "6 train-only selection folds exclude each test session and adjacent sessions."
+    },
+    {
+      "requirement": "Multiple-testing penalties and null findings remain explicit",
+      "passed": true,
+      "evidence": [
+        "evidence/alpha-factory/overfit-stats.json",
+        "evidence/alpha-factory/overfit-court-stats.md"
+      ],
+      "detail": "DSR=0.29%, significant=false, PBO=insufficient_slices."
+    },
+    {
+      "requirement": "Parameter stability surface is evaluated, not merely proposed",
+      "passed": true,
+      "evidence": [
+        "evidence/alpha-factory/stability-surface.csv",
+        "evidence/alpha-factory/mutation-history.jsonl"
+      ],
+      "detail": "27 local entry/take-profit/stop-loss perturbations evaluated across all sessions."
+    },
+    {
+      "requirement": "Champion freeze is content-addressed and immutable",
+      "passed": true,
+      "evidence": [
+        "evidence/alpha-factory/frozen-champion.json",
+        "evidence/alpha-factory/freezes/a3d6b2899ca96e570f4c16db.json"
+      ],
+      "detail": "Freeze a3d6b2899ca96e570f4c16db binds champion, data cutoff, data manifest, strategy code, costs, and config."
+    },
+    {
+      "requirement": "Champion lifecycle registry is explicit and reproducible",
+      "passed": true,
+      "evidence": [
+        "evidence/alpha-factory/champion-registry.json",
+        "evidence/alpha-factory/frozen-champion.json"
+      ],
+      "detail": "Champion, 5 challengers, 10 watch candidates, retired history, and rejected population are recorded."
+    }
+  ]
+}

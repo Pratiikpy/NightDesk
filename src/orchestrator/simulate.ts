@@ -2,7 +2,7 @@
 // With a file: replay recorded snapshots. Without: collect a few live snapshots first.
 import { collect } from "../pegwatch/collect";
 import { loadSnapshots } from "../bitsim/market";
-import { appendSnapshot } from "../recorder/store";
+import { appendNormalizedSnapshot, appendSnapshot } from "../recorder/store";
 import { runSimulation, type SimResult } from "./nightdesk";
 import { attributeGates } from "../ledger/scorecard";
 import type { Snapshot } from "../pegwatch/collect";
@@ -33,6 +33,7 @@ export async function simulate(args: string[] = []): Promise<void> {
       const s = await collect();
       snaps.push(s);
       appendSnapshot(s);
+      appendNormalizedSnapshot(s);
       process.stdout.write(`  snapshot ${i + 1}/${N}\r`);
       if (i < N - 1) await new Promise((r) => setTimeout(r, 3000));
     }

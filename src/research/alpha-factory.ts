@@ -1,16 +1,27 @@
-import { mkdirSync, writeFileSync } from "node:fs";
+import { existsSync, mkdirSync, readFileSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
+import { createHash } from "node:crypto";
 import { loadSnapshots } from "../bitsim/market";
 import { hashRecords } from "../execution/exporter";
 import { alphaConfigGrid, runAlphaConfig, type AlphaConfig, type AlphaResult } from "./alpha-championship";
 import { availableSessionFiles } from "./session-study";
 import { buildOverfitInputs, computeOverfitStats, formatOverfitMarkdown } from "./overfit-stats";
+import { alphaConfigToDsl, strategyHash } from "./strategy-dsl";
 
 const OUT = join(process.cwd(), "evidence", "alpha-factory");
 
 interface TrialRow {
+  schema_version: "nightdesk.trial.v2";
   trial_id: string;
   config_id: string;
+  config_hash: string;
+  strategy_code_hash: string;
+  data_hash: string;
+  data_cutoff: string;
+  feature_set: string;
+  cost_model_hash: string;
+  parent_trial_id: string;
+  split_role: "research";
   recording: string;
   source: string;
   direction: string;
@@ -30,8 +41,25 @@ interface TrialRow {
   fees: number;
 }
 
+interface TrialLineage {
+  configHash: string;
+  strategyCodeHash: string;
+  dataHash: string;
+  dataCutoff: string;
+  costModelHash: string;
+}
+
+function sha256(value: string | Buffer): string {
+  return createHash("sha256").update(value).digest("hex");
+}
+
+function fileHash(file: string): string {
+  return sha256(readFileSync(file));
+}
+
 interface AggregateRow {
   config_id: string;
+  config_hash: string;
   source: string;
   direction: string;
   sessions: number;
@@ -75,11 +103,20 @@ function stdev(xs: number[]): number {
   return Math.sqrt(xs.reduce((sum, x) => sum + (x - mean) ** 2, 0) / (xs.length - 1));
 }
 
-function trialRow(result: AlphaResult): TrialRow {
+function trialRow(result: AlphaResult, lineage: TrialLineage): TrialRow {
   const cfg = result.config;
   return {
+    schema_version: "nightdesk.trial.v2",
     trial_id: hashRecords([cfg.id, result.recording]).slice(0, 16),
     config_id: cfg.id,
+    config_hash: lineage.configHash,
+    strategy_code_hash: lineage.strategyCodeHash,
+    data_hash: lineage.dataHash,
+    data_cutoff: lineage.dataCutoff,
+    feature_set: "equity_gap|perp_gap|recorded_quote_path|hard_risk_context",
+    cost_model_hash: lineage.costModelHash,
+    parent_trial_id: "",
+    split_role: "research",
     recording: result.recording,
     source: cfg.source,
     direction: cfg.direction,
@@ -127,6 +164,7 @@ function aggregateTrials(rows: TrialRow[], configs: Map<string, AlphaConfig>): A
     if (active > 1 && positive / active < 0.5) reasons.push("LOW_ACTIVE_SESSION_HIT_RATE");
     return {
       config_id: cfg.id,
+      config_hash: strategyHash(alphaConfigToDsl(cfg)),
       source: cfg.source,
       direction: cfg.direction,
       sessions: trials.length,
@@ -154,11 +192,13 @@ function leaveOneOutRows(trials: TrialRow[], configs: Map<string, AlphaConfig>):
   const byConfig = new Map<string, TrialRow[]>();
   for (const row of trials) byConfig.set(row.config_id, [...(byConfig.get(row.config_id) ?? []), row]);
   const rows: Record<string, unknown>[] = [];
-  for (const test of recordings) {
+  for (let testIndex = 0; testIndex < recordings.length; testIndex++) {
+    const test = recordings[testIndex]!;
+    const embargoed = new Set([recordings[testIndex - 1], test, recordings[testIndex + 1]].filter((value): value is string => value != null));
     let best: { cfg: AlphaConfig; trainPnl: number; testRow: TrialRow | undefined; trainTrades: number } | null = null;
     for (const [configId, configTrials] of byConfig.entries()) {
       const cfg = configs.get(configId)!;
-      const train = configTrials.filter((t) => t.recording !== test);
+      const train = configTrials.filter((t) => !embargoed.has(t.recording));
       const testRow = configTrials.find((t) => t.recording === test);
       const trainPnl = train.reduce((sum, t) => sum + t.net_pnl, 0);
       const trainTrades = train.reduce((sum, t) => sum + t.trades, 0);
@@ -175,7 +215,10 @@ function leaveOneOutRows(trials: TrialRow[], configs: Map<string, AlphaConfig>):
       test_trades: best?.testRow?.trades ?? 0,
       test_wins: best?.testRow?.wins ?? 0,
       test_losses: best?.testRow?.losses ?? 0,
-      method: "leave-one-recording-out champion selection",
+      train_recordings: recordings.filter((recording) => !embargoed.has(recording)).join("|"),
+      purged_recordings: recordings.filter((recording) => embargoed.has(recording) && recording !== test).join("|"),
+      no_test_parameter_selection: true,
+      method: "purged leave-one-recording-out champion selection with adjacent-session embargo",
     });
   }
   return rows;
@@ -209,45 +252,87 @@ export function runAlphaFactory(args: string[] = []): void {
   const configs = alphaConfigGrid(deep);
   const configsById = new Map(configs.map((cfg) => [cfg.id, cfg]));
   mkdirSync(OUT, { recursive: true });
-
-  const trials: TrialRow[] = [];
-  for (const file of files) {
+  const previousFrozen = existsSync(join(OUT, "frozen-champion.json"))
+    ? JSON.parse(readFileSync(join(OUT, "frozen-champion.json"), "utf8")) as { freezeId?: string; config?: AlphaConfig }
+    : null;
+  const strategyCodeHash = sha256([
+    fileHash(join(process.cwd(), "src", "research", "alpha-championship.ts")),
+    fileHash(join(process.cwd(), "src", "research", "alpha-factory.ts")),
+    fileHash(join(process.cwd(), "src", "research", "strategy-dsl.ts")),
+  ].join("|"));
+  const costModelHash = sha256([
+    fileHash(join(process.cwd(), "src", "bitsim", "fills.ts")),
+    fileHash(join(process.cwd(), "src", "bitsim", "account.ts")),
+    "spot_fee_pct=0.1",
+  ].join("|"));
+  const configHashes = new Map(configs.map((config) => [config.id, strategyHash(alphaConfigToDsl(config))]));
+  const sessions = files.map((file) => {
     const snapshots = loadSnapshots(file);
     const recording = file.replace(/\\/g, "/").split("/").pop()!.replace(/\.jsonl$/, "");
-    for (const cfg of configs) trials.push(trialRow(runAlphaConfig(recording, snapshots, cfg)));
+    const maxTs = Math.max(...snapshots.map((snapshot) => snapshot.ts).filter(Number.isFinite));
+    return {
+      file,
+      snapshots,
+      recording,
+      dataHash: fileHash(file),
+      dataCutoff: Number.isFinite(maxTs) ? new Date(maxTs).toISOString() : `${recording}T23:59:59.999Z`,
+    };
+  });
+
+  const trials: TrialRow[] = [];
+  for (const session of sessions) {
+    for (const cfg of configs) trials.push(trialRow(runAlphaConfig(session.recording, session.snapshots, cfg), {
+      configHash: configHashes.get(cfg.id)!,
+      strategyCodeHash,
+      dataHash: session.dataHash,
+      dataCutoff: session.dataCutoff,
+      costModelHash,
+    }));
   }
   const aggregate = aggregateTrials(trials, configsById);
   const passed = aggregate.filter((r) => r.overfit_verdict === "PASS");
   const rejected = aggregate.filter((r) => r.overfit_verdict === "REJECT");
   const championRow = passed[0] ?? aggregate[0];
   const frozenChampion = configsById.get(championRow.config_id)!;
-  const championResults = files.map((file) => {
-    const snapshots = loadSnapshots(file);
-    const recording = file.replace(/\\/g, "/").split("/").pop()!.replace(/\.jsonl$/, "");
-    return runAlphaConfig(recording, snapshots, frozenChampion);
-  });
+  const championResults = sessions.map((session) => runAlphaConfig(session.recording, session.snapshots, frozenChampion));
   const walkforward = leaveOneOutRows(trials, configsById);
   const overfitStats = computeOverfitStats(buildOverfitInputs(
     trials.map((t) => ({ config_id: t.config_id, recording: t.recording, net_pnl: t.net_pnl })),
     championResults.map((r) => r.netPnl),
   ));
   const mutations = mutateChampion(frozenChampion);
-  const mutationRows = mutations.map((cfg, i) => ({
+  const mutationRows = mutations.map((cfg, i) => {
+    const results = sessions.map((session) => runAlphaConfig(session.recording, session.snapshots, cfg));
+    const pnls = results.map((result) => result.netPnl);
+    const totalPnl = pnls.reduce((sum, pnl) => sum + pnl, 0);
+    const worstPnl = Math.min(...pnls);
+    const maxDrawdown = Math.max(...results.map((result) => result.maxDrawdown));
+    return {
     ts: new Date().toISOString(),
     mutation_id: i + 1,
     parent_config: frozenChampion.id,
     child_config: cfg.id,
+    child_config_hash: strategyHash(alphaConfigToDsl(cfg)),
     change: "local threshold/take-profit/stop-loss perturbation",
-    status: "proposed_for_next_recording",
-  }));
+    total_pnl: Number(totalPnl.toFixed(6)),
+    worst_pnl: Number(worstPnl.toFixed(6)),
+    max_drawdown: Number(maxDrawdown.toFixed(6)),
+    active_sessions: results.filter((result) => result.trades > 0).length,
+    positive_sessions: results.filter((result) => result.netPnl > 0).length,
+    status: totalPnl > 0 && worstPnl >= -5 ? "stable" : "fragile",
+  }; });
   const decisions = [
     { ts: new Date().toISOString(), agent: "AlphaResearchAgent", decision: "GENERATE_GRID", detail: `${configs.length} candidates generated`, evidence: "candidate-strategies.csv" },
     { ts: new Date().toISOString(), agent: "OverfitCourt", decision: "REJECT_FRAGILE", detail: `${rejected.length} configs rejected`, evidence: "rejected-overfit-strategies.csv" },
     { ts: new Date().toISOString(), agent: "ChampionFreezer", decision: "FREEZE_CHAMPION", detail: frozenChampion.id, evidence: "frozen-champion.json" },
-    { ts: new Date().toISOString(), agent: "StrategyMutator", decision: "PROPOSE_MUTATIONS", detail: `${mutationRows.length} local variants proposed`, evidence: "mutation-history.jsonl" },
+    { ts: new Date().toISOString(), agent: "StrategyMutator", decision: "EVALUATE_STABILITY_SURFACE", detail: `${mutationRows.length} local variants evaluated`, evidence: "stability-surface.csv" },
   ];
 
   writeCsv("candidate-strategies.csv", aggregate);
+  writeFileSync(join(OUT, "strategy-catalog.jsonl"), configs.map((config) => {
+    const strategy = alphaConfigToDsl(config);
+    return JSON.stringify({ config_id: config.id, config_hash: strategyHash(strategy), strategy });
+  }).join("\n") + "\n");
   writeFileSync(join(OUT, "trial-registry.jsonl"), trials.map((t) => JSON.stringify(t)).join("\n") + "\n");
   writeCsv("rejected-overfit-strategies.csv", rejected);
   writeCsv("walkforward-leaderboard.csv", walkforward);
@@ -279,12 +364,44 @@ export function runAlphaFactory(args: string[] = []): void {
       trades: r.trades,
     };
   }));
-  writeFileSync(join(OUT, "frozen-champion.json"), JSON.stringify({
+  writeCsv("stability-surface.csv", mutationRows);
+  const dataCutoff = [...sessions.map((session) => session.dataCutoff)].sort().at(-1)!;
+  const dataManifestHash = sha256(sessions.map((session) => `${session.recording}:${session.dataHash}:${session.dataCutoff}`).sort().join("|"));
+  const configHash = configHashes.get(frozenChampion.id)!;
+  const freezeId = sha256([configHash, strategyCodeHash, costModelHash, dataManifestHash, dataCutoff].join("|")).slice(0, 24);
+  const freezeDir = join(OUT, "freezes");
+  mkdirSync(freezeDir, { recursive: true });
+  const freezePath = join(freezeDir, `${freezeId}.json`);
+  const newFreezeRecord = {
+    schema: "nightdesk.champion-freeze.v2",
+    freezeId,
     frozenAt: new Date().toISOString(),
+    dataCutoff,
+    dataManifestHash,
+    strategyCodeHash,
+    costModelHash,
+    configHash,
     selection: championRow,
     config: frozenChampion,
     caveat: "Frozen from available recordings. Treat future paper sessions as the real out-of-sample test.",
-  }, null, 2) + "\n");
+  };
+  const freezeRecord = existsSync(freezePath)
+    ? JSON.parse(readFileSync(freezePath, "utf8")) as typeof newFreezeRecord
+    : newFreezeRecord;
+  if (!existsSync(freezePath)) writeFileSync(freezePath, JSON.stringify(freezeRecord, null, 2) + "\n");
+  writeFileSync(join(OUT, "frozen-champion.json"), JSON.stringify(freezeRecord, null, 2) + "\n");
+  const registry = {
+    schema: "nightdesk.champion-registry.v1",
+    generatedAt: new Date().toISOString(),
+    champion: { status: "champion", config_id: championRow.config_id, config_hash: championRow.config_hash, freeze_id: freezeId, score: championRow.robustness_score },
+    challengers: passed.slice(1, 6).map((row) => ({ status: "challenger", config_id: row.config_id, config_hash: row.config_hash, score: row.robustness_score })),
+    watch: passed.slice(6, 16).map((row) => ({ status: "watch", config_id: row.config_id, config_hash: row.config_hash, score: row.robustness_score })),
+    retired: previousFrozen?.config && previousFrozen.config.id !== frozenChampion.id
+      ? [{ status: "retired", config_id: previousFrozen.config.id, freeze_id: previousFrozen.freezeId ?? "legacy-unversioned" }]
+      : [],
+    rejected: { status: "rejected", count: rejected.length, evidence: "rejected-overfit-strategies.csv" },
+  };
+  writeFileSync(join(OUT, "champion-registry.json"), JSON.stringify(registry, null, 2) + "\n");
   writeFileSync(join(OUT, "mutation-history.jsonl"), mutationRows.map((r) => JSON.stringify(r)).join("\n") + "\n");
   writeFileSync(join(OUT, "agent-decisions.jsonl"), decisions.map((r) => JSON.stringify(r)).join("\n") + "\n");
   writeFileSync(join(OUT, "overfit-court-report.md"), [
@@ -301,7 +418,7 @@ export function runAlphaFactory(args: string[] = []): void {
       ? `Frozen champion passed Overfit Court: ${frozenChampion.id}`
       : `No config passed every rule; best available config was frozen with caveat: ${frozenChampion.id}`,
     "",
-    "Walk-forward warning: leave-one-recording-out selection is reported separately and remains the harshest current profit test. The dataset is still too small for a production alpha claim.",
+    "Walk-forward warning: purged leave-one-recording-out selection with adjacent-session embargo is reported separately and remains the harshest current profit test. The dataset is still too small for a production alpha claim.",
   ].join("\n") + "\n\n---\n\n" + formatOverfitMarkdown(overfitStats));
   writeFileSync(join(OUT, "overfit-stats.json"), JSON.stringify({ generatedAt: new Date().toISOString(), source: "alpha-factory run", ...overfitStats }, null, 2) + "\n");
   writeFileSync(join(OUT, "overfit-court-stats.md"), formatOverfitMarkdown(overfitStats));
@@ -351,7 +468,7 @@ export function runAlphaFactory(args: string[] = []): void {
     "| AlphaResearchAgent | Generates candidates | pass | candidate-strategies.csv |",
     "| OverfitCourt | Rejects fragile configs | pass | overfit-court-report.md |",
     "| ChampionFreezer | Freezes survivor | pass | frozen-champion.json |",
-    "| StrategyMutator | Proposes next variants | pass | mutation-history.jsonl |",
+    "| StrategyMutator | Evaluates local stability surface | pass | stability-surface.csv |",
     "| NightDeskGateway | Safety enforcement | pass | ../trading-log/nightdesk-paper-trading-log.csv |",
   ].join("\n") + "\n");
   writeFileSync(join(OUT, "daily-alpha-report.md"), [
@@ -366,7 +483,7 @@ export function runAlphaFactory(args: string[] = []): void {
     `Champion positive sessions: ${championRow.positive_sessions}/${championRow.sessions}`,
     `Champion max drawdown: ${championRow.max_drawdown.toFixed(2)} USDT`,
     "",
-    "Agentic loop: generate candidates -> reject fragile configs -> freeze champion -> compare expected vs actual -> propose mutations for the next recording.",
+    "Agentic loop: generate typed candidates -> record lineage -> reject fragile configs -> immutable freeze -> compare expected vs actual -> evaluate local stability surface.",
   ].join("\n") + "\n");
   writeFileSync(join(OUT, "manifest.json"), JSON.stringify({
     generatedAt: new Date().toISOString(),
@@ -377,9 +494,16 @@ export function runAlphaFactory(args: string[] = []): void {
     rejected: rejected.length,
     passed: passed.length,
     frozenChampion,
+    freezeId,
+    dataCutoff,
+    dataManifestHash,
+    strategyCodeHash,
+    costModelHash,
+    configHash,
     championSelection: championRow,
     files: [
       "candidate-strategies.csv",
+      "strategy-catalog.jsonl",
       "trial-registry.jsonl",
       "rejected-overfit-strategies.csv",
       "overfit-court-report.md",
@@ -387,11 +511,14 @@ export function runAlphaFactory(args: string[] = []): void {
       "overfit-stats.json",
       "walkforward-leaderboard.csv",
       "frozen-champion.json",
+      `freezes/${freezeId}.json`,
+      "champion-registry.json",
       "champion-oos-results.csv",
       "live-paper-trading-log.csv",
       "expected-vs-actual.csv",
       "daily-alpha-report.md",
       "mutation-history.jsonl",
+      "stability-surface.csv",
       "agent-decisions.jsonl",
       "masked-eval-report.md",
       "agent-benchmark-standard.md",

@@ -4,7 +4,8 @@
 import pLimit from "p-limit";
 import { basisPairs, tripleListed } from "../universe";
 import { spotTicker, perpTicker, spotBook, type TickerQuote, type Book } from "../bitget/client";
-import { equityQuotes, type EquityQuote } from "../anchor/equity";
+import type { EquityQuote } from "../anchor/equity";
+import { redundantEquityQuotes } from "../anchor/resolver";
 import {
   mid,
   premiumPct,
@@ -44,7 +45,16 @@ export interface PegRow {
   tradeable: boolean;
   triangulation: TriResult | null; // only for triple-listed tickers
   // Real fair-value anchor (Yahoo): rToken vs the actual underlying stock price — the TRUE depeg.
-  equity?: { price: number; previousClose: number | null; marketState: string; asOf: number | null } | null;
+  equity?: {
+    price: number;
+    previousClose: number | null;
+    marketState: string;
+    asOf: number | null;
+    source?: string;
+    sources?: string[];
+    maxDeviationPct?: number;
+    qualityStatus?: string;
+  } | null;
   premiumVsEquityPct?: number | null;
   stateVsEquity?: DepegState | null;
 }
@@ -70,7 +80,13 @@ function legFrom(t: TickerQuote | null, book?: Book | null): LegQuote | null {
 export async function collect(): Promise<Snapshot> {
   const now = Date.now();
   // Real underlying-equity prices (one batched fetch), used as the true fair-value anchor.
-  const eq = await equityQuotes(basisPairs.map((p) => p.ticker)).catch(() => new Map<string, EquityQuote>());
+  const eq = await redundantEquityQuotes(
+    basisPairs.map((p) => p.ticker),
+    now,
+    Object.fromEntries(basisPairs.map((pair) => [pair.ticker, pair.asset_class ?? "stocks"])),
+  )
+    .then((result) => result.quotes)
+    .catch(() => new Map<string, EquityQuote>());
   const rows = await Promise.all(basisPairs.map((p) => buildRow(p, eq)));
   return { ts: now, isoTime: new Date(now).toISOString(), rows };
 }
@@ -122,7 +138,16 @@ async function buildRow(p: (typeof basisPairs)[number], eq: Map<string, EquityQu
     tradeable,
     triangulation: tri,
     equity: equity
-      ? { price: equity.price, previousClose: equity.previousClose, marketState: equity.marketState, asOf: equity.asOf }
+      ? {
+          price: equity.price,
+          previousClose: equity.previousClose,
+          marketState: equity.marketState,
+          asOf: equity.asOf,
+          source: equity.source,
+          sources: equity.sources,
+          maxDeviationPct: equity.maxDeviationPct,
+          qualityStatus: equity.qualityStatus,
+        }
       : null,
     premiumVsEquityPct,
     stateVsEquity,

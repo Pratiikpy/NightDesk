@@ -5,8 +5,10 @@
 // the "Persistent Memory" pillar of agentic trading. Pure + persisted; never blocks the loop.
 import { mkdirSync, readFileSync, writeFileSync, existsSync } from "node:fs";
 import { join, dirname } from "node:path";
+import { createHash } from "node:crypto";
 
 export interface MemoryEntry {
+  id: string;
   ticker: string;
   ts: number; // when graded
   bucket: string; // direction + |premium| band, e.g. "short/1-2"
@@ -15,7 +17,12 @@ export interface MemoryEntry {
   narrowingPp: number; // how much |premium| shrank by exit
   pnlPct: number;
   holdBars: number;
+  evidenceRef: string;
+  sourceHash: string;
+  expiresAt: number;
 }
+
+export type MemoryInput = Omit<MemoryEntry, "id" | "evidenceRef" | "sourceHash" | "expiresAt"> & Partial<Pick<MemoryEntry, "id" | "evidenceRef" | "sourceHash" | "expiresAt">>;
 
 export interface MemoryPrior {
   ticker: string;
@@ -48,14 +55,26 @@ export function importanceWeight(e: MemoryEntry): number {
 
 export class ConvergenceMemory {
   entries: MemoryEntry[] = [];
+  integrityStatus: "ok" | "missing" | "corrupt" = "missing";
 
-  add(e: MemoryEntry): void {
-    this.entries.push(e);
+  add(input: MemoryInput): MemoryEntry {
+    const numeric = [input.ts, input.premiumPct, input.narrowingPp, input.pnlPct, input.holdBars];
+    if (!input.ticker || !input.bucket || numeric.some((value) => !Number.isFinite(value)) || input.holdBars < 0) throw new Error("invalid convergence memory entry");
+    const evidenceRef = input.evidenceRef ?? `graded:${input.ticker}:${input.ts}`;
+    const sourceHash = input.sourceHash ?? createHash("sha256").update(JSON.stringify({ evidenceRef, ticker: input.ticker, ts: input.ts, premiumPct: input.premiumPct, pnlPct: input.pnlPct })).digest("hex");
+    const expiresAt = input.expiresAt ?? input.ts + 365 * 86_400_000;
+    if (!(expiresAt > input.ts)) throw new Error("memory expiry must follow observation");
+    const id = input.id ?? createHash("sha256").update(`${evidenceRef}|${sourceHash}`).digest("hex").slice(0, 24);
+    if (this.entries.some((entry) => entry.id === id)) return this.entries.find((entry) => entry.id === id)!;
+    const entry: MemoryEntry = { ...input, id, evidenceRef, sourceHash, expiresAt };
+    this.entries.push(entry);
+    this.integrityStatus = "ok";
+    return entry;
   }
 
   /** Recency+importance-weighted prior for a {ticker, bucket}. */
   recall(ticker: string, bucket: string, now = Date.now()): MemoryPrior {
-    const matches = this.entries.filter((e) => e.ticker === ticker && e.bucket === bucket);
+    const matches = this.entries.filter((e) => e.ticker === ticker && e.bucket === bucket && e.ts <= now && e.expiresAt >= now);
     if (!matches.length) {
       return { ticker, bucket, n: 0, convergedRatePct: 0, avgNarrowingPp: 0, avgHoldBars: 0, confidence: 0, summary: `no prior ${ticker} ${bucket} events` };
     }
@@ -89,7 +108,9 @@ export class ConvergenceMemory {
   save(file = defaultMemoryFile()): void {
     try {
       mkdirSync(dirname(file), { recursive: true });
-      writeFileSync(file, JSON.stringify(this.entries));
+      const serialized = JSON.stringify(this.entries);
+      const checksum = createHash("sha256").update(serialized).digest("hex");
+      writeFileSync(file, JSON.stringify({ schema: "nightdesk.memory.v2", checksum, entries: this.entries }));
     } catch {
       /* best-effort */
     }
@@ -98,9 +119,19 @@ export class ConvergenceMemory {
   static load(file = defaultMemoryFile()): ConvergenceMemory {
     const m = new ConvergenceMemory();
     try {
-      if (existsSync(file)) m.entries = JSON.parse(readFileSync(file, "utf8")) as MemoryEntry[];
+      if (!existsSync(file)) return m;
+      const parsed = JSON.parse(readFileSync(file, "utf8")) as MemoryEntry[] | { schema?: string; checksum?: string; entries?: MemoryEntry[] };
+      const rawEntries = Array.isArray(parsed) ? parsed : parsed.entries;
+      if (!Array.isArray(rawEntries)) throw new Error("memory entries missing");
+      const migrated = rawEntries.map((entry) => m.add(entry));
+      if (!Array.isArray(parsed)) {
+        const checksum = createHash("sha256").update(JSON.stringify(migrated)).digest("hex");
+        if (parsed.schema !== "nightdesk.memory.v2" || parsed.checksum !== checksum) throw new Error("memory checksum mismatch");
+      }
+      m.integrityStatus = "ok";
     } catch {
-      /* start empty on any corruption */
+      m.entries = [];
+      m.integrityStatus = "corrupt";
     }
     return m;
   }

@@ -19,7 +19,10 @@ export interface EquityQuote {
   currency: string | null;
   marketState: MarketState;
   asOf: number | null; // ms epoch of the print
-  source: "yahoo";
+  source: "yahoo" | "nasdaq" | "consensus";
+  sources?: string[];
+  maxDeviationPct?: number;
+  qualityStatus?: "consensus";
 }
 
 const lim = pLimit(6);

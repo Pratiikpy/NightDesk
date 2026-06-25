@@ -1,0 +1,30 @@
+{
+  "generatedAt": "2026-06-24T14:50:48.558Z",
+  "mode": "public-read-only",
+  "credentialsUsed": false,
+  "writesEnabled": false,
+  "ticker": "NVDA",
+  "durationMs": 11196,
+  "sources": [
+    {
+      "source": "yahoo",
+      "price": 201.2,
+      "marketState": "UNKNOWN",
+      "asOf": 1782312637000
+    },
+    {
+      "source": "nasdaq",
+      "price": 201.21,
+      "marketState": "REGULAR",
+      "asOf": 1782312600000
+    }
+  ],
+  "resolution": {
+    "status": "consensus",
+    "tradeable": true,
+    "selectedPrice": 201.21,
+    "maxDeviationPct": 0.0049700554161274954,
+    "reason": "independent equity anchors agree"
+  },
+  "success": true
+}

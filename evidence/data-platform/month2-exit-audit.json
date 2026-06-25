@@ -1,0 +1,105 @@
+{
+  "generatedAt": "2026-06-24T16:10:59.223Z",
+  "milestone": "Month 2: Point-in-time data platform",
+  "passed": true,
+  "rows": [
+    {
+      "requirement": "normalized event store and provenance schema",
+      "passed": true,
+      "evidence": [
+        "evidence/data-platform/point-in-time-proof.json",
+        "evidence/data-platform/coverage.json"
+      ],
+      "detail": "schema=nightdesk.data.v1 events=192 instruments=19"
+    },
+    {
+      "requirement": "raw and normalized immutable dataset partitions",
+      "passed": true,
+      "evidence": [
+        "data/snapshots",
+        "data/normalized",
+        "evidence/data-platform/point-in-time-report.md"
+      ],
+      "detail": "raw=true normalized=true duplicate=duplicate"
+    },
+    {
+      "requirement": "generated market calendar and point-in-time corporate actions",
+      "passed": true,
+      "evidence": [
+        "evidence/data-platform/point-in-time-proof.json"
+      ],
+      "detail": "calendar=true futureActionExcluded=true splitAdjustment=true"
+    },
+    {
+      "requirement": "reliable public stream reconnect, heartbeat, backfill, and gap detection",
+      "passed": true,
+      "evidence": [
+        "evidence/data-platform/stream-resilience-proof.json",
+        "evidence/data-platform/stream-resilience-report.md"
+      ],
+      "detail": "deterministic disconnect, gap, recovery, heartbeat, and circuit scenario"
+    },
+    {
+      "requirement": "live public ticker and order-book stream receipt",
+      "passed": true,
+      "evidence": [
+        "evidence/data-platform/live-stream-smoke.json",
+        "evidence/data-platform/live-stream-records.jsonl"
+      ],
+      "detail": "channels=ticker|books5"
+    },
+    {
+      "requirement": "equity-anchor redundancy and fail-closed contradictions",
+      "passed": true,
+      "evidence": [
+        "evidence/data-platform/anchor-redundancy-proof.json",
+        "evidence/data-platform/live-anchor-comparison.json"
+      ],
+      "detail": "two fresh sources required; stale, single-source, and contradictory states block"
+    },
+    {
+      "requirement": "full-universe live anchor confirmation",
+      "passed": true,
+      "evidence": [
+        "evidence/data-platform/live-anchor-universe.json",
+        "evidence/data-platform/live-anchor-universe.csv"
+      ],
+      "detail": "consensus=19/19 coverage=100%"
+    },
+    {
+      "requirement": "data-quality quarantine path",
+      "passed": true,
+      "evidence": [
+        "evidence/data-platform/normalized-events.jsonl",
+        "evidence/data-platform/coverage.json"
+      ],
+      "detail": "fixtureExcluded=1 latestQuarantinedStreams=0"
+    },
+    {
+      "requirement": "deterministic historical replay",
+      "passed": true,
+      "evidence": [
+        "evidence/data-platform/point-in-time-proof.json"
+      ],
+      "detail": "replayHash=f487960ba7101c18fdc8c1be2a884466222dd8b00dc1c92e7cdfed0ab97d2848"
+    },
+    {
+      "requirement": "point-in-time leakage prevention",
+      "passed": true,
+      "evidence": [
+        "evidence/data-platform/point-in-time-proof.json"
+      ],
+      "detail": "futureEventsExcluded=1"
+    },
+    {
+      "requirement": "coverage, latency, quality, and cadence gaps quantified",
+      "passed": true,
+      "evidence": [
+        "evidence/data-platform/coverage.json",
+        "evidence/data-platform/coverage.csv",
+        "evidence/data-platform/coverage-report.md"
+      ],
+      "detail": "streams=64 latestValid=64 cadenceGaps=64"
+    }
+  ]
+}

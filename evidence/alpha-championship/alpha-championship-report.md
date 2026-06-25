@@ -2,10 +2,10 @@
 
 Purpose: search the current recorded snapshot set for the highest raw-PnL spot policy. This is explicitly in-sample research evidence, not a production alpha guarantee.
 
-Recordings: 5
+Recordings: 6
 Mode: fast
 Configs scanned per recording: 9720
-Total runs: 48600
+Total runs: 58320
 
 ## Champion
 
@@ -24,8 +24,8 @@ Paper log: evidence/alpha-championship/champion-paper-trading-log.csv
 Config: perp_gap_fade_e0p35_x0_tp2_sl1p25_h9999_n0p35_m5
 Signal: perp_gap / fade
 Total PnL across recordings: 54.93 USDT
-Average PnL per recording: 10.99 USDT
-Positive sessions: 2/5
+Average PnL per recording: 9.15 USDT
+Positive sessions: 2/6
 Total trades: 18
 Total wins/losses: 15/3
 Max session drawdown: 6.33 USDT

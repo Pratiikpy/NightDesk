@@ -1,5 +1,5 @@
 NightDesk paper trading ledger verification
-run_id=run_20260618033003_paper
-ledger_hash=9c36d1386f2186cb63e954b30fe8ab053c677f314b7f20bc8653afc298f313fe
+run_id=run_20260624155748_paper
+ledger_hash=f1eefe4efb3c4e543db21de811cfc6e61b983cd4b6202bbdc5a205d5c963f8a9
 signature_valid=true
 records=19

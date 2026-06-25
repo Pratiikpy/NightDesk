@@ -1,0 +1,33 @@
+{
+  "generatedAt": "2026-06-24T16:12:02.210Z",
+  "protocolVersion": "nightdesk.v1",
+  "controls": {
+    "canonicalPolicy": true,
+    "transportParityCorpus": true,
+    "durableIdempotency": true,
+    "keyedExecutionLanes": true,
+    "capabilityScopedAuth": true,
+    "perAgentRateLimit": true,
+    "livenessReadinessStatus": true
+  },
+  "duplicateRequest": {
+    "sameRunId": true,
+    "executionCount": 1,
+    "firstStatus": "ok",
+    "duplicateStatus": "ok",
+    "firstReplayed": false,
+    "duplicateReplayed": true
+  },
+  "rateLimit": {
+    "firstAllowed": true,
+    "secondAllowed": false,
+    "retryAfterMs": 59999
+  },
+  "runtime": {
+    "readyBeforeDrain": true,
+    "readyAfterDrain": false,
+    "liveAfterDrain": true,
+    "acceptingAfterDrain": false,
+    "stateVersion": 7
+  }
+}

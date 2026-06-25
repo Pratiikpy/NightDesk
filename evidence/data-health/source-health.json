@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-18T03:37:19.709Z",
+  "generatedAt": "2026-06-24T16:10:59.226Z",
   "rows": [
     {
       "source": "Bitget rToken quote",
@@ -12,6 +12,30 @@
       "status": "ok",
       "evidence": "evidence/bitget-live/bitget-smoke-log.jsonl",
       "role": "read-only adapter proof"
+    },
+    {
+      "source": "Bitget public stream",
+      "status": "ok",
+      "evidence": "evidence/data-platform/live-stream-smoke.json",
+      "role": "live ticker/book stream receipt"
+    },
+    {
+      "source": "Stream resilience",
+      "status": "ok",
+      "evidence": "evidence/data-platform/stream-resilience-proof.json",
+      "role": "reconnect/backfill/heartbeat/circuit proof"
+    },
+    {
+      "source": "Point-in-time store",
+      "status": "ok",
+      "evidence": "evidence/data-platform/point-in-time-proof.json",
+      "role": "immutable replay and leakage proof"
+    },
+    {
+      "source": "Equity anchor consensus",
+      "status": "ok",
+      "evidence": "evidence/data-platform/live-anchor-comparison.json",
+      "role": "independent source agreement"
     },
     {
       "source": "NYSE/Yahoo anchor",

@@ -1,15 +1,16 @@
 {
-  "generatedAt": "2026-06-18T03:36:29.768Z",
+  "generatedAt": "2026-06-24T16:09:29.876Z",
   "mode": "fast",
   "files": [
     "C:\\Users\\prate\\Downloads\\bitget\\data\\snapshots\\2026-06-14.jsonl",
     "C:\\Users\\prate\\Downloads\\bitget\\data\\snapshots\\2026-06-15.jsonl",
     "C:\\Users\\prate\\Downloads\\bitget\\data\\snapshots\\2026-06-16.jsonl",
     "C:\\Users\\prate\\Downloads\\bitget\\data\\snapshots\\2026-06-17.jsonl",
-    "C:\\Users\\prate\\Downloads\\bitget\\data\\snapshots\\2026-06-18.jsonl"
+    "C:\\Users\\prate\\Downloads\\bitget\\data\\snapshots\\2026-06-18.jsonl",
+    "C:\\Users\\prate\\Downloads\\bitget\\data\\snapshots\\2026-06-24.jsonl"
   ],
   "configsScannedPerRecording": 9720,
-  "totalRuns": 48600,
+  "totalRuns": 58320,
   "globalChampion": {
     "config": {
       "id": "perp_gap_fade_e0p35_x0_tp2_sl1p25_h9999_n0p35_m5",
@@ -25,9 +26,9 @@
       "feePct": 0.1
     },
     "totalPnl": 54.926313,
-    "avgPnl": 10.985263,
+    "avgPnl": 9.154385,
     "positiveSessions": 2,
-    "sessions": 5,
+    "sessions": 6,
     "totalTrades": 18,
     "totalWins": 15,
     "totalLosses": 3,

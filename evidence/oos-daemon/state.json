@@ -1,5 +1,5 @@
 {
-  "startedAt": "2026-06-18T03:37:20.158Z",
+  "startedAt": "2026-06-24T16:10:25.915Z",
   "ticks": 1,
   "refreshes": 1,
   "snapshotsRecorded": 1,
@@ -7,6 +7,6 @@
   "intervalMs": 300000,
   "refreshMs": 1800000,
   "status": "once_complete",
-  "lastTickAt": "2026-06-18T03:37:29.623Z",
-  "lastRefreshAt": "2026-06-18T03:37:45.446Z"
+  "lastTickAt": "2026-06-24T16:10:28.822Z",
+  "lastRefreshAt": "2026-06-24T16:10:59.197Z"
 }

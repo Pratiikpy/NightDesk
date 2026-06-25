@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-18T03:37:20.157Z",
+  "generatedAt": "2026-06-24T16:10:25.914Z",
   "rows": [
     {
       "file": "data/snapshots/2026-06-14.jsonl",
@@ -31,9 +31,16 @@
     },
     {
       "file": "data/snapshots/2026-06-18.jsonl",
-      "bytes": 540252,
-      "modified_at": "2026-06-18T03:23:00.286Z",
+      "bytes": 553767,
+      "modified_at": "2026-06-18T13:00:21.106Z",
       "session_date": "2026-06-18",
+      "cache_status": "settled_replay_fixture"
+    },
+    {
+      "file": "data/snapshots/2026-06-24.jsonl",
+      "bytes": 31331,
+      "modified_at": "2026-06-24T14:56:59.117Z",
+      "session_date": "2026-06-24",
       "cache_status": "forming_or_recent_do_not_treat_as_settled"
     }
   ]

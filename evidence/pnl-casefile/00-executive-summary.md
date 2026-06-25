@@ -19,8 +19,8 @@ NightDesk PnL is presented as safety-adjusted economic evidence. It does not cla
 | --- |--- |
 | Paper session |1000.00 -> 999.67 USDT (-0.3345) |
 | Guarded replay |1000.00 -> 1004.34 USDT (4.3440) |
-| OOS sessions |5 |
-| Walk-forward folds |5 |
+| OOS sessions |6 |
+| Walk-forward folds |6 |
 | Historical basis backtest |10.02pp over 18 trades |
 | Liquid perp-leg backtest |-7.67% |
 

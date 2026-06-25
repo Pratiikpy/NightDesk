@@ -1,0 +1,223 @@
+{
+  "generatedAt": "2026-06-24T14:54:26.602Z",
+  "mode": "public-read-only",
+  "credentialsUsed": false,
+  "writesEnabled": false,
+  "durationMs": 1371,
+  "universeSize": 19,
+  "consensus": 19,
+  "failClosed": 0,
+  "coveragePct": 100,
+  "allPairsConfirmed": true,
+  "rows": [
+    {
+      "ticker": "AAPL",
+      "asset_class": "stocks",
+      "status": "consensus",
+      "tradeable": true,
+      "source_count": 2,
+      "sources": "yahoo|nasdaq",
+      "selected_price": 297.06,
+      "max_deviation_pct": 0.006732419968351504,
+      "reason": "independent equity anchors agree"
+    },
+    {
+      "ticker": "TSLA",
+      "asset_class": "stocks",
+      "status": "consensus",
+      "tradeable": true,
+      "source_count": 2,
+      "sources": "yahoo|nasdaq",
+      "selected_price": 382.51,
+      "max_deviation_pct": 0.037914691943123205,
+      "reason": "independent equity anchors agree"
+    },
+    {
+      "ticker": "NVDA",
+      "asset_class": "stocks",
+      "status": "consensus",
+      "tradeable": true,
+      "source_count": 2,
+      "sources": "yahoo|nasdaq",
+      "selected_price": 201,
+      "max_deviation_pct": 0.06469753900514866,
+      "reason": "independent equity anchors agree"
+    },
+    {
+      "ticker": "MSFT",
+      "asset_class": "stocks",
+      "status": "consensus",
+      "tradeable": true,
+      "source_count": 2,
+      "sources": "yahoo|nasdaq",
+      "selected_price": 374.44,
+      "max_deviation_pct": 0.040051800328418694,
+      "reason": "independent equity anchors agree"
+    },
+    {
+      "ticker": "GOOGL",
+      "asset_class": "stocks",
+      "status": "consensus",
+      "tradeable": true,
+      "source_count": 2,
+      "sources": "yahoo|nasdaq",
+      "selected_price": 352.89,
+      "max_deviation_pct": 0.04674585130570242,
+      "reason": "independent equity anchors agree"
+    },
+    {
+      "ticker": "AMZN",
+      "asset_class": "stocks",
+      "status": "consensus",
+      "tradeable": true,
+      "source_count": 2,
+      "sources": "yahoo|nasdaq",
+      "selected_price": 240.11,
+      "max_deviation_pct": 0.020821621171417306,
+      "reason": "independent equity anchors agree"
+    },
+    {
+      "ticker": "META",
+      "asset_class": "stocks",
+      "status": "consensus",
+      "tradeable": true,
+      "source_count": 2,
+      "sources": "yahoo|nasdaq",
+      "selected_price": 564.71,
+      "max_deviation_pct": 0,
+      "reason": "independent equity anchors agree"
+    },
+    {
+      "ticker": "SPY",
+      "asset_class": "etf",
+      "status": "consensus",
+      "tradeable": true,
+      "source_count": 2,
+      "sources": "yahoo|nasdaq",
+      "selected_price": 738.75,
+      "max_deviation_pct": 0.009475914256519771,
+      "reason": "independent equity anchors agree"
+    },
+    {
+      "ticker": "QQQ",
+      "asset_class": "etf",
+      "status": "consensus",
+      "tradeable": true,
+      "source_count": 2,
+      "sources": "yahoo|nasdaq",
+      "selected_price": 718.53,
+      "max_deviation_pct": 0.057077228274105475,
+      "reason": "independent equity anchors agree"
+    },
+    {
+      "ticker": "SQQQ",
+      "asset_class": "etf",
+      "status": "consensus",
+      "tradeable": true,
+      "source_count": 2,
+      "sources": "yahoo|nasdaq",
+      "selected_price": 39.115,
+      "max_deviation_pct": 0.21707208069974043,
+      "reason": "independent equity anchors agree"
+    },
+    {
+      "ticker": "TQQQ",
+      "asset_class": "etf",
+      "status": "consensus",
+      "tradeable": true,
+      "source_count": 2,
+      "sources": "yahoo|nasdaq",
+      "selected_price": 75.84,
+      "max_deviation_pct": 0.31034368912806554,
+      "reason": "independent equity anchors agree"
+    },
+    {
+      "ticker": "PLTR",
+      "asset_class": "stocks",
+      "status": "consensus",
+      "tradeable": true,
+      "source_count": 2,
+      "sources": "yahoo|nasdaq",
+      "selected_price": 116.29,
+      "max_deviation_pct": 0.06017623038899048,
+      "reason": "independent equity anchors agree"
+    },
+    {
+      "ticker": "CRCL",
+      "asset_class": "stocks",
+      "status": "consensus",
+      "tradeable": true,
+      "source_count": 2,
+      "sources": "yahoo|nasdaq",
+      "selected_price": 72.87,
+      "max_deviation_pct": 0,
+      "reason": "independent equity anchors agree"
+    },
+    {
+      "ticker": "HOOD",
+      "asset_class": "stocks",
+      "status": "consensus",
+      "tradeable": true,
+      "source_count": 2,
+      "sources": "yahoo|nasdaq",
+      "selected_price": 99.975,
+      "max_deviation_pct": 0.10508143811452852,
+      "reason": "independent equity anchors agree"
+    },
+    {
+      "ticker": "MSTR",
+      "asset_class": "stocks",
+      "status": "consensus",
+      "tradeable": true,
+      "source_count": 2,
+      "sources": "yahoo|nasdaq",
+      "selected_price": 98.84,
+      "max_deviation_pct": 0.19241480581295023,
+      "reason": "independent equity anchors agree"
+    },
+    {
+      "ticker": "ORCL",
+      "asset_class": "stocks",
+      "status": "consensus",
+      "tradeable": true,
+      "source_count": 2,
+      "sources": "yahoo|nasdaq",
+      "selected_price": 160.12,
+      "max_deviation_pct": 0.012491412154150417,
+      "reason": "independent equity anchors agree"
+    },
+    {
+      "ticker": "NFLX",
+      "asset_class": "stocks",
+      "status": "consensus",
+      "tradeable": true,
+      "source_count": 2,
+      "sources": "yahoo|nasdaq",
+      "selected_price": 72.23,
+      "max_deviation_pct": 0.01384370457533177,
+      "reason": "independent equity anchors agree"
+    },
+    {
+      "ticker": "BABA",
+      "asset_class": "stocks",
+      "status": "consensus",
+      "tradeable": true,
+      "source_count": 2,
+      "sources": "yahoo|nasdaq",
+      "selected_price": 100.94,
+      "max_deviation_pct": 0.009907366126706202,
+      "reason": "independent equity anchors agree"
+    },
+    {
+      "ticker": "GME",
+      "asset_class": "stocks",
+      "status": "consensus",
+      "tradeable": true,
+      "source_count": 2,
+      "sources": "yahoo|nasdaq",
+      "selected_price": 21.5,
+      "max_deviation_pct": 0.04650081376424814,
+      "reason": "independent equity anchors agree"
+    }
+  ]
+}

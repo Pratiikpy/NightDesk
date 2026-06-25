@@ -37,13 +37,13 @@ interventions, every decision Ed25519-signed.
 
 **3. Evidence (every number replayable).** Live finding: ~17 of 19 tokens dislocated vs the real stock
 while the perp shows ~0. Paper-trading logs (timestamp, asset, direction, price, quantity, balance
-change). Autonomous Alpha Factory: 9,720 candidates, 48,600 trials, Overfit Court, frozen champion
+change). Autonomous Alpha Factory: 9,720 candidates, 58,320 trials, Overfit Court, frozen champion
 +54.93 USDT (in-sample). Forward out-of-sample paper record. A real authenticated Bitget round-trip
 (read-only key, verified on-platform). 215 tests; the whole pack regenerates from one command.
 
 **4. My take on AI trading.** The biggest lie in AI trading is a lucky backtest dressed as a guaranteed
 edge. We did the opposite — we tested the raw convergence edge honestly and report exactly where it stops
-(49.6% corrective, a coin flip; and a Deflated Sharpe that, after correcting for 9,720 trials, is not yet
+(49.6% corrective, a coin flip; and a Deflated Sharpe that, after correcting across 9,720 candidates and 58,320 session trials, is not yet
 significant). The raw edge alone is not the product: NightDesk's value is turning noisy tokenized-stock
 gaps into certified, gated, executable decisions. An honest agent that knows what it cannot predict,
 stands down on real news, and enforces hard risk discipline is worth more than a confident gambler.
@@ -86,7 +86,7 @@ together for #1.
   same-sample PnL, leave-one-session/token checks, cost/slippage/threshold stress, max drawdown,
   profit concentration, and fragility label.
 - `evidence/alpha-factory/manifest.json` — autonomous Alpha Factory manifest: 9,720 candidates,
-  48,600 trials, 8,444 rejected configs, walk-forward leaderboard, frozen champion, live-paper log,
+  58,320 trials, 8,448 rejected configs, walk-forward leaderboard, frozen champion, live-paper log,
   expected-vs-actual report, masked-eval note, and agent benchmark standard. Current frozen
   champion: +54.93 USDT total on the recorded sessions with 6.33 USDT max drawdown — in-sample
   execution-quality evidence, not a future-alpha claim.

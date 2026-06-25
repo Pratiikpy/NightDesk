@@ -21,19 +21,23 @@ export interface QuoteResult {
 export function quoteFill(side: Side, qty: number, q: MarketQuote, cfg: FillModelConfig = DEFAULT_FILL): QuoteResult {
   const touch = side === "buy" ? q.ask : q.bid;
   if (touch == null || touch <= 0 || qty <= 0) return { fillQty: 0, avgPrice: null, slippagePct: 0 };
-  const notional = qty * touch;
+  const visibleSize = side === "buy" ? q.askSz : q.bidSz;
+  if (visibleSize != null && visibleSize <= 0) return { fillQty: 0, avgPrice: null, slippagePct: 0 };
+  const fillQty = visibleSize == null ? qty : Math.min(qty, visibleSize);
+  const notional = fillQty * touch;
   const impact = cfg.impactPct * (notional / cfg.refNotional);
   const slippagePct = cfg.baseSlipPct + impact;
   const dir = side === "buy" ? 1 : -1;
   const avgPrice = touch * (1 + dir * (slippagePct / 100));
-  return { fillQty: qty, avgPrice, slippagePct };
+  return { fillQty, avgPrice, slippagePct };
 }
 
 /** Depth-aware VWAP fill across L2 levels (perps/Ondo when a book is present). */
 export function depthFill(
   side: Side,
   qty: number,
-  book: { bids: [number, number][]; asks: [number, number][] }
+  book: { bids: [number, number][]; asks: [number, number][] },
+  limitPrice?: number
 ): QuoteResult {
   if (qty <= 0) return { fillQty: 0, avgPrice: null, slippagePct: 0 };
   const levels = side === "buy" ? book.asks : book.bids; // buy consumes asks, sell hits bids
@@ -43,6 +47,8 @@ export function depthFill(
   let filled = 0;
   for (const [price, size] of levels) {
     if (remaining <= 0) break;
+    if (limitPrice != null && (side === "buy" ? price > limitPrice : price < limitPrice)) break;
+    if (!(price > 0) || !(size > 0)) continue;
     const take = Math.min(remaining, size);
     cost += take * price;
     filled += take;

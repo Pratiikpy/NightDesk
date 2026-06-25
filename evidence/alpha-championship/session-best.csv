@@ -3,4 +3,5 @@ recording,config_id,source,direction,entry_pct,exit_pct,take_profit_pct,stop_los
 2026-06-15,perp_gap_fade_e0p1_x0_tp0p75_sl0p75_h9999_n0p5_m5,perp_gap,fade,0.1,0,0.75,0.75,9999,0.5,5,18,36,15,3,1030.588985,30.588985,8.810422,17.30928
 2026-06-16,equity_gap_fade_e0p75_x0_tp0p75_sl0p75_h15_n0p2_m5,equity_gap,fade,0.75,0,0.75,0.75,15,0.2,5,4,8,2,2,1003.44958,3.44958,0.94234,1.604527
 2026-06-17,perp_gap_fade_e0p35_x0_tp2_sl1p25_h9999_n0p35_m2,perp_gap,fade,0.35,0,2,1.25,9999,0.35,2,8,16,8,0,1034.612448,34.612448,6.333389,5.737525
-2026-06-18,equity_gap_momentum_e0p1_x0_tp0p75_sl0p75_h9999_n0p35_m5,equity_gap,momentum,0.1,0,0.75,0.75,9999,0.35,5,4,8,3,1,1003.560537,3.560537,3.258392,2.70842
+2026-06-18,equity_gap_momentum_e0p1_x0_tp0p75_sl0p75_h9999_n0p35_m5,equity_gap,momentum,0.1,0,0.75,0.75,9999,0.35,5,4,8,2,2,1002.134299,2.134299,4.45815,2.706992
+2026-06-24,perp_gap_fade_e0p1_x0_tp0p75_sl0p75_h15_n0p35_m2,perp_gap,fade,0.1,0,0.75,0.75,15,0.35,2,2,4,2,0,1000.263248,0.263248,0.701542,1.40142

@@ -6,6 +6,7 @@
 // mechanical, and boring. Boring saves accounts. This is the layer that turns NightDesk from "an
 // agent" into "the gate every agent passes through."
 import { verifyCertificate, type NightDeskCertificate } from "./certificate";
+import { evaluateIntentPolicy } from "../../api/policy.js";
 
 export interface TradeIntent {
   ticker: string;
@@ -24,28 +25,17 @@ export interface FirewallDecision {
 
 export function evaluateIntent(intent: TradeIntent, now = Date.now()): FirewallDecision {
   const cert = intent.certificate;
-  if (!cert) return { verdict: "REJECT", reason: "no certificate — proof-carrying intent required" };
-  if (!Number.isFinite(intent.sizeUsd) || intent.sizeUsd <= 0) {
-    return { verdict: "REJECT", reason: "invalid sizeUsd — must be finite and positive" };
-  }
-
-  const v = verifyCertificate(cert, now);
-  if (!v.valid) return { verdict: "REJECT", reason: `certificate ${v.reason}` };
-
-  if (cert.payload.ticker !== intent.ticker) {
-    return { verdict: "REJECT", reason: `certificate ticker mismatch (${cert.payload.ticker} ≠ ${intent.ticker})` };
-  }
-
-  const policy = cert.payload.allowedPolicy;
-  if (policy === "BLOCK" || policy === "AVOID" || policy === "ABSTAIN" || policy === "WATCH") {
-    return { verdict: "REJECT", reason: `policy ${policy}: no trading permitted` };
-  }
-  if (policy === "LONG-ONLY FADE" && intent.side !== "buy") {
-    return { verdict: "REJECT", reason: "policy LONG-ONLY FADE: only buys permitted (rToken not cleanly shortable)" };
-  }
-
-  const cap = cert.payload.maxSizeUsd;
-  if (cap <= 0) return { verdict: "REJECT", reason: "certificate max size is 0" };
-  if (intent.sizeUsd > cap) return { verdict: "ALLOW_CAPPED", reason: `size capped to certificate max $${cap}`, cappedSizeUsd: cap };
-  return { verdict: "ALLOW", reason: "ok" };
+  const verification = cert
+    ? verifyCertificate(cert, now)
+    : { valid: false, reason: "missing" };
+  return evaluateIntentPolicy({
+    hasCertificate: cert != null,
+    ticker: intent.ticker,
+    side: intent.side,
+    sizeUsd: intent.sizeUsd,
+    verification,
+    certificateTicker: cert?.payload.ticker ?? "",
+    allowedPolicy: cert?.payload.allowedPolicy ?? "BLOCK",
+    maxSizeUsd: cert?.payload.maxSizeUsd ?? 0,
+  });
 }
