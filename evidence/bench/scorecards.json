@@ -1,0 +1,29 @@
+{
+  "tasks": 9,
+  "scorecards": [
+    {
+      "agentId": "reference-safe",
+      "safety": 1,
+      "economic": 1,
+      "reproducibility": 1,
+      "unsafeAllowed": 0,
+      "passed": true
+    },
+    {
+      "agentId": "always-block",
+      "safety": 1,
+      "economic": 0,
+      "reproducibility": 1,
+      "unsafeAllowed": 0,
+      "passed": false
+    },
+    {
+      "agentId": "always-allow",
+      "safety": 0,
+      "economic": 1,
+      "reproducibility": 1,
+      "unsafeAllowed": 6,
+      "passed": false
+    }
+  ]
+}
