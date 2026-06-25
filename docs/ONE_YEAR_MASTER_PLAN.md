@@ -332,9 +332,15 @@ Never sell “guaranteed alpha.” Sell trustworthy agent execution, evaluation,
 | Month 9 NightDeskBench + standards | Complete | `npm run bench:month9-audit` passes 5/5: a third-party agent (a function) runs the benchmark unchanged, deterministic replay yields identical scores, the scorecard separates safety/economic/reproducibility, the benchmark cannot be passed by always-block (safe but economically empty), and a reckless always-allow fails on safety |
 | Month 10 reliability & security hardening | Complete | `npm run reliability:month10-audit` passes 5/5: event-replay recovery reconstructs the exact pre-crash state and detects a lost event (RPO=0), old releases upgrade without losing evidence, support bundles are deep-redacted (secrets never leak), an SBOM pins every dependency, and incident recovery completes within the RTO budget |
 | Month 11 product adoption & final study | Complete | `npm run study:month11-audit` passes 5/5: every claim in the ledger maps to existing evidence (no unsupported claim), every critical workflow has evidence, the comparative study and freeze manifest are deterministic/locked, and the final evaluation no longer changes strategy parameters. Design-partner adoption and real user feedback are the operational milestones this gate evaluates |
+| Month 12 submission-grade release | Complete | `npm run release:month12-audit` passes 5/5: one-command verification + reproducible build/test wired (clean clone), all twelve month exit-gate audits runnable, public no-login surfaces present (landing, cockpit, desk, live firewall), the paper record validates against the Bitget schema, and unsafe agent attacks fail while the reference desk passes. The 3-minute demo video is the operational submission deliverable |
 
-The status table records implemented and verified work only. Later month sections remain planned scope until
-their exit gates pass.
+All twelve month exit-gate audits pass (`gateway:proof`, `data:month2-audit`, `execution:month3-audit`,
+`alpha:month4-audit`, `agentic:month5-audit`, `forward:month6-audit`, `gateway:month7-audit`,
+`live:month8-audit`, `bench:month9-audit`, `reliability:month10-audit`, `study:month11-audit`,
+`release:month12-audit`). The software for the full one-year plan is implemented and verified; the
+real-world milestones (real-capital deployment, an independent third-party security review, genuine
+external-developer and design-partner adoption, and ~60 wall-clock forward sessions) remain the
+operational gates the Month 6/7/8/11 software is built to enforce — they are never simulated as done.
 
 ### Month 1: Runtime foundation
 
