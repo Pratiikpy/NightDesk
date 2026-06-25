@@ -1,0 +1,31 @@
+{
+  "name": "nightdesk",
+  "version": "0.0.1",
+  "componentCount": 6,
+  "components": [
+    {
+      "name": "@types/node",
+      "version": "^22.10.2"
+    },
+    {
+      "name": "dotenv",
+      "version": "^16.4.7"
+    },
+    {
+      "name": "fast-check",
+      "version": "^4.8.0"
+    },
+    {
+      "name": "p-limit",
+      "version": "^6.1.0"
+    },
+    {
+      "name": "tsx",
+      "version": "^4.19.2"
+    },
+    {
+      "name": "typescript",
+      "version": "^5.7.2"
+    }
+  ]
+}
