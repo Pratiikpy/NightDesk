@@ -1,6 +1,7 @@
 {
-  "generatedAt": "2026-06-17T18:32:02.930Z",
+  "generatedAt": "2026-06-25T01:23:27.852Z",
   "ok": true,
-  "file": "C:\\Users\\prate\\Downloads\\bitget\\data\\ledger\\2026-06-17.jsonl",
+  "source": "synthetic representative ledger (no populated session ledger on disk)",
+  "recordCount": 3,
   "failures": []
 }
