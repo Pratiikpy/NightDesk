@@ -194,9 +194,12 @@ function run(command: ScenarioCommand): { status: Status; output: string; durati
     encoding: "utf8",
     env: { ...process.env, ...command.env, FORCE_COLOR: "0" },
     maxBuffer: 30 * 1024 * 1024,
+    timeout: 300_000, // hard per-command cap: a hung sub-process can never stall the whole UAT
   });
+  const timedOut = (res.error as NodeJS.ErrnoException | undefined)?.code === "ETIMEDOUT";
   const status: Status = res.status === 0 ? "PASS" : command.optional ? "KNOWN-LIMITATION" : "FAIL";
-  return { status, output: `${res.stdout ?? ""}${res.stderr ?? ""}`.trim(), durationMs: Date.now() - started };
+  const extra = timedOut ? "\n[scenario-uat] command exceeded the 300s cap and was terminated" : "";
+  return { status, output: `${res.stdout ?? ""}${res.stderr ?? ""}${extra}`.trim(), durationMs: Date.now() - started };
 }
 
 function artifact(file: string): { file: string; exists: boolean; nonEmpty: boolean } {
