@@ -48,6 +48,7 @@
     "live:month8-audit": "tsx src/execution/live-pilot-audit.ts",
     "bench:month9-audit": "tsx src/bench/bench-audit.ts",
     "reliability:month10-audit": "tsx src/ops/reliability-audit.ts",
+    "study:month11-audit": "tsx src/research/final-study-audit.ts",
     "overfit:stats": "tsx src/research/overfit-report.ts",
     "alpha:search": "tsx src/research/alpha-factory.ts",
     "alpha:overfit-court": "tsx src/research/alpha-factory.ts",
