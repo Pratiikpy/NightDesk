@@ -1,6 +1,6 @@
 # Trading Gateway Runtime Foundation
 
-Generated: 2026-06-24T16:12:02.210Z
+Generated: 2026-06-25T00:11:20.464Z
 Protocol: nightdesk.v1
 
 | Control | Result |

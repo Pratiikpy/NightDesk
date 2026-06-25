@@ -42,6 +42,7 @@
     "championship:overfit-check": "tsx src/research/championship/championship-mode.ts",
     "alpha:factory": "tsx src/research/alpha-factory.ts",
     "alpha:month4-audit": "tsx src/research/month4-exit-audit.ts",
+    "agentic:month5-audit": "tsx src/research/agentic-audit.ts",
     "overfit:stats": "tsx src/research/overfit-report.ts",
     "alpha:search": "tsx src/research/alpha-factory.ts",
     "alpha:overfit-court": "tsx src/research/alpha-factory.ts",
