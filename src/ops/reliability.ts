@@ -1,4 +1,4 @@
-// Reliability & security hardening (Month 10): event-replay recovery (RPO/RTO), secret-redacted support
+// Reliability & security hardening: event-replay recovery (RPO/RTO), secret-redacted support
 // bundles, upgrade-survivor record migration, and a software bill of materials. Pure functions — no I/O,
 // no network — so recovery and redaction are deterministically testable.
 import { createHash } from "node:crypto";

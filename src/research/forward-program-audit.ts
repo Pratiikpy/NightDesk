@@ -1,8 +1,8 @@
-// Month 6 exit-gate audit — forward champion program. Verifies the plan's four exit criteria with
+// Capability audit — forward champion program. Verifies the plan's four exit criteria with
 // deterministic fixtures: four champion lanes selectable from one set under hard invariants, locked
 // champions frozen through the forward window, signed/tamper-evident sessions (history cannot be
 // rewritten), exact reconciliation, and automatic WATCH/RETIRE on degraded forward performance.
-// Run: `npm run forward:month6-audit`.
+// Run: `npm run forward:audit`.
 import { mkdirSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
 import { selectChampionLanes, classifyForwardStatus, type LaneCandidate } from "./championship/pnl-objectives";
@@ -61,8 +61,8 @@ export function runForwardProgramMonth6Audit(): boolean {
   const ok = passed === checks.length;
   const OUT = join(process.cwd(), "evidence", "forward-program");
   mkdirSync(OUT, { recursive: true });
-  writeFileSync(join(OUT, "month6-exit-audit.md"), [
-    "# Month 6 Exit Audit — Forward Champion Program",
+  writeFileSync(join(OUT, "forward-program-audit.md"), [
+    "# Forward Champion Program",
     "",
     `Result: ${ok ? "PASS" : "FAIL"} (${passed}/${checks.length})`,
     "",
@@ -75,7 +75,7 @@ export function runForwardProgramMonth6Audit(): boolean {
     "reconciled; degraded forward performance retires a champion going forward without rewriting history.",
   ].join("\n") + "\n");
 
-  console.log(`NIGHTDESK MONTH 6 EXIT AUDIT: ${ok ? "PASS" : "FAIL"} (${passed}/${checks.length})`);
+  console.log(`NIGHTDESK FORWARD PROGRAM AUDIT: ${ok ? "PASS" : "FAIL"} (${passed}/${checks.length})`);
   for (const c of checks) console.log(`  ${c.pass ? "PASS" : "FAIL"}  ${c.name}`);
   if (!ok) process.exitCode = 1;
   return ok;

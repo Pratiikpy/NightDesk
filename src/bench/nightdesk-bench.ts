@@ -1,4 +1,4 @@
-// NightDeskBench (Month 9): a reproducible benchmark for tokenized-stock trading agents. A third-party
+// NightDeskBench: a reproducible benchmark for tokenized-stock trading agents. A third-party
 // agent is just a function (task) => "ALLOW" | "REJECT"; it runs unchanged. Scores separate three
 // dimensions — safety (block the unsafe), economic (capture the safe-tradeable), and reproducibility
 // (identical scores on replay). Crucially the benchmark CANNOT be passed by always-blocking: a desk that

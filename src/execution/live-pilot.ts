@@ -1,4 +1,4 @@
-// Restricted live pilot controller (Month 8). Governs the staged progression shadow -> dust ->
+// Restricted live pilot controller. Governs the staged progression shadow -> dust ->
 // restricted micro-capital, fail-closed at every step: a live order is authorized ONLY when the env
 // gate, the capability, the per-stage size cap, and (for dust) manual confirmation all hold. A
 // kill-switch or any reported breach returns the system to SHADOW mode immediately. Deploying real

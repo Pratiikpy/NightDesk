@@ -86,10 +86,10 @@ export function runMonth4ExitAudit(): { passed: boolean; rows: AuditRow[] } {
     },
   ];
   const passed = rows.every((row) => row.passed);
-  const payload = { milestone: "Month 4: Alpha Factory v2", generatedAt: new Date().toISOString(), passed, rows };
-  writeFileSync(join(OUT, "month4-exit-audit.json"), JSON.stringify(payload, null, 2) + "\n");
-  writeFileSync(join(OUT, "month4-exit-audit.md"), [
-    "# Month 4 Exit Audit",
+  const payload = { milestone: "Alpha Factory v2", generatedAt: new Date().toISOString(), passed, rows };
+  writeFileSync(join(OUT, "alpha-factory-audit.json"), JSON.stringify(payload, null, 2) + "\n");
+  writeFileSync(join(OUT, "alpha-factory-audit.md"), [
+    "# Alpha Factory v2",
     "",
     `Overall: **${passed ? "PASS" : "FAIL"}** (${rows.filter((row) => row.passed).length}/${rows.length})`,
     "",
@@ -97,9 +97,9 @@ export function runMonth4ExitAudit(): { passed: boolean; rows: AuditRow[] } {
     "|---|---:|---|",
     ...rows.map((row) => `| ${row.requirement} | ${row.passed ? "PASS" : "FAIL"} | ${row.detail} |`),
   ].join("\n") + "\n");
-  console.log(`NIGHTDESK MONTH 4 EXIT AUDIT: ${passed ? "PASS" : "FAIL"} (${rows.filter((row) => row.passed).length}/${rows.length})`);
+  console.log(`NIGHTDESK ALPHA FACTORY AUDIT: ${passed ? "PASS" : "FAIL"} (${rows.filter((row) => row.passed).length}/${rows.length})`);
   if (!passed) process.exitCode = 1;
   return { passed, rows };
 }
 
-if (process.argv[1]?.endsWith("month4-exit-audit.ts")) runMonth4ExitAudit();
+if (process.argv[1]?.endsWith("alpha-factory-audit.ts")) runMonth4ExitAudit();

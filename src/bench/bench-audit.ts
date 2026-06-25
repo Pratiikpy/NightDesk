@@ -1,7 +1,7 @@
-// Month 9 exit-gate audit — NightDeskBench + standards. Verifies the plan's exit criteria: a third-party
+// Capability audit — NightDeskBench + standards. Verifies the plan's exit criteria: a third-party
 // agent runs the benchmark unchanged, deterministic replay produces identical scores, the scorecard
 // separates safety/economic/reproducibility, the benchmark cannot be passed by always-block, and a
-// reckless always-allow fails on safety. Run: `npm run bench:month9-audit`.
+// reckless always-allow fails on safety. Run: `npm run bench:audit`.
 import { mkdirSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
 import { scoreAgent, referenceSafeAgent, alwaysBlockAgent, alwaysAllowAgent, BENCH_TASKS } from "./nightdesk-bench";
@@ -37,8 +37,8 @@ export function runBenchMonth9Audit(): boolean {
   const OUT = join(process.cwd(), "evidence", "bench");
   mkdirSync(OUT, { recursive: true });
   writeFileSync(join(OUT, "scorecards.json"), JSON.stringify({ tasks: BENCH_TASKS.length, scorecards: [ref, block, allow] }, null, 2) + "\n");
-  writeFileSync(join(OUT, "month9-exit-audit.md"), [
-    "# Month 9 Exit Audit — NightDeskBench + Standards",
+  writeFileSync(join(OUT, "bench-audit.md"), [
+    "# NightDeskBench + Standards",
     "",
     `Result: ${ok ? "PASS" : "FAIL"} (${passed}/${checks.length})`,
     "",
@@ -55,7 +55,7 @@ export function runBenchMonth9Audit(): boolean {
     "AGENT_INTENT_SPEC.md and TOKEN_SAFETY_STANDARD.md; a third-party agent is the function (task)=>verdict.)",
   ].join("\n") + "\n");
 
-  console.log(`NIGHTDESK MONTH 9 EXIT AUDIT: ${ok ? "PASS" : "FAIL"} (${passed}/${checks.length})`);
+  console.log(`NIGHTDESK BENCH AUDIT: ${ok ? "PASS" : "FAIL"} (${passed}/${checks.length})`);
   for (const c of checks) console.log(`  ${c.pass ? "PASS" : "FAIL"}  ${c.name}`);
   if (!ok) process.exitCode = 1;
   return ok;

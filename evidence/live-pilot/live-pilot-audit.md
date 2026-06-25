@@ -1,4 +1,4 @@
-# Month 8 Exit Audit — Restricted Live Pilot
+# Restricted Live Pilot
 
 Result: PASS (5/5)
 

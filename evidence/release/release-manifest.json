@@ -1,54 +1,54 @@
 {
   "protocol": "nightdesk.v1",
   "version": "0.0.1",
-  "months": [
+  "capabilities": [
     {
-      "month": "Month 1 runtime foundation",
+      "month": "runtime foundation",
       "audit": "npm run gateway:proof"
     },
     {
-      "month": "Month 2 point-in-time data platform",
-      "audit": "npm run data:month2-audit"
+      "month": "point-in-time data platform",
+      "audit": "npm run data:audit"
     },
     {
-      "month": "Month 3 execution engine v2",
-      "audit": "npm run execution:month3-audit"
+      "month": "execution engine v2",
+      "audit": "npm run execution:audit"
     },
     {
-      "month": "Month 4 alpha factory v2",
-      "audit": "npm run alpha:month4-audit"
+      "month": "alpha factory v2",
+      "audit": "npm run alpha:audit"
     },
     {
-      "month": "Month 5 agentic research loop",
-      "audit": "npm run agentic:month5-audit"
+      "month": "agentic research loop",
+      "audit": "npm run agentic:audit"
     },
     {
-      "month": "Month 6 forward champion program",
-      "audit": "npm run forward:month6-audit"
+      "month": "forward champion program",
+      "audit": "npm run forward:audit"
     },
     {
-      "month": "Month 7 external developer beta",
-      "audit": "npm run gateway:month7-audit"
+      "month": "external developer beta",
+      "audit": "npm run gateway:beta-audit"
     },
     {
-      "month": "Month 8 restricted live pilot",
-      "audit": "npm run live:month8-audit"
+      "month": "restricted live pilot",
+      "audit": "npm run live:pilot-audit"
     },
     {
-      "month": "Month 9 NightDeskBench + standards",
-      "audit": "npm run bench:month9-audit"
+      "month": "NightDeskBench + standards",
+      "audit": "npm run bench:audit"
     },
     {
-      "month": "Month 10 reliability & security",
-      "audit": "npm run reliability:month10-audit"
+      "month": "reliability & security",
+      "audit": "npm run reliability:audit"
     },
     {
-      "month": "Month 11 product adoption & final study",
-      "audit": "npm run study:month11-audit"
+      "month": "product adoption & final study",
+      "audit": "npm run study:audit"
     },
     {
-      "month": "Month 12 submission-grade release",
-      "audit": "npm run release:month12-audit"
+      "month": "submission-grade release",
+      "audit": "npm run release:audit"
     }
   ],
   "operationalDeliverable": "3-minute demo video + backup recording"

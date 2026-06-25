@@ -6,7 +6,7 @@ export interface ObjectiveInput {
   blocks: number;
   blockedLossAvoided: number;
   falseBlockCost: number;
-  implementationShortfall?: number; // expected-vs-realized execution cost (Month 3 attribution)
+  implementationShortfall?: number; // expected-vs-realized execution cost (execution-cost attribution)
 }
 
 export function championshipPnlScore(x: ObjectiveInput): number {

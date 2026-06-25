@@ -1,4 +1,4 @@
-# Month 2 Exit Audit
+# Point-in-time Data Platform
 
 Overall: **PASS**
 

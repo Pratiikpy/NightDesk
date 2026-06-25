@@ -102,8 +102,8 @@ export function verifyEvidenceArtifacts(): ArtifactCheck[] {
     "evidence/alpha-factory/strategy-catalog.jsonl",
     "evidence/alpha-factory/stability-surface.csv",
     "evidence/alpha-factory/champion-registry.json",
-    "evidence/alpha-factory/month4-exit-audit.json",
-    "evidence/alpha-factory/month4-exit-audit.md",
+    "evidence/alpha-factory/alpha-factory-audit.json",
+    "evidence/alpha-factory/alpha-factory-audit.md",
     "evidence/alpha-factory/alpha-zoo-catalog.csv",
     "evidence/alpha-factory/alpha-zoo-catalog.md",
     "evidence/alpha-factory/strategy-compare.csv",
@@ -181,8 +181,8 @@ export function verifyEvidenceArtifacts(): ArtifactCheck[] {
     "evidence/data-platform/coverage.json",
     "evidence/data-platform/coverage.csv",
     "evidence/data-platform/coverage-report.md",
-    "evidence/data-platform/month2-exit-audit.json",
-    "evidence/data-platform/month2-exit-audit.md",
+    "evidence/data-platform/data-platform-audit.json",
+    "evidence/data-platform/data-platform-audit.md",
     "evidence/execution-v2/execution-v2-proof.json",
     "evidence/execution-v2/execution-v2-report.md",
     "evidence/execution-v2/account-events.jsonl",
@@ -190,8 +190,8 @@ export function verifyEvidenceArtifacts(): ArtifactCheck[] {
     "evidence/execution-v2/live-shadow-calibration.json",
     "evidence/execution-v2/live-shadow-calibration.csv",
     "evidence/execution-v2/live-shadow-calibration.md",
-    "evidence/execution-v2/month3-exit-audit.json",
-    "evidence/execution-v2/month3-exit-audit.md",
+    "evidence/execution-v2/execution-v2-audit.json",
+    "evidence/execution-v2/execution-v2-audit.md",
     "evidence/manifest.json",
     "docs/PNL_CLAIM_STANDARD.md",
     "docs/EXECUTION_INTEGRITY.md",
@@ -643,14 +643,14 @@ export function verifyEvidenceArtifacts(): ArtifactCheck[] {
     return true;
   }));
 
-  checks.push(check("Month 2 point-in-time data platform passes its requirement audit", () => {
-    const audit = JSON.parse(read("evidence/data-platform/month2-exit-audit.json")) as {
+  checks.push(check("point-in-time data platform passes its requirement audit", () => {
+    const audit = JSON.parse(read("evidence/data-platform/data-platform-audit.json")) as {
       milestone?: string;
       passed?: boolean;
       rows?: { requirement?: string; passed?: boolean; evidence?: string[] }[];
     };
-    if (audit.milestone !== "Month 2: Point-in-time data platform" || audit.passed !== true) return "Month 2 audit did not pass";
-    if (!Array.isArray(audit.rows) || audit.rows.length < 10 || !audit.rows.every((row) => row.passed && row.evidence?.length)) return "Month 2 audit rows are incomplete";
+    if (audit.milestone !== "Point-in-time data platform" || audit.passed !== true) return "requirement audit did not pass";
+    if (!Array.isArray(audit.rows) || audit.rows.length < 10 || !audit.rows.every((row) => row.passed && row.evidence?.length)) return "audit rows are incomplete";
     return true;
   }));
 
@@ -702,25 +702,25 @@ export function verifyEvidenceArtifacts(): ArtifactCheck[] {
     return true;
   }));
 
-  checks.push(check("Month 3 execution engine v2 passes its requirement audit", () => {
-    const audit = JSON.parse(read("evidence/execution-v2/month3-exit-audit.json")) as {
+  checks.push(check("execution engine v2 passes its requirement audit", () => {
+    const audit = JSON.parse(read("evidence/execution-v2/execution-v2-audit.json")) as {
       milestone?: string;
       passed?: boolean;
       rows?: { requirement?: string; passed?: boolean; evidence?: string[] }[];
     };
-    if (audit.milestone !== "Month 3: Execution engine v2" || audit.passed !== true) return "Month 3 audit did not pass";
-    if (!Array.isArray(audit.rows) || audit.rows.length !== 8 || !audit.rows.every((row) => row.passed && row.evidence?.length)) return "Month 3 audit rows are incomplete";
+    if (audit.milestone !== "Execution engine v2" || audit.passed !== true) return "requirement audit did not pass";
+    if (!Array.isArray(audit.rows) || audit.rows.length !== 8 || !audit.rows.every((row) => row.passed && row.evidence?.length)) return "audit rows are incomplete";
     return true;
   }));
 
-  checks.push(check("Month 4 Alpha Factory v2 passes its governance and lineage audit", () => {
-    const audit = JSON.parse(read("evidence/alpha-factory/month4-exit-audit.json")) as {
+  checks.push(check("Alpha Factory v2 passes its governance and lineage audit", () => {
+    const audit = JSON.parse(read("evidence/alpha-factory/alpha-factory-audit.json")) as {
       milestone?: string;
       passed?: boolean;
       rows?: { requirement?: string; passed?: boolean; evidence?: string[] }[];
     };
-    if (audit.milestone !== "Month 4: Alpha Factory v2" || audit.passed !== true) return "Month 4 audit did not pass";
-    if (!Array.isArray(audit.rows) || audit.rows.length !== 8 || !audit.rows.every((row) => row.passed && row.evidence?.length)) return "Month 4 audit rows are incomplete";
+    if (audit.milestone !== "Alpha Factory v2" || audit.passed !== true) return "requirement audit did not pass";
+    if (!Array.isArray(audit.rows) || audit.rows.length !== 8 || !audit.rows.every((row) => row.passed && row.evidence?.length)) return "audit rows are incomplete";
     const frozen = JSON.parse(read("evidence/alpha-factory/frozen-champion.json")) as { freezeId?: string };
     if (!frozen.freezeId || !existsSync(join(root(), "evidence", "alpha-factory", "freezes", `${frozen.freezeId}.json`))) return "immutable champion freeze artifact is missing";
     return true;

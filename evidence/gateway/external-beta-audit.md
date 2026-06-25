@@ -1,4 +1,4 @@
-# Month 7 Exit Audit — External Developer Beta
+# External Developer Beta
 
 Result: PASS (5/5)
 

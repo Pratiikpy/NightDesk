@@ -1,4 +1,4 @@
-# Month 5 Exit Audit — Agentic Research Loop
+# Agentic Research Loop
 
 Result: PASS (5/5)
 

@@ -1,7 +1,7 @@
-// Month 10 exit-gate audit — reliability & security hardening. Verifies the plan's exit criteria: event
+// Capability audit — reliability & security hardening. Verifies the plan's exit criteria: event
 // replay reconstructs state exactly (no acknowledged event lost), an old release upgrades without losing
 // evidence, secrets never appear in a support bundle, an SBOM inventories every dependency, and incident
-// recovery completes within the RTO budget. Run: `npm run reliability:month10-audit`.
+// recovery completes within the RTO budget. Run: `npm run reliability:audit`.
 import { mkdirSync, readFileSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
 import { redactBundle, bundleContains, replayState, stateHash, migrateV1toV2, generateSbom, type ReplayEvent, type RecordV1 } from "./reliability";
@@ -53,8 +53,8 @@ export function runReliabilityMonth10Audit(): boolean {
   const OUT = join(process.cwd(), "evidence", "reliability");
   mkdirSync(OUT, { recursive: true });
   writeFileSync(join(OUT, "sbom.json"), JSON.stringify(sbom, null, 2) + "\n");
-  writeFileSync(join(OUT, "month10-exit-audit.md"), [
-    "# Month 10 Exit Audit — Reliability & Security Hardening",
+  writeFileSync(join(OUT, "reliability-audit.md"), [
+    "# Reliability & Security Hardening",
     "",
     `Result: ${ok ? "PASS" : "FAIL"} (${passed}/${checks.length})`,
     "",
@@ -66,7 +66,7 @@ export function runReliabilityMonth10Audit(): boolean {
     "bundles are secret-redacted; the SBOM pins every dependency. (Incident runbook: docs/SECURITY_BOUNDARIES.md.)",
   ].join("\n") + "\n");
 
-  console.log(`NIGHTDESK MONTH 10 EXIT AUDIT: ${ok ? "PASS" : "FAIL"} (${passed}/${checks.length})`);
+  console.log(`NIGHTDESK RELIABILITY AUDIT: ${ok ? "PASS" : "FAIL"} (${passed}/${checks.length})`);
   for (const c of checks) console.log(`  ${c.pass ? "PASS" : "FAIL"}  ${c.name}`);
   if (!ok) process.exitCode = 1;
   return ok;

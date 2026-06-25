@@ -245,7 +245,7 @@ Judged together for all-tracks #1:
 
 ## Verified data traps
 
-See `verification-log.md` for the full list — the ones that quietly break naïve builds:
+Real Bitget market data has traps that quietly break naïve builds:
 
 - rToken ticker `usdtVolume` is garbage — never used. rToken L2 books are intermittent (~half live);
   BitSim is quote-first for rTokens, depth-aware for perps/Ondo. **No mid-price fantasy:** it refuses

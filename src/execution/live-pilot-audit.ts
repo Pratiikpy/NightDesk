@@ -1,7 +1,7 @@
-// Month 8 exit-gate audit — restricted live pilot. Verifies the plan's exit criteria deterministically:
+// Capability audit — restricted live pilot. Verifies the plan's exit criteria deterministically:
 // fail-closed live authorization, live receipts that link the complete decision chain, simulation-vs-live
 // error inside the declared band, a kill-switch that returns to shadow, and breach->shadow reversion.
-// The real-capital deployment is the operational gate this controller enforces. Run: `npm run live:month8-audit`.
+// The real-capital deployment is the operational gate this controller enforces. Run: `npm run live:pilot-audit`.
 import { mkdirSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
 import { LivePilot, decisionChainComplete, simVsLiveWithinBand, type PilotConfig, type LiveReceipt } from "./live-pilot";
@@ -50,8 +50,8 @@ export function runLivePilotMonth8Audit(): boolean {
   const ok = passed === checks.length;
   const OUT = join(process.cwd(), "evidence", "live-pilot");
   mkdirSync(OUT, { recursive: true });
-  writeFileSync(join(OUT, "month8-exit-audit.md"), [
-    "# Month 8 Exit Audit — Restricted Live Pilot",
+  writeFileSync(join(OUT, "live-pilot-audit.md"), [
+    "# Restricted Live Pilot",
     "",
     `Result: ${ok ? "PASS" : "FAIL"} (${passed}/${checks.length})`,
     "",
@@ -64,7 +64,7 @@ export function runLivePilotMonth8Audit(): boolean {
     "review) is the operational gate this controller enforces — it is never faked.",
   ].join("\n") + "\n");
 
-  console.log(`NIGHTDESK MONTH 8 EXIT AUDIT: ${ok ? "PASS" : "FAIL"} (${passed}/${checks.length})`);
+  console.log(`NIGHTDESK LIVE PILOT AUDIT: ${ok ? "PASS" : "FAIL"} (${passed}/${checks.length})`);
   for (const c of checks) console.log(`  ${c.pass ? "PASS" : "FAIL"}  ${c.name}`);
   if (!ok) process.exitCode = 1;
   return ok;

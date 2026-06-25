@@ -1,4 +1,4 @@
-// Autonomous research agent (Month 5): turns grounded, point-in-time evidence into falsifiable
+// Autonomous research agent: turns grounded, point-in-time evidence into falsifiable
 // strategy experiments expressed in the typed Strategy DSL. It is deterministic and, by construction,
 // CANNOT access held-out outcomes — its only inputs are evidence facts and an as-of timestamp, and it
 // uses ONLY facts that were observed at-or-before that timestamp (no future leakage). Each experiment

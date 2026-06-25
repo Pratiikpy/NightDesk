@@ -1,4 +1,4 @@
-# Month 6 Exit Audit — Forward Champion Program
+# Forward Champion Program
 
 Result: PASS (5/5)
 

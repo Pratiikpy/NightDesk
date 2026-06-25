@@ -93,12 +93,12 @@ export function runMonth2ExitAudit(): { passed: boolean; rows: AuditRow[] } {
       detail: `streams=${coverage.streamCount} latestValid=${coverage.latestValidStreams} cadenceGaps=${coverage.cadenceGaps}`,
     },
   ];
-  const result = { generatedAt: new Date().toISOString(), milestone: "Month 2: Point-in-time data platform", passed: rows.every((row) => row.passed), rows };
-  writeFileSync(join(OUT, "month2-exit-audit.json"), `${JSON.stringify(result, null, 2)}\n`);
+  const result = { generatedAt: new Date().toISOString(), milestone: "Point-in-time data platform", passed: rows.every((row) => row.passed), rows };
+  writeFileSync(join(OUT, "data-platform-audit.json"), `${JSON.stringify(result, null, 2)}\n`);
   writeFileSync(
-    join(OUT, "month2-exit-audit.md"),
+    join(OUT, "data-platform-audit.md"),
     [
-      "# Month 2 Exit Audit",
+      "# Point-in-time Data Platform",
       "",
       `Overall: **${result.passed ? "PASS" : "FAIL"}**`,
       "",
@@ -108,9 +108,9 @@ export function runMonth2ExitAudit(): { passed: boolean; rows: AuditRow[] } {
       "",
     ].join("\n"),
   );
-  console.log(`NIGHTDESK MONTH 2 EXIT AUDIT: ${result.passed ? "PASS" : "FAIL"} (${rows.filter((row) => row.passed).length}/${rows.length})`);
+  console.log(`NIGHTDESK DATA PLATFORM AUDIT: ${result.passed ? "PASS" : "FAIL"} (${rows.filter((row) => row.passed).length}/${rows.length})`);
   if (!result.passed) process.exitCode = 1;
   return result;
 }
 
-if (process.argv[1]?.endsWith("month2-exit-audit.ts")) runMonth2ExitAudit();
+if (process.argv[1]?.endsWith("data-platform-audit.ts")) runMonth2ExitAudit();

@@ -1,7 +1,7 @@
-// Month 7 exit-gate audit — external developer beta. Verifies the plan's exit criteria deterministically:
+// Capability audit — external developer beta. Verifies the plan's exit criteria deterministically:
 // a published OpenAPI contract covering every method, capability-scoped credentials, malicious/revoked
 // agent rejection, enforced rate exhaustion, and an external integration that needs NO source-level
-// imports (SDK contract only). Run: `npm run gateway:month7-audit`.
+// imports (SDK contract only). Run: `npm run gateway:beta-audit`.
 import { mkdirSync, readFileSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
 import { generateGatewayOpenApi } from "./openapi";
@@ -57,8 +57,8 @@ export function runExternalBetaMonth7Audit(): boolean {
   const OUT = join(process.cwd(), "evidence", "gateway");
   mkdirSync(OUT, { recursive: true });
   writeFileSync(join(OUT, "openapi.json"), JSON.stringify(api, null, 2) + "\n");
-  writeFileSync(join(OUT, "month7-exit-audit.md"), [
-    "# Month 7 Exit Audit — External Developer Beta",
+  writeFileSync(join(OUT, "external-beta-audit.md"), [
+    "# External Developer Beta",
     "",
     `Result: ${ok ? "PASS" : "FAIL"} (${passed}/${checks.length})`,
     "",
@@ -71,7 +71,7 @@ export function runExternalBetaMonth7Audit(): boolean {
     "Real third-party adoption is the operational milestone this software gate is built for.",
   ].join("\n") + "\n");
 
-  console.log(`NIGHTDESK MONTH 7 EXIT AUDIT: ${ok ? "PASS" : "FAIL"} (${passed}/${checks.length})`);
+  console.log(`NIGHTDESK EXTERNAL BETA AUDIT: ${ok ? "PASS" : "FAIL"} (${passed}/${checks.length})`);
   for (const c of checks) console.log(`  ${c.pass ? "PASS" : "FAIL"}  ${c.name}`);
   if (!ok) process.exitCode = 1;
   return ok;

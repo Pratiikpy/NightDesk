@@ -1,7 +1,7 @@
-// Month 11 exit-gate audit — product adoption + final study. Verifies the plan's exit criteria: no major
+// Capability audit — product adoption + final study. Verifies the plan's exit criteria: no major
 // unsupported claim (every claim maps to existing evidence), every critical workflow has evidence, the
 // final comparative study is locked (re-hashes identically), the freeze manifest is stable, and the final
-// evaluation no longer changes strategy parameters. Run: `npm run study:month11-audit`.
+// evaluation no longer changes strategy parameters. Run: `npm run study:audit`.
 import { mkdirSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
 import { unsupportedClaims, workflowsMissingEvidence, comparativeStudy, freezeManifest, CLAIM_LEDGER } from "./final-study";
@@ -41,8 +41,8 @@ export function runFinalStudyMonth11Audit(): boolean {
   mkdirSync(OUT, { recursive: true });
   writeFileSync(join(OUT, "freeze-manifest.json"), JSON.stringify(f1, null, 2) + "\n");
   writeFileSync(join(OUT, "comparative-study.json"), JSON.stringify(a, null, 2) + "\n");
-  writeFileSync(join(OUT, "month11-exit-audit.md"), [
-    "# Month 11 Exit Audit — Product Adoption + Final Study",
+  writeFileSync(join(OUT, "final-study-audit.md"), [
+    "# Product Adoption + Final Study",
     "",
     `Result: ${ok ? "PASS" : "FAIL"} (${passed}/${checks.length})`,
     "",
@@ -55,7 +55,7 @@ export function runFinalStudyMonth11Audit(): boolean {
     "are the operational milestones this study gate is built to evaluate honestly.",
   ].join("\n") + "\n");
 
-  console.log(`NIGHTDESK MONTH 11 EXIT AUDIT: ${ok ? "PASS" : "FAIL"} (${passed}/${checks.length})`);
+  console.log(`NIGHTDESK FINAL STUDY AUDIT: ${ok ? "PASS" : "FAIL"} (${passed}/${checks.length})`);
   for (const c of checks) console.log(`  ${c.pass ? "PASS" : "FAIL"}  ${c.name}`);
   if (!ok) process.exitCode = 1;
   return ok;

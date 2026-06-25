@@ -86,10 +86,10 @@ export function runMonth3ExitAudit(): { passed: boolean; rows: AuditRow[] } {
     },
   ];
   const passed = rows.every((row) => row.passed);
-  const payload = { milestone: "Month 3: Execution engine v2", generatedAt: new Date().toISOString(), passed, rows };
-  writeFileSync(join(OUT, "month3-exit-audit.json"), JSON.stringify(payload, null, 2) + "\n");
-  writeFileSync(join(OUT, "month3-exit-audit.md"), [
-    "# Month 3 Exit Audit",
+  const payload = { milestone: "Execution engine v2", generatedAt: new Date().toISOString(), passed, rows };
+  writeFileSync(join(OUT, "execution-v2-audit.json"), JSON.stringify(payload, null, 2) + "\n");
+  writeFileSync(join(OUT, "execution-v2-audit.md"), [
+    "# Execution Engine v2",
     "",
     `Overall: **${passed ? "PASS" : "FAIL"}** (${rows.filter((row) => row.passed).length}/${rows.length})`,
     "",
@@ -97,9 +97,9 @@ export function runMonth3ExitAudit(): { passed: boolean; rows: AuditRow[] } {
     "|---|---:|---|",
     ...rows.map((row) => `| ${row.requirement} | ${row.passed ? "PASS" : "FAIL"} | ${row.detail} |`),
   ].join("\n") + "\n");
-  console.log(`NIGHTDESK MONTH 3 EXIT AUDIT: ${passed ? "PASS" : "FAIL"} (${rows.filter((row) => row.passed).length}/${rows.length})`);
+  console.log(`NIGHTDESK EXECUTION ENGINE AUDIT: ${passed ? "PASS" : "FAIL"} (${rows.filter((row) => row.passed).length}/${rows.length})`);
   if (!passed) process.exitCode = 1;
   return { passed, rows };
 }
 
-if (process.argv[1]?.endsWith("month3-exit-audit.ts")) runMonth3ExitAudit();
+if (process.argv[1]?.endsWith("execution-v2-audit.ts")) runMonth3ExitAudit();

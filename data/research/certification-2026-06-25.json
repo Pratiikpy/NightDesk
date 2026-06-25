@@ -1,0 +1,244 @@
+{
+  "asOf": "2026-06-25T01:46:21.180Z",
+  "tokens": [
+    {
+      "ticker": "AAPL",
+      "trueGapPct": null,
+      "perpGapPct": -0.10111570035474785,
+      "classification": "STALE",
+      "qualityGrade": "B",
+      "safetyScore": 65,
+      "policy": "ABSTAIN",
+      "evidence": [
+        "no real-stock anchor available"
+      ]
+    },
+    {
+      "ticker": "TSLA",
+      "trueGapPct": null,
+      "perpGapPct": -0.10814274842791759,
+      "classification": "STALE",
+      "qualityGrade": "C",
+      "safetyScore": 58,
+      "policy": "ABSTAIN",
+      "evidence": [
+        "no real-stock anchor available"
+      ]
+    },
+    {
+      "ticker": "NVDA",
+      "trueGapPct": null,
+      "perpGapPct": -0.13727692499686872,
+      "classification": "STALE",
+      "qualityGrade": "C",
+      "safetyScore": 60,
+      "policy": "ABSTAIN",
+      "evidence": [
+        "no real-stock anchor available"
+      ]
+    },
+    {
+      "ticker": "MSFT",
+      "trueGapPct": null,
+      "perpGapPct": -0.14639285274521488,
+      "classification": "STALE",
+      "qualityGrade": "B",
+      "safetyScore": 65,
+      "policy": "ABSTAIN",
+      "evidence": [
+        "no real-stock anchor available"
+      ]
+    },
+    {
+      "ticker": "GOOGL",
+      "trueGapPct": null,
+      "perpGapPct": -0.19078688667842347,
+      "classification": "STALE",
+      "qualityGrade": "B",
+      "safetyScore": 63,
+      "policy": "ABSTAIN",
+      "evidence": [
+        "no real-stock anchor available"
+      ]
+    },
+    {
+      "ticker": "AMZN",
+      "trueGapPct": null,
+      "perpGapPct": -0.15166403212713708,
+      "classification": "STALE",
+      "qualityGrade": "B",
+      "safetyScore": 65,
+      "policy": "ABSTAIN",
+      "evidence": [
+        "no real-stock anchor available"
+      ]
+    },
+    {
+      "ticker": "META",
+      "trueGapPct": null,
+      "perpGapPct": -0.20184518652819294,
+      "classification": "STALE",
+      "qualityGrade": "C",
+      "safetyScore": 60,
+      "policy": "ABSTAIN",
+      "evidence": [
+        "no real-stock anchor available"
+      ]
+    },
+    {
+      "ticker": "SPY",
+      "trueGapPct": null,
+      "perpGapPct": -0.1586279361420971,
+      "classification": "STALE",
+      "qualityGrade": "B",
+      "safetyScore": 55,
+      "policy": "ABSTAIN",
+      "evidence": [
+        "no real-stock anchor available"
+      ]
+    },
+    {
+      "ticker": "QQQ",
+      "trueGapPct": null,
+      "perpGapPct": -0.13207481934792945,
+      "classification": "STALE",
+      "qualityGrade": "B",
+      "safetyScore": 57,
+      "policy": "ABSTAIN",
+      "evidence": [
+        "no real-stock anchor available"
+      ]
+    },
+    {
+      "ticker": "SQQQ",
+      "trueGapPct": null,
+      "perpGapPct": 0.02597065316194031,
+      "classification": "STALE",
+      "qualityGrade": "D",
+      "safetyScore": 46,
+      "policy": "ABSTAIN",
+      "evidence": [
+        "no real-stock anchor available"
+      ]
+    },
+    {
+      "ticker": "TQQQ",
+      "trueGapPct": null,
+      "perpGapPct": -1.850371707708594e-14,
+      "classification": "STALE",
+      "qualityGrade": "D",
+      "safetyScore": 46,
+      "policy": "ABSTAIN",
+      "evidence": [
+        "no real-stock anchor available"
+      ]
+    },
+    {
+      "ticker": "PLTR",
+      "trueGapPct": null,
+      "perpGapPct": -0.08797782958695158,
+      "classification": "STALE",
+      "qualityGrade": "D",
+      "safetyScore": 46,
+      "policy": "ABSTAIN",
+      "evidence": [
+        "no real-stock anchor available"
+      ]
+    },
+    {
+      "ticker": "CRCL",
+      "trueGapPct": null,
+      "perpGapPct": -0.06258257422988903,
+      "classification": "STALE",
+      "qualityGrade": "D",
+      "safetyScore": 46,
+      "policy": "ABSTAIN",
+      "evidence": [
+        "no real-stock anchor available"
+      ]
+    },
+    {
+      "ticker": "HOOD",
+      "trueGapPct": null,
+      "perpGapPct": -0.04586220953934132,
+      "classification": "STALE",
+      "qualityGrade": "D",
+      "safetyScore": 46,
+      "policy": "ABSTAIN",
+      "evidence": [
+        "no real-stock anchor available"
+      ]
+    },
+    {
+      "ticker": "MSTR",
+      "trueGapPct": null,
+      "perpGapPct": -0.09926336137086322,
+      "classification": "STALE",
+      "qualityGrade": "D",
+      "safetyScore": 46,
+      "policy": "ABSTAIN",
+      "evidence": [
+        "no real-stock anchor available"
+      ]
+    },
+    {
+      "ticker": "ORCL",
+      "trueGapPct": null,
+      "perpGapPct": -0.19800735455890003,
+      "classification": "STALE",
+      "qualityGrade": "D",
+      "safetyScore": 46,
+      "policy": "ABSTAIN",
+      "evidence": [
+        "no real-stock anchor available"
+      ]
+    },
+    {
+      "ticker": "NFLX",
+      "trueGapPct": null,
+      "perpGapPct": -0.18816642274723688,
+      "classification": "STALE",
+      "qualityGrade": "C",
+      "safetyScore": 52,
+      "policy": "ABSTAIN",
+      "evidence": [
+        "no real-stock anchor available"
+      ]
+    },
+    {
+      "ticker": "BABA",
+      "trueGapPct": null,
+      "perpGapPct": -0.18358916823906635,
+      "classification": "STALE",
+      "qualityGrade": "D",
+      "safetyScore": 46,
+      "policy": "ABSTAIN",
+      "evidence": [
+        "no real-stock anchor available"
+      ]
+    },
+    {
+      "ticker": "GME",
+      "trueGapPct": null,
+      "perpGapPct": 0.09337068160595714,
+      "classification": "STALE",
+      "qualityGrade": "C",
+      "safetyScore": 50,
+      "policy": "ABSTAIN",
+      "evidence": [
+        "no real-stock anchor available"
+      ]
+    }
+  ],
+  "summary": {
+    "STALE": 19
+  },
+  "attestation": {
+    "algo": "ed25519",
+    "recordCount": 19,
+    "recordsSha256": "32d59aa7478ea8cd73185e18d5c1b9f30c65bd34b6576c2a8443218319e36c34",
+    "signatureHex": "ab71c7aa0df4b31fd6733ac80223eadd831d55bb50065b8092ab72090c696646345149245d108db01019228f61fb057cf02e1098cb7577508a18703edcb7ab0a",
+    "publicKeyPem": "-----BEGIN PUBLIC KEY-----\nMCowBQYDK2VwAyEA9l3qyeEpQZNDdh2cpTZnr6NJAKPycCAmt0tiGCSl1Ws=\n-----END PUBLIC KEY-----\n",
+    "signedAt": "2026-06-25T01:46:25.156Z"
+  }
+}

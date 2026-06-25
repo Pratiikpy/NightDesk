@@ -88,7 +88,7 @@ export function runExecutionV2Proof(): { passed: boolean; rows: ProofRow[] } {
     "|---|---:|---|",
     ...rows.map((row) => `| ${row.requirement} | ${row.passed ? "PASS" : "FAIL"} | ${row.detail} |`),
     "",
-    "This deterministic proof covers execution semantics. Live order-book shadow calibration and liquidity-tier simulation error remain Month 3 work.",
+    "This deterministic proof covers execution semantics. Live order-book shadow calibration and liquidity-tier simulation error remain future work.",
   ].join("\n") + "\n");
   console.log(`NIGHTDESK EXECUTION V2 PROOF: ${payload.passed ? "PASS" : "FAIL"} (${rows.filter((row) => row.passed).length}/${rows.length})`);
   if (!payload.passed) process.exitCode = 1;

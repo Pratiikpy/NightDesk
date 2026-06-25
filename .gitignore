@@ -56,3 +56,7 @@ council-transcript-*.md
 council-report-*.html
 
 .vercel
+
+# generated internal verification reports (not part of the public product)
+FINAL_VERIFICATION.md
+FINAL_UAT_MATRIX.md

@@ -1,4 +1,4 @@
-// Final study + freeze (Month 11): a locked comparative study, a claim ledger where every claim maps to
+// Final study + freeze: a locked comparative study, a claim ledger where every claim maps to
 // an existing evidence artifact (no unsupported claim), critical-workflow evidence coverage, and a freeze
 // manifest hashing the thesis/protocol/benchmark/claim-boundaries. Design-partner adoption and real user
 // feedback are the operational milestones; the verifiable software gates are built here.

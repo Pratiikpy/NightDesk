@@ -1,8 +1,8 @@
-// Month 5 exit-gate audit — agentic research loop. Verifies the plan's four exit criteria with
+// Capability audit — agentic research loop. Verifies the plan's four exit criteria with
 // deterministic fixtures (no network, no LLM): the research agent generates valid grounded DSL
 // experiments without held-out access, the validator rejects unsafe experiments, ablation shows the
 // agentic layer changes decisions vs a fixed policy, and memory retrieval is temporally valid and
-// source-linked. Run: `npm run agentic:month5-audit`.
+// source-linked. Run: `npm run agentic:audit`.
 import { mkdirSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
 import type { CouncilEvidenceFact } from "../council/grounding";
@@ -16,7 +16,7 @@ import type { EventContextProvider } from "../perception/events";
 const ASOF = Date.parse("2026-06-14T14:00:00.000Z");
 
 function ev(id: string, kind: CouncilEvidenceFact["kind"], value: string | number | boolean, observedAt: number, ttlMs = 300_000): CouncilEvidenceFact {
-  return { id, kind, value, source: "month5-audit", observedAt, expiresAt: observedAt + ttlMs, hash: "audit" };
+  return { id, kind, value, source: "agentic-audit", observedAt, expiresAt: observedAt + ttlMs, hash: "audit" };
 }
 
 function nvdaRow(rtMid: number, perpMid: number): PegRow {
@@ -35,7 +35,7 @@ function nvdaRow(rtMid: number, perpMid: number): PegRow {
 }
 
 const abstainProvider: EventContextProvider = {
-  name: "month5-audit-abstain",
+  name: "agentic-audit-abstain",
   async contextFor(ticker: string) {
     return {
       ticker,
@@ -98,8 +98,8 @@ export async function runAgenticMonth5Audit(): Promise<boolean> {
   const ok = passed === checks.length;
   const OUT = join(process.cwd(), "evidence", "agentic");
   mkdirSync(OUT, { recursive: true });
-  writeFileSync(join(OUT, "month5-exit-audit.md"), [
-    "# Month 5 Exit Audit — Agentic Research Loop",
+  writeFileSync(join(OUT, "agentic-audit.md"), [
+    "# Agentic Research Loop",
     "",
     `Result: ${ok ? "PASS" : "FAIL"} (${passed}/${checks.length})`,
     "",
@@ -111,7 +111,7 @@ export async function runAgenticMonth5Audit(): Promise<boolean> {
     "and grades. No held-out outcome is visible to generation, and memory recall cannot leak the future.",
   ].join("\n") + "\n");
 
-  console.log(`NIGHTDESK MONTH 5 EXIT AUDIT: ${ok ? "PASS" : "FAIL"} (${passed}/${checks.length})`);
+  console.log(`NIGHTDESK AGENTIC RESEARCH AUDIT: ${ok ? "PASS" : "FAIL"} (${passed}/${checks.length})`);
   for (const c of checks) console.log(`  ${c.pass ? "PASS" : "FAIL"}  ${c.name}`);
   if (!ok) process.exitCode = 1;
   return ok;

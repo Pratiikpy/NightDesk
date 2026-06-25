@@ -1,4 +1,4 @@
-# Month 9 Exit Audit — NightDeskBench + Standards
+# NightDeskBench + Standards
 
 Result: PASS (5/5)
 

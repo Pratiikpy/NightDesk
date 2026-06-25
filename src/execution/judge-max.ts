@@ -37,11 +37,11 @@ import { runDataPlatformProof } from "../data/platform-proof";
 import { runStreamResilienceProof } from "../data/stream-proof";
 import { runAnchorRedundancyProof } from "../anchor/anchor-proof";
 import { runDataCoverage } from "../data/coverage";
-import { runMonth2ExitAudit } from "../data/month2-exit-audit";
+import { runMonth2ExitAudit } from "../data/data-platform-audit";
 import { runExecutionV2Proof } from "./execution-v2-proof";
 import { runLiveShadowCalibration } from "./live-shadow-calibration";
-import { runMonth3ExitAudit } from "./month3-exit-audit";
-import { runMonth4ExitAudit } from "../research/month4-exit-audit";
+import { runMonth3ExitAudit } from "./execution-v2-audit";
+import { runMonth4ExitAudit } from "../research/alpha-factory-audit";
 
 const evidenceFiles = [
   "evidence/trading-log/nightdesk-paper-trading-log.csv",
@@ -108,8 +108,8 @@ const evidenceFiles = [
   "evidence/alpha-factory/strategy-catalog.jsonl",
   "evidence/alpha-factory/stability-surface.csv",
   "evidence/alpha-factory/champion-registry.json",
-  "evidence/alpha-factory/month4-exit-audit.json",
-  "evidence/alpha-factory/month4-exit-audit.md",
+  "evidence/alpha-factory/alpha-factory-audit.json",
+  "evidence/alpha-factory/alpha-factory-audit.md",
   "evidence/alpha-factory/alpha-zoo-catalog.csv",
   "evidence/alpha-factory/alpha-zoo-catalog.md",
   "evidence/alpha-factory/strategy-compare.csv",
@@ -187,8 +187,8 @@ const evidenceFiles = [
   "evidence/data-platform/coverage.json",
   "evidence/data-platform/coverage.csv",
   "evidence/data-platform/coverage-report.md",
-  "evidence/data-platform/month2-exit-audit.json",
-  "evidence/data-platform/month2-exit-audit.md",
+  "evidence/data-platform/data-platform-audit.json",
+  "evidence/data-platform/data-platform-audit.md",
   "evidence/execution-v2/execution-v2-proof.json",
   "evidence/execution-v2/execution-v2-report.md",
   "evidence/execution-v2/account-events.jsonl",
@@ -196,8 +196,8 @@ const evidenceFiles = [
   "evidence/execution-v2/live-shadow-calibration.json",
   "evidence/execution-v2/live-shadow-calibration.csv",
   "evidence/execution-v2/live-shadow-calibration.md",
-  "evidence/execution-v2/month3-exit-audit.json",
-  "evidence/execution-v2/month3-exit-audit.md",
+  "evidence/execution-v2/execution-v2-audit.json",
+  "evidence/execution-v2/execution-v2-audit.md",
   "evidence/manifest.json",
   "docs/PNL_CLAIM_STANDARD.md",
   "docs/EXECUTION_INTEGRITY.md",
@@ -246,7 +246,7 @@ export async function runJudgeMax(): Promise<void> {
   await runStage("PnL casefile", runPnlCasefile);
   await runStage("alpha championship", () => runAlphaChampionship([]));
   await runStage("alpha factory", () => runAlphaFactory([]));
-  await runStage("Month 4 exit audit", runMonth4ExitAudit);
+  await runStage("Alpha factory audit", runMonth4ExitAudit);
   await runStage("alpha zoo", runAlphaZoo);
   await runStage("alpha compare", runAlphaCompare);
   await runStage("shadow gateway", runShadowGateway);
@@ -265,10 +265,10 @@ export async function runJudgeMax(): Promise<void> {
   await runStage("cache integrity", runCacheIntegrity);
   await runStage("OOS background tick", () => runOosBackground(["--once"]));
   await runStage("data coverage", runDataCoverage);
-  await runStage("Month 2 exit audit", runMonth2ExitAudit);
+  await runStage("Data platform audit", runMonth2ExitAudit);
   await runStage("execution engine v2 proof", runExecutionV2Proof);
   await runStage("live shadow execution calibration", runLiveShadowCalibration);
-  await runStage("Month 3 exit audit", runMonth3ExitAudit);
+  await runStage("Execution engine audit", runMonth3ExitAudit);
   await runStage("data health", runDataHealth);
   await runStage("live receipt", () => runLiveReceipt([]));
   await runStage("championship mode", () => runChampionshipMode([]));
