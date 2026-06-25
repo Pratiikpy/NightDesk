@@ -21,9 +21,9 @@ test("v1 -> v2 migration preserves every field", () => {
 });
 
 test("redaction removes secrets at any depth but keeps non-secret fields", () => {
-  const SECRET = "sk-DEADBEEF";
-  const redacted = redactBundle({ apiKey: SECRET, nested: { passphrase: SECRET, note: "keep" }, arr: [{ token: SECRET }] });
-  assert.equal(bundleContains(redacted, SECRET), false);
+  const planted = "redaction-probe-DEADBEEF"; // synthetic, not a real credential
+  const redacted = redactBundle({ apiKey: planted, nested: { passphrase: planted, note: "keep" }, arr: [{ token: planted }] });
+  assert.equal(bundleContains(redacted, planted), false);
   assert.equal(bundleContains(redacted, "keep"), true);
   assert.equal(bundleContains(redacted, "[REDACTED]"), true);
 });

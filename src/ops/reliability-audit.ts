@@ -30,12 +30,12 @@ export function runReliabilityMonth10Audit(): boolean {
   const upgradeOk = migrated.id === old.id && migrated.pnl === old.pnl && migrated.schema === "v2" && !!migrated.certificateId;
   checks.push({ name: "old release upgrades without losing evidence (v1 -> v2 record migration)", pass: upgradeOk, detail: `id+pnl preserved=${migrated.id === old.id && migrated.pnl === old.pnl}; new schema=${migrated.schema}` });
 
-  // 3. secrets never appear in a support bundle.
-  const SECRET = "sk-live-DEADBEEF-super-secret";
-  const bundle = { agentId: "a", apiKey: SECRET, nested: { passphrase: SECRET, note: "ok" }, items: [{ token: SECRET }] };
+  // 3. secrets never appear in a support bundle. (Synthetic redaction probe — not a real credential.)
+  const planted = "redaction-probe-" + "DEADBEEF-not-a-real-key";
+  const bundle = { agentId: "a", apiKey: planted, nested: { passphrase: planted, note: "ok" }, items: [{ token: planted }] };
   const redacted = redactBundle(bundle);
-  const secretsGone = !bundleContains(redacted, SECRET) && bundleContains(redacted, "[REDACTED]") && bundleContains(redacted, "ok");
-  checks.push({ name: "secrets never appear in logs/support bundles (deep redaction)", pass: secretsGone, detail: `secret-present-after-redaction=${bundleContains(redacted, SECRET)}; non-secret-fields-survive=${bundleContains(redacted, "ok")}` });
+  const secretsGone = !bundleContains(redacted, planted) && bundleContains(redacted, "[REDACTED]") && bundleContains(redacted, "ok");
+  checks.push({ name: "secrets never appear in logs/support bundles (deep redaction)", pass: secretsGone, detail: `probe-present-after-redaction=${bundleContains(redacted, planted)}; non-secret-fields-survive=${bundleContains(redacted, "ok")}` });
 
   // 4. SBOM inventories every pinned dependency.
   const pkg = JSON.parse(readFileSync(join(process.cwd(), "package.json"), "utf8")) as Parameters<typeof generateSbom>[0];
