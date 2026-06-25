@@ -45,6 +45,7 @@
     "agentic:month5-audit": "tsx src/research/agentic-audit.ts",
     "forward:month6-audit": "tsx src/research/forward-program-audit.ts",
     "gateway:month7-audit": "tsx src/gateway/external-beta-audit.ts",
+    "live:month8-audit": "tsx src/execution/live-pilot-audit.ts",
     "overfit:stats": "tsx src/research/overfit-report.ts",
     "alpha:search": "tsx src/research/alpha-factory.ts",
     "alpha:overfit-court": "tsx src/research/alpha-factory.ts",
