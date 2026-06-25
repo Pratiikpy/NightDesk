@@ -1,0 +1,605 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "NightDesk Agent Gateway",
+    "version": "nightdesk.v1",
+    "description": "Capability-scoped, rate-limited, idempotent gateway for tokenized-stock trading agents. Every side-effecting method is keyed and idempotent; every verdict is certificate-backed."
+  },
+  "security": [
+    {
+      "agentToken": []
+    }
+  ],
+  "components": {
+    "securitySchemes": {
+      "agentToken": {
+        "type": "http",
+        "scheme": "bearer",
+        "description": "Per-agent capability-scoped bearer token paired with an X-Agent-Id header."
+      }
+    },
+    "schemas": {
+      "GatewayRequest": {
+        "type": "object",
+        "required": [
+          "protocolVersion",
+          "method",
+          "agentId"
+        ],
+        "properties": {
+          "protocolVersion": {
+            "const": "nightdesk.v1"
+          },
+          "method": {
+            "enum": [
+              "health.live",
+              "health.ready",
+              "status.get",
+              "market.snapshot",
+              "certificate.issue",
+              "intent.evaluate",
+              "paper.execute",
+              "live.preview",
+              "run.get",
+              "run.cancel",
+              "evidence.get"
+            ]
+          },
+          "agentId": {
+            "type": "string"
+          },
+          "idempotencyKey": {
+            "type": "string",
+            "description": "required for side-effecting methods"
+          },
+          "params": {
+            "type": "object"
+          }
+        }
+      },
+      "GatewayResponse": {
+        "type": "object",
+        "required": [
+          "status"
+        ],
+        "properties": {
+          "status": {
+            "enum": [
+              "final",
+              "accepted",
+              "error"
+            ]
+          },
+          "runId": {
+            "type": "string"
+          },
+          "result": {
+            "type": "object"
+          },
+          "error": {
+            "type": "object"
+          }
+        }
+      }
+    }
+  },
+  "paths": {
+    "/v1/health.live": {
+      "post": {
+        "operationId": "health.live",
+        "summary": "health.live — capability health:read",
+        "x-capability": "health:read",
+        "x-side-effecting": false,
+        "security": [
+          {
+            "agentToken": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/GatewayRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "verdict / accepted / final result",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GatewayResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "authentication failed"
+          },
+          "403": {
+            "description": "missing capability"
+          },
+          "409": {
+            "description": "idempotency conflict"
+          },
+          "429": {
+            "description": "rate limit exceeded"
+          }
+        }
+      }
+    },
+    "/v1/health.ready": {
+      "post": {
+        "operationId": "health.ready",
+        "summary": "health.ready — capability health:read",
+        "x-capability": "health:read",
+        "x-side-effecting": false,
+        "security": [
+          {
+            "agentToken": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/GatewayRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "verdict / accepted / final result",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GatewayResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "authentication failed"
+          },
+          "403": {
+            "description": "missing capability"
+          },
+          "409": {
+            "description": "idempotency conflict"
+          },
+          "429": {
+            "description": "rate limit exceeded"
+          }
+        }
+      }
+    },
+    "/v1/status.get": {
+      "post": {
+        "operationId": "status.get",
+        "summary": "status.get — capability health:read",
+        "x-capability": "health:read",
+        "x-side-effecting": false,
+        "security": [
+          {
+            "agentToken": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/GatewayRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "verdict / accepted / final result",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GatewayResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "authentication failed"
+          },
+          "403": {
+            "description": "missing capability"
+          },
+          "409": {
+            "description": "idempotency conflict"
+          },
+          "429": {
+            "description": "rate limit exceeded"
+          }
+        }
+      }
+    },
+    "/v1/market.snapshot": {
+      "post": {
+        "operationId": "market.snapshot",
+        "summary": "market.snapshot — capability market:read",
+        "x-capability": "market:read",
+        "x-side-effecting": false,
+        "security": [
+          {
+            "agentToken": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/GatewayRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "verdict / accepted / final result",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GatewayResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "authentication failed"
+          },
+          "403": {
+            "description": "missing capability"
+          },
+          "409": {
+            "description": "idempotency conflict"
+          },
+          "429": {
+            "description": "rate limit exceeded"
+          }
+        }
+      }
+    },
+    "/v1/certificate.issue": {
+      "post": {
+        "operationId": "certificate.issue",
+        "summary": "certificate.issue — capability certificate:issue",
+        "x-capability": "certificate:issue",
+        "x-side-effecting": false,
+        "security": [
+          {
+            "agentToken": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/GatewayRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "verdict / accepted / final result",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GatewayResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "authentication failed"
+          },
+          "403": {
+            "description": "missing capability"
+          },
+          "409": {
+            "description": "idempotency conflict"
+          },
+          "429": {
+            "description": "rate limit exceeded"
+          }
+        }
+      }
+    },
+    "/v1/intent.evaluate": {
+      "post": {
+        "operationId": "intent.evaluate",
+        "summary": "intent.evaluate — capability intent:evaluate",
+        "x-capability": "intent:evaluate",
+        "x-side-effecting": false,
+        "security": [
+          {
+            "agentToken": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/GatewayRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "verdict / accepted / final result",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GatewayResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "authentication failed"
+          },
+          "403": {
+            "description": "missing capability"
+          },
+          "409": {
+            "description": "idempotency conflict"
+          },
+          "429": {
+            "description": "rate limit exceeded"
+          }
+        }
+      }
+    },
+    "/v1/paper.execute": {
+      "post": {
+        "operationId": "paper.execute",
+        "summary": "paper.execute — capability paper:execute",
+        "x-capability": "paper:execute",
+        "x-side-effecting": true,
+        "security": [
+          {
+            "agentToken": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/GatewayRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "verdict / accepted / final result",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GatewayResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "authentication failed"
+          },
+          "403": {
+            "description": "missing capability"
+          },
+          "409": {
+            "description": "idempotency conflict"
+          },
+          "429": {
+            "description": "rate limit exceeded"
+          }
+        }
+      }
+    },
+    "/v1/live.preview": {
+      "post": {
+        "operationId": "live.preview",
+        "summary": "live.preview — capability live:preview",
+        "x-capability": "live:preview",
+        "x-side-effecting": true,
+        "security": [
+          {
+            "agentToken": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/GatewayRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "verdict / accepted / final result",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GatewayResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "authentication failed"
+          },
+          "403": {
+            "description": "missing capability"
+          },
+          "409": {
+            "description": "idempotency conflict"
+          },
+          "429": {
+            "description": "rate limit exceeded"
+          }
+        }
+      }
+    },
+    "/v1/run.get": {
+      "post": {
+        "operationId": "run.get",
+        "summary": "run.get — capability run:read",
+        "x-capability": "run:read",
+        "x-side-effecting": false,
+        "security": [
+          {
+            "agentToken": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/GatewayRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "verdict / accepted / final result",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GatewayResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "authentication failed"
+          },
+          "403": {
+            "description": "missing capability"
+          },
+          "409": {
+            "description": "idempotency conflict"
+          },
+          "429": {
+            "description": "rate limit exceeded"
+          }
+        }
+      }
+    },
+    "/v1/run.cancel": {
+      "post": {
+        "operationId": "run.cancel",
+        "summary": "run.cancel — capability run:cancel",
+        "x-capability": "run:cancel",
+        "x-side-effecting": true,
+        "security": [
+          {
+            "agentToken": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/GatewayRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "verdict / accepted / final result",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GatewayResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "authentication failed"
+          },
+          "403": {
+            "description": "missing capability"
+          },
+          "409": {
+            "description": "idempotency conflict"
+          },
+          "429": {
+            "description": "rate limit exceeded"
+          }
+        }
+      }
+    },
+    "/v1/evidence.get": {
+      "post": {
+        "operationId": "evidence.get",
+        "summary": "evidence.get — capability evidence:read",
+        "x-capability": "evidence:read",
+        "x-side-effecting": false,
+        "security": [
+          {
+            "agentToken": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/GatewayRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "verdict / accepted / final result",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GatewayResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "authentication failed"
+          },
+          "403": {
+            "description": "missing capability"
+          },
+          "409": {
+            "description": "idempotency conflict"
+          },
+          "429": {
+            "description": "rate limit exceeded"
+          }
+        }
+      }
+    }
+  }
+}
